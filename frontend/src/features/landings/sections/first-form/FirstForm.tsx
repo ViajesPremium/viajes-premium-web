@@ -16,6 +16,7 @@ type FirstFormProps = {
 
 const STRENGTH = 18;
 const FORM_TITLE = "Cotiza tu viaje ahora";
+const FORM_TITLE_LINE_ONE = "Cotiza tu viaje";
 const FORM_TITLE_HIGHLIGHT = "ahora";
 const FORM_SUBTITLE =
   "Cuéntanos tu idea de viaje y encontraremos el itinerario ideal.";
@@ -68,12 +69,19 @@ export default function FirstForm({ landing }: FirstFormProps) {
       <div className={styles.inner}>
         <div className={styles.left}>
           <div className={styles.sectionCopy}>
-            <BlurredStagger
-              text={FORM_TITLE}
-              className={styles.sectionTitle}
-              highlights={titleHighlights}
-              align="left"
-            />
+            <div className={styles.sectionTitleStack} aria-label={FORM_TITLE}>
+              <BlurredStagger
+                text={FORM_TITLE_LINE_ONE}
+                className={styles.sectionTitle}
+                align="left"
+              />
+              <BlurredStagger
+                text={FORM_TITLE_HIGHLIGHT}
+                className={styles.sectionTitle}
+                highlights={titleHighlights}
+                align="left"
+              />
+            </div>
             <p className={styles.sectionSubtitle}>{FORM_SUBTITLE}</p>
           </div>
           <ImageSectionForm

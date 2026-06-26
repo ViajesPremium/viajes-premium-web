@@ -1,20 +1,9 @@
-import type { LandingTestimonial } from "@/features/landings/data/types";
-import type { GoogleRatingData } from "@/lib/google-reviews";
+import type { LandingTestimonials } from "@/features/landings/data/types";
 
-type HomeTestimonials = {
-  srHeading: string;
-  badgeText: string;
-  items: LandingTestimonial[];
-  googleRating?: GoogleRatingData;
-  cta: {
-    label: string;
-    target: string;
-  };
-};
-
-export const HOME_TESTIMONIALS: HomeTestimonials = {
+export const HOME_TESTIMONIALS: LandingTestimonials = {
   srHeading: "Testimonios de viajeros",
   badgeText: "La voz del viajero premium",
+  title: "Historias que empiezan mucho antes del destino",
   items: [
     {
       id: 1,

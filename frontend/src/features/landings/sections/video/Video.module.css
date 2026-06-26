@@ -1,35 +1,185 @@
-.section {
+.player {
   position: relative;
   width: 100%;
-  background: var(--black);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: auto;
   overflow: hidden;
+  background: transparent;
 }
 
 .video {
-  display: block;
   width: 100%;
   height: auto;
-  max-height: 100dvh;
-  object-fit: contain;
-}
-
-.videoDesktop {
   display: block;
+  object-fit: contain;
+  cursor: pointer;
 }
 
-.videoMobile {
-  display: none;
+.controlsDock {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .videoDesktop {
-    display: none;
+.controls {
+  width: min(92%, 52rem);
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgb(17 17 17 / 0.6);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  pointer-events: auto;
+}
+
+.timeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.time {
+  font-size: 0.875rem;
+  line-height: 1;
+  min-width: 2.25rem;
+}
+
+.timeSlider {
+  flex: 1;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.leftControls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.volumeGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.volumeSliderWrap {
+  width: 6rem;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 0.25rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.24);
+  cursor: pointer;
+}
+
+.sliderProgress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--white);
+}
+
+.iconButton,
+.speedButton {
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+}
+
+.iconButton:hover,
+.speedButton:hover {
+  background: rgb(17 17 17 / 0.82);
+}
+
+.speedGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.speedButton {
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.speedButtonActive {
+  background: rgb(17 17 17 / 0.82);
+}
+
+@media (max-width: 767px) {
+  .controls {
+    width: calc(100% - 0.75rem);
+    padding: 0.625rem;
+    border-radius: 0.85rem;
   }
 
-  .videoMobile {
-    display: block;
+  .controlsDock {
+    bottom: 0.375rem;
+  }
+
+  .timeRow {
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .time {
+    font-size: 0.75rem;
+    min-width: 1.9rem;
+  }
+
+  .actionRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+  }
+
+  .leftControls {
+    justify-content: space-between;
+    gap: 0.45rem;
+  }
+
+  .speedGroup {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .iconButton {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .volumeSliderWrap {
+    width: 4.5rem;
+  }
+
+  .speedButton {
+    padding: 0.35rem 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.75rem;
   }
 }

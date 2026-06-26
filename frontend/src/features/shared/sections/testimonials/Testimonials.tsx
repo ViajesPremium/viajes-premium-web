@@ -19,7 +19,7 @@ import Badge from "@/components/ui/badge/Badge";
 import { usePageTransition } from "@/components/providers/page-transition/TransitionProvider";
 import styles from "./Testimonials.module.css";
 import { Button } from "@/components/ui/button/Button";
-import type { LandingTheme } from "@/features/landings/data/types";
+import type { LandingTestimonials } from "@/features/landings/data/types";
 
 function GoogleBadge({ data }: { data: GoogleRatingData }) {
   const fullStars = Math.floor(data.rating);
@@ -178,7 +178,10 @@ const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
 type TestimonialsProps = {
-  landing: LandingTheme;
+  landing: {
+    slug?: string;
+    testimonials: LandingTestimonials;
+  };
   disableSakura?: boolean;
 };
 

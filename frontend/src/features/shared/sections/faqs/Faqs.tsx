@@ -9,10 +9,13 @@ import FireworksBurst from "@/components/ui/fireworks-burst/FireworksBurst";
 import Badge from "@/components/ui/badge/Badge";
 import { BlurredStagger } from "@/components/ui/blurred-stagger-text/BlurredStaggerText";
 import { useAnimationsEnabled } from "@/lib/animation-budget";
-import type { LandingTheme } from "@/features/landings/data/types";
+import type { LandingFaqs, LandingPalette } from "@/features/landings/data/types";
 
 type FaqsProps = {
-  landing: LandingTheme;
+  landing: {
+    palette: LandingPalette;
+    faqs: LandingFaqs;
+  };
   hideCharacters?: boolean;
 };
 

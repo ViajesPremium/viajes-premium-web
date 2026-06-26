@@ -173,6 +173,19 @@ export function useStackedCardScrollAnimation({
 
       const stepCount = cards.length - 1;
       const distanceFactor = getDistanceFactor(isMobile, embedded);
+      const releaseHoldDuration =
+        releaseBuffer > 0 ? releaseBuffer / distanceFactor : 0;
+
+      if (releaseHoldDuration > 0) {
+        timeline.to(
+          {},
+          {
+            duration: releaseHoldDuration,
+          },
+          stepCount,
+        );
+      }
+
       const viewportHeight = Math.max(scope.clientHeight, window.innerHeight);
       const scrollDistance =
         viewportHeight * stepCount * distanceFactor +

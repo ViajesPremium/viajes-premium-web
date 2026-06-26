@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
+import type { LandingTheme } from "@/features/landings/data/types";
 import styles from "./page.module.css";
 import HomeHero from "@/features/home/sections/HomeHero";
-import HomeExperienceBanner from "@/features/home/sections/HomeExperienceBanner";
 import Destinations from "@/features/home/sections/Destinations";
-import HomeFaqs from "@/features/home/sections/HomeFaqs";
 import HomeInterlude from "@/features/home/sections/HomeInterlude";
-import HomeTestimonials from "@/features/home/sections/HomeTestimonials";
 import Footer from "@/features/landings/sections/footer/Footer";
-import HomeMarquee from "@/features/home/sections/HomeMarquee";
 import SecondForm from "@/features/shared/sections/second-form/SecondForm";
 import { HOME_SECOND_FORM } from "@/features/home/data/home-second-form";
 import { SITE_FOOTER } from "@/features/shared/data/site-footer";
+import Faqs from "@/features/shared/sections/faqs/Faqs";
+import Aliances from "@/features/shared/sections/aliances/Aliances";
+import Testimonials from "@/features/shared/sections/testimonials/Testimonials";
+import { HOME_SHARED_SECTIONS } from "@/features/home/data/home-shared-sections";
+
+const HOME_FORM_LANDING = {
+  label: "Viajes PREMIUM",
+  secondForm: HOME_SECOND_FORM,
+} as LandingTheme;
 
 export const metadata: Metadata = {
   title: "Viajes PREMIUM® | Experiencias de viaje diseñadas alrededor del mundo",
@@ -28,7 +34,7 @@ export default function Home() {
       <Destinations embedded id="destinations" className={styles.destinationsScene} />
 
       <section className={styles.testimonialsScene}>
-        <HomeTestimonials />
+        <Testimonials landing={HOME_SHARED_SECTIONS} disableSakura />
       </section>
 
       <section className={styles.interludeScene} aria-label="Interludio de marca">
@@ -36,13 +42,13 @@ export default function Home() {
       </section>
 
       <section className={styles.faqScene}>
-        <HomeFaqs />
+        <Faqs landing={HOME_SHARED_SECTIONS} />
       </section>
 
-      <SecondForm content={HOME_SECOND_FORM} />
+      <SecondForm landing={HOME_FORM_LANDING} />
 
       <section className={styles.marqueeScene}>
-        <HomeMarquee />
+        <Aliances landing={HOME_SHARED_SECTIONS} />
       </section>
 
       <section className={styles.footerScene}>

@@ -8,16 +8,13 @@ import Benefits from "@/features/landings/sections/benefits/Benefits";
 import Itineraries from "@/features/landings/sections/itineraries/Itineraries";
 import Promise from "@/features/landings/sections/promise/Promise";
 import Founder from "@/features/landings/sections/founder/Founder";
-import Aliances from "@/features/landings/sections/aliances/Aliances";
+import Aliances from "@/features/shared/sections/aliances/Aliances";
 import Footer from "@/features/landings/sections/footer/Footer";
 import Testimonials from "@/features/shared/sections/testimonials/Testimonials";
 import Faqs from "@/features/shared/sections/faqs/Faqs";
 import SecondForm from "@/features/shared/sections/second-form/SecondForm";
 import Video from "@/features/landings/sections/video/Video";
-import {
-  getLandingBySlug,
-  getLandingSlugs,
-} from "@/features/landings/data";
+import { getLandingBySlug, getLandingSlugs } from "@/features/landings/data";
 
 type LandingPageProps = {
   params: Promise<{

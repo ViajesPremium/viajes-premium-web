@@ -296,6 +296,9 @@
 }
 
 .authorThumb {
+  position: relative;
+  width: 64px;
+  height: 64px;
   display: none;
 }
 

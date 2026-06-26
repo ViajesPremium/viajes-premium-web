@@ -1,4 +1,4 @@
-import type { SecondFormContent } from "@/features/shared/sections/second-form/SecondForm";
+import type { LandingFormSection } from "@/features/landings/data/types";
 import { LANDING_CONTACT } from "@/features/landings/data/shared";
 
 const HOME_SECOND_FORM_EXPERIENCES = [
@@ -17,11 +17,10 @@ const HOME_SECOND_FORM_EXPERIENCES = [
   { label: "Otro", value: "otro" },
 ] as const;
 
-export const HOME_SECOND_FORM: SecondFormContent = {
+export const HOME_SECOND_FORM: LandingFormSection = {
   srHeading: "Formulario de contacto Japón Premium",
   eyebrow: "",
   title: "Cotiza tu viaje ahora",
-  titleHighlightWord: "ahora",
   description:
     "Cuéntanos tu idea de viaje y encontraremos el itinerario ideal",
   backgroundImage: "/media/shared/home/form/formulario.avif",
@@ -34,6 +33,5 @@ export const HOME_SECOND_FORM: SecondFormContent = {
   contactPhoneDisplay: "+52 55 9763 3210",
   contactPhoneLink: LANDING_CONTACT.phoneLink,
   crmTag: "#tags:Japon Premium",
-  theme: "terra",
   experienceOptions: HOME_SECOND_FORM_EXPERIENCES,
 };

@@ -87,6 +87,18 @@
   margin-bottom: 1rem;
 }
 
+.sectionTitleStack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.sectionTitleStack .sectionTitle {
+  margin-bottom: 0;
+}
+
 .sectionSubtitle {
   margin: 0;
   max-width: 100ch;
@@ -260,6 +272,11 @@
     font-size: clamp(1.95rem, 10.8vw, 3.25rem);
     line-height: 0.96;
     width: 100%;
+    margin-bottom: 0;
+  }
+
+  .sectionTitleStack {
+    gap: 0;
     margin-bottom: 0.35rem;
   }
 

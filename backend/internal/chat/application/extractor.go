@@ -433,6 +433,17 @@ func looksLikePhoneAttempt(message string) bool {
 	return ok
 }
 
+func isInvalidEmailAttempt(message string) bool {
+	cleaned := strings.TrimSpace(message)
+	if cleaned == "" {
+		return false
+	}
+	if detectEmail(cleaned) != "" {
+		return false
+	}
+	return strings.Contains(cleaned, "@")
+}
+
 func isInvalidPhoneAttempt(message string) bool {
 	candidate, ok := phoneCandidateFromMessage(message)
 	if !ok {

@@ -131,7 +131,7 @@
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
   line-height: 1.4;
   font-weight: 300;
   color: color-mix(in srgb, var(--black) 65%, transparent);
@@ -167,7 +167,7 @@
     z-index: 6;
     width: 100%;
     flex: 0 0 auto;
-    padding: clamp(2.25rem, 8svh, 4.25rem) 1.15rem 0.75rem;
+    padding: clamp(2.25rem, 8svh, 4.25rem) 1.15rem 0.4rem;
     pointer-events: none;
   }
 
@@ -195,7 +195,7 @@
     width: 300%;
     aspect-ratio: 1;
     position: absolute;
-    top: 58%;
+    top: 52%;
     left: -100%;
     transform-origin: 50% 50%;
     opacity: 0;
@@ -236,7 +236,6 @@
 
   .cardCopy p {
     -webkit-line-clamp: 3;
-    font-size: clamp(0.72rem, 3.2vw, 0.86rem);
     line-height: 1.32;
   }
 
@@ -249,6 +248,10 @@
 @media (max-width: 390px) {
   .titleBlock {
     padding-top: 1.8rem;
+  }
+
+  .circle {
+    top: 49%;
   }
 
   .cardWrapper {

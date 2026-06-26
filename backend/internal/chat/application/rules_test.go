@@ -406,8 +406,23 @@ func TestBuildRuleResponseDoesNotTreatPhoneLikeDigitsAsDate(t *testing.T) {
 	if strings.Contains(lower, "mes y el dia") || strings.Contains(lower, "fecha valida") {
 		t.Fatalf("expected phone-like digits not to be treated as a date, got %q", reply)
 	}
-	if !strings.Contains(lower, "whatsapp") && !strings.Contains(lower, "telefono") {
-		t.Fatalf("expected phone-like digits to be treated as phone capture, got %q", reply)
+	if !strings.Contains(lower, "numero") || !strings.Contains(lower, "valido") {
+		t.Fatalf("expected phone-like digits to trigger an explicit invalid phone warning, got %q", reply)
+	}
+}
+
+func TestBuildRuleResponseWarnsOnInvalidEmailAttempt(t *testing.T) {
+	bot := domain.BotKnowledge{Slug: "japon-premium"}
+	now := time.Date(2026, time.June, 18, 12, 0, 0, 0, time.UTC)
+
+	reply := BuildRuleResponse(bot, &domain.Conversation{}, &domain.Lead{}, "mi correo es cliente@dominio", now, HandoffDecision{})
+	lower := strings.ToLower(reply)
+
+	if !strings.Contains(lower, "correo") || !strings.Contains(lower, "valido") {
+		t.Fatalf("expected explicit invalid email warning, got %q", reply)
+	}
+	if !strings.Contains(lower, "podrias compartir uno valido") {
+		t.Fatalf("expected invalid email warning to ask for a valid email, got %q", reply)
 	}
 }
 

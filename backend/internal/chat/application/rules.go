@@ -34,6 +34,10 @@ func BuildRuleResponse(bot domain.BotKnowledge, conversation *domain.Conversatio
 		return reply
 	}
 
+	if reply, ok := invalidEmailAttemptResponse(bot, conversation, lead, userMessage); ok {
+		return reply
+	}
+
 	if reply, ok := phoneRefusalResponse(bot, conversation, lead, normalized); ok {
 		return reply
 	}
@@ -225,7 +229,22 @@ func invalidPhoneAttemptResponse(bot domain.BotKnowledge, conversation *domain.C
 		return "Entiendo. Solo necesito su numero de WhatsApp para compartirle la informacion y darle seguimiento. Me lo comparte, por favor?", true
 	}
 
-	return "Ese numero no parece valido. Necesito un numero real de WhatsApp para continuar, me lo comparte de nuevo?", true
+	return "Ese numero no parece valido. Me podrias compartir uno valido para poder continuar?", true
+}
+
+func invalidEmailAttemptResponse(bot domain.BotKnowledge, conversation *domain.Conversation, lead *domain.Lead, userMessage string) (string, bool) {
+	if lead != nil && strings.TrimSpace(lead.Email) != "" {
+		return "", false
+	}
+	if !isInvalidEmailAttempt(userMessage) {
+		return "", false
+	}
+
+	if emailRefused(conversation) {
+		return "Entiendo. Solo necesito su correo electronico para compartirle la informacion y darle seguimiento. Me lo comparte, por favor?", true
+	}
+
+	return "Ese correo no parece valido. Me podrias compartir uno valido para poder continuar?", true
 }
 
 func phoneRefusalResponse(bot domain.BotKnowledge, conversation *domain.Conversation, lead *domain.Lead, message string) (string, bool) {

@@ -185,6 +185,10 @@ export const JAPAN_SECOND_FORM = {
   srHeading: "Formulario de contacto Japón Premium",
   title: "Cotiza tu viaje ahora.",
   backgroundImage: "/media/landings/japon/forms/samurai-form.webp",
+  mobileImage: {
+    src: "/media/landings/japon/forms/samurai-form-sola-2.webp",
+    alt: "Samurai en JapÃ³n",
+  },
   experienceOptions: JAPAN_SECOND_FORM_OPTIONS,
 };
 
@@ -193,6 +197,10 @@ export const KOREA_SECOND_FORM = {
   srHeading: "Formulario de contacto Corea Premium",
   title: "Hablemos de la Corea que quieres vivir.",
   backgroundImage: "/media/landings/corea/forms/corea-form-2.avif",
+  mobileImage: {
+    src: "/media/landings/corea/forms/form-corea-sola.webp",
+    alt: "Corea Premium",
+  },
 };
 
 export const EUROPE_SECOND_FORM = {
@@ -200,6 +208,10 @@ export const EUROPE_SECOND_FORM = {
   srHeading: "Formulario de contacto Europa Premium",
   title: "Hablemos de tu ruta por Europa.",
   backgroundImage: "/media/landings/europa/forms/cta-form-europa.avif",
+  mobileImage: {
+    src: "/media/landings/europa/forms/form-europa-sola.webp",
+    alt: "Europa Premium",
+  },
 };
 
 export const BARRANCAS_SECOND_FORM = {
@@ -207,4 +219,8 @@ export const BARRANCAS_SECOND_FORM = {
   srHeading: "Formulario de contacto Europa Premium",
   title: "Hablemos de tu ruta por Europa.",
   backgroundImage: "/media/landings/europa/forms/cta-form-europa.avif",
+  mobileImage: {
+    src: "/media/landings/europa/forms/form-europa-sola.webp",
+    alt: "Europa Premium",
+  },
 };

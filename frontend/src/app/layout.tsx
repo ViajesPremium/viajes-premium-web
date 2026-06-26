@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import MagneticCursor from "@/components/effects/MagneticCursor";
 import GTMTracking from "@/providers/analytics/GTMTracking";
+import SmothScrollProvider from "@/providers/SmothScrollProvider";
 import LandingNavigation from "@/features/shared/components/navigation/LandingNavigation";
 import LandingAssistants from "@/features/shared/components/assistants/LandingAssistants";
 import PageTransitionProvider from "@/components/providers/page-transition/TransitionProvider";
@@ -38,13 +39,15 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <GTMTracking />
-        <MagneticCursor>
-          <PageTransitionProvider>
-            <LandingNavigation />
-            {children}
-            <LandingAssistants />
-          </PageTransitionProvider>
-        </MagneticCursor>
+        <SmothScrollProvider>
+          <MagneticCursor>
+            <PageTransitionProvider>
+              <LandingNavigation />
+              {children}
+              <LandingAssistants />
+            </PageTransitionProvider>
+          </MagneticCursor>
+        </SmothScrollProvider>
       </body>
     </html>
   );

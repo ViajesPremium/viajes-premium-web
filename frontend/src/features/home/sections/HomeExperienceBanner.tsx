@@ -21,6 +21,9 @@ const GALLERY_IMAGES = [
   "/media/shared/home/conocenos/viaja-en-clase-premium-3.avif",
   "/media/shared/home/conocenos/viaja-en-clase-premium-4.avif",
 ] as const;
+const PIN_SCROLL_PER_STEP = 36;
+const PIN_RELEASE_HOLD = 18;
+const PIN_REFRESH_PRIORITY = 4;
 
 export default function HomeExperienceBanner() {
   const rootRef = useRef<HTMLElement | null>(null);
@@ -111,9 +114,36 @@ export default function HomeExperienceBanner() {
       const progressBar = root.querySelector<HTMLElement>("[data-sticky-feature-progress]");
       const visualCount = visualWraps.length;
       const visualSteps = Math.max(1, visualCount - 1);
-      const pinScrollPerStep = isMobile ? 28 : 36;
+      const pinScrollPerStep = isMobile ? 28 : PIN_SCROLL_PER_STEP;
+      const pinReleaseHold = isMobile ? 0 : PIN_RELEASE_HOLD;
+      const pinTravel = visualSteps * pinScrollPerStep;
+      const pinEndDistance = pinTravel + pinReleaseHold;
+      const visualCompletionProgress = pinEndDistance > 0 ? pinTravel / pinEndDistance : 1;
+
+      const renderGalleryProgress = (progress: number) => {
+        const visualProgress = Math.min(
+          1,
+          progress / visualCompletionProgress,
+        );
+
+        if (progressBar) {
+          gsap.set(progressBar, { scaleX: visualProgress });
+        }
+
+        const stepped = visualProgress * visualSteps;
+        visualWraps.forEach((wrap, index) => {
+          if (index === 0) {
+            gsap.set(wrap, { clipPath: "inset(0%)" });
+            return;
+          }
+          const local = Math.max(0, Math.min(1, stepped - (index - 1)));
+          const inset = 50 * (1 - local);
+          gsap.set(wrap, { clipPath: `inset(${inset}%)` });
+        });
+      };
 
       let galleryPinTrigger: ScrollTrigger | null = null;
+      let refreshFrame: number | null = null;
       if (isMobile) {
         gsap.set(visualWraps, { clearProps: "clipPath" });
         if (progressBar) gsap.set(progressBar, { clearProps: "transform,transformOrigin" });
@@ -127,12 +157,13 @@ export default function HomeExperienceBanner() {
         galleryPinTrigger = ScrollTrigger.create({
           trigger: root,
           start: "bottom bottom",
-          end: () => `+=${visualSteps * pinScrollPerStep}%`,
+          end: () => `+=${pinEndDistance}%`,
           pin: true,
           pinSpacing: true,
           anticipatePin: 0.8,
           scrub: 0.7,
-          fastScrollEnd: true,
+          fastScrollEnd: false,
+          refreshPriority: PIN_REFRESH_PRIORITY,
           invalidateOnRefresh: true,
           onRefreshInit: () => {
             if (visualWraps.length) {
@@ -142,25 +173,25 @@ export default function HomeExperienceBanner() {
             if (progressBar) gsap.set(progressBar, { scaleX: 0 });
           },
           onUpdate: (self) => {
-            const p = self.progress;
-            if (progressBar) {
-              gsap.set(progressBar, { scaleX: p });
-            }
-            const stepped = p * visualSteps;
-            visualWraps.forEach((wrap, index) => {
-              if (index === 0) {
-                gsap.set(wrap, { clipPath: "inset(0%)" });
-                return;
-              }
-              const local = Math.max(0, Math.min(1, stepped - (index - 1)));
-              const inset = 50 * (1 - local);
-              gsap.set(wrap, { clipPath: `inset(${inset}%)` });
-            });
+            renderGalleryProgress(self.progress);
           },
+          onLeave: () => {
+            renderGalleryProgress(1);
+          },
+          onEnterBack: () => {
+            renderGalleryProgress(1);
+          },
+        });
+        refreshFrame = window.requestAnimationFrame(() => {
+          ScrollTrigger.sort();
+          ScrollTrigger.refresh();
         });
       }
 
       return () => {
+        if (refreshFrame !== null) {
+          window.cancelAnimationFrame(refreshFrame);
+        }
         galleryPinTrigger?.kill();
         ScrollTrigger.removeEventListener("refreshInit", applyTextAnimation);
         lineTriggers.forEach((trigger) => trigger.kill());

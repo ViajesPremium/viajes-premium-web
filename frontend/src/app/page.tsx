@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { LandingTheme } from "@/features/landings/data/types";
 import styles from "./page.module.css";
 import HomeHero from "@/features/home/sections/HomeHero";
+import HomeExperienceBanner from "@/features/home/sections/HomeExperienceBanner";
 import Destinations from "@/features/home/sections/Destinations";
 import HomeInterlude from "@/features/home/sections/HomeInterlude";
 import Footer from "@/features/landings/sections/footer/Footer";
@@ -30,6 +31,8 @@ export default function Home() {
       <section className={styles.globeScene} aria-label="Hero principal">
         <HomeHero />
       </section>
+
+      <HomeExperienceBanner />
 
       <Destinations embedded id="destinations" className={styles.destinationsScene} />
 

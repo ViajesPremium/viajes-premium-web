@@ -1,0 +1,187 @@
+﻿.root {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.rootDark {
+  background: rgba(243, 243, 240, 0.08);
+}
+
+.rootLight {
+  background: #c7b59c68;
+}
+
+.rootDark:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(219, 47, 33, 0.25);
+  background: rgba(243, 243, 240, 0.12);
+}
+
+.rootLight:focus-within {
+  border-color: rgba(179, 135, 40, 0.58);
+  box-shadow: 0 0 0 3px rgba(179, 135, 40, 0.14);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.invalid {
+  border-color: #ffb9b4;
+}
+
+.countryPicker {
+  position: relative;
+  min-width: 165px;
+  max-width: 54%;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-inline: 0.74rem 0.4rem;
+  border-right: 1px solid rgba(243, 243, 240, 0.18);
+}
+
+.rootLight .countryPicker {
+  border-right: 1px solid rgba(109, 72, 28, 0.2);
+}
+
+.countryPicker::after {
+  content: "";
+  position: absolute;
+  right: 0.56rem;
+  top: 50%;
+  transform: translateY(-48%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid rgba(243, 243, 240, 0.7);
+  pointer-events: none;
+}
+
+.rootLight .countryPicker::after {
+  border-top-color: rgba(42, 26, 16, 0.55);
+}
+
+.flagSlot {
+  width: 1.25rem;
+  height: 0.86rem;
+  display: inline-flex;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(243, 243, 240, 0.16);
+  flex-shrink: 0;
+}
+
+.rootLight .flagSlot {
+  box-shadow: 0 0 0 1px rgba(109, 72, 28, 0.2);
+}
+
+.flagSlot svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.countrySelect {
+  width: 100%;
+  min-width: 0;
+  appearance: none;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: rgba(243, 243, 240, 0.95);
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  padding: 0.72rem 1rem 0.72rem 0;
+  cursor: pointer;
+}
+
+.rootDark .countrySelect {
+  color: rgba(243, 243, 240, 0.95);
+}
+
+.rootLight .countrySelect {
+  color: rgba(29, 19, 12, 0.9);
+}
+
+.countrySelect option {
+  background: #0f1114;
+  color: var(--bg);
+}
+
+.rootLight .countrySelect option {
+  background: var(--white);
+  color: #2a1a10;
+}
+
+.numberInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--bg);
+  padding: 0.72rem 0.8rem;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.rootDark .numberInput {
+  color: var(--bg);
+}
+
+.rootLight .numberInput {
+  color: #2a1a10;
+}
+
+.numberInput::placeholder {
+  color: rgba(243, 243, 240, 0.45);
+}
+
+.rootLight .numberInput::placeholder {
+  color: rgba(42, 26, 16, 0.42);
+}
+
+@media (max-width: 768px) {
+  .countryPicker {
+    min-width: 116px;
+    max-width: 48%;
+    gap: 0.34rem;
+    padding-inline: 0.5rem 0.28rem;
+  }
+
+  .countryPicker::after {
+    right: 0.42rem;
+  }
+
+  .flagSlot {
+    width: 1.05rem;
+    height: 0.72rem;
+  }
+
+  .countrySelect {
+    font-size: 0.9rem;
+    padding-block: 0.58rem;
+    padding-right: 0.84rem;
+  }
+
+  .numberInput {
+    font-size: 0.92rem;
+    padding: 0.58rem 0.6rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .countryPicker {
+    min-width: 104px;
+  }
+
+  .countrySelect {
+    font-size: 0.82rem;
+  }
+}

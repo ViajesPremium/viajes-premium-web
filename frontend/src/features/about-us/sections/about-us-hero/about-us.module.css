@@ -1,0 +1,152 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  background: var(--black);
+  overflow: clip;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+}
+
+.gridViewport {
+  position: relative;
+  width: 90vw;
+  max-width: 90vw;
+  height: 100%;
+  background: transparent;
+}
+
+.destinationGrid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(0.35rem, 0.7vw, 0.75rem);
+}
+
+.gridColumn {
+  position: relative;
+  height: 90%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  transition: transform 280ms ease;
+}
+
+.gridColumn:nth-child(odd) {
+  transform: translateY(-3.5%);
+}
+
+.gridColumn:nth-child(even) {
+  transform: translateY(3.5%);
+}
+
+.gridImage {
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(1) saturate(0.92) contrast(1.02);
+  transition: filter 320ms ease, transform 320ms ease;
+}
+
+.gridColumn:hover .gridImage,
+.gridColumn:focus-within .gridImage {
+  filter: grayscale(0) saturate(1.06) contrast(1.05);
+  transform: scale(1.03);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  opacity: 1;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  pointer-events: none;
+}
+
+.highlight {
+  font-style: italic;
+  font-family: var(--font-bigcaslon);
+}
+
+.eyebrow {
+  margin: 0;
+  text-align: center;
+  color: var(--white);
+  font-size: clamp(1.5rem, 5vw, 5rem);
+  line-height: 1;
+  font-weight: 200;
+}
+
+.logoMask {
+  width: min(92vw, 78rem);
+  aspect-ratio: 3.2 / 1;
+  background-image: url("/media/shared/logos/principal-logo.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+@media (max-width: 959px) {
+  .gridViewport {
+    width: 90vw;
+    max-width: 90vw;
+  }
+
+  .destinationGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.2rem;
+  }
+
+  .gridColumn:nth-child(n + 5) {
+    display: none;
+  }
+
+  .gridColumn {
+    border-radius: calc(var(--radius) * 0.66);
+  }
+
+  .gridColumn:nth-child(odd) {
+    transform: translateY(-2.2%);
+  }
+
+  .gridColumn:nth-child(even) {
+    transform: translateY(2.2%);
+  }
+
+  .logoMask {
+    width: min(96vw, 38rem);
+    aspect-ratio: 2.4 / 1;
+    background-image: url("/media/shared/logos/principal-logo.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+}

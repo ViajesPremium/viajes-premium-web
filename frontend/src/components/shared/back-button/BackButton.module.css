@@ -1,0 +1,17 @@
+.backButton {
+  background-color: var(--black) !important;
+  border: none !important;
+}
+
+:global(.buttonBase).backButton,
+:global(.buttonOutline).backButton {
+  background-color: var(--black) !important;
+  border: none !important;
+  color: var(--white, #ffffff) !important;
+}
+
+:global(.buttonOutline).backButton:hover,
+:global(.buttonOutline).backButton:focus-visible {
+  background-color: var(--black) !important;
+  color: var(--white, #ffffff) !important;
+}

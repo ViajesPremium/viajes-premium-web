@@ -1,0 +1,105 @@
+/* ==========================================================================
+   ESTRUCTURA ORIGINAL
+   ========================================================================== */
+.animated-gradient-text {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  max-width: fit-content;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.5s ease-out;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.animated-gradient-text.with-border {
+  padding: 0.35rem 0.75rem;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gradient-overlay::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #060010;
+  z-index: -1;
+}
+
+.text-content {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  width: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  padding-inline: 0.06em;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.animated-gradient-text.allow-wrap {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.animated-gradient-text.allow-wrap .text-content {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   NUEVAS ANIMACIONES NATIVAS OPTIMIZADAS
+   ========================================================================== */
+
+/* Manejo del "pauseOnHover" 100% en CSS, sin tocar React */
+.animated-gradient-text.pause-on-hover:hover .gradient-overlay,
+.animated-gradient-text.pause-on-hover:hover .text-content {
+  animation-play-state: paused !important;
+}
+
+/* Desplazamiento horizontal y diagonal */
+@keyframes gradient-slide-horizontal {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Desplazamiento vertical */
+@keyframes gradient-slide-vertical {
+  0% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}

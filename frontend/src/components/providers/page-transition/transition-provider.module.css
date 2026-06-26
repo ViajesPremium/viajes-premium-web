@@ -1,0 +1,31 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  pointer-events: none;
+}
+
+.layerPrimary {
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary, #9f1d1f);
+  will-change: transform;
+}
+
+.layerVisual {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #16181b;
+  will-change: transform;
+}
+
+.logoImage {
+  display: none;
+  width: clamp(220px, 34vw, 460px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.932));
+}

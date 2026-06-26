@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/features/shared/components/ui/button/Button";
 import TextPressure from "@/features/shared/components/ui/text-animations/TextPressure";
 import type { LandingTheme } from "@/features/landings/data/types";
+import { scrollToSection } from "@/lib/scroll-to-section";
 import HeroOverlay from "./HeroOverlay";
 import styles from "./Hero.module.css";
 
@@ -66,15 +67,7 @@ export default function Hero({ landing }: HeroProps) {
       if (!target) return;
 
       if (target.startsWith("#")) {
-        const targetId = target.slice(1);
-        const element = document.getElementById(targetId);
-
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-        }
-
+        scrollToSection(target, { duration: 1.15, updateHash: true });
         return;
       }
 

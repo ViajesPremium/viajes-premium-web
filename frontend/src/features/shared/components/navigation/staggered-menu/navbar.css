@@ -2,7 +2,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  --sm-accent: var(--secondary);
 }
 
 html,
@@ -35,7 +34,6 @@ body {
   inset: 0 auto auto 0;
   width: 100%;
   overflow-x: clip;
-  z-index: 1000;
 }
 
 .staggered-menu-header {
@@ -61,7 +59,7 @@ body {
     transform 0.35s ease;
 }
 
-.staggered-menu-header > * {
+.staggered-menu-header>* {
   pointer-events: auto;
 }
 
@@ -78,8 +76,8 @@ body {
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  filter: none;
-  mix-blend-mode: normal;
+  filter: brightness(0) invert(1);
+  mix-blend-mode: difference;
   transform: translateZ(0);
   will-change: filter;
 }
@@ -166,10 +164,9 @@ body {
   top: 0;
   right: 0;
   height: 100vh;
-  height: var(
-    --app-vh,
-    100svh
-  ); /* Small viewport height for mobile stability */
+  height: var(--app-vh,
+      100svh);
+  /* Small viewport height for mobile stability */
   width: min(100vw, 420px);
   pointer-events: none;
   z-index: 1001;
@@ -194,11 +191,11 @@ body {
   right: 0;
   width: min(100vw, 420px);
   height: 100vh;
-  height: var(
-    --app-vh,
-    100svh
-  ); /* Small viewport height for mobile stability */
+  height: var(--app-vh,
+      100svh);
+  /* Small viewport height for mobile stability */
   background: var(--white);
+  color: var(--black);
   display: flex;
   flex-direction: column;
   padding: 6rem 1.25rem 2rem;
@@ -290,7 +287,7 @@ body {
 }
 
 .sm-panel-item:hover {
-  color: var(--sm-accent, #5227ff);
+  color: var(--sm-accent);
 }
 
 .sm-panel-sublist {
@@ -312,7 +309,7 @@ body {
   position: relative;
   display: inline-flex;
   align-items: flex-start;
-  color: color-mix(in srgb, var(--black) 82%, var(--sm-accent) 18%);
+  color: var(--black);
   font-weight: 500;
   font-size: clamp(1rem, 4vw, 1.8rem);
   line-height: 1.15;
@@ -333,13 +330,13 @@ body {
   margin-right: 0.65rem;
   margin-top: 0.34em;
   border-radius: 999px;
-  background: var(--sm-accent, #5227ff);
+  background: var(--sm-accent);
   flex: 0 0 auto;
 }
 
 .sm-panel-subitem:hover,
 .sm-panel-subitem:focus-visible {
-  color: var(--sm-accent, #5227ff);
+  color: var(--sm-accent);
   transform: translateX(0.2rem);
 }
 
@@ -355,7 +352,7 @@ body {
   right: 0;
   font-size: 0.95rem;
   font-weight: 400;
-  color: var(--sm-accent, #5227ff);
+  color: var(--sm-accent);
   letter-spacing: 0;
   pointer-events: none;
   user-select: none;
@@ -375,11 +372,7 @@ body {
   justify-content: center;
   padding: 0.95rem 1rem;
   border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--sm-accent, #5227ff) 92%, black 8%),
-    color-mix(in srgb, var(--sm-accent, #5227ff) 72%, black 28%)
-  );
+  background: var(--sm-accent);
   color: var(--white);
   text-decoration: none;
   text-transform: uppercase;
@@ -416,7 +409,7 @@ body {
   letter-spacing: 0.14em;
   text-align: center;
   text-transform: uppercase;
-  color: var(--sm-accent, #ff0000);
+  color: var(--sm-accent);
   font-family: var(--font-nohemi), sans-serif;
 }
 
@@ -468,7 +461,7 @@ body {
 }
 
 .sm-socials-link:hover {
-  color: var(--sm-accent, #ff0000);
+  color: var(--sm-accent);
 }
 
 .sm-socials-link:hover .sm-socials-icon {
@@ -483,9 +476,7 @@ body {
   opacity: 0.4;
 }
 
-.staggered-menu-panel
-  .sm-socials-list:focus-within
-  .sm-socials-link:not(:focus-visible) {
+.staggered-menu-panel .sm-socials-list:focus-within .sm-socials-link:not(:focus-visible) {
   opacity: 0.4;
 }
 
@@ -495,6 +486,7 @@ body {
 }
 
 @media (max-width: 1024px) {
+
   .staggered-menu-panel,
   .sm-prelayers {
     width: 100vw;

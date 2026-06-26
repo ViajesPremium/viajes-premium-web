@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import MagneticCursor from "@/components/effects/MagneticCursor";
+import GTMTracking from "@/providers/analytics/GTMTracking";
 import LandingNavigation from "@/features/shared/components/navigation/LandingNavigation";
-import PageTransitionProvider from "@/components/providers/page-transition/transition-provider";
-import "@/features/shared/components/navigation/staggered-menu/navbar.css";
+import LandingAssistants from "@/features/shared/components/assistants/LandingAssistants";
+import PageTransitionProvider from "@/components/providers/page-transition/TransitionProvider";
+import "@/features/shared/components/navigation/staggered-menu/Navbar.css";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,10 +37,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <GTMTracking />
         <MagneticCursor>
           <PageTransitionProvider>
             <LandingNavigation />
             {children}
+            <LandingAssistants />
           </PageTransitionProvider>
         </MagneticCursor>
       </body>

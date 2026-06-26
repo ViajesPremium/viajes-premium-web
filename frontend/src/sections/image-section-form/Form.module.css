@@ -1,0 +1,974 @@
+﻿.honeypot {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.formContainer {
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 0.2rem;
+  padding: 2.1rem 1.55rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(191, 149, 63, 0.75);
+  background: var(--black);
+  box-shadow:
+    0 26px 56px -34px rgba(0, 0, 0, 0.72),
+    0 0 0 1px rgba(252, 246, 186, 0.08) inset;
+}
+
+.themeLight {
+  background: #f3eddb;
+  border-color: rgba(179, 135, 40, 0.72);
+  box-shadow:
+    0 26px 56px -34px rgba(30, 18, 8, 0.22),
+    0 0 0 1px rgba(179, 135, 40, 0.08) inset;
+}
+
+.themeTerra {
+  background: #1f1f23b0;
+  border-color: rgba(191, 149, 63, 0.6);
+}
+
+.formHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.44rem;
+}
+
+.formEyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(243, 243, 240, 0.78);
+}
+
+.formTitle {
+  margin: 0;
+  font-family: var(--font-bigcaslon), serif;
+  font-size: clamp(1.52rem, 2.4vw, 2.1rem);
+  color: var(--bg);
+}
+
+.formSub {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: rgba(243, 243, 240, 0.7);
+  max-width: 34ch;
+}
+
+.themeLight .formEyebrow {
+  color: rgba(29, 19, 12, 0.68);
+}
+
+.themeLight .formTitle {
+  color: #1d130c;
+}
+
+.themeLight .formSub {
+  color: rgba(29, 19, 12, 0.7);
+}
+
+.stepperContainer {
+  width: 100%;
+}
+
+.stepperRoot {
+  width: 100%;
+}
+
+.stepIndicatorRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0.22rem 1.25rem 1rem;
+}
+
+.stepIndicator {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.stepIndicatorInner {
+  display: inline-flex;
+  height: 1.8rem;
+  width: 1.8rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 600;
+}
+
+.activeDot {
+  width: 0.56rem;
+  height: 0.56rem;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.stepNumber {
+  padding-top: 0.1rem;
+  font-size: 0.76rem;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.checkIcon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.stepConnector {
+  position: relative;
+  margin-inline: 0.34rem;
+  height: 0.125rem;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(243, 243, 240, 0.16);
+}
+
+.themeLight .stepConnector {
+  background: rgba(109, 72, 28, 0.18);
+}
+
+.stepConnectorInner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.stepContent {
+  position: relative;
+}
+
+.stepPanel {
+  padding: 0.25rem 0.2rem;
+}
+
+.stepFieldShell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.46rem;
+}
+
+.formLabel {
+  color: rgba(243, 243, 240, 0.96);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-nohemi), sans-serif;
+  opacity: 0.95;
+  padding-top: 0.8rem;
+}
+
+.themeLight .formLabel {
+  color: rgba(29, 19, 12, 0.78);
+}
+
+.formInput {
+  width: 100%;
+  background: rgba(243, 243, 240, 0.08);
+  color: var(--bg);
+  padding: 0.72rem 0.8rem;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  outline: none;
+  border-radius: var(--radius);
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.themeLight .formInput {
+  background: #c7b59c68;
+  color: #2a1a10;
+}
+
+.formInput::placeholder {
+  color: rgba(243, 243, 240, 0.45);
+}
+
+.themeLight .formInput::placeholder {
+  color: rgba(42, 26, 16, 0.42);
+}
+
+.formInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(219, 47, 33, 0.25);
+  background: rgba(243, 243, 240, 0.12);
+}
+
+.themeLight .formInput:focus {
+  border-color: rgba(179, 135, 40, 0.58);
+  box-shadow: 0 0 0 3px rgba(179, 135, 40, 0.14);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.formTextarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.travelDatePickerControl {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.36rem;
+  background: rgba(243, 243, 240, 0.08);
+  color: var(--bg);
+  padding: 0.28rem 0.34rem 0.28rem 0.72rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.travelDatePickerControl:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(219, 47, 33, 0.25);
+  background: rgba(243, 243, 240, 0.12);
+}
+
+.travelDatePickerControlLight {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(109, 72, 28, 0.24);
+  color: #2a1a10;
+}
+
+.travelDatePickerControlLight:focus-within {
+  border-color: rgba(179, 135, 40, 0.58);
+  box-shadow: 0 0 0 3px rgba(179, 135, 40, 0.14);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.travelDatePickerControlInvalid {
+  border-color: rgba(255, 142, 136, 0.64);
+  box-shadow: 0 0 0 2px rgba(255, 113, 103, 0.2);
+}
+
+.travelDatePickerControlLight.travelDatePickerControlInvalid {
+  border-color: rgba(179, 38, 30, 0.52);
+  box-shadow: 0 0 0 2px rgba(179, 38, 30, 0.14);
+}
+
+.travelDatePickerInput {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.travelDatePickerInput::placeholder {
+  color: rgba(243, 243, 240, 0.45);
+}
+
+.travelDatePickerInputLight::placeholder {
+  color: rgba(42, 26, 16, 0.42);
+}
+
+.travelDatePickerTrigger,
+.travelDatePickerClearTrigger {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 0.66rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(243, 243, 240, 0.86);
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.travelDatePickerTrigger:hover {
+  background: rgba(243, 243, 240, 0.12);
+}
+
+.travelDatePickerClearTrigger {
+  color: #ffb9b4;
+}
+
+.travelDatePickerClearTrigger:hover {
+  background: rgba(255, 113, 103, 0.16);
+}
+
+.travelDatePickerTriggerLight,
+.travelDatePickerClearTriggerLight {
+  color: rgba(42, 26, 16, 0.76);
+}
+
+.travelDatePickerTriggerLight:hover {
+  background: rgba(109, 72, 28, 0.12);
+}
+
+.travelDatePickerClearTriggerLight {
+  color: #b3261e;
+}
+
+.travelDatePickerClearTriggerLight:hover {
+  background: rgba(179, 38, 30, 0.11);
+}
+
+.travelDatePickerContent {
+  margin-top: 0.46rem;
+  width: min(92vw, 22rem);
+  border-radius: 14px;
+  border: 1px solid rgba(243, 243, 240, 0.16);
+  background: var(--black);
+  color: var(--bg);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.42);
+  padding: 0.72rem;
+}
+
+.travelDatePickerContentLight {
+  border-color: rgba(109, 72, 28, 0.2);
+  background: var(--bg);
+  color: #1d130c;
+  box-shadow: 0 22px 40px rgba(18, 10, 4, 0.18);
+}
+
+.travelDatePickerSelectRow {
+  display: flex;
+  gap: 0.44rem;
+  margin-bottom: 0.6rem;
+}
+
+.travelDatePickerSelect {
+  flex: 1;
+  border-radius: 0.56rem;
+  border: 1px solid rgba(243, 243, 240, 0.18);
+  background: rgba(243, 243, 240, 0.08);
+  color: var(--bg);
+  padding: 0.36rem 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.travelDatePickerSelectLight {
+  border-color: rgba(109, 72, 28, 0.24);
+  background: rgba(255, 255, 255, 0.9);
+  color: #2a1a10;
+}
+
+.travelDatePickerViewControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.34rem;
+  color: rgba(243, 243, 240, 0.9);
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.travelDatePickerViewControlLight {
+  color: rgba(29, 19, 12, 0.84);
+}
+
+.travelDatePickerNavTrigger,
+.travelDatePickerViewTrigger {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0.52rem;
+  transition: background-color 0.2s ease;
+}
+
+.travelDatePickerNavTrigger {
+  width: 1.9rem;
+  height: 1.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travelDatePickerViewTrigger {
+  padding: 0.26rem 0.44rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.travelDatePickerNavTrigger:hover,
+.travelDatePickerViewTrigger:hover {
+  background: rgba(243, 243, 240, 0.12);
+}
+
+.travelDatePickerNavTriggerLight:hover,
+.travelDatePickerViewTriggerLight:hover {
+  background: rgba(109, 72, 28, 0.12);
+}
+
+.travelDatePickerTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0.14rem;
+  text-align: center;
+  font-size: 0.82rem;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.travelDatePickerTableHeader {
+  color: rgba(243, 243, 240, 0.56);
+  padding-bottom: 0.12rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+}
+
+.travelDatePickerTableHeaderLight {
+  color: rgba(29, 19, 12, 0.52);
+}
+
+.travelDatePickerDayCellTrigger,
+.travelDatePickerMonthYearCellTrigger {
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.travelDatePickerDayCellTrigger {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travelDatePickerMonthYearCellTrigger {
+  width: 100%;
+  padding: 0.38rem 0.24rem;
+  font-size: 0.79rem;
+  line-height: 1.2;
+}
+
+.travelDatePickerDayCellTrigger:hover,
+.travelDatePickerMonthYearCellTrigger:hover {
+  background: rgba(243, 243, 240, 0.12);
+}
+
+.travelDatePickerDayCellTriggerLight:hover,
+.travelDatePickerMonthYearCellTriggerLight:hover {
+  background: rgba(109, 72, 28, 0.11);
+}
+
+.travelDatePickerDayCellTrigger[data-selected],
+.travelDatePickerMonthYearCellTrigger[data-selected] {
+  background: var(--primary);
+  color: var(--bg);
+  border-color: var(--primary);
+}
+
+.travelDatePickerDayCellTrigger[data-focus],
+.travelDatePickerMonthYearCellTrigger[data-focus] {
+  border-color: rgba(243, 243, 240, 0.55);
+}
+
+.travelDatePickerDayCellTriggerLight[data-focus],
+.travelDatePickerMonthYearCellTriggerLight[data-focus] {
+  border-color: rgba(109, 72, 28, 0.48);
+}
+
+.travelDatePickerDayCellTrigger[data-today] {
+  border-color: rgba(243, 243, 240, 0.5);
+}
+
+.travelDatePickerDayCellTriggerLight[data-today] {
+  border-color: rgba(109, 72, 28, 0.46);
+}
+
+.travelDatePickerDayCellTrigger[data-disabled],
+.travelDatePickerMonthYearCellTrigger[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.38;
+}
+
+.travelDatePickerDayCellTrigger[data-outside-range] {
+  opacity: 0.46;
+}
+
+.errorText {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.28;
+  color: #ffb9b4;
+}
+
+.themeLight .errorText {
+  color: #b3261e;
+}
+
+.hintText {
+  margin: 0;
+  font-size: 0.73rem;
+  line-height: 1.25;
+  color: rgba(243, 243, 240, 0.6);
+}
+
+.themeLight .hintText {
+  color: rgba(29, 19, 12, 0.62);
+}
+
+.formActions {
+  padding: 0.9rem 0.2rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.contactQuickActions {
+  margin-top: 1.2rem;
+  border-top: 1px solid rgba(243, 243, 240, 0.12);
+  padding-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.contactActionLabel {
+  font-size: 0.7rem;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.12em;
+  font-family: var(--font-nohemi), sans-serif;
+  opacity: 0.95;
+  color: rgba(243, 243, 240, 0.78);
+}
+
+.themeLight .contactActionLabel {
+  color: rgba(29, 19, 12, 0.78);
+}
+
+.contactActionLink {
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: var(--white);
+  text-decoration: underline;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.contactActionLink2 {
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: var(--white);
+  text-decoration: underline;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.contactActionLink:hover {
+  color: var(--bg);
+}
+
+.themeLight .contactActionLink {
+  color: rgba(29, 19, 12, 0.72);
+}
+
+.themeLight .contactActionLink2 {
+  color: rgba(29, 19, 12, 0.72);
+}
+
+.themeLight .contactActionLink:hover {
+  color: #1d130c;
+}
+.themeLight .contactActionLink2:hover {
+  color: #1d130c;
+}
+
+.backButton,
+.nextButton {
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-nohemi), sans-serif;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.backButton {
+  min-width: 96px;
+  border-radius: var(--radius);
+  padding: 0.65rem 1rem;
+  color: rgba(243, 243, 240, 0.85);
+  background: rgba(243, 243, 240, 0.08);
+  border: 1px solid rgba(243, 243, 240, 0.2);
+}
+
+.themeLight .backButton {
+  color: rgba(29, 19, 12, 0.76);
+  background: rgba(109, 72, 28, 0.08);
+  border: 1px solid rgba(109, 72, 28, 0.22);
+}
+
+.backButton:disabled {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.backButton:not(:disabled):hover {
+  filter: brightness(1.07);
+}
+
+.nextButton {
+  border-radius: var(--radius);
+  padding: 0.65rem 1.12rem;
+  color: var(--bg);
+  background: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.nextButton:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.submitButton {
+  min-width: 170px;
+}
+
+.submitButton:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.completionContainer {
+  padding: 0.55rem 0.2rem 0.3rem;
+}
+
+.completion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 0.95rem 1rem;
+}
+
+.themeLight .completion {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(179, 135, 40, 0.25);
+}
+
+.completionTitle {
+  margin: 0;
+  color: rgba(243, 243, 240, 0.95);
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.themeLight .completionTitle {
+  color: #1d130c;
+}
+
+.completionText {
+  margin: 0;
+  color: rgba(243, 243, 240, 0.72);
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.themeLight .completionText {
+  color: rgba(29, 19, 12, 0.72);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(243, 243, 240, 0.28);
+  background: rgba(243, 243, 240, 0.08);
+  color: var(--bg);
+  border-radius: 999px;
+  padding: 0.55rem 0.88rem;
+  cursor: pointer;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: 0.84rem;
+  transition: filter 0.2s ease;
+}
+
+.themeLight .secondaryButton {
+  border: 1px solid rgba(109, 72, 28, 0.3);
+  background: rgba(109, 72, 28, 0.08);
+  color: #1d130c;
+}
+
+.secondaryButton:hover {
+  filter: brightness(1.08);
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    max-width: min(92vw, 560px);
+    margin-top: 0;
+    margin-inline: auto;
+    padding: 0.95rem 0.82rem 0.82rem;
+    border-radius: var(--radius);
+    border-width: 1px;
+  }
+
+  .contactActionLink2 {
+    display: none;
+  }
+
+  .row {
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .contactQuickActions {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.62rem;
+  }
+
+  .contactActionLink {
+    text-decoration: underline;
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-align: center;
+    font-size: 0.78rem !important;
+  }
+
+  .formTitle {
+    font-size: clamp(1.32rem, 6.7vw, 1.76rem);
+  }
+
+  .formSub {
+    font-size: 0.8rem;
+    max-width: none;
+  }
+
+  .stepIndicatorRow {
+    padding: 0.08rem 0.5rem 0.6rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .stepIndicatorRow::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stepIndicatorInner {
+    width: 1.42rem;
+    height: 1.42rem;
+  }
+
+  .stepConnector {
+    min-width: 0.55rem;
+    margin-inline: 0.24rem;
+  }
+
+  .formInput {
+    font-size: 0.92rem;
+    line-height: 1.25;
+    padding: 0.58rem 0.66rem;
+  }
+
+  .travelDatePickerInput {
+    font-size: 0.92rem;
+  }
+
+  .travelDatePickerSelect {
+    font-size: 0.92rem;
+  }
+
+  .formTextarea {
+    min-height: 84px;
+  }
+
+  .travelDatePickerContent {
+    width: min(94vw, 20rem);
+    padding: 0.64rem;
+  }
+
+  .travelDatePickerDayCellTrigger {
+    width: 1.84rem;
+    height: 1.84rem;
+  }
+
+  .travelDatePickerMonthYearCellTrigger {
+    padding: 0.34rem 0.2rem;
+    font-size: 0.76rem;
+  }
+
+  .contactQuickActions {
+    margin-top: 0.64rem;
+    gap: 0.32rem 0.72rem;
+    padding-top: 0.72rem;
+  }
+
+  .contactActionLink {
+    font-size: 0.78rem;
+  }
+
+  .backButton,
+  .nextButton {
+    flex: 1 1 0%;
+    min-width: 0;
+  }
+
+  .stepPanel {
+    padding: 0.12rem 0.1rem;
+  }
+
+  .stepFieldShell {
+    gap: 0.32rem;
+  }
+
+  .formLabel {
+    padding-top: 0.45rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
+  .formActions {
+    padding: 0.68rem 0.1rem 0.1rem;
+  }
+
+  .contactActionLabel {
+    padding-bottom: 0.16rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* ── Experience chips ──────────────────────────────────────────────────────── */
+.experienceChips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.experienceChipsTopRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.experienceChip {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.experienceChipCompact {
+  min-height: 0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  padding: 0.78rem 1rem;
+}
+
+.experienceChipFull {
+  width: 100%;
+}
+
+.experienceChipDark {
+  background: rgba(243, 243, 240, 0.07);
+  border-color: rgba(243, 243, 240, 0.14);
+  color: var(--bg);
+}
+
+.experienceChipDark:hover:not(.experienceChipSelected) {
+  background: rgba(243, 243, 240, 0.12);
+  border-color: rgba(243, 243, 240, 0.24);
+}
+
+.experienceChipLight {
+  background: rgba(109, 72, 28, 0.06);
+  border-color: rgba(109, 72, 28, 0.18);
+  color: #2a1a10;
+}
+
+.experienceChipLight:hover:not(.experienceChipSelected) {
+  background: rgba(109, 72, 28, 0.11);
+  border-color: rgba(109, 72, 28, 0.3);
+}
+
+.experienceChipSelected {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 10px rgba(191, 149, 63, 0.22);
+}
+
+@media (max-width: 768px) {
+  .experienceChipsTopRow {
+    grid-template-columns: 1fr;
+  }
+
+  .experienceChipCompact {
+    min-height: 0;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    padding: 0.78rem 1rem;
+  }
+}

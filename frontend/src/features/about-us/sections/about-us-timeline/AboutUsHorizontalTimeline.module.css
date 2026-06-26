@@ -1,0 +1,145 @@
+.root {
+  width: 100%;
+  background: var(--yellow);
+}
+
+.pinHeight {
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: max-content;
+  display: flex;
+}
+
+.section {
+  position: relative;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 4vw, 4.5rem);
+}
+
+.leftImage {
+  width: 50%;
+  margin: 4rem;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.right {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: clamp(2.5rem, 5vw, 5rem) clamp(2rem, 4vw, 4.5rem);
+}
+
+.mainTitle {
+  margin: 0;
+  font-size: clamp(2.6rem, 10vw, 8rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 0.95;
+  font-family: var(--font-nohemi), sans-serif;
+  color: var(--primary);
+}
+
+.subtitle {
+  margin: 1.6rem 0 0;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--primary);
+  max-width: 32ch;
+}
+
+.label {
+  margin: 0;
+  font-size: 10rem;
+  font-family: var(--font-bigcaslon);
+  text-transform: uppercase;
+  color: var(--primary);
+  width: fit-content;
+}
+
+.content {
+  margin: 0;
+  font-size: clamp(1rem, 1.55vw, 2rem);
+  line-height: 1.65;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: var(--black);
+  max-width: 25ch;
+}
+
+.yearTitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 -2.3vw;
+  font-size: 17vw;
+  width: max-content;
+  transform-origin: 0 -2.3vw;
+  z-index: 4;
+  font-family: var(--font-nohemi), sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-shadow: 0 2px 5px #00000017;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@media (max-width: 959px) {
+  .leftImage {
+    margin: 2rem 1.5rem;
+  }
+
+  .left {
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem);
+  }
+
+  .right {
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem);
+    gap: 0.8rem;
+  }
+
+  .mainTitle {
+    font-size: clamp(2rem, 11vw, 3.5rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.88rem, 3.8vw, 1rem);
+  }
+
+  .label {
+    font-size: clamp(4rem, 18vw, 7rem);
+  }
+
+  .content {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+
+  .yearTitle {
+    font-size: 24vw;
+    margin: 0 0 -3.2vw;
+    transform-origin: 0 -3.2vw;
+  }
+}

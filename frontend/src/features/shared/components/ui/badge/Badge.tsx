@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import styles from "./badge.module.css";
+import styles from "./Badge.module.css";
 
 interface BadgeProps {
   text: string;

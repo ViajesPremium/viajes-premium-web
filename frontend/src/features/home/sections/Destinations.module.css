@@ -1,0 +1,335 @@
+﻿.section {
+  position: relative;
+  width: 100%;
+  background: #020307;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: var(--app-vh, 100svh);
+  overflow: hidden;
+}
+
+.stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: var(--card-primary, #1d1d1d);
+}
+
+.previousCardDim {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.cardBackgroundOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--card-primary, #1d1d1d);
+  background: color-mix(in srgb, var(--card-primary, #1d1d1d) 90%, #fff 10%);
+  z-index: 0;
+}
+
+@supports not (background: color-mix(in srgb, #000 50%, #fff 50%)) {
+  .cardBackgroundOverlay {
+    opacity: 0.12;
+  }
+}
+
+.editorialImages {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sideCharacters {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sideCharacterLeft,
+.sideCharacterRight {
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 88% auto;
+  opacity: 1;
+}
+
+.sideCharacterLeft {
+  left: 0;
+  background-image: var(
+    --card-avatar-left,
+    url("/media/landings/japon/nosotros/samurai-perfil.webp")
+  );
+  background-position: 165% 58%;
+  transform: scale(2.8);
+  transform-origin: right center;
+}
+
+.sideCharacterRight {
+  left: 75%;
+  background-image: var(
+    --card-avatar-right,
+    url("/media/landings/japon/nosotros/geisha-perfil-2.webp")
+  );
+  background-position: -75% 58%;
+  transform: scale(2.8);
+  transform-origin: left center;
+}
+
+.editorialFrame {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+}
+
+.editorialImage {
+  object-fit: cover;
+}
+
+.editorialFrame1 {
+  width: clamp(230px, 18vw, 360px);
+  aspect-ratio: 4 / 3;
+  left: 13%;
+  top: 10%;
+}
+
+.editorialFrame2 {
+  width: clamp(270px, 22vw, 420px);
+  aspect-ratio: 4 / 5;
+  right: 6%;
+  top: 10%;
+}
+
+.editorialFrame3 {
+  width: clamp(340px, 30vw, 620px);
+  aspect-ratio: 5 / 4;
+  left: -2%;
+  bottom: -4%;
+}
+
+.editorialFrame4 {
+  width: clamp(220px, 18vw, 350px);
+  aspect-ratio: 4 / 3;
+  right: 1%;
+  bottom: -3%;
+}
+
+.cardCopy {
+  position: relative;
+  z-index: 4;
+  max-width: min(52rem, 72vw);
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 1.25rem;
+}
+
+.title {
+  margin: 0.4rem 0 0;
+  color: var(--white, #fff);
+  line-height: 0.8;
+  font-size: clamp(4rem, 11vw, 7rem);
+  font-weight: 200;
+  width: 60%;
+  border-bottom: 2px solid var(--white);
+  padding-bottom: 1rem;
+  letter-spacing: -0.02em;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.premiumText {
+  margin-top: 0.4rem;
+  font-size: clamp(2.4rem, 7.5vw, 7rem);
+  line-height: 0.95;
+  padding-top: 0.5rem;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.description {
+  margin: 1.8rem 0 0;
+  color: var(--white);
+  padding: 1rem;
+  padding-inline: 2rem;
+  max-width: 40ch;
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  line-height: 1.3;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  background-color: color-mix(in srgb, var(--card-primary) 80%, transparent);
+}
+
+.mobileFeatureImage {
+  display: none;
+}
+
+.brandLogo {
+  display: none;
+}
+
+.mobileFeatureImageMedia {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.primaryButton {
+  margin-top: 2.5rem;
+  background: var(--card-secondary, transparent) !important;
+}
+
+.primaryButton:hover {
+  background: var(--white) !important;
+  color: #000 !important;
+}
+
+.containerStatic {
+  height: auto;
+  min-height: 100svh;
+  overflow: visible;
+}
+
+.containerStatic .stack {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.containerStatic .card {
+  position: relative;
+  inset: auto;
+  min-height: min(100svh, 56rem);
+}
+
+@media (max-width: 1024px) {
+  .editorialFrame1 {
+    left: 6%;
+    top: 8%;
+  }
+
+  .editorialFrame2 {
+    right: 6%;
+    top: 8%;
+  }
+
+  .editorialFrame3 {
+    left: -8%;
+    bottom: -7%;
+  }
+
+  .editorialFrame4 {
+    right: -6%;
+    bottom: -6%;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    overflow: visible;
+  }
+
+  .card {
+    overflow: visible;
+  }
+
+  .cardBackgroundOverlay {
+    overflow: hidden;
+    border-radius: 0;
+  }
+
+  .sideCharacters {
+    z-index: 10;
+    overflow: visible;
+  }
+
+  .sideCharacterLeft,
+  .sideCharacterRight {
+    top: auto;
+    bottom: -24%;
+    width: 70%;
+    height: 76%;
+    background-size: auto 100%;
+    transform: none;
+  }
+
+  .sideCharacterLeft {
+    left: 0;
+    background-position: right bottom;
+  }
+
+  .sideCharacterRight {
+    left: auto;
+    right: 0;
+    background-position: left bottom;
+  }
+
+  .editorialImages {
+    display: none;
+  }
+
+  .cardCopy {
+    max-width: min(36rem, 74vw);
+    justify-content: flex-start;
+    padding: 3.2rem 1rem 0;
+    padding-bottom: 52%;
+  }
+
+  .title {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    font-size: clamp(3rem, 13vw, 5rem);
+    width: 100%;
+  }
+
+  .premiumText {
+    padding-top: 0.1rem;
+    font-size: clamp(2rem, 11vw, 3.4rem);
+  }
+
+  .description {
+    margin-top: 1.6rem;
+    max-width: 26ch;
+  }
+
+  .brandLogo {
+    display: block;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2.8rem;
+    width: auto;
+    max-width: 60%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    z-index: 5;
+  }
+
+  .primaryButton {
+    margin-top: 3.5rem;
+    width: 100%;
+  }
+}

@@ -1,0 +1,358 @@
+.page {
+  min-height: 100svh;
+
+  background-color: var(--bg, #f3f3f0);
+  color: var(--black, #16181b);
+  display: flex;
+  flex-direction: column;
+}
+
+.pageEnter {
+  animation: blogPageSlideIn 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
+}
+
+@keyframes blogPageSlideIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 62px, 0) scale(0.965);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-nohemi), serif;
+  font-size: clamp(3rem, 8.6vw, 10rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.subtitle {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(1.02rem, 3vw, 2rem);
+  line-height: 1.35;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: var(--black);
+}
+
+.topGrid {
+  max-width: min(1680px, 100%);
+  margin: 5rem auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(1rem, 1.7vw, 1.6rem);
+}
+
+.blogCard {
+  --card-pad-y: clamp(1.5rem, 2vh, 2.5rem);
+  --card-pad-x: clamp(1.5rem, 2vh, 2.5rem);
+  display: grid;
+  grid-template-columns: minmax(170px, 1fr) minmax(180px, 1.2fr);
+  align-items: stretch;
+  grid-column: span 6;
+  border-top: 1px solid #00000041;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+
+  min-height: clamp(250px, 32svh, 330px);
+  padding: var(--card-pad-y) var(--card-pad-x);
+  gap: clamp(0.75rem, 1vw, 1rem);
+}
+
+.blogCard:nth-child(odd) {
+  border-left: 1px solid #00000041;
+}
+
+.blogCard:nth-child(even) {
+  border-right: 1px solid #00000041;
+}
+
+.blogContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.blogImageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.blogCard:nth-child(even) .blogContent {
+  order: 2;
+  align-items: flex-start;
+}
+
+.blogCard:nth-child(even) .blogImageWrap {
+  order: 1;
+}
+
+.blogImage {
+  object-fit: cover;
+}
+
+.blogIndex {
+  margin: 0;
+  font-family: var(--font-bigcaslon), sans-serif;
+  font-size: 3rem;
+  color: var(--black);
+}
+
+.blogCard:nth-child(odd) .blogIndex {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.blogCard:nth-child(even) .blogIndex {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.blogTitle {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(1.05rem, 1.15vw, 1.28rem);
+  line-height: 1.1;
+  font-weight: 500;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.blogSubtitle {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(0.84rem, 0.88vw, 0.96rem);
+  line-height: 1.42;
+  color: rgba(22, 24, 27, 0.62);
+  max-width: 24ch;
+}
+
+.blogCard:nth-child(odd) .blogTitle,
+.blogCard:nth-child(odd) .blogSubtitle {
+  text-align: right;
+}
+
+.blogCard:nth-child(even) .blogTitle,
+.blogCard:nth-child(even) .blogSubtitle {
+  text-align: left;
+}
+
+.blogFile {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(22, 24, 27, 0.5);
+}
+
+.blogCta {
+  margin-top: auto;
+  width: min(100%, 22rem);
+  border: 1px solid rgba(22, 24, 27, 0.8) !important;
+  justify-content: center;
+  color: var(--white);
+  background-color: var(--black) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+}
+
+.blogCta:hover,
+.blogCta:focus-visible {
+  color: var(--black) !important;
+  background-color: var(--white) !important;
+}
+
+.questionsBlock {
+  width: 100%;
+  text-align: center;
+  background: var(--bg);
+  background-color: #fcf9f7;
+  border-bottom: 1px solid #00000041;
+  padding: 0;
+}
+
+.questionsTitle {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 0.86;
+  margin-bottom: 6rem;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.questionsLayout {
+  display: grid;
+  grid-template-columns: 1.35fr 1.05fr;
+  gap: clamp(0.8rem, 1.4vw, 1.2rem);
+  align-items: stretch;
+}
+
+.questionsLeft {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.7rem, 1.2vh, 1rem);
+  justify-content: center;
+  padding: 6rem 1rem;
+}
+
+.questionsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(0.6rem, 1vw, 0.9rem);
+}
+
+.questionsImageWrap {
+  position: relative;
+  width: 100%;
+  min-height: clamp(320px, 40svh, 460px);
+  border: 1px solid #00000030;
+  overflow: hidden;
+}
+
+.questionsImage {
+  object-fit: cover;
+}
+
+@media (max-height: 820px) and (min-width: 981px) {
+  .page {
+    gap: 0.9rem;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 7.2vw, 7rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.92rem, 2.1vw, 1.45rem);
+  }
+
+  .blogCard {
+    min-height: clamp(230px, 36svh, 290px);
+    grid-template-columns: minmax(150px, 1fr) minmax(160px, 1.15fr);
+    padding: 0.6rem;
+  }
+
+  .blogTitle {
+    font-size: clamp(0.95rem, 1.25vw, 1.1rem);
+  }
+
+  .blogSubtitle {
+    font-size: clamp(0.78rem, 0.95vw, 0.9rem);
+    line-height: 1.28;
+  }
+
+  .questionItem {
+    font-size: clamp(0.78rem, 0.9vw, 0.9rem);
+    line-height: 1.3;
+  }
+}
+
+.questionItem {
+  margin: 0;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.35;
+  color: rgba(22, 24, 27, 0.9);
+  text-align: center;
+  width: 100%;
+}
+
+.questionLink {
+  display: block;
+  width: 100%;
+  padding: clamp(0.7rem, 1.4vh, 0.95rem) clamp(0.75rem, 1.3vw, 1rem);
+  color: inherit;
+  font-size: clamp(1.05rem, 1.15vw, 1.28rem);
+  font-style: italic;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(22, 24, 27, 0.143) !important;
+}
+
+.questionLink:hover,
+.questionLink:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 980px) {
+  .topGrid {
+    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .blogCard {
+    grid-template-columns: 1fr;
+    grid-column: span 1;
+    min-height: auto;
+    gap: 0.75rem;
+    border-left: none;
+  }
+
+  .blogImageWrap {
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+    order: initial;
+  }
+
+  .blogContent {
+    order: initial;
+    align-items: flex-start;
+  }
+
+  .blogSubtitle {
+    max-width: none;
+  }
+
+  .blogTitle,
+  .blogSubtitle,
+  .blogIndex {
+    text-align: left !important;
+  }
+
+  .questionsLayout {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .questionsColumn {
+    grid-template-rows: none;
+    gap: 0.6rem;
+  }
+
+  .questionsImageWrap {
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pageEnter {
+    animation: none;
+    transform: none;
+  }
+}

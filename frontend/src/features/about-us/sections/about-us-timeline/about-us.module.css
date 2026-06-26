@@ -1,0 +1,194 @@
+.page {
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+.heroPinned {
+  min-height: 100svh;
+  height: 100svh;
+  z-index: 1;
+  position: relative;
+  margin: 0;
+}
+
+.section {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--bg);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(62rem, 100%);
+  margin: 0 auto;
+  gap: 2rem;
+  text-align: center;
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+  color: #95231c;
+}
+
+.title {
+  font-size: clamp(2.6rem, 6vw, 7rem);
+  line-height: 0.96;
+  font-weight: 300;
+  text-align: center;
+  padding-top: 10rem;
+  letter-spacing: -0.02em;
+  font-family: var(--font-nohemi), sans-serif;
+}
+
+.subtitle {
+  max-width: 52ch;
+  font-size: clamp(1.2rem, 2vw, 1.3rem);
+  line-height: 1.58;
+  font-weight: 300;
+  color: var(--black);
+}
+
+.timelineTrack {
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(2.8rem, 4vw, 4.3rem) 0 0;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.row {
+  display: block;
+  min-height: auto;
+}
+
+
+
+.row:nth-child(2n) .cardMedia {
+  transform: rotate(1.2deg);
+}
+
+.row:first-child .card {
+  border-top: 0;
+}
+
+.year {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-weight: 500;
+  font-family: var(--font-bigcaslon), sans-serif;
+  color: var(--black);
+}
+
+.copy {
+  margin: 0.74rem 0 0;
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  line-height: 1.62;
+  color: var(--black);
+  text-align: end;
+  font-weight: 300;
+}
+
+.row:nth-child(2n) .copy {
+  text-align: start;
+}
+
+.card {
+  width: 100%;
+  min-height: 50vh;
+  max-width: none;
+  padding: clamp(1.5rem, 2.8vw, 2.4rem) clamp(1rem, 4.6vw, 3.5rem);
+  border-radius: 0;
+  text-align: center;
+  will-change: transform, opacity;
+  transform: translate3d(0, 28px, 0);
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.row:nth-child(2n) .card {
+  flex-direction: row-reverse;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  padding-inline: 2rem;
+  width: 50%;
+}
+
+@media (max-width: 959px) {
+  .heroPinned {
+    min-height: 100dvh;
+    height: 100dvh;
+  }
+
+  .section {
+    padding: 0;
+  }
+
+  .header {
+    width: min(38rem, 100%);
+  }
+
+  .title {
+    padding-top: 3rem;
+  }
+
+  .list {
+    padding-top: 0.2rem;
+  }
+
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+  }
+
+  .card {
+    grid-column: 1;
+    width: 100%;
+    text-align: center;
+    border-left: 0;
+    border-right: 0;
+    padding: 1.2rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .row:nth-child(2n) .card {
+    flex-direction: column;
+  }
+
+  .cardMedia {
+    width: 100%;
+    min-height: 15rem;
+    transform: none;
+    margin-top: 0;
+    order: 2;
+  }
+
+  .cardContent {
+    width: 100%;
+    order: 1;
+    padding: 0 0 1rem;
+  }
+}

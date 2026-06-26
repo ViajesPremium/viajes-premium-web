@@ -1,0 +1,130 @@
+.section {
+  background: var(--bg);
+  padding: clamp(4rem, 8vw, 8rem) 2rem;
+  overflow: hidden;
+}
+
+.srOnly {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.header {
+  max-width: var(--container-max-width);
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.kicker,
+.kickerSub {
+  margin: 0;
+  font-family: var(--font-nohemi);
+  color: var(--black);
+}
+
+.kicker {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+}
+
+.kickerSub {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  color: color-mix(in srgb, var(--black) 55%, transparent);
+}
+
+.statement {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  gap: 0.35rem;
+  font-family: var(--font-nohemi);
+  font-size: clamp(2.5rem, 8vw, 8rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.statement p {
+  margin: 0;
+}
+
+.statement p:nth-child(2) {
+  color: var(--primary);
+  text-align: center;
+}
+
+.statement p:nth-child(3) {
+  text-align: right;
+}
+
+.rail {
+  max-width: var(--container-max-width);
+  margin: 4rem auto 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 1fr);
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.card {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.card img {
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.72), transparent 64%);
+  z-index: 1;
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+.card span {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  color: var(--white);
+  font-family: var(--font-nohemi);
+  font-size: 1.5rem;
+}
+
+.cta {
+  max-width: var(--container-max-width);
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .statement {
+    text-align: left;
+  }
+
+  .statement p:nth-child(2),
+  .statement p:nth-child(3) {
+    text-align: left;
+  }
+}

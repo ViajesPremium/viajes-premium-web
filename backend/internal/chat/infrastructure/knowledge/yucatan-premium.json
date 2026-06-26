@@ -1,0 +1,69 @@
+{
+  "slug": "yucatan-premium",
+  "brand_name": "Yucatan Premium",
+  "display_name": "Yucatán PREMIUM®",
+  "description": "Viajes premium a Yucatan con cenotes, haciendas, cultura maya, costa y descanso con estilo.",
+  "master_prompt": "Eres el asistente maestro de Yucatan Premium. Responde en espanol con tono formal, elegante y comercial. Habla de Yucatan como una experiencia premium de cultura maya, cenotes, haciendas y descanso. Usa solo la informacion del conocimiento. Si el visitante pide opciones, presenta las rutas con claridad. Si detectas interes real, captura datos y orienta al handoff. No inventes informacion.",
+  "tone": "Formal, elegante, cálido y comercial.",
+  "overview": "Yucatan Premium combina cultura maya, cenotes, haciendas historicas y descanso con una propuesta muy cuidada.",
+  "itineraries": [
+    {
+      "name": "Ruta Maya Premium",
+      "duration": "5 dias",
+      "summary": "Una ruta para conectar con la historia maya, la gastronomia y los principales simbolos de Yucatan.",
+      "ideal_for": "Viajeros que desean cultura y un recorrido emblematico.",
+      "highlights": ["ruta maya", "cultura", "haciendas", "gastronomia"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Cenotes y Playa",
+      "duration": "6 dias",
+      "summary": "Una experiencia para disfrutar cenotes, descanso y costa con un ritmo premium.",
+      "ideal_for": "Parejas y viajeros que buscan descanso con naturaleza.",
+      "highlights": ["cenotes", "playa", "descanso", "naturaleza"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Haciendas y Cultura",
+      "duration": "7 dias",
+      "summary": "Una ruta centrada en haciendas historicas, cultura, gastronomia y el encanto del Yucatan profundo.",
+      "ideal_for": "Viajeros que valoran historia, arquitectura y cultura local.",
+      "highlights": ["haciendas", "historia", "cultura maya", "arquitectura"],
+      "price": "Precio bajo solicitud"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "¿Que hace especial a Yucatan?",
+      "answer": "La mezcla de cultura maya, cenotes, haciendas y una experiencia de descanso muy agradable."
+    },
+    {
+      "question": "¿Cuantos dias se recomiendan para Yucatan?",
+      "answer": "Yucatan Premium trabaja con rutas de 5, 6 y 7 dias segun el tipo de viaje."
+    },
+    {
+      "question": "¿Es un destino para familia?",
+      "answer": "Si, Yucatan puede funcionar muy bien para familia, pareja o un viaje de descanso cultural."
+    }
+  ],
+  "qualification_questions": [
+    "¿Le interesa mas cenotes, playa, cultura maya o haciendas?",
+    "¿Quiere un viaje relajado o con mas recorrido cultural?",
+    "¿Me comparte su nombre y correo para continuar?",
+    "¿Que fecha aproximada tiene en mente?"
+  ],
+  "closing_prompts": [
+    "Con gusto le ayudo a elegir la ruta ideal de Yucatan Premium.",
+    "Si desea, un asesor puede darle seguimiento con una propuesta personalizada."
+  ],
+  "handoff": {
+    "threshold_score": 70,
+    "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
+    "reason": "El visitante mostró interes concreto en avanzar con Yucatan Premium.",
+    "closing_message": "Con gusto continuamos con su cotizacion de Yucatan Premium. Un asesor especializado le dara seguimiento en breve."
+  },
+  "lead_capture": ["name", "phone", "email", "travel_date", "interest"],
+  "destination_keywords": ["yucatan", "cenotes", "merida", "haciendas", "maya", "playa"],
+  "keywords": ["yucatan premium", "yucatan", "cenotes", "haciendas"],
+  "page_principal_hint": "Si llega desde la pagina principal, detecta si busca Yucatan o una experiencia cultural y de descanso."
+}

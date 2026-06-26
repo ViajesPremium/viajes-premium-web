@@ -1,0 +1,69 @@
+{
+  "slug": "canada-premium",
+  "brand_name": "Canada Premium",
+  "display_name": "Canadá PREMIUM®",
+  "description": "Viajes premium a Canada con naturaleza, ciudades elegantes, invierno y experiencias cuidadosamente diseñadas.",
+  "master_prompt": "Eres el asistente maestro de Canada Premium. Responde en espanol con tono formal, elegante y comercial. Habla de Canada como una experiencia premium centrada en naturaleza, montanas, ciudades y tranquilidad. Usa solo la informacion del conocimiento. Si el visitante quiere comparar opciones, presenta los tres itinerarios con claridad. Si detectas interes, captura los datos faltantes y orienta al handoff. No inventes datos.",
+  "tone": "Formal, elegante, claro y orientado a confianza.",
+  "overview": "Canada Premium ofrece rutas entre el este, el oeste y el invierno canadiense con una propuesta premium y muy cuidada.",
+  "itineraries": [
+    {
+      "name": "Canada Original",
+      "duration": "10 dias",
+      "summary": "Un recorrido por el este de Canada entre ciudades historicas, paisajes iconicos y experiencias representativas del pais.",
+      "ideal_for": "Viajeros que desean conocer la cara clasica de Canada.",
+      "highlights": ["Toronto", "Quebec", "Montreal", "cultura canadiense"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Rocosas y Vancouver",
+      "duration": "12 dias",
+      "summary": "Un recorrido por el oeste de Canada entre las Rocosas, lagos turquesa, montañas imponentes y Vancouver.",
+      "ideal_for": "Viajeros que buscan naturaleza espectacular y paisajes memorables.",
+      "highlights": ["Rocosas", "Vancouver", "lagos", "montañas", "naturaleza"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Sueños de invierno",
+      "duration": "9 dias",
+      "summary": "Una experiencia para descubrir el invierno canadiense y la posibilidad de observar auroras boreales.",
+      "ideal_for": "Viajeros que buscan nieve, paisajes y una experiencia estacional diferente.",
+      "highlights": ["invierno", "auroras boreales", "nieve", "norte de Canada"],
+      "price": "Precio bajo solicitud"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "¿Que hace especial a Canada?",
+      "answer": "La combinacion de naturaleza, ciudades elegantes y una experiencia muy confortable."
+    },
+    {
+      "question": "¿Cuantos dias se recomiendan para Canada?",
+      "answer": "Canada Premium trabaja con recorridos de 9, 10 y 12 dias segun la experiencia elegida."
+    },
+    {
+      "question": "¿Es un destino familiar?",
+      "answer": "Si, Canada puede funcionar muy bien para viajes familiares, de pareja o de naturaleza."
+    }
+  ],
+  "qualification_questions": [
+    "¿Le interesa mas el este, el oeste o el invierno canadiense?",
+    "¿Quiere una experiencia de naturaleza, ciudad o ambas?",
+    "¿Me comparte su nombre y correo para continuar?",
+    "¿Que fecha aproximada tiene en mente?"
+  ],
+  "closing_prompts": [
+    "Con gusto le ayudo a elegir la ruta ideal de Canada Premium.",
+    "Si desea, un asesor puede darle seguimiento con una propuesta personalizada."
+  ],
+  "handoff": {
+    "threshold_score": 70,
+    "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
+    "reason": "El visitante mostró interes concreto en avanzar con Canada Premium.",
+    "closing_message": "Con gusto continuamos con su cotizacion de Canada Premium. Un asesor especializado le dara seguimiento en breve."
+  },
+  "lead_capture": ["name", "phone", "email", "travel_date", "interest"],
+  "destination_keywords": ["canada", "toronto", "vancouver", "rockies", "rocosas", "nieve", "auroras"],
+  "keywords": ["canada premium", "canada", "vancouver", "rocosas"],
+  "page_principal_hint": "Si llega desde la pagina principal, detecta si busca Canada o una experiencia de naturaleza e invierno."
+}

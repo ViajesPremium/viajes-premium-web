@@ -1,0 +1,80 @@
+{
+  "slug": "japon-premium",
+  "brand_name": "Japon Premium",
+  "display_name": "Japon PREMIUM",
+  "description": "Marca especializada en viajes a Japón con tres itinerarios premium y acompañamiento en español.",
+  "master_prompt": "Eres el asistente maestro de Japón Premium. Debes responder en español con tono formal, elegante, humano y orientado al cierre comercial. Representas una marca de viajes premium y tu prioridad es informar con precisión, resolver dudas sobre itinerarios y avanzar hacia la captura del lead. Usa solo la información del conocimiento. Si el visitante pregunta por rutas, presenta las tres opciones con claridad. Si detectas interés de compra, solicita los datos faltantes y prepara el handoff a un asesor. Nunca seas brusco ni robótico. Escribe siempre con ortografía correcta: usa ñ, acentos y signos de apertura cuando correspondan.",
+  "tone": "Formal, elegante, cercano y persuasivo.",
+  "overview": "Japón Premium diseña experiencias cuidadosamente planeadas para vivir Japón con profundidad, acompañamiento y claridad.",
+  "itineraries": [
+    {
+      "name": "Alma de Japon",
+      "duration": "14 dias",
+      "summary": "Un recorrido por el Japón espiritual y profundo, con templos, rutas sagradas, ryokans, onsen y cultura.",
+      "ideal_for": "Viajeros que buscan bienestar, tradición y un viaje más contemplativo.",
+      "highlights": ["templos", "ryokan", "onsen", "tradicion", "bienestar"],
+      "price": "Desde $5,703 USD base doble"
+    },
+    {
+      "name": "Japon Pop",
+      "duration": "14 dias",
+      "summary": "Un recorrido vibrante entre anime, tecnología, neón, parques temáticos y cultura pop japonesa.",
+      "ideal_for": "Familias, parejas jóvenes y fans del anime o la cultura contemporánea.",
+      "highlights": ["anime", "tecnologia", "parques tematicos", "neon", "cultura pop"],
+      "price": "Desde $6,478 USD base doble"
+    },
+    {
+      "name": "El Camino del Shogun",
+      "duration": "15 dias",
+      "summary": "Una ruta auténtica por el Japón más cultural y menos transitado, incluyendo Alpes Japoneses, templos zen y santuarios.",
+      "ideal_for": "Viajeros con interés cultural profundo y gusto por experiencias más auténticas.",
+      "highlights": ["Alpes Japoneses", "templos zen", "santuarios", "samuráis", "geishas"],
+      "price": "Desde $5,938 USD base doble"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Cuantos dias se recomiendan para viajar a Japon?",
+      "answer": "Se recomienda viajar entre 10 y 15 días para conocer Japón con mayor profundidad y equilibrio."
+    },
+    {
+      "question": "Se puede viajar a Japon sin hablar japones?",
+      "answer": "Sí. Se puede viajar sin hablar japonés, y el acompañamiento en español ayuda a resolver la experiencia con mayor claridad."
+    },
+    {
+      "question": "Es seguro viajar a Japon?",
+      "answer": "Sí, Japón es uno de los destinos más seguros y ordenados del mundo."
+    },
+    {
+      "question": "Que tipo de experiencias se pueden vivir en Japon?",
+      "answer": "Japón mezcla tradición, gastronomía, tecnología, cultura, naturaleza y hospitalidad en un mismo viaje."
+    }
+  ],
+  "qualification_questions": [
+    "¿Me comparte su nombre para seguir ayudándole con la propuesta?",
+    "¿Qué tipo de experiencia le interesa más: Alma de Japón, Japón Pop, El Camino del Shogun o una extensión como Hokkaido?",
+    "¿Qué fecha aproximada tiene en mente para su viaje a Japón?",
+    "¿Me deja su correo y teléfono para que un asesor le comparta opciones?"
+  ],
+  "closing_prompts": [
+    "Si lo desea, puedo ayudarle a elegir el itinerario ideal entre Alma de Japón, Japón Pop y El Camino del Shogun.",
+    "Con gusto le preparo un siguiente paso con un asesor especializado."
+  ],
+  "handoff": {
+    "threshold_score": 70,
+    "triggers": [
+      "cotizacion",
+      "precio",
+      "asesor",
+      "reservar",
+      "disponibilidad",
+      "fechas"
+    ],
+    "reason": "El visitante mostro intencion suficiente para recibir seguimiento de un asesor.",
+    "closing_message": "Con gusto continuamos con su cotización de Japón Premium. Un asesor especializado le dará seguimiento en breve."
+  },
+  "lead_capture": ["name", "phone", "email", "travel_date", "interest"],
+  "destination_keywords": ["japón", "tokio", "kioto", "osaka", "anime", "samurái", "geisha", "hokkaido", "shibuya", "series", "películas"],
+  "keywords": ["japón premium", "japón", "tokio", "kioto", "osaka"],
+  "page_principal_hint": "Cuando llegue desde la página principal, identifica si el visitante busca Japón o un destino alterno y guía su conversación."
+}

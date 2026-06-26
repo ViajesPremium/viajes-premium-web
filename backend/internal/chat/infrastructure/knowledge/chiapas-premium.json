@@ -1,0 +1,69 @@
+{
+  "slug": "chiapas-premium",
+  "brand_name": "Chiapas Premium",
+  "display_name": "Chiapas PREMIUM®",
+  "description": "Viajes premium a Chiapas con selva, cascadas, pueblos magicos y una propuesta de lujo discreto.",
+  "master_prompt": "Eres el asistente maestro de Chiapas Premium. Responde en espanol con tono formal, elegante y cercano. Habla de Chiapas como una experiencia premium centrada en naturaleza, cultura y tranquilidad. Usa solo la informacion del conocimiento. Si el usuario pide opciones, presenta las rutas con claridad. Si hay interes real, captura datos y orienta al handoff. No inventes informacion.",
+  "tone": "Formal, elegante, natural y comercial.",
+  "overview": "Chiapas Premium conecta naturaleza, cultura mexicana y un viaje tranquilo con un enfoque de curadoria.",
+  "itineraries": [
+    {
+      "name": "Selva y Cascadas",
+      "duration": "6 dias",
+      "summary": "Un recorrido por selva, cascadas y paisajes de gran riqueza natural.",
+      "ideal_for": "Viajeros que buscan naturaleza y desconexion.",
+      "highlights": ["selva", "cascadas", "naturaleza", "paisajes"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Pueblos y Cultura",
+      "duration": "7 dias",
+      "summary": "Una ruta que combina pueblos magicos, tradiciones locales y un ritmo de viaje muy cuidado.",
+      "ideal_for": "Quienes buscan cultura mexicana y una experiencia autentica.",
+      "highlights": ["pueblos magicos", "cultura", "tradicion", "Mexico"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Chiapas Tranquilo",
+      "duration": "5 dias",
+      "summary": "Una experiencia mas ligera y relajada para conocer los esenciales de Chiapas con comodidad.",
+      "ideal_for": "Viajeros que prefieren un ritmo mas pausado.",
+      "highlights": ["descanso", "tranquilidad", "naturaleza", "comodidad"],
+      "price": "Precio bajo solicitud"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "¿Que hace especial a Chiapas?",
+      "answer": "La combinacion de selva, cascadas, cultura y pueblos magicos lo vuelve un destino muy rico y autentico."
+    },
+    {
+      "question": "¿Cuantos dias se recomiendan para Chiapas?",
+      "answer": "Chiapas Premium trabaja con rutas de 5, 6 y 7 dias segun la experiencia deseada."
+    },
+    {
+      "question": "¿Es un destino para familia?",
+      "answer": "Si, Chiapas puede funcionar muy bien para familia, pareja o viajeros que buscan naturaleza y cultura."
+    }
+  ],
+  "qualification_questions": [
+    "¿Le interesa mas naturaleza, cultura o una mezcla de ambas?",
+    "¿Quiere viajar a Chiapas en familia o en pareja?",
+    "¿Me comparte su nombre y correo para continuar?",
+    "¿Que fecha aproximada tiene en mente?"
+  ],
+  "closing_prompts": [
+    "Con gusto le ayudo a elegir la ruta ideal de Chiapas Premium.",
+    "Si desea, un asesor puede darle seguimiento con una propuesta personalizada."
+  ],
+  "handoff": {
+    "threshold_score": 70,
+    "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
+    "reason": "El visitante mostró interes concreto en avanzar con Chiapas Premium.",
+    "closing_message": "Con gusto continuamos con su cotizacion de Chiapas Premium. Un asesor especializado le dara seguimiento en breve."
+  },
+  "lead_capture": ["name", "phone", "email", "travel_date", "interest"],
+  "destination_keywords": ["chiapas", "cascadas", "selva", "san cristobal", "palenque"],
+  "keywords": ["chiapas premium", "chiapas", "selva", "cascadas"],
+  "page_principal_hint": "Si llega desde la pagina principal, detecta si busca Chiapas o una experiencia de naturaleza mexicana."
+}

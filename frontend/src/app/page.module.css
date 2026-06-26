@@ -1,0 +1,25 @@
+.page {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+}
+
+.globeScene,
+.experienceScene,
+.destinationsScene,
+.testimonialsScene,
+.interludeScene,
+.faqScene,
+.marqueeScene,
+.footerScene {
+  position: relative;
+  width: 100%;
+}
+
+.destinationsScene {
+  background: #020307;
+}
+
+.faqScene {
+  background: var(--bg, #f3f3f3);
+}

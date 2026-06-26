@@ -1,17 +1,49 @@
 @import "tailwindcss";
 @import "./variables.css";
 
+@font-face {
+  font-family: "Nohemi";
+  src:
+    url("/media/shared/fonts/nohemi-font-family/Nohemi-VF.woff2") format("woff2"),
+    url("/media/shared/fonts/nohemi-font-family/nohemi-vf-bf-6438-cc-58-ad-63-d.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BigCaslon";
+  src:
+    url("/media/shared/fonts/BigCaslon-Regular.woff2") format("woff2"),
+    url("/media/shared/fonts/big-caslon-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-nohemi);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
   min-height: 100%;
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: var(--black);
+}
+
+.srOnly,
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }

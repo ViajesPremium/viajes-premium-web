@@ -1,91 +1,85 @@
 import type { LandingPremiumExperiences } from "./types";
 
 export const JAPAN_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
-  srHeading: "Experiencias premium de Japon Premium",
-  badgeText: "Experiencias premium",
-  titleText:
-    "Diseñamos viajes con profundidad, ritmo y acompañamiento real.",
-  titleHighlightWords: ["profundidad", "acompañamiento"],
+  srHeading: "Snapshot de Japón Premium",
+  badgeText: "Nosotros",
+  titleText: "Más de 21 años diseñando experiencias PREMIUM.",
+  titleHighlightWords: ["21", "PREMIUM", "años"],
   cards: [
     {
-      text: "Japón privado",
+      image: "/media/landings/japon/nosotros/itinerario-alma.avif",
+      text: "Alma de Japón",
       experiences:
-        "Rutas de autor, traslados y tiempos pensados para vivir el destino sin fricción.",
-      image: "/media/landings/japon/hero/geisha.avif",
+        "14 Días · Espiritualidad · Tradición · Bienestar · Cultura",
     },
     {
-      text: "Cultura y ceremonia",
+      image: "/media/landings/japon/nosotros/itinerario-pop.avif",
+      text: "Japón Pop",
       experiences:
-        "Templos, gastronomía, compras y rituales seleccionados con precisión.",
-      image: "/media/landings/japon/hero/samurai.avif",
+        "14 Días · Anime · Parques Temáticos · Tecnología · Cultura Pop",
     },
     {
-      text: "Diseño a medida",
-      experiences:
-        "Cada itinerario se adapta al nivel de exclusividad y al ritmo del viajero.",
-      image: "/media/landings/japon/hero/geisha.avif",
+      image: "/media/landings/japon/nosotros/itinerario-shogun-large.avif",
+      text: "El Camino del Shogun",
+      experiences: "15 Días · Samuráis · Geishas · Sumo · Alpes Japoneses",
     },
   ],
-  cardButtonLabel: "Ver itinerario",
-  cardButtonTarget: "#itinerario",
+  cardButtonLabel: "Descubrir Itinerarios",
+  cardButtonTarget: "#itinerarios",
 };
 
 export const KOREA_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
-  srHeading: "Experiencias premium de Corea Premium",
-  badgeText: "Experiencias premium",
-  titleText:
-    "Conectamos cultura contemporánea, exclusividad y soporte en español.",
-  titleHighlightWords: ["cultura", "soporte"],
+  srHeading: "Nosotros Corea Premium",
+  badgeText: "Nosotros",
+  titleText: "Más de 21 años diseñando experiencias PREMIUM.",
+  titleHighlightWords: ["21 años", "PREMIUM"],
   cards: [
     {
-      text: "Corea privada",
+      image: "/media/shared/home/destinos/corea/corea-premium-1.webp",
+      text: "Tesoros de Corea",
       experiences:
-        "Recorridos seleccionados, transportes eficientes y tiempos bien resueltos.",
-      image: "/media/landings/corea/hero/coreana.avif",
+        "8 días · Seúl · Busan · Gyeongju · Cultura coreana",
     },
     {
-      text: "Gastronomía y diseño",
+      image: "/media/shared/home/destinos/corea/corea-premium-3.webp",
+      text: "Rutas Imperiales",
       experiences:
-        "Experiencias urbanas, hoteles y reservas pensadas para un viaje premium.",
-      image: "/media/landings/corea/hero/coreano.avif",
+        "12 días · Corea · China · Historia · Patrimonio cultural",
     },
     {
-      text: "Ritmo a medida",
-      experiences:
-        "Cada día se ajusta al tipo de viaje, al descanso y al nivel de detalle.",
-      image: "/media/landings/corea/hero/coreana.avif",
+      image: "/media/shared/home/destinos/corea/corea-premium-4.webp",
+      text: "Imperios del Pacífico",
+      experiences: "13 días · Corea · Japón · Tradición · Modernidad",
     },
   ],
-  cardButtonLabel: "Ver propuesta",
-  cardButtonTarget: "#itinerario",
+  cardButtonLabel: "Descubrir",
+  cardButtonTarget: "#itinerarios",
 };
 
 export const EUROPA_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
-  srHeading: "Experiencias premium de Europa Premium",
-  badgeText: "Experiencias premium",
-  titleText:
-    "Creamos rutas con hoteles, ciudades icónicas y una narrativa visual cuidada.",
-  titleHighlightWords: ["hoteles", "narrativa"],
+  srHeading: "Nosotros Europa Premium",
+  badgeText: "Nosotros",
+  titleText: "Más de 21 años diseñando experiencias PREMIUM",
+  titleHighlightWords: ["21", "PREMIUM", "años"],
   cards: [
     {
-      text: "Europa privada",
-      experiences:
-        "Ciudades, traslados y paradas seleccionadas para que el viaje fluya sin ruido.",
-      image: "/media/landings/europa/hero/diosa.avif",
+      image: "/media/landings/europa/nosotros/itinerario-gala.avif",
+      text: "De París a Roma",
+      experiences: "12 días · Paris · Venecia · Florencia · Roma",
     },
     {
-      text: "Estancias premium",
+      image: "/media/landings/europa/nosotros/itinerario-maravillas.avif",
+      text: "Europa Cosmopolita",
       experiences:
-        "Hoteles y ubicaciones elegidos por equilibrio, confort y carácter.",
-      image: "/media/landings/europa/hero/espartano.avif",
+        "14 días · España · Francia · Bélgica · Países Bajos",
     },
     {
-      text: "Ruta a medida",
+      image: "/media/landings/europa/nosotros/itinerario-reserva.avif",
+      text: "Iconos de Europa",
       experiences:
-        "Cada circuito se ajusta al tipo de viajero, temporada y estilo de viaje.",
-      image: "/media/landings/europa/hero/diosa.avif",
+        "16 días · Francia · Inglaterra · Países Bajos · Italia",
     },
   ],
-  cardButtonLabel: "Descubrir ruta",
-  cardButtonTarget: "#itinerario",
+  cardButtonLabel: "Descubrir",
+  cardButtonTarget: "#itinerarios",
 };

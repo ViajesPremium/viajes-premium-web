@@ -12,7 +12,7 @@ export const JAPAN_PREMIUM_HERO: LandingHero = {
     "Eleva tu vida conociendo Japón con profundidad y acompañamiento desde el primer contacto hasta su regreso. Atención en español, planeación personalizada y soporte de inicio a fin.",
   ctaPrimary: {
     label: "Solicita tu cotización",
-    target: "#itinerario",
+    target: "#second-form",
   },
   heroOverlay: {
     baseImage: "/media/landings/japon/hero/geisha.avif",
@@ -35,7 +35,7 @@ export const KOREA_PREMIUM_HERO: LandingHero = {
     "Eleva tu vida descubriendo Corea con profundidad y acompañamiento desde el primer contacto hasta tu regreso. Atención personalizada, planeación detallada y soporte de inicio a fin.",
   ctaPrimary: {
     label: "Solicita tu cotización",
-    target: "#itinerario",
+    target: "#second-form",
   },
   heroOverlay: {
     baseImage: "/media/landings/corea/hero/coreana.avif",
@@ -57,7 +57,29 @@ export const EUROPA_PREMIUM_HERO: LandingHero = {
     "Eleva tu vida conociendo Europa con profundidad y acompañamiento desde el primer contacto hasta su regreso. Atención personalizada, planeación detallada y soporte de inicio a fin.",
   ctaPrimary: {
     label: "Solicita tu cotización",
-    target: "#itinerario",
+    target: "#second-form",
+  },
+  heroOverlay: {
+    baseImage: "/media/landings/europa/hero/diosa.avif",
+    overlayImage: "/media/landings/europa/hero/espartano.avif",
+    baseAlt: "Composición principal de Europa Premium",
+    overlayAlt: "Capa visual de Europa Premium",
+  },
+};
+
+export const BARRANCAS_PREMIUM_HERO: LandingHero = {
+  seoHeading: "Europa Premium",
+  title: {
+    wordOne: "Barrancas",
+    wordTwo: "en",
+    wordThree: "clase",
+    wordFour: "Premium",
+  },
+  description:
+    "Eleva tu vida conociendo Europa con profundidad y acompañamiento desde el primer contacto hasta su regreso. Atención personalizada, planeación detallada y soporte de inicio a fin.",
+  ctaPrimary: {
+    label: "Solicita tu cotización",
+    target: "#second-form",
   },
   heroOverlay: {
     baseImage: "/media/landings/europa/hero/diosa.avif",

@@ -1,0 +1,69 @@
+{
+  "slug": "peru-premium",
+  "brand_name": "Peru Premium",
+  "display_name": "Perú PREMIUM®",
+  "description": "Viajes premium a Peru con Andes, gastronomia, Machu Picchu y experiencias cuidadosamente diseñadas.",
+  "master_prompt": "Eres el asistente maestro de Peru Premium. Responde en espanol con tono formal, elegante, calido y comercial. Habla de Peru como una experiencia profunda entre cultura andina, gastronomia, paisajes y momentos memorables. Usa solo la informacion del conocimiento. Si el visitante pide opciones, presenta los tres itinerarios con claridad. Si hay interes real, captura datos y orienta al handoff. No inventes informacion.",
+  "tone": "Formal, elegante, cercano y orientado a valor.",
+  "overview": "Peru Premium diseña rutas entre Machu Picchu, Cusco, el Valle Sagrado, la gastronomia y paisajes extraordinarios.",
+  "itineraries": [
+    {
+      "name": "Montaña de Colores",
+      "duration": "10 dias",
+      "summary": "Un recorrido para descubrir Peru entre ciudades historicas, cultura andina y paisajes iconicos como Machu Picchu y la Montaña de Colores.",
+      "ideal_for": "Viajeros que buscan combinar cultura y paisajes emblematicos.",
+      "highlights": ["Machu Picchu", "Cusco", "Valle Sagrado", "Montaña de Colores"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Dunas Dakar",
+      "duration": "9 dias",
+      "summary": "Una experiencia que combina desiertos, culturas ancestrales y recorridos escenicos muy potentes.",
+      "ideal_for": "Viajeros que buscan un Peru diferente, con paisajes contrastantes.",
+      "highlights": ["desiertos", "paisajes", "cultura", "aventura"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Sky Fall",
+      "duration": "12 dias",
+      "summary": "Un recorrido por Peru y Bolivia que conecta cultura andina, paisajes extraordinarios y experiencias como el Salar de Uyuni y Lago Titicaca.",
+      "ideal_for": "Viajeros que desean una experiencia mas amplia y escenica en los Andes.",
+      "highlights": ["Salar de Uyuni", "Lago Titicaca", "Andes", "Peru y Bolivia"],
+      "price": "Precio bajo solicitud"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "¿Cuantos dias se recomiendan para Peru?",
+      "answer": "Peru Premium trabaja con experiencias de 9, 10 y 12 dias segun el tipo de viaje."
+    },
+    {
+      "question": "¿Es exigente la altura en Cusco?",
+      "answer": "La altura puede requerir preparacion, pero un buen diseño del viaje ayuda a vivirlo con mayor comodidad."
+    },
+    {
+      "question": "¿Que experiencias gastronomicas ofrece Peru?",
+      "answer": "Peru combina cocina andina, restaurantes seleccionados en Lima y sabores regionales muy distintivos."
+    }
+  ],
+  "qualification_questions": [
+    "¿Le interesa mas Machu Picchu, la gastronomia o un recorrido mas escenico?",
+    "¿Quiere viajar solo a Peru o combinarlo con Bolivia?",
+    "¿Me comparte su nombre y correo para continuar?",
+    "¿Que fecha aproximada tiene en mente?"
+  ],
+  "closing_prompts": [
+    "Con gusto le ayudo a elegir la ruta ideal de Peru Premium.",
+    "Si desea, un asesor puede darle seguimiento con una propuesta personalizada."
+  ],
+  "handoff": {
+    "threshold_score": 70,
+    "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
+    "reason": "El visitante mostró interes concreto en avanzar con Peru Premium.",
+    "closing_message": "Con gusto continuamos con su cotizacion de Peru Premium. Un asesor especializado le dara seguimiento en breve."
+  },
+  "lead_capture": ["name", "phone", "email", "travel_date", "interest"],
+  "destination_keywords": ["peru", "cusco", "machu picchu", "andes", "lima", "titicaca", "uyuni"],
+  "keywords": ["peru premium", "peru", "cusco", "machu picchu", "lima"],
+  "page_principal_hint": "Si llega desde la pagina principal, detecta si busca Peru o una experiencia andina-gastronomica."
+}

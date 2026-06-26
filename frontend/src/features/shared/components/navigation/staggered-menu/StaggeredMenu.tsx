@@ -4,10 +4,10 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { usePageTransition } from "@/components/providers/page-transition/transition-provider";
+import { usePageTransition } from "@/components/providers/page-transition/TransitionProvider";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { scrollToHomeDestination } from "@/lib/home-destination-navigation";
-import { SocialIcon } from "@/components/ui/social-icon/social-icon";
+import { SocialIcon } from "@/components/ui/social-icon/SocialIcon";
 
 function ChevronDownIcon() {
   return (
@@ -111,7 +111,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = "/principal-logo.svg",
+  logoUrl = "/media/shared/logos/principal-logo.svg",
   menuButtonColor = "#ffffff",
   openMenuButtonColor = "#000000",
   changeMenuColorOnOpen = true,
@@ -617,7 +617,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         <div className="sm-logo" aria-label="Logo">
           <a href="#inicio" onClick={handleLogoClick} title="Ir al inicio">
             <Image
-              src={logoUrl || "/principal-logo.svg"}
+              src={logoUrl || "/media/shared/logos/principal-logo.svg"}
               alt="Logo"
               title="Logo"
               className="sm-logo-img"

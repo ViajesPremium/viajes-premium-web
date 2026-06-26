@@ -1,0 +1,69 @@
+{
+  "slug": "corea-premium",
+  "brand_name": "Corea Premium",
+  "display_name": "Corea PREMIUM®",
+  "description": "Viajes premium a Corea del Sur con rutas culturales, tecnologia, gastronomia y acompanamiento en espanol.",
+  "master_prompt": "Eres el asistente maestro de Corea Premium. Responde con tono formal, elegante, preciso y comercial. Habla de Corea como una experiencia de alto valor que mezcla tradicion, tecnologia y gastronomia. Usa solo la informacion del conocimiento. Si el usuario pide opciones, presenta los itinerarios con claridad. Si muestra interes, captura nombre, correo y telefono de forma natural y prepara el handoff. No improvises datos.",
+  "tone": "Formal, elegante, orientado a claridad y conversion.",
+  "overview": "Corea Premium diseña experiencias curadas entre Seul, Busan y Gyeongju, con acompañamiento y un enfoque premium.",
+  "itineraries": [
+    {
+      "name": "Tesoros de Corea",
+      "duration": "8 dias",
+      "summary": "Una introduccion ideal a Corea del Sur entre ciudades vibrantes, historia milenaria y experiencias representativas.",
+      "ideal_for": "Quienes desean descubrir Corea por primera vez en una experiencia equilibrada.",
+      "highlights": ["Seul", "Busan", "Gyeongju", "cultura coreana"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Rutas Imperiales",
+      "duration": "12 dias",
+      "summary": "Un recorrido por dos civilizaciones influyentes de Asia entre ciudades historicas, cultura y tradicion.",
+      "ideal_for": "Viajeros que buscan una vision amplia y cultural de Asia.",
+      "highlights": ["historia", "patrimonio", "cultura", "tradicion"],
+      "price": "Precio bajo solicitud"
+    },
+    {
+      "name": "Imperios del Pacifico",
+      "duration": "13 dias",
+      "summary": "Una experiencia que combina Corea y Japon entre cultura, innovacion y paisajes inolvidables.",
+      "ideal_for": "Viajeros que desean unir dos destinos asiaticos en un solo recorrido.",
+      "highlights": ["Corea", "Japon", "modernidad", "tradicion", "Pacifico"],
+      "price": "Precio bajo solicitud"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "¿Cuanto dura un viaje a Corea?",
+      "answer": "Corea Premium ofrece recorridos de 8, 12 y 13 dias, segun el tipo de experiencia que busque."
+    },
+    {
+      "question": "¿Es facil viajar a Corea sin hablar coreano?",
+      "answer": "Si. Corea cuenta con buena infraestructura turistica y el acompañamiento ayuda a viajar con mas claridad."
+    },
+    {
+      "question": "¿Que hace especial a Corea?",
+      "answer": "La combinacion entre tradicion, tecnologia, gastronomia y cultura contemporanea convierte a Corea en un destino fascinante."
+    }
+  ],
+  "qualification_questions": [
+    "¿Le interesa mas Seul, Busan o una combinacion de varias ciudades?",
+    "¿Quiere descubrir Corea sola o combinada con Japon?",
+    "¿Me comparte su nombre y correo para seguir con la propuesta?",
+    "¿Que fecha aproximada tiene en mente?"
+  ],
+  "closing_prompts": [
+    "Con gusto le ayudo a elegir la mejor ruta para Corea Premium.",
+    "Si desea, un asesor puede darle seguimiento con una propuesta personalizada."
+  ],
+  "handoff": {
+    "threshold_score": 70,
+    "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
+    "reason": "El visitante mostró interes concreto en avanzar con Corea Premium.",
+    "closing_message": "Con gusto continuamos con su cotizacion de Corea Premium. Un asesor especializado le dara seguimiento en breve."
+  },
+  "lead_capture": ["name", "phone", "email", "travel_date", "interest"],
+  "destination_keywords": ["corea", "seul", "busan", "gyeongju", "k-culture", "korea"],
+  "keywords": ["corea premium", "corea", "seul", "busan", "gyeongju"],
+  "page_principal_hint": "Si llega desde la pagina principal, detecta si busca Corea o una experiencia comparativa con Japon."
+}

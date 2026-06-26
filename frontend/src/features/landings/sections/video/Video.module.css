@@ -1,0 +1,35 @@
+.section {
+  position: relative;
+  width: 100%;
+  background: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100dvh;
+  object-fit: contain;
+}
+
+.videoDesktop {
+  display: block;
+}
+
+.videoMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .videoDesktop {
+    display: none;
+  }
+
+  .videoMobile {
+    display: block;
+  }
+}

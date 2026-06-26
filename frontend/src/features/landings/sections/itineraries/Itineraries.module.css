@@ -1,0 +1,343 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: var(--app-vh, 100svh);
+  overflow: hidden;
+  background-color: var(--black);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  perspective: 250vw;
+}
+
+.stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: 50% 10%;
+  padding: 2.5rem 3.5rem 3rem 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 60%) minmax(0, 40%);
+  gap: 2.5rem;
+  will-change: transform, opacity;
+  background: var(--itinerary-background);
+  color: var(--white, #fff);
+}
+
+.copyColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  gap: 5rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.topLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.eyebrow {
+  font-family: var(--font-bigcaslon);
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.title {
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(3.5rem, 9vw, 9.5rem);
+  font-weight: 500;
+  line-height: 1;
+  max-width: 58rem;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.bottomLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.description {
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(1.2rem, 1.5vw, 1.5vw);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin: 0;
+}
+
+.idealText {
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(0.7rem, 1vw, 0.95vw);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  opacity: 0.7;
+  text-align: center;
+  border-left: 2px solid currentColor;
+  padding-left: 0.75rem;
+  margin: 0;
+}
+
+.price {
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(0.75rem, 1.1vw, 1.2rem);
+  font-weight: 500;
+  margin: 2rem 0;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  border-bottom: 0.3px solid var(--white);
+}
+
+.buttons {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.primaryCtaGold :global(.buttonWrapper .buttonPrimary) {
+  --button-accent: #c9a84c;
+}
+
+.primaryCtaGold :global(.buttonWrapper:hover .buttonPrimary) {
+  --button-accent: #b08820;
+}
+
+.bottomRight {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.tag {
+  position: absolute;
+  z-index: 1;
+  top: -1;
+  left: -1;
+  font-weight: 300;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  border-radius: 0 0 var(--radius) 0;
+  padding: 0.4rem;
+  padding-inline: 1.2rem;
+  padding-bottom: 0.2rem;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.indexNum {
+  position: absolute;
+  bottom: 0;
+  right: 1.25rem;
+  z-index: 1;
+  font-family: var(--font-nohemi), sans-serif;
+  font-size: clamp(4rem, 9.5vw, 10vw);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  mix-blend-mode: difference;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.indexNumMobile {
+  display: none;
+}
+
+.sectionStatic {
+  height: auto;
+  min-height: 100svh;
+  overflow: visible;
+}
+
+.sectionStatic .stack {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionStatic .slide {
+  position: relative;
+  inset: auto;
+  min-height: min(100svh, 56rem);
+}
+
+@media (max-width: 768px) {
+  .slide {
+    perspective: 900px;
+  }
+
+  .content {
+    position: absolute;
+    inset: 0;
+    padding: 1.25rem 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transform-style: preserve-3d;
+  }
+
+  .copyColumn {
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    overflow: hidden;
+  }
+
+  .top {
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .topLeft {
+    align-items: flex-start;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .title {
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
+    text-align: left;
+    margin-top: 0;
+  }
+
+  .indexNumMobile {
+    display: block;
+    flex-shrink: 0;
+    font-family: var(--font-nohemi), sans-serif;
+    font-size: clamp(3rem, 13vw, 4.5rem);
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    mix-blend-mode: difference;
+    color: #fff;
+    margin: 0;
+    line-height: 1;
+    pointer-events: none;
+    padding-top: 0.15rem;
+  }
+
+  .bottomLeft {
+    max-width: 100%;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .description {
+    font-weight: 300;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .price {
+    font-size: clamp(0.9rem, 3vw, 0.9rem);
+    margin: 0.6rem 0;
+    text-align: center;
+
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  /* Imagen: ocupa el 35% del card, toca todos los bordes */
+  .bottomRight {
+    flex: 0 0 32%;
+    width: calc(100% + 2.5rem);
+    margin-inline: -1.25rem;
+    height: auto;
+    min-height: 0;
+    position: relative;
+    margin-top: 0.75rem;
+  }
+
+  .tag {
+    top: unset;
+    bottom: 0;
+    left: 50%;
+    border-radius: 0;
+    transform: translate(-50%);
+  }
+
+  .indexNum {
+    display: none;
+  }
+
+  .imageContainer {
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .section {
+    padding-bottom: 0;
+  }
+
+  .title {
+    font-size: clamp(2.1rem, 11vw, 3rem);
+  }
+
+  .idealText {
+    display: none;
+  }
+
+  .indexNumMobile {
+    font-size: clamp(1.5rem, 10vw, 3.1rem);
+  }
+}

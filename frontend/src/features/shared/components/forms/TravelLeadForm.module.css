@@ -1,0 +1,72 @@
+.form {
+  width: min(100%, 580px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--black);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--font-nohemi);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--black) 18%, transparent);
+  background: color-mix(in srgb, var(--white) 84%, transparent);
+  color: var(--black);
+  font: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 0.95rem 1rem;
+  border-radius: 0.2rem;
+  outline: none;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--primary);
+  background: var(--white);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.phoneLink {
+  color: var(--black);
+  text-decoration: none;
+  font-family: var(--font-nohemi);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

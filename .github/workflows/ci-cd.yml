@@ -27,6 +27,7 @@ env:
   VPS_HOST: ${{ secrets.VPS_HOST || secrets.SSH_HOST || secrets.DEPLOY_HOST }}
   VPS_PORT: ${{ secrets.VPS_PORT || secrets.SSH_PORT || secrets.DEPLOY_PORT }}
   VPS_USER: ${{ secrets.VPS_USER || secrets.SSH_USER || secrets.DEPLOY_USER }}
+  VPS_PASSWORD: ${{ secrets.VPS_PASSWORD || secrets.SSH_PASSWORD || secrets.DEPLOY_PASSWORD }}
 
 jobs:
   verify:
@@ -80,32 +81,73 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate deploy secrets
+        id: deploy-secrets
         run: |
-          test -n "${VPS_SSH_KEY}"
-          test -n "${VPS_HOST}"
-          test -n "${VPS_PORT}"
-          test -n "${VPS_USER}"
+          missing=0
+
+          if [ -n "${VPS_SSH_KEY}" ]; then
+            echo "auth_method=key" >> "$GITHUB_OUTPUT"
+          elif [ -n "${VPS_PASSWORD}" ]; then
+            echo "auth_method=password" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Missing deploy auth secret: VPS_SSH_KEY, SSH_PRIVATE_KEY, DEPLOY_SSH_KEY, SSH_KEY, VPS_PASSWORD, SSH_PASSWORD, or DEPLOY_PASSWORD"
+            missing=1
+          fi
+
+          if [ -z "${VPS_HOST}" ]; then
+            echo "::warning::Missing deploy secret: VPS_HOST, SSH_HOST, or DEPLOY_HOST"
+            missing=1
+          fi
+
+          if [ -z "${VPS_PORT}" ]; then
+            echo "::warning::Missing deploy secret: VPS_PORT, SSH_PORT, or DEPLOY_PORT"
+            missing=1
+          fi
+
+          if [ -z "${VPS_USER}" ]; then
+            echo "::warning::Missing deploy secret: VPS_USER, SSH_USER, or DEPLOY_USER"
+            missing=1
+          fi
+
+          if [ "$missing" -eq 1 ]; then
+            echo "should_deploy=false" >> "$GITHUB_OUTPUT"
+            echo "Deploy skipped because one or more VPS secrets are not configured."
+            exit 0
+          fi
+
+          echo "should_deploy=true" >> "$GITHUB_OUTPUT"
 
       - name: Setup SSH
+        if: steps.deploy-secrets.outputs.should_deploy == 'true' && steps.deploy-secrets.outputs.auth_method == 'key'
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ env.VPS_SSH_KEY }}
 
+      - name: Install password SSH support
+        if: steps.deploy-secrets.outputs.should_deploy == 'true' && steps.deploy-secrets.outputs.auth_method == 'password'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass
+
       - name: Trust VPS host key
-        env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
+        if: steps.deploy-secrets.outputs.should_deploy == 'true'
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -p "${VPS_PORT}" -H "${VPS_HOST}" >> ~/.ssh/known_hosts
 
       - name: Sync frontend
+        if: steps.deploy-secrets.outputs.should_deploy == 'true'
         env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
-          VPS_USER: ${{ secrets.VPS_USER }}
+          DEPLOY_AUTH_METHOD: ${{ steps.deploy-secrets.outputs.auth_method }}
+          SSHPASS: ${{ env.VPS_PASSWORD }}
         run: |
-          rsync -az --delete -e "ssh -p ${VPS_PORT}" \
+          if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
+            rsync_ssh="sshpass -e ssh -p ${VPS_PORT}"
+          else
+            rsync_ssh="ssh -p ${VPS_PORT}"
+          fi
+
+          rsync -az --delete -e "${rsync_ssh}" \
             --exclude '.next/' \
             --exclude 'node_modules/' \
             --exclude '.env' \
@@ -113,12 +155,18 @@ jobs:
             frontend/ "${VPS_USER}@${VPS_HOST}:${VPS_FRONTEND_DIR}/"
 
       - name: Sync backend
+        if: steps.deploy-secrets.outputs.should_deploy == 'true'
         env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
-          VPS_USER: ${{ secrets.VPS_USER }}
+          DEPLOY_AUTH_METHOD: ${{ steps.deploy-secrets.outputs.auth_method }}
+          SSHPASS: ${{ env.VPS_PASSWORD }}
         run: |
-          rsync -az --delete -e "ssh -p ${VPS_PORT}" \
+          if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
+            rsync_ssh="sshpass -e ssh -p ${VPS_PORT}"
+          else
+            rsync_ssh="ssh -p ${VPS_PORT}"
+          fi
+
+          rsync -az --delete -e "${rsync_ssh}" \
             --exclude '.env' \
             --exclude '.env.local' \
             --exclude 'bin/' \
@@ -126,12 +174,18 @@ jobs:
             backend/ "${VPS_USER}@${VPS_HOST}:${VPS_BACKEND_DIR}/"
 
       - name: Build and restart services on VPS
+        if: steps.deploy-secrets.outputs.should_deploy == 'true'
         env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
-          VPS_USER: ${{ secrets.VPS_USER }}
+          DEPLOY_AUTH_METHOD: ${{ steps.deploy-secrets.outputs.auth_method }}
+          SSHPASS: ${{ env.VPS_PASSWORD }}
         run: |
-          ssh -p "${VPS_PORT}" "${VPS_USER}@${VPS_HOST}" "VPS_FRONTEND_DIR='${VPS_FRONTEND_DIR}' VPS_BACKEND_DIR='${VPS_BACKEND_DIR}' VPS_FRONTEND_PROCESS='${VPS_FRONTEND_PROCESS}' VPS_BACKEND_SERVICE='${VPS_BACKEND_SERVICE}' bash -se" <<'EOF'
+          if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
+            ssh_cmd="sshpass -e ssh -p ${VPS_PORT}"
+          else
+            ssh_cmd="ssh -p ${VPS_PORT}"
+          fi
+
+          ${ssh_cmd} "${VPS_USER}@${VPS_HOST}" "VPS_FRONTEND_DIR='${VPS_FRONTEND_DIR}' VPS_BACKEND_DIR='${VPS_BACKEND_DIR}' VPS_FRONTEND_PROCESS='${VPS_FRONTEND_PROCESS}' VPS_BACKEND_SERVICE='${VPS_BACKEND_SERVICE}' bash -se" <<'EOF'
           set -euo pipefail
 
           cd "$VPS_FRONTEND_DIR"

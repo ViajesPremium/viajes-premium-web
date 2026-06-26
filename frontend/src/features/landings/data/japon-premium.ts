@@ -1,4 +1,4 @@
-import type { LandingTheme } from "./types";
+import type { LandingMetadata, LandingTheme } from "./types";
 import { JAPAN_PREMIUM_HERO } from "./hero";
 import { JAPAN_PREMIUM_EXPERIENCES } from "./premium-experiences";
 import { JAPAN_FIRST_FORM, JAPAN_SECOND_FORM } from "./forms";
@@ -21,9 +21,26 @@ const JAPAN_MENU_ITEMS = [
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
+export const JAPAN_PREMIUM_METADATA: LandingMetadata = {
+  title: "Viajes a Japón desde México | Clase PREMIUM",
+  description:
+    "Descubre Japón con experiencias diseñadas en Clase PREMIUM, acompañamiento en español y recorridos cuidadosamente planeados desde México.",
+  keywords: [
+      "Viajes a Japón",
+      "Viajes a Japón desde México",
+      "Tour en Japón desde México",
+      "Japón Premium",
+      "Viajar a Japón",
+      "Japón desde México",
+    ],
+  canonicalPath: "/japon-premium",
+  ogImagePath: "/media/landings/japon/hero/geisha.avif",
+};
+
 export const japonPremium: LandingTheme = {
   slug: "japon-premium",
   label: "Japon Premium",
+  metadata: JAPAN_PREMIUM_METADATA,
   palette: {
     primary: "#db2f21",
     secondary: "#95231c",

@@ -1,14 +1,4 @@
-﻿.highlights {
-  position: relative;
-  width: 100%;
-  background: var(--bg);
-  overflow: hidden;
-  overflow-x: clip;
-  padding: 1rem;
-  padding-bottom: 10rem;
-}
-
-.container {
+﻿.container {
   width: 100%;
   max-width: var(--site-max);
   margin-inline: auto;
@@ -267,7 +257,7 @@
 }
 
 @media (max-width: 768px) {
-.choose {
+  .choose {
     padding: 1rem 1rem;
   }
   .container {

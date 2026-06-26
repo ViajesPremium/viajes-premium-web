@@ -1,7 +1,7 @@
-import type { LandingTheme } from "./types";
+import type { LandingMetadata, LandingTheme } from "./types";
 import { BARRANCAS_PREMIUM_HERO } from "./hero";
 import { BARRANCAS_PREMIUM_EXPERIENCES } from "./premium-experiences";
-import { BARRANCAS_FIRST_FORM, EUROPE_SECOND_FORM } from "./forms";
+import { BARRANCAS_FIRST_FORM, BARRANCAS_SECOND_FORM } from "./forms";
 import { BARRANCAS_BENEFITS } from "./benefits";
 import { BARRANCAS_ITINERARIES } from "./itineraries";
 import { BARRANCAS_PROMISE } from "./promise";
@@ -21,9 +21,26 @@ const BARRANCAS_MENU_ITEMS = [
     { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
+export const BARRANCAS_PREMIUM_METADATA: LandingMetadata = {
+    title: "Barrancas Premium | Viajes Premium",
+    description:
+        "Vive Barrancas con una experiencia premium, itinerario cuidado, atencion personalizada y acompanamiento de inicio a fin.",
+    keywords: [
+        "Barrancas Premium",
+        "viaje a Barrancas",
+        "Barrancas del Cobre",
+        "viajes premium",
+        "itinerario Barrancas",
+    ],
+    canonicalPath: "/barrancas-premium",
+    ogImagePath:
+        "/media/shared/home/destinos/barrancas/barrancas-premium-1.avif",
+};
+
 export const barrancasPremium: LandingTheme = {
     slug: "barrancas-premium",
     label: "Barrancas Premium",
+    metadata: BARRANCAS_PREMIUM_METADATA,
     palette: {
         primary: "#963825",
         secondary: "#D55C26",
@@ -58,7 +75,7 @@ export const barrancasPremium: LandingTheme = {
     },
     alt: "Video de la experiencia Barrancas Premium",
   },
-  secondForm: EUROPE_SECOND_FORM,
+  secondForm: BARRANCAS_SECOND_FORM,
   aliances: BARRANCAS_ALIANCES,
   footer: BARRANCAS_FOOTER,
 };

@@ -5,7 +5,7 @@ import { BlurredStagger } from "@/components/ui/blurred-stagger-text/BlurredStag
 import FlickCardsSlider from "@/components/ui/flick-cards-slider/FlickCardsSlider";
 import type { LandingTheme } from "@/features/landings/data/types";
 import BracketHoverBox from "./BracketHoverBox";
-import styles from "./choose.module.css";
+import styles from "./Benefits.module.css";
 
 type BenefitsProps = {
   landing: LandingTheme;

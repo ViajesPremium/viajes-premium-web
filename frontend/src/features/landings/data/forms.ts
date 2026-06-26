@@ -156,6 +156,30 @@ export const EUROPE_FIRST_FORM = formSection({
   options: EUROPE_FORM_OPTIONS,
 });
 
+export const BARRANCAS_FIRST_FORM = formSection({
+  srHeading: "Cuéntanos cómo imaginas tu viaje a Europa",
+  title: "Europa a tu ritmo, sin perder profundidad.",
+  destination: "Europa",
+  backgroundImage: "/media/landings/europa/forms/europa-form.avif",
+  mobileImage: {
+    src: "/media/landings/europa/forms/first-form-europa-sola.webp",
+    alt: "Figura Europa Premium",
+  },
+  contactPhoneDisplay: "+52 55 4161 9427",
+  contactPhoneLink: "+525541619427",
+  crmTag: "#tags:Europa Premium",
+  labels: {
+    travelWishes: "¿Qué te gustaría vivir en Europa?",
+    experienceType: "¿Con qué tipo de experiencia conectas más? (opcional)",
+  },
+  placeholders: {
+    travelWishes:
+      "Ej. París, Roma, Londres, Ámsterdam, trenes, gastronomía, museos, paisajes y tiempo libre para explorar.",
+    experienceType: "Ej. clásico, cosmopolita, cultural profundo...",
+  },
+  options: EUROPE_FORM_OPTIONS,
+});
+
 export const JAPAN_SECOND_FORM = {
   ...JAPAN_FIRST_FORM,
   srHeading: "Formulario de contacto Japón Premium",
@@ -172,6 +196,13 @@ export const KOREA_SECOND_FORM = {
 };
 
 export const EUROPE_SECOND_FORM = {
+  ...EUROPE_FIRST_FORM,
+  srHeading: "Formulario de contacto Europa Premium",
+  title: "Hablemos de tu ruta por Europa.",
+  backgroundImage: "/media/landings/europa/forms/cta-form-europa.avif",
+};
+
+export const BARRANCAS_SECOND_FORM = {
   ...EUROPE_FIRST_FORM,
   srHeading: "Formulario de contacto Europa Premium",
   title: "Hablemos de tu ruta por Europa.",

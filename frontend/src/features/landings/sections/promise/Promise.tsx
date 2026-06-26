@@ -45,7 +45,7 @@ export default function Includes({ landing }: PromiseProps) {
         const exactIndex = gsap.utils.clamp(
           0,
           travelSlots,
-          gsap.utils.mapRange(0.06, 0.9, 0, travelSlots, progress),
+          gsap.utils.mapRange(0.01, 0.8, 0, travelSlots, progress),
         );
 
         circles.forEach((circle, index) => {
@@ -68,15 +68,15 @@ export default function Includes({ landing }: PromiseProps) {
 
       const fadeScroll = scrollLabel
         ? gsap.to(scrollLabel, {
-          autoAlpha: 0,
-          duration: 0.7,
-          scrollTrigger: {
-            trigger: root,
-            start: "top top",
-            end: "top top-=1",
-            toggleActions: "play none reverse none",
-          },
-        })
+            autoAlpha: 0,
+            duration: 0.7,
+            scrollTrigger: {
+              trigger: root,
+              start: "top top",
+              end: "top top-=1",
+              toggleActions: "play none reverse none",
+            },
+          })
         : null;
 
       const mm = gsap.matchMedia();

@@ -16,6 +16,7 @@ import { areAnimationsEnabledForDevice } from "@/lib/animation-budget";
 import styles from "./transition-provider.module.css";
 
 const PRINCIPAL_LOGO = "/media/shared/logos/principal-logo.svg";
+const BRAND_PRIMARY_COLOR = "#002744";
 const LANDING_LOGOS: Record<string, string> = {
   "japon-premium": "/media/shared/logos/japon/japon-grande-logo.png",
   "corea-premium": "/media/shared/logos/corea/corea-grande-logo.png",
@@ -132,7 +133,7 @@ function resolveTransitionColor(targetPath: string): string {
     );
   });
 
-  return matchedLanding?.palette.primary ?? "#9f1d1f";
+  return matchedLanding?.palette.primary ?? BRAND_PRIMARY_COLOR;
 }
 
 export function TransitionProvider({ children }: { children: ReactNode }) {

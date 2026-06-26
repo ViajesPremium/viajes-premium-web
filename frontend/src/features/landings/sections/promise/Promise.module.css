@@ -73,7 +73,7 @@
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 35vw;
+  width: 30vw;
   height: clamp(320px, 42vw, 600px);
   display: flex;
   flex-direction: column;
@@ -250,7 +250,6 @@
   .titleBlock {
     padding-top: 1.8rem;
   }
-
 
   .cardWrapper {
     width: min(68vw, 250px);

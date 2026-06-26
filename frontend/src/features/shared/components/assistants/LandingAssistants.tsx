@@ -36,7 +36,7 @@ export default function LandingAssistants() {
           brandLabel="Viajes Premium"
           avatarSrc={BRAND_FAVICONS.home}
           accentColor="var(--primary)"
-          welcomeMessage="Bienvenido a Viajes Premium. Cuéntame qué destino tienes en mente y te orientaré hacia la mejor experiencia."
+          welcomeMessage="Bienvenido a Viajes Premium. Me encantará ayudarle a diseñar una experiencia cómoda, bien cuidada y memorable. ¿Cómo le puedo ayudar?"
           quickReplies={[
             "Quiero viajar a Japón",
             "Quiero viajar a Europa",
@@ -69,7 +69,10 @@ export default function LandingAssistants() {
         enabled
         botSlug={landing.slug}
         brandLabel={landing.label}
-        avatarSrc={BRAND_FAVICONS[landing.slug] ?? "/media/shared/favicones/favicon-viajes-premium.svg"}
+        avatarSrc={
+          BRAND_FAVICONS[landing.slug] ??
+          "/media/shared/favicones/favicon-viajes-premium.svg"
+        }
         accentColor={landing.palette.primary}
         welcomeMessage={`Bienvenido a ${landing.label}. Me encantará ayudarte a diseñar una experiencia cómoda, bien cuidada y memorable. ¿Cómo te puedo ayudar?`}
         quickReplies={quickReplies}

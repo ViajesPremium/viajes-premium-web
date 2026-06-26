@@ -159,7 +159,6 @@
 .heroPrimaryCtaShell {
   position: relative;
   display: inline-flex;
-  width: min(100%, 340px);
   isolation: isolate;
   z-index: 1;
   transform-origin: center;
@@ -172,14 +171,18 @@
   inset: -8px;
   border-radius: 3px;
   background:
-    radial-gradient(circle at 20% 25%,
+    radial-gradient(
+      circle at 20% 25%,
       color-mix(in srgb, var(--primary, #db2f21) 72%, white 28%) 0%,
       color-mix(in srgb, var(--primary, #db2f21) 30%, transparent) 38%,
-      transparent 70%),
-    radial-gradient(circle at 72% 72%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 72% 72%,
       color-mix(in srgb, var(--primary, #db2f21) 64%, black 36%) 0%,
       color-mix(in srgb, var(--primary, #db2f21) 32%, transparent) 36%,
-      transparent 72%);
+      transparent 72%
+    );
   filter: blur(22px) saturate(0.95);
   opacity: 0.52;
   transform: scale(1.04);
@@ -225,7 +228,6 @@
 }
 
 @keyframes scrollCueBounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -239,7 +241,6 @@
 }
 
 @keyframes heroCtaBreath {
-
   0%,
   100% {
     transform: scale(1);
@@ -428,7 +429,6 @@
 
   .heroPrimaryCtaShell {
     display: flex;
-    width: min(100%, 320px);
     margin-inline: auto;
     justify-content: center;
   }

@@ -6,9 +6,9 @@
   --surface-elevated: #ffffff;
   --surface-muted: #e2e8f0;
 
-  --primary: #0f172a;
-  --secondary: #2563eb;
-  --complementary: #f59e0b;
+  --primary: #002744;
+  --secondary: #777777ff;
+  --complementary: #fdcb34;
   --accent: var(--complementary);
   --black: #16181b;
   --yellow: #f2cd5e;

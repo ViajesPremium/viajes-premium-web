@@ -1,4 +1,4 @@
-import type { LandingTheme } from "./types";
+import type { LandingMetadata, LandingTheme } from "./types";
 import { KOREA_PREMIUM_HERO } from "./hero";
 import { KOREA_PREMIUM_EXPERIENCES } from "./premium-experiences";
 import { KOREA_FIRST_FORM, KOREA_SECOND_FORM } from "./forms";
@@ -21,9 +21,24 @@ const KOREA_MENU_ITEMS = [
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
+export const KOREA_PREMIUM_METADATA: LandingMetadata = {
+  title: "Viajes a Corea del Sur | Clase PREMIUM ",
+  description:
+    "Descubre Corea del Sur entre tradición, tecnología, gastronomía y experiencias diseñadas en Clase PREMIUM.",
+  keywords: [
+    "Viajes a Corea del Sur",
+    "Tour por Corea",
+    "Viaje a Corea desde México",
+    " Viajar a Corea del Sur, Corea Premium",
+  ],
+  canonicalPath: "/corea-premium",
+  ogImagePath: "/media/landings/corea/hero/coreana.avif",
+};
+
 export const coreaPremium: LandingTheme = {
   slug: "corea-premium",
   label: "Corea Premium",
+  metadata: KOREA_PREMIUM_METADATA,
   palette: {
     primary: "#1D624E",
     secondary: "#482D55",

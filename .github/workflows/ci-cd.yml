@@ -1,0 +1,137 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: viajes-premium-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  VPS_FRONTEND_DIR: /var/www/viajes-premium/viajes-premium
+  VPS_BACKEND_DIR: /var/www/viajes-premium/backend
+  VPS_FRONTEND_PROCESS: viajes-premium
+  VPS_BACKEND_SERVICE: viajes-premium-backend.service
+
+jobs:
+  verify:
+    name: Verify build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Lint frontend
+        working-directory: frontend
+        run: npm run lint
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: backend/go.mod
+
+      - name: Test backend
+        working-directory: backend
+        run: go test ./...
+
+      - name: Build backend
+        working-directory: backend
+        run: go build -o /tmp/api ./cmd/api
+
+  deploy:
+    name: Deploy to VPS
+    needs: verify
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Trust VPS host key
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "${VPS_PORT}" -H "${VPS_HOST}" >> ~/.ssh/known_hosts
+
+      - name: Sync frontend
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          rsync -az --delete -e "ssh -p ${VPS_PORT}" \
+            --exclude '.next/' \
+            --exclude 'node_modules/' \
+            --exclude '.env' \
+            --exclude '.env.local' \
+            frontend/ "${VPS_USER}@${VPS_HOST}:${VPS_FRONTEND_DIR}/"
+
+      - name: Sync backend
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          rsync -az --delete -e "ssh -p ${VPS_PORT}" \
+            --exclude '.env' \
+            --exclude '.env.local' \
+            --exclude 'bin/' \
+            --exclude 'api.exe' \
+            backend/ "${VPS_USER}@${VPS_HOST}:${VPS_BACKEND_DIR}/"
+
+      - name: Build and restart services on VPS
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          ssh -p "${VPS_PORT}" "${VPS_USER}@${VPS_HOST}" "VPS_FRONTEND_DIR='${VPS_FRONTEND_DIR}' VPS_BACKEND_DIR='${VPS_BACKEND_DIR}' VPS_FRONTEND_PROCESS='${VPS_FRONTEND_PROCESS}' VPS_BACKEND_SERVICE='${VPS_BACKEND_SERVICE}' bash -se" <<'EOF'
+          set -euo pipefail
+
+          cd "$VPS_FRONTEND_DIR"
+          rm -rf .next
+          npm ci
+          npm run build
+          pm2 restart "$VPS_FRONTEND_PROCESS" --update-env
+
+          cd "$VPS_BACKEND_DIR"
+          rm -rf bin
+          mkdir -p bin
+          go build -o bin/api ./cmd/api
+          systemctl restart "$VPS_BACKEND_SERVICE"
+          EOF

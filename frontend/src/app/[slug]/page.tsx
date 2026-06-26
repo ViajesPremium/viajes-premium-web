@@ -16,11 +16,18 @@ import SecondForm from "@/features/shared/sections/second-form/SecondForm";
 import Video from "@/features/landings/sections/video/Video";
 import { getLandingBySlug, getLandingSlugs } from "@/features/landings/data";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://viajespremium.com.mx";
+
 type LandingPageProps = {
   params: Promise<{
     slug: string;
   }>;
 };
+
+function toAbsoluteUrl(path: string) {
+  return new URL(path, SITE_URL).toString();
+}
 
 export function generateStaticParams() {
   return getLandingSlugs().map((slug) => ({ slug }));
@@ -38,9 +45,36 @@ export async function generateMetadata({
     };
   }
 
+  const metadata = landing.metadata;
+  const canonicalUrl = toAbsoluteUrl(metadata.canonicalPath);
+  const ogImageUrl = toAbsoluteUrl(metadata.ogImagePath);
+
   return {
-    title: landing.hero.seoHeading,
-    description: landing.hero.description,
+    title: metadata.title,
+    description: metadata.description,
+    keywords: metadata.keywords,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description,
+      url: canonicalUrl,
+      siteName: "Viajes Premium",
+      type: "website",
+      images: [
+        {
+          url: ogImageUrl,
+          alt: landing.label,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      description: metadata.description,
+      images: [ogImageUrl],
+    },
   };
 }
 

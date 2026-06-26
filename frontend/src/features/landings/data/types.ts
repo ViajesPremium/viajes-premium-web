@@ -10,6 +10,7 @@ export type LandingPalette = {
 export type LandingTheme = {
   slug: LandingSlug;
   label: string;
+  metadata: LandingMetadata;
   palette: LandingPalette;
   navbar: LandingNavbar;
   hero: LandingHero;

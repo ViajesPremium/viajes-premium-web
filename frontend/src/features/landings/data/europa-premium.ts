@@ -1,4 +1,4 @@
-import type { LandingTheme } from "./types";
+import type { LandingMetadata, LandingTheme } from "./types";
 import { EUROPA_PREMIUM_HERO } from "./hero";
 import { EUROPA_PREMIUM_EXPERIENCES } from "./premium-experiences";
 import { EUROPE_FIRST_FORM, EUROPE_SECOND_FORM } from "./forms";
@@ -21,9 +21,25 @@ const EUROPE_MENU_ITEMS = [
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
+export const EUROPE_PREMIUM_METADATA: LandingMetadata = {
+  title: "Viajes a Europa | Clase PREMIUM",
+  description:
+    "Descubre Europa entre ciudades históricas, cultura, gastronomía y experiencias diseñadas en Clase PREMIUM.",
+  keywords: [
+    "Viajes a Europa",
+    "Tour por Europa",
+    "Viaja a Europa desde Mexico",
+    "Viajar a Europa",
+    "Europa Premium",
+  ],
+  canonicalPath: "/europa-premium",
+  ogImagePath: "/media/landings/europa/hero/diosa.avif",
+};
+
 export const europaPremium: LandingTheme = {
   slug: "europa-premium",
   label: "Europa Premium",
+  metadata: EUROPE_PREMIUM_METADATA,
   palette: {
     primary: "#511E62",
     secondary: "#882BAC",

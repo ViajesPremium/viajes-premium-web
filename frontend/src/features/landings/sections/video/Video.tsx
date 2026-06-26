@@ -112,10 +112,13 @@ export default function Video({ srHeading, desktop, mobile, alt }: VideoProps) {
   };
 
   const sources = useMemo(() => {
-    if (isMobile) {
-      return [mobile.webm, mobile.mp4].filter(Boolean);
-    }
-    return [desktop.webm, desktop.mp4].filter(Boolean);
+    const selectedSources = isMobile
+      ? [mobile.webm, mobile.mp4]
+      : [desktop.webm, desktop.mp4];
+
+    return Array.from(
+      new Set(selectedSources.filter((source): source is string => Boolean(source))),
+    );
   }, [desktop.mp4, desktop.webm, isMobile, mobile.mp4, mobile.webm]);
 
   const sourcesKey = useMemo(() => sources.join("|"), [sources]);
@@ -289,8 +292,12 @@ export default function Video({ srHeading, desktop, mobile, alt }: VideoProps) {
         playsInline
         preload="metadata"
       >
-        {sources.map((source) => (
-          <source key={source} src={source} type={getVideoMimeType(source)} />
+        {sources.map((source, index) => (
+          <source
+            key={`${source}-${index}`}
+            src={source}
+            type={getVideoMimeType(source)}
+          />
         ))}
       </video>
 

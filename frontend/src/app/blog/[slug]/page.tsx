@@ -3,7 +3,7 @@ import path from "node:path";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
-import BackButton from "@/components/shared/back-button/BackButton";
+import { Button } from "@/components/ui/button/Button";
 import Footer from "@/features/landings/sections/footer/Footer";
 import { SITE_FOOTER } from "@/features/shared/data/site-footer";
 import { BLOG_CONTENT_BY_SLUG } from "@/features/blog/data/blog-content";
@@ -269,7 +269,9 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
       <main className={`${styles.page} ${styles.pageEnter}`}>
         <article className={styles.article}>
           <div className={styles.buttonContainer}>
-            <BackButton href="/blog" />
+            <Button href="/blog" variant="secondary">
+              Volver al blog
+            </Button>
           </div>
           <h1 className={styles.title}>{getReadableBlogTitle(slug)}</h1>
           {blogSubtitle ? (

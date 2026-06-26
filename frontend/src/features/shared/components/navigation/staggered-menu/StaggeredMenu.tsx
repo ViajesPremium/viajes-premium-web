@@ -663,6 +663,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         ref={panelRef}
         className="staggered-menu-panel"
         aria-hidden={!open}
+        data-lenis-prevent
       >
         <div className="sm-panel-inner">
           <ul

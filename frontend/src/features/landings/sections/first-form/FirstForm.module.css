@@ -25,8 +25,10 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: var(--first-form-bg-image,
-      url("/media/shared/home/form/formulario.avif"));
+  background-image: var(
+    --first-form-bg-image,
+    url("/media/shared/home/form/formulario.avif")
+  );
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -52,7 +54,6 @@
   justify-content: center;
   align-items: flex-start;
   gap: clamp(1.1rem, 2.5vw, 2rem);
-  padding: clamp(1.6rem, 3vw, 3rem) 2rem clamp(1.6rem, 3vw, 3rem) var(--site-px);
   pointer-events: none;
   width: 100%;
 }
@@ -151,11 +152,13 @@
 }
 
 .titleJaponGold {
-  background-image: linear-gradient(to right,
-      #bf953f,
-      #fcf6ba,
-      #b38728,
-      #fcf6ba);
+  background-image: linear-gradient(
+    to right,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fcf6ba
+  );
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;

@@ -129,22 +129,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y sshpass
 
-      - name: Trust VPS host key
-        if: steps.deploy-secrets.outputs.should_deploy == 'true'
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -p "${VPS_PORT}" -H "${VPS_HOST}" >> ~/.ssh/known_hosts
-
       - name: Sync frontend
         if: steps.deploy-secrets.outputs.should_deploy == 'true'
         env:
           DEPLOY_AUTH_METHOD: ${{ steps.deploy-secrets.outputs.auth_method }}
           SSHPASS: ${{ env.VPS_PASSWORD }}
         run: |
+          mkdir -p "$HOME/.ssh"
+
+          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -p ${VPS_PORT}"
+
           if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
-            rsync_ssh="sshpass -e ssh -p ${VPS_PORT}"
+            rsync_ssh="sshpass -e ssh ${ssh_opts}"
           else
-            rsync_ssh="ssh -p ${VPS_PORT}"
+            rsync_ssh="ssh ${ssh_opts}"
           fi
 
           rsync -az --delete -e "${rsync_ssh}" \
@@ -160,10 +158,14 @@ jobs:
           DEPLOY_AUTH_METHOD: ${{ steps.deploy-secrets.outputs.auth_method }}
           SSHPASS: ${{ env.VPS_PASSWORD }}
         run: |
+          mkdir -p "$HOME/.ssh"
+
+          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -p ${VPS_PORT}"
+
           if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
-            rsync_ssh="sshpass -e ssh -p ${VPS_PORT}"
+            rsync_ssh="sshpass -e ssh ${ssh_opts}"
           else
-            rsync_ssh="ssh -p ${VPS_PORT}"
+            rsync_ssh="ssh ${ssh_opts}"
           fi
 
           rsync -az --delete -e "${rsync_ssh}" \
@@ -179,10 +181,14 @@ jobs:
           DEPLOY_AUTH_METHOD: ${{ steps.deploy-secrets.outputs.auth_method }}
           SSHPASS: ${{ env.VPS_PASSWORD }}
         run: |
+          mkdir -p "$HOME/.ssh"
+
+          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -p ${VPS_PORT}"
+
           if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
-            ssh_cmd="sshpass -e ssh -p ${VPS_PORT}"
+            ssh_cmd="sshpass -e ssh ${ssh_opts}"
           else
-            ssh_cmd="ssh -p ${VPS_PORT}"
+            ssh_cmd="ssh ${ssh_opts}"
           fi
 
           ${ssh_cmd} "${VPS_USER}@${VPS_HOST}" "VPS_FRONTEND_DIR='${VPS_FRONTEND_DIR}' VPS_BACKEND_DIR='${VPS_BACKEND_DIR}' VPS_FRONTEND_PROCESS='${VPS_FRONTEND_PROCESS}' VPS_BACKEND_SERVICE='${VPS_BACKEND_SERVICE}' bash -se" <<'EOF'

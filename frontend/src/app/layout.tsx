@@ -6,7 +6,7 @@ import SmothScrollProvider from "@/providers/SmothScrollProvider";
 import LandingNavigation from "@/features/shared/components/navigation/LandingNavigation";
 import LandingAssistants from "@/features/shared/components/assistants/LandingAssistants";
 import PageTransitionProvider from "@/components/providers/page-transition/TransitionProvider";
-import "../features/shared/components/navigation/staggered-menu/Navbar.css";
+import "../features/shared/components/navigation/staggered-menu/navbar.css";
 import "./globals.css";
 
 const geistSans = Geist({

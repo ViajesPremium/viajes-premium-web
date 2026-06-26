@@ -42,7 +42,7 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: frontend
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Lint frontend
         working-directory: frontend
@@ -125,7 +125,7 @@ jobs:
 
           cd "$VPS_FRONTEND_DIR"
           rm -rf .next
-          npm ci
+          npm install --no-audit --no-fund
           npm run build
           pm2 restart "$VPS_FRONTEND_PROCESS" --update-env
 

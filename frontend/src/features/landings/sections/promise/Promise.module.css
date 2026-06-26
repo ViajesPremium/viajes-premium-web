@@ -131,7 +131,7 @@
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  font-size: clamp(0.85rem, 2vw, 1.3rem);
   line-height: 1.4;
   font-weight: 300;
   color: color-mix(in srgb, var(--black) 65%, transparent);

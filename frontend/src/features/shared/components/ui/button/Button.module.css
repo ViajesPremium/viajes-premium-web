@@ -1,0 +1,127 @@
+.buttonWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.buttonBase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  width: 260px;
+  height: 2.8rem;
+  min-height: 2.8rem;
+  border: 0;
+  border-radius: 0.1rem;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--white, #ffffff);
+  transition: all 500ms ease;
+  font-family: var(--font-nohemi);
+  letter-spacing: 0.04rem;
+}
+
+.buttonBase:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.buttonPrimary {
+  --button-accent: var(--primary);
+  padding: 0.15rem 4.2rem 0.15rem 2rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 3%, var(--button-accent) 88%) 0%,
+    color-mix(in srgb, white 4%, var(--button-accent) 96%) 54%,
+    color-mix(in srgb, black 6%, var(--button-accent) 94%) 100%
+  );
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+}
+
+.buttonWrapper:hover .buttonPrimary {
+  --button-accent: var(--secondary);
+  padding-left: 3rem;
+  padding-right: 1rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 10%, var(--button-accent) 90%) 0%,
+    color-mix(in srgb, white 3%, var(--button-accent) 97%) 54%,
+    color-mix(in srgb, black 8%, var(--button-accent) 92%) 100%
+  );
+}
+
+.buttonSecondary {
+  --button-accent: color-mix(in srgb, var(--black) 95%, white);
+  padding: 0 1.2rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 1%, var(--button-accent) 92%) 0%,
+    color-mix(in srgb, white 2%, var(--button-accent) 97%) 50%,
+    color-mix(in srgb, black 1%, var(--button-accent) 93%) 100%
+  );
+}
+
+.buttonSecondary:hover {
+  --button-accent: color-mix(in srgb, var(--complementary) 82%, white 18%);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 10%, var(--button-accent) 90%) 0%,
+    color-mix(in srgb, white 4%, var(--button-accent) 96%) 50%,
+    color-mix(in srgb, black 7%, var(--button-accent) 93%) 100%
+  );
+  transition: all 3ms ease-in-out;
+}
+
+.buttonOutline {
+  --button-accent: color-mix(in srgb, var(--white, #ffffff) 75%, transparent);
+  padding: 0 1.2rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, white 8%, transparent) 0%,
+    color-mix(in srgb, var(--button-accent) 16%, transparent) 100%
+  );
+  border: 1px solid var(--white, #ffffff);
+}
+
+.buttonOutline:hover {
+  background-color: var(--white, #ffffff);
+  color: var(--black, #000000);
+}
+
+.buttonLabel {
+  position: relative;
+  z-index: 2;
+  padding-top: 2px;
+  transition: all 500ms ease;
+}
+
+.buttonIcon {
+  position: absolute;
+  right: 0.25rem;
+  z-index: 9;
+  display: flex;
+  width: 2.3rem;
+  height: 2.3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.1rem;
+  background-color: var(--white);
+  color: var(--black);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 500ms ease;
+}
+
+.buttonIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.buttonWrapper:hover .buttonPrimary .buttonIcon {
+  right: calc(100% - 41px);
+}

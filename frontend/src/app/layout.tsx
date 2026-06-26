@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import MagneticCursor from "@/components/effects/MagneticCursor";
+import LandingNavigation from "@/features/shared/components/navigation/LandingNavigation";
+import PageTransitionProvider from "@/components/providers/page-transition/transition-provider";
+import "@/features/shared/components/navigation/staggered-menu/navbar.css";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,7 +34,14 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <MagneticCursor>
+          <PageTransitionProvider>
+            <LandingNavigation />
+            {children}
+          </PageTransitionProvider>
+        </MagneticCursor>
+      </body>
     </html>
   );
 }

@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import type { CSSProperties } from "react";
 import { notFound } from "next/navigation";
-import { getLandingBySlug, getLandingSlugs } from "@/data";
+import Hero from "@/features/landings/sections/hero/Hero";
+import PremiumExperiences from "@/features/landings/sections/premium-experiences/PremiumExperiences";
+import {
+  getLandingBySlug,
+  getLandingSlugs,
+} from "@/features/landings/data";
 
 type LandingPageProps = {
   params: Promise<{
@@ -26,8 +31,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: landing.label,
-    description: `${landing.label} theme`,
+    title: landing.hero.seoHeading,
+    description: landing.hero.description,
   };
 }
 
@@ -41,52 +46,16 @@ export default async function LandingPage({ params }: LandingPageProps) {
 
   return (
     <main
-      className="min-h-screen text-white"
-      style={{
-        background: `linear-gradient(135deg, ${landing.palette.primary}, ${landing.palette.secondary} 52%, ${landing.palette.complementary})`,
-      }}
+      style={
+        {
+          "--primary": landing.palette.primary,
+          "--secondary": landing.palette.secondary,
+          "--complementary": landing.palette.complementary,
+        } as CSSProperties
+      }
     >
-      <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-between px-6 py-8 sm:px-10 lg:px-12">
-        <div>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-white/80 transition hover:text-white"
-          >
-            {"<-"} Volver al inicio
-          </Link>
-
-          <h1 className="mt-16 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
-            {landing.label}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/80">
-            {landing.slug}
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-3">
-          {[
-            { key: "primary", value: landing.palette.primary },
-            { key: "secondary", value: landing.palette.secondary },
-            { key: "complementary", value: landing.palette.complementary },
-          ].map((item) => (
-            <article
-              key={item.key}
-              className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">
-                {item.key}
-              </p>
-              <div
-                className="mt-4 h-24 rounded-2xl border border-white/10"
-                style={{ background: item.value }}
-              />
-              <p className="mt-4 font-mono text-sm text-white/80">
-                {item.value}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <Hero landing={landing} />
+      <PremiumExperiences landing={landing} />
     </main>
   );
 }

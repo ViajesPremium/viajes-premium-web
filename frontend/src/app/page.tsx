@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { landingList } from "@/data";
+import { landingList } from "@/features/landings/data";
 
 export default function Home() {
   return (
@@ -13,7 +13,8 @@ export default function Home() {
             Un sistema de landings con palette propia por marca.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Cada slug carga su archivo individual dentro de <code>src/data</code>{" "}
+            Cada slug carga su archivo individual dentro de{" "}
+            <code>src/features/landings/data</code>{" "}
             y solo define su paleta: primary, secondary y complementary.
           </p>
         </div>

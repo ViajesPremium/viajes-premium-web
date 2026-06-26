@@ -1,0 +1,36 @@
+:root {
+  --background: #f3f3f0;
+  --bg: var(--background);
+
+  --surface: #f8fafc;
+  --surface-elevated: #ffffff;
+  --surface-muted: #e2e8f0;
+
+  --primary: #0f172a;
+  --secondary: #2563eb;
+  --complementary: #f59e0b;
+  --accent: var(--complementary);
+  --black: #020617;
+  --white: #ffffff;
+
+  --text-strong: #020617;
+  --text-soft: #475569;
+  --text-inverse: #ffffff;
+
+  --container-max-width: 1200px;
+  --section-padding-x: clamp(1rem, 3vw, 2rem);
+  --section-padding-y: clamp(3rem, 6vw, 6rem);
+
+  --radius-sm: 0.2rem;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.14);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 240ms ease;
+  --transition-slow: 420ms ease;
+
+  --app-vh: 100svh;
+  --font-nohemi: var(--font-geist-sans);
+}

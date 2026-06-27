@@ -60,6 +60,10 @@ func detectName(message string) string {
 		return ""
 	}
 
+	if looksLikeLocationCandidate(cleaned) {
+		return ""
+	}
+
 	if match := namePattern2.FindStringSubmatch(cleaned); len(match) > 1 {
 		return strings.TrimSpace(match[1])
 	}
@@ -68,13 +72,124 @@ func detectName(message string) string {
 
 func isSuspiciousNameCandidate(value string) bool {
 	lower := normalizeText(value)
-	suspicious := []string{"@", "http", "www", "precio", "cotizacion", "fechas", "telefono", "tel", "hola", "buenas", "buenos", "gracias", "interes", "interesa", "quiero", "viaje", "viajar", "itinerario", "itinerarios", "japon", "europa", "corea", "canada", "peru", "chiapas", "yucatan", "barrancas", "chepe", "hokkaido", "shibuya", "anime", "manga", "serie", "series", "pelicula", "peliculas"}
+	suspicious := []string{"@", "http", "www", "precio", "cotizacion", "fechas", "telefono", "tel", "hola", "buenas", "buenos", "gracias", "entiendo", "claro", "perfecto", "vale", "ok", "de acuerdo", "interes", "interesa", "quiero", "viaje", "viajar", "itinerario", "itinerarios", "japon", "europa", "corea", "canada", "peru", "chiapas", "yucatan", "barrancas", "chepe", "hokkaido", "shibuya", "anime", "manga", "serie", "series", "pelicula", "peliculas"}
 	for _, needle := range suspicious {
 		if strings.Contains(lower, needle) {
 			return true
 		}
 	}
+	if looksLikeLocationCandidate(lower) {
+		return true
+	}
 	return false
+}
+
+func looksLikeLocationCandidate(value string) bool {
+	normalized := normalizeText(value)
+	if normalized == "" {
+		return false
+	}
+
+	locationSignals := []string{
+		"puerto",
+		"vallarta",
+		"playa",
+		"ciudad",
+		"isla",
+		"bahia",
+		"costa",
+		"valle",
+		"sierra",
+		"montana",
+		"rio",
+		"lago",
+		"laguna",
+		"centro",
+		"norte",
+		"sur",
+		"este",
+		"oeste",
+		"cdmx",
+	}
+
+	if !containsAny(normalized, locationSignals) {
+		return false
+	}
+
+	if len(strings.Fields(normalized)) <= 4 {
+		return true
+	}
+
+	return containsAny(normalized, []string{"me interesa", "quiero", "busco", "viajar a", "viajo a", "destino"})
+}
+
+func homeLocationInterest(message string) string {
+	normalized := normalizeText(strings.TrimSpace(message))
+	if normalized == "" {
+		return ""
+	}
+
+	destinationGroups := []struct {
+		label   string
+		aliases []string
+	}{
+		{
+			label: "Japon",
+			aliases: []string{
+				"japon", "tokio", "tokyo", "kioto", "kyoto", "osaka", "nara", "hakone", "fuji", "shibuya", "hokkaido",
+			},
+		},
+		{
+			label: "Corea",
+			aliases: []string{
+				"corea", "seoul", "seul", "busan", "jeju",
+			},
+		},
+		{
+			label: "Europa",
+			aliases: []string{
+				"europa", "alemania", "berlin", "munich", "munich", "francia", "paris", "roma", "italia", "londres", "amsterdam", "suiza", "praga", "viena", "barcelona", "madrid", "toscana", "alpes", "ruta romantica",
+			},
+		},
+		{
+			label: "Canada",
+			aliases: []string{
+				"canada", "toronto", "montreal", "vancouver", "banff", "jasper",
+			},
+		},
+		{
+			label: "Peru",
+			aliases: []string{
+				"peru", "cusco", "cuzco", "machu picchu", "lima", "arequipa",
+			},
+		},
+		{
+			label: "Chiapas",
+			aliases: []string{
+				"chiapas", "san cristobal", "palenque", "agua azul", "misol ha",
+			},
+		},
+		{
+			label: "Barrancas",
+			aliases: []string{
+				"barrancas", "chepe", "creel", "divisadero", "chihuahua", "sierra tarahumara",
+			},
+		},
+		{
+			label: "Yucatan",
+			aliases: []string{
+				"yucatan", "merida", "valladolid", "riviera maya", "tulum", "cancun", "playa del carmen",
+			},
+		},
+	}
+
+	for _, group := range destinationGroups {
+		if containsAny(normalized, group.aliases) {
+			return group.label
+		}
+	}
+
+	return ""
 }
 
 func detectInterest(bot domain.BotKnowledge, normalizedMessage string) string {
@@ -95,6 +210,12 @@ func detectInterest(bot domain.BotKnowledge, normalizedMessage string) string {
 
 	if containsAny(normalizedMessage, []string{"hokkaido", "aohkaido"}) {
 		return "Hokkaido"
+	}
+
+	if bot.Slug == "home" {
+		if value := homeLocationInterest(normalizedMessage); value != "" {
+			return value
+		}
 	}
 
 	for _, keyword := range bot.DestinationKeywords {
@@ -322,6 +443,13 @@ func shouldReplaceInterest(current, next string, bot domain.BotKnowledge) bool {
 	}
 	if strings.TrimSpace(current) == "" {
 		return true
+	}
+	if bot.Slug == "home" {
+		currentHomeDestination := homeLocationInterest(current)
+		nextHomeDestination := homeLocationInterest(next)
+		if nextHomeDestination != "" && currentHomeDestination != nextHomeDestination {
+			return true
+		}
 	}
 	if isKnownItineraryInterest(current, bot) {
 		return false

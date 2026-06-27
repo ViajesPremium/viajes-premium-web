@@ -57,6 +57,10 @@ func BuildRuleResponse(bot domain.BotKnowledge, conversation *domain.Conversatio
 		return appendStrictFollowUp(reply, bot, lead, conversation)
 	}
 
+	if reply, ok := unsupportedHomeDestinationResponse(bot, normalized); ok {
+		return reply
+	}
+
 	if dateValue := detectTravelDate(normalized, now); dateValue != "" {
 		return appendStrictFollowUp(travelDateCaptureResponse(dateValue), bot, lead, conversation)
 	}
@@ -420,6 +424,20 @@ func homeResponse(bot domain.BotKnowledge, lead *domain.Lead, message string) st
 		return "Yucatan Premium combina cenotes, haciendas, cultura maya y descanso con una propuesta muy cuidada."
 	}
 	return "Le puedo ayudar a encontrar la experiencia ideal segun el destino que tenga en mente."
+}
+
+func unsupportedHomeDestinationResponse(bot domain.BotKnowledge, message string) (string, bool) {
+	if bot.Slug != "home" {
+		return "", false
+	}
+	if homeLocationInterest(message) != "" {
+		return "", false
+	}
+	if !looksLikeLocationCandidate(message) {
+		return "", false
+	}
+
+	return "Entiendo. No manejamos ese destino dentro de nuestras marcas. Si desea, puedo orientarle hacia Japon, Corea, Europa, Canada, Peru, Chiapas, Barrancas o Yucatan. Cual de esas experiencias le interesa?", true
 }
 
 func travelDateCaptureResponse(dateValue string) string {

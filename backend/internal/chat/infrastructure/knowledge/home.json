@@ -41,7 +41,7 @@
     "reason": "El visitante mostro interes en avanzar con una marca especifica.",
     "closing_message": "Con gusto le ayudamos a elegir el destino ideal. Un asesor especializado puede darle seguimiento en breve."
   },
-  "lead_capture": ["name", "phone", "email", "travel_date", "interest"],
+  "lead_capture": ["interest", "phone", "email", "travel_date", "name"],
   "destination_keywords": [
     "japon",
     "corea",

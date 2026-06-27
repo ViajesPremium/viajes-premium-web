@@ -732,6 +732,12 @@ func TestDetectNameIgnoresTravelInterestPhrases(t *testing.T) {
 	if name := detectName("Japon pop me interesa"); name != "" {
 		t.Fatalf("expected travel intent to not be treated as a name, got %q", name)
 	}
+	if name := detectName("Entiendo, me interesa conocer europa"); name != "" {
+		t.Fatalf("expected conversational acknowledgement to not be treated as a name, got %q", name)
+	}
+	if name := detectName("Puerto Vallarta"); name != "" {
+		t.Fatalf("expected destination phrase to not be treated as a name, got %q", name)
+	}
 	if name := detectName("Me llamo Ismael"); name != "Ismael" {
 		t.Fatalf("expected explicit name capture, got %q", name)
 	}
@@ -838,6 +844,25 @@ func TestNextCaptureQuestionFollowsConfiguredLeadCaptureOrder(t *testing.T) {
 
 	if !strings.Contains(lower, "itinerario") && !strings.Contains(lower, "experiencia") && !strings.Contains(lower, "inter") {
 		t.Fatalf("expected interest to follow travel date in configured order, got %q", question)
+	}
+}
+
+func TestNextCaptureQuestionPrioritizesInterestBeforeNameOnHome(t *testing.T) {
+	bot := domain.BotKnowledge{
+		LeadCapture: []string{"interest", "phone", "email", "travel_date", "name"},
+	}
+	lead := &domain.Lead{
+		Interest: "Puerto Vallarta",
+	}
+
+	question := nextCaptureQuestion(bot, lead, &domain.Conversation{})
+	lower := strings.ToLower(question)
+
+	if !strings.Contains(lower, "telefono") && !strings.Contains(lower, "whatsapp") {
+		t.Fatalf("expected home to move from destination to phone before name, got %q", question)
+	}
+	if strings.Contains(lower, "nombre") {
+		t.Fatalf("expected home to avoid asking for name before contact info, got %q", question)
 	}
 }
 
@@ -1114,6 +1139,87 @@ func TestExtractLeadSignalsUsesConfiguredHandoffTriggers(t *testing.T) {
 	}
 	if value, ok := signal.Details["handoff_intent"].(bool); !ok || !value {
 		t.Fatalf("expected handoff intent detail to be set, got %#v", signal.Details["handoff_intent"])
+	}
+}
+
+func TestExtractLeadSignalsTreatsHomeDestinationAsInterestNotName(t *testing.T) {
+	service := &Service{}
+	bot := domain.BotKnowledge{Slug: "home"}
+	lead := &domain.Lead{}
+	conversation := &domain.Conversation{Stage: domain.StageQualify}
+
+	updated, _ := service.extractLeadSignals(
+		context.Background(),
+		bot,
+		lead,
+		"Puerto Vallarta",
+		conversation,
+		time.Date(2026, time.June, 23, 12, 0, 0, 0, time.UTC),
+	)
+
+	if updated.Name != "" {
+		t.Fatalf("expected unsupported destination to stay out of the name field, got %q", updated.Name)
+	}
+	if updated.Interest != "" {
+		t.Fatalf("expected unsupported destination to stay out of interest, got %q", updated.Interest)
+	}
+}
+
+func TestExtractLeadSignalsCapturesSupportedHomeDestinationAsInterest(t *testing.T) {
+	service := &Service{}
+	bot := domain.BotKnowledge{Slug: "home"}
+	lead := &domain.Lead{}
+	conversation := &domain.Conversation{Stage: domain.StageQualify}
+
+	updated, _ := service.extractLeadSignals(
+		context.Background(),
+		bot,
+		lead,
+		"Me interesa conocer Alemania",
+		conversation,
+		time.Date(2026, time.June, 23, 12, 0, 0, 0, time.UTC),
+	)
+
+	if updated.Interest != "Europa" {
+		t.Fatalf("expected supported destination alias to resolve to Europa, got %q", updated.Interest)
+	}
+}
+
+func TestGenerateResponseBypassesLLMForUnsupportedHomeDestination(t *testing.T) {
+	llm := &fakeLLMClient{
+		enabled: true,
+		response: LLMResponse{
+			Text:   "No deberia usarse",
+			Source: "llm",
+		},
+	}
+	service := &Service{
+		llm:   llm,
+		clock: fixedClock{now: time.Date(2026, time.June, 23, 12, 0, 0, 0, time.UTC)},
+	}
+	bot := domain.BotKnowledge{Slug: "home"}
+
+	reply, source, err := service.generateResponse(
+		context.Background(),
+		bot,
+		&domain.Conversation{},
+		&domain.Lead{},
+		nil,
+		"Puerto Vallarta",
+		HandoffDecision{},
+	)
+	if err != nil {
+		t.Fatalf("expected unsupported destination response to succeed, got error: %v", err)
+	}
+	if len(llm.calls) != 0 {
+		t.Fatalf("expected unsupported destination to bypass the LLM, got %d calls", len(llm.calls))
+	}
+	lower := strings.ToLower(reply)
+	if !strings.Contains(lower, "no manejamos ese destino") {
+		t.Fatalf("expected unsupported destination guidance, got %q", reply)
+	}
+	if source != "rules_fallback" {
+		t.Fatalf("expected rules_fallback source, got %q", source)
 	}
 }
 

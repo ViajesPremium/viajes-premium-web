@@ -281,6 +281,10 @@ func (s *Service) saveLead(ctx context.Context, lead *domain.Lead, signal LeadSi
 func (s *Service) generateResponse(ctx context.Context, bot domain.BotKnowledge, conversation *domain.Conversation, lead *domain.Lead, messages []domain.Message, userMessage string, handoff HandoffDecision) (string, string, error) {
 	now := s.nowUTC()
 
+	if reply, ok := unsupportedHomeDestinationResponse(bot, normalizeText(userMessage)); ok {
+		return reply, "rules_fallback", nil
+	}
+
 	if s.llm == nil || !s.llm.Enabled() {
 		return s.generateFallbackResponse(bot, conversation, lead, userMessage, handoff, now), "rules_fallback", nil
 	}

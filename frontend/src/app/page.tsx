@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import type { LandingTheme } from "@/features/landings/data/types";
 import styles from "./page.module.css";
 import HomeHero from "@/features/home/sections/HomeHero";
@@ -13,6 +13,7 @@ import Faqs from "@/features/shared/sections/faqs/Faqs";
 import Aliances from "@/features/shared/sections/aliances/Aliances";
 import Testimonials from "@/features/shared/sections/testimonials/Testimonials";
 import { HOME_SHARED_SECTIONS } from "@/features/home/data/home-shared-sections";
+import { getBrandFaviconMeta } from "@/lib/brand-favicons";
 
 const HOME_FORM_LANDING = {
   label: "Viajes PREMIUM",
@@ -20,9 +21,13 @@ const HOME_FORM_LANDING = {
 } as LandingTheme;
 
 export const metadata: Metadata = {
-  title: "Viajes PREMIUM® | Experiencias de viaje diseñadas alrededor del mundo",
+  title: {
+    default: "Viajes PREMIUM®",
+    template: "%s | Viajes PREMIUM®",
+  },
   description:
     "Descubre experiencias cuidadosamente diseñadas en Japón, Europa, Canadá, Perú y más destinos, con atención personalizada y acompañamiento en español.",
+  icons: getBrandFaviconMeta("home"),
 };
 
 export default function Home() {
@@ -60,3 +65,4 @@ export default function Home() {
     </main>
   );
 }
+

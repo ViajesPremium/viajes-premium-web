@@ -22,15 +22,15 @@ const BARRANCAS_MENU_ITEMS = [
 ];
 
 export const BARRANCAS_PREMIUM_METADATA: LandingMetadata = {
-    title: "Barrancas Premium | Viajes Premium",
+    title: "Viaje a Barrancas del Cobre | Clase PREMIUM ",
     description:
-        "Vive Barrancas con una experiencia premium, itinerario cuidado, atencion personalizada y acompanamiento de inicio a fin.",
+        "Descubre Barrancas del Cobre con recorridos en Chepe Express, naturaleza y experiencias diseñadas en Clase PREMIUM.",
     keywords: [
-        "Barrancas Premium",
-        "viaje a Barrancas",
         "Barrancas del Cobre",
-        "viajes premium",
-        "itinerario Barrancas",
+        "Chepe Express",
+        "tours Barrancas del Cobre",
+        "viaje a Barrancas del Cobre",
+        "tour por Barrancas del Cobre",
     ],
     canonicalPath: "/barrancas-premium",
     ogImagePath:

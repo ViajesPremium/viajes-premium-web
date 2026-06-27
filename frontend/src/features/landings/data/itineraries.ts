@@ -140,46 +140,46 @@ export const EUROPE_ITINERARIES: LandingItineraries = {
 };
 
 export const BARRANCAS_ITINERARIES: LandingItineraries = {
-  srHeading: "Itinerarios de Europa Premium",
+  srHeading: "Itinerarios de Barrancas Premium",
   badgeText: "Itinerarios",
-  title: "Europa con ciudades icónicas y tiempos bien pensados.",
+  title: "Itinerarios por Barancas del Cobre",
   secondaryCtaLabel: "Descargar PDF",
   primaryCta: { label: "Quiero esta experiencia", target: SECOND_FORM_TARGET },
   items: [
     {
       id: 1,
-      day: "12 DÍAS · PARÍS · VENECIA · FLORENCIA · ROMA",
-      title: "De París a Roma",
+      day: "5 DÍAS · CHEPE EXPRESS · MIRADORES · NATURALEZA · BARRANCAS",
+      title: "El de Mayor Ranking",
       description:
-        "La Europa más icónica entre ciudades históricas, paisajes escénicos y experiencias representativas.",
+        "Un recorrido ideal para vivir Barrancas del Cobre por primera vez: paisajes monumentales, miradores inolvidables, naturaleza imponente y la experiencia del Chepe Express en Clase PREMIUM.",
       ideal:
-        "Para descubrir Europa por primera vez en una experiencia clásica.",
+        "Ideal para parejas, familias y viajeros que buscan descubrir lo más icónico de Barrancas del Cobre en una experiencia cómoda, bien diseñada y memorable.",
       image: "/media/landings/europa/itinerarios/izquierda/scroll-gala-izquierda.avif",
-      price: "Desde $5,286 USD base doble",
+      price: "Desde _ MXN base doble",
       pdfHref: "/media/landings/barrancas/pdf/mayor-ranking-barrancas-premium.pdf",
     },
     {
       id: 2,
-      day: "14 DÍAS · ESPAÑA · FRANCIA · BÉLGICA · PAÍSES BAJOS",
-      title: "Europa Cosmopolita",
+      day: "7 DÍAS · EL FUERTE · LEYENDAS · HISTORIA · BARRANCAS",
+      title: "Las Leyendas del Fuerte",
       description:
-        "Ciudades históricas, arquitectura emblemática y paisajes urbanos de Europa occidental.",
+        "Un viaje con alma de relato por el norte de México: Barrancas del Cobre, El Fuerte, paisajes escénicos y experiencias culturales que conectan la historia, la naturaleza y el carácter de la Sierra Tarahumara.",
       ideal:
-        "Viajeros que buscan cultura, historia y ciudades llenas de identidad.",
+        "Ideal para viajeros que buscan una experiencia con más historia, identidad cultural y escenarios memorables, sin renunciar a la comodidad de una ruta en Clase PREMIUM.",
       image: "/media/landings/europa/itinerarios/izquierda/scroll-maravillas-izquierda.avif",
-      price: "Desde $5,094 USD base doble",
+      price: "Desde _ MXN base doble",
       pdfHref: "/media/landings/barrancas/pdf/sabores-del-norte-barrancas-premium.pdf",
     },
     {
       id: 3,
-      day: "16 DÍAS · FRANCIA · INGLATERRA · PAÍSES BAJOS · ITALIA",
-      title: "Íconos de Europa",
+      day: "8 DÍAS · GASTRONOMÍA · CULTURA MENONITA · CHEPE EXPRESS · BARRANCAS",
+      title: "Sabores del Norte",
       description:
-        "Capitales históricas, pueblos escénicos y experiencias que representan la grandeza del continente.",
+        "Una experiencia más profunda por Barrancas del Cobre, donde el paisaje también se vive a través de la cocina regional, los sabores del norte, la cultura menonita y los recorridos escénicos del Chepe Express.",
       ideal:
-        "Para conocer las ciudades más icónicas de Europa con una ruta amplia.",
+        "Ideal para viajeros que disfrutan comer bien, conocer tradiciones locales y vivir un destino desde sus paisajes, su cultura y sus sabores más auténticos.",
       image: "/media/landings/europa/itinerarios/izquierda/scroll-reserva-izquierda.avif",
-      price: "Desde $6,319 USD base doble",
+      price: "Desde _ MXN base doble",
       pdfHref: "/media/landings/barrancas/pdf/leyendas-del-fuerte-barrancas-premium.pdf",
     },
   ],

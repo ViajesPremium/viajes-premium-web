@@ -5,13 +5,7 @@ import { usePathname } from "next/navigation";
 import WhatsAppFab from "@/components/ui/whatsapp-fab/WhatsappFab";
 import ChatAssistantDock from "@/components/ui/chat-assistant/ChatAssistant";
 import { getLandingBySlug } from "@/features/landings/data";
-
-const BRAND_FAVICONS: Record<string, string> = {
-  home: "/media/shared/favicones/favicon-viajes-premium.svg",
-  "japon-premium": "/media/shared/favicones/favicon-japon-premium.svg",
-  "corea-premium": "/media/shared/favicones/favicon-corea-premium.svg",
-  "europa-premium": "/media/shared/favicones/favicon-europa-premium.svg",
-};
+import { getBrandFaviconPath } from "@/lib/brand-favicons";
 
 function getLandingFromPathname(pathname: string | null) {
   const slug = pathname?.split("/").filter(Boolean)[0] ?? "";
@@ -36,7 +30,7 @@ export default function LandingAssistants() {
           enabled
           botSlug="home"
           brandLabel="Viajes Premium"
-          avatarSrc={BRAND_FAVICONS.home}
+          avatarSrc={getBrandFaviconPath("home")}
           accentColor="var(--primary)"
           welcomeMessage="Bienvenido a Viajes Premium. Me encantará ayudarle a diseñar una experiencia cómoda, bien cuidada y memorable. ¿Cómo le puedo ayudar?"
           quickReplies={[
@@ -72,10 +66,7 @@ export default function LandingAssistants() {
         enabled
         botSlug={landing.slug}
         brandLabel={landing.label}
-        avatarSrc={
-          BRAND_FAVICONS[landing.slug] ??
-          "/media/shared/favicones/favicon-viajes-premium.svg"
-        }
+        avatarSrc={getBrandFaviconPath(landing.slug)}
         accentColor={landing.palette.primary}
         welcomeMessage={`Bienvenido a ${landing.label}. Me encantará ayudarte a diseñar una experiencia cómoda, bien cuidada y memorable. ¿Cómo te puedo ayudar?`}
         quickReplies={quickReplies}

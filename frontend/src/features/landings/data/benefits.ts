@@ -97,7 +97,7 @@ export const KOREA_BENEFITS: LandingBenefits = {
     tail: "con calma",
   },
   line2: {
-    text: "Mientras Busan",
+    text: "Mientras",
     highlightWord: "Busan",
     bracket: {
       label: "Busan",
@@ -251,7 +251,7 @@ export const BARRANCAS_BENEFITS: LandingBenefits = {
   line1: {
     lead: "Viaja por",
     bracket: {
-      label: "Londres",
+      label: "Barrancas",
       imageSrc: "/media/landings/europa/porque/hover/hover-londres.webp",
       imageAlt: "Recorrido en Londres",
       textTone: "ot",
@@ -260,9 +260,9 @@ export const BARRANCAS_BENEFITS: LandingBenefits = {
   },
   line2: {
     text: "Mientras",
-    highlightWord: "Italia",
+    highlightWord: "Chihuahua",
     bracket: {
-      label: "ITALIA",
+      label: "Chihuahua",
       imageSrc: "/media/landings/europa/porque/hover/hover-italia.webp",
       imageAlt: "Paisaje italiano",
       textTone: "epochal",
@@ -272,7 +272,7 @@ export const BARRANCAS_BENEFITS: LandingBenefits = {
   line3: {
     lead: "Esencia y el",
     bracket: {
-      label: "París",
+      label: "Chepe",
       imageSrc: "/media/landings/europa/porque/hover/hover-paris.webp",
       imageAlt: "Vista de París",
       textTone: "ot",

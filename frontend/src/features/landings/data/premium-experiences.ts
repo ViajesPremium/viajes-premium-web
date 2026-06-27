@@ -32,7 +32,7 @@ export const KOREA_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
   srHeading: "Nosotros Corea Premium",
   badgeText: "Nosotros",
   titleText: "Más de 21 años diseñando experiencias PREMIUM.",
-  titleHighlightWords: ["21 años", "PREMIUM"],
+  titleHighlightWords: ["21", "PREMIUM", "años"],
   cards: [
     {
       image: "/media/shared/home/destinos/corea/corea-premium-1.webp",
@@ -92,20 +92,20 @@ export const BARRANCAS_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
   cards: [
     {
       image: "/media/landings/europa/nosotros/itinerario-gala.avif",
-      text: "De París a Roma",
-      experiences: "12 días · Paris · Venecia · Florencia · Roma",
+      text: "El de Mayor Ranking",
+      experiences: "5 días · Chepe Express · Miradores · Naturaleza · Barrancas",
     },
     {
       image: "/media/landings/europa/nosotros/itinerario-maravillas.avif",
-      text: "Europa Cosmopolita",
+      text: "Las Leyendas del Fuerte",
       experiences:
-        "14 días · España · Francia · Bélgica · Países Bajos",
+        "7 días · El Fuerte · Historia · Paisajes · Cultura del Norte",
     },
     {
       image: "/media/landings/europa/nosotros/itinerario-reserva.avif",
-      text: "Iconos de Europa",
+      text: "Sabres del Norte",
       experiences:
-        "16 días · Francia · Inglaterra · Países Bajos · Italia",
+        "8 días · Gastronomía · Cultura Menonita · Chepe Express · Barrancas",
     },
   ],
   cardButtonLabel: "Descubrir",

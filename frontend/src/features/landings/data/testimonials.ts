@@ -102,24 +102,40 @@ export const BARRANCAS_TESTIMONIALS: LandingTestimonials = {
     {
       id: 1,
       quote:
-        "Hospedaje de gran calidad y guías bien capacitados durante todo el recorrido.",
-      name: "Virginia Cárdenas",
+        "“El paquete estuvo súper padre. Queremos reconocer el trabajo de todos los guías; en verdad, todos 10 de 10.",
+      name: "Anabel González y Juan Hernández",
       location: "Ciudad de México",
       avatar: "/media/landings/europa/testimonios/virginia-cardenas.jpeg",
     },
     {
       id: 2,
       quote:
-        "Todo el viaje fue excelente: hoteles, servicios, tours, guías y horarios.",
-      name: "Dr. Abel Peña",
+        "Excelente servicio. El tour completo fue divino; nos sentimos cómodos y seguros en todo momento.",
+      name: "Patricia Vega",
       location: "Ciudad de México",
       avatar: "/media/landings/europa/testimonios/dr-abiel-pena.jpeg",
     },
     {
       id: 3,
       quote:
-        "Mi viaje fue la mejor experiencia siendo la primera vez en Europa.",
-      name: "Tania Pérez",
+        "Servicio personalizado y de gran calidad. Guías atentos, excelente logística y experiencias increíbles en Chepe y destinos.",
+      name: "Javier y Tere González",
+      location: "Ciudad de México",
+      avatar: "/media/landings/europa/testimonios/tania-perez.webp",
+    },
+        {
+      id: 4,
+      quote:
+        "Gracias por las atenciones; el viaje fue inolvidable. Paisajes increíbles, actividades divertidas y mucho aprendizaje.",
+      name: "Ing. Hernán García y Aurelia Patricia Govea",
+      location: "Ciudad de México",
+      avatar: "/media/landings/europa/testimonios/tania-perez.webp",
+    },
+        {
+      id: 5,
+      quote:
+        "Atención personalizada desde el inicio, guías muy amables y un viaje hermoso. Totalmente recomendable.",
+      name: "Félix Romo",
       location: "Ciudad de México",
       avatar: "/media/landings/europa/testimonios/tania-perez.webp",
     },

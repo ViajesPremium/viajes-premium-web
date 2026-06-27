@@ -67,7 +67,7 @@ func Load() Config {
 			LLMTimeoutSecs:    mustInt(firstNonEmpty(sanitizeEnv(os.Getenv("LLM_TIMEOUT_SECS")), "30"), 30),
 			DefaultBotSlug:    firstNonEmpty(sanitizeEnv(os.Getenv("CHAT_DEFAULT_BOT_SLUG")), "home"),
 			HandoffThreshold:  mustInt(firstNonEmpty(sanitizeEnv(os.Getenv("CHAT_HANDOFF_THRESHOLD")), "70"), 70),
-			LeadEmailsEnabled: mustBool(firstNonEmpty(sanitizeEnv(os.Getenv("CHAT_LEAD_EMAILS_ENABLED")), "true"), true),
+			LeadEmailsEnabled: mustBool(firstNonEmpty(sanitizeEnv(os.Getenv("CHAT_LEAD_EMAILS_ENABLED")), "false"), false),
 		},
 		SMTP: SMTPConfig{
 			Host:         firstNonEmpty(sanitizeEnv(os.Getenv("SMTP_HOST")), "smtp.hostinger.com"),

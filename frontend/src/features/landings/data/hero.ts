@@ -76,7 +76,7 @@ export const BARRANCAS_PREMIUM_HERO: LandingHero = {
     wordFour: "Premium",
   },
   description:
-    "Eleva tu vida conociendo Europa con profundidad y acompañamiento desde el primer contacto hasta su regreso. Atención personalizada, planeación detallada y soporte de inicio a fin.",
+    "Eleva tu vida recorriendo uno de los paisajes más impresionantes de México con naturaleza, gastronomía y aventura en Clase PREMIUM.",
   ctaPrimary: {
     label: "Solicita tu cotización",
     target: "#second-form",

@@ -83,7 +83,7 @@ export const EUROPE_FOOTER = footer(
 );
 
 export const BARRANCAS_FOOTER = footer(
-  "EUROPA",
+  "BARRANCAS",
   [
     { label: "Inicio", href: "#inicio" },
     { label: "Nosotros", href: "#nosotros" },

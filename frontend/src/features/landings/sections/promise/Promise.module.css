@@ -235,7 +235,6 @@
   }
 
   .cardCopy p {
-    -webkit-line-clamp: 3;
     line-height: 1.32;
   }
 

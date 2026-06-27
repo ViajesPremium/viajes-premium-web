@@ -15,6 +15,7 @@ import Faqs from "@/features/shared/sections/faqs/Faqs";
 import SecondForm from "@/features/shared/sections/second-form/SecondForm";
 import Video from "@/features/landings/sections/video/Video";
 import { getLandingBySlug, getLandingSlugs } from "@/features/landings/data";
+import { getBrandFaviconMeta } from "@/lib/brand-favicons";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://viajespremium.com.mx";
@@ -53,6 +54,7 @@ export async function generateMetadata({
     title: metadata.title,
     description: metadata.description,
     keywords: metadata.keywords,
+    icons: getBrandFaviconMeta(slug),
     alternates: {
       canonical: canonicalUrl,
     },

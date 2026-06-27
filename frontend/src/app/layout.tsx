@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import MagneticCursor from "@/components/effects/MagneticCursor";
 import GTMTracking from "@/providers/analytics/GTMTracking";
@@ -6,6 +6,7 @@ import SmothScrollProvider from "@/providers/SmothScrollProvider";
 import LandingNavigation from "@/features/shared/components/navigation/LandingNavigation";
 import LandingAssistants from "@/features/shared/components/assistants/LandingAssistants";
 import PageTransitionProvider from "@/components/providers/page-transition/TransitionProvider";
+import { getBrandFaviconMeta } from "@/lib/brand-favicons";
 import "../features/shared/components/navigation/staggered-menu/navbar.css";
 import "./globals.css";
 
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Viajes Premium",
   },
   description: "Landings premium por destino para Japón, Corea, Europa y más.",
+  icons: getBrandFaviconMeta("home"),
 };
 
 export default function RootLayout({
@@ -52,3 +54,4 @@ export default function RootLayout({
     </html>
   );
 }
+

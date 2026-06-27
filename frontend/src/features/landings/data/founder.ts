@@ -9,7 +9,7 @@ export const JAPAN_FOUNDER: LandingFounder = {
     "Nuestra misión es diseñar viajes personalizados que crean vínculos reales. No acumulamos destinos, conectamos con ellos.",
   quoteHighlight: "",
   image: {
-    src: "/media/landings/japon/nosotros/karina.webp",
+    src: "/media/shared/founders/karina-sanchez.avif",
     alt: "Asesora de viaje Japón Premium",
   },
 };
@@ -23,7 +23,7 @@ export const KOREA_FOUNDER: LandingFounder = {
     "Diseñamos experiencias con criterio, ritmo y acompañamiento para que cada viaje a Corea se sienta claro, fluido y verdaderamente memorable.",
   quoteHighlight: "criterio, ritmo y acompañamiento",
   image: {
-    src: "/media/shared/about-us/hero/corea-premium-nosotros-vp.png",
+    src: "/media/shared/founders/karina-sanchez.avif",
     alt: "Asesoría Corea Premium",
   },
 };
@@ -42,7 +42,7 @@ export const EUROPE_FOUNDER: LandingFounder = {
   quoteHighlight:
     "viajar va más allá de acumular destinos; se trata de crear vínculos reales con cada lugar.",
   image: {
-    src: "/media/shared/about-us/karina.webp",
+    src: "/media/shared/founders/karina-sanchez.avif",
     alt: "Asesora de viaje Europa Premium",
   },
 };
@@ -61,7 +61,7 @@ export const BARRANCAS_FOUNDER: LandingFounder = {
   quoteHighlight:
     "viajar va más allá de acumular destinos; se trata de crear vínculos reales con cada lugar.",
   image: {
-    src: "/media/shared/about-us/karina.webp",
+    src: "/media/shared/founders/karina-sanchez.avif",
     alt: "Asesora de viaje Europa Premium",
   },
 };

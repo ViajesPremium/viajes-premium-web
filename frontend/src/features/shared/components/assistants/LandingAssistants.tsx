@@ -21,6 +21,7 @@ function getLandingFromPathname(pathname: string | null) {
 export default function LandingAssistants() {
   const pathname = usePathname();
   const landing = useMemo(() => getLandingFromPathname(pathname), [pathname]);
+  const assistantKey = landing?.slug ?? "home";
 
   if (!landing) {
     if (pathname !== "/") {
@@ -31,6 +32,7 @@ export default function LandingAssistants() {
       <>
         <WhatsAppFab />
         <ChatAssistantDock
+          key={assistantKey}
           enabled
           botSlug="home"
           brandLabel="Viajes Premium"
@@ -66,6 +68,7 @@ export default function LandingAssistants() {
     <>
       <WhatsAppFab />
       <ChatAssistantDock
+        key={assistantKey}
         enabled
         botSlug={landing.slug}
         brandLabel={landing.label}

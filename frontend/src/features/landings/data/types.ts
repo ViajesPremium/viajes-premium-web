@@ -1,4 +1,4 @@
-export type LandingSlug = "japon-premium" | "corea-premium" | "europa-premium" | "barrancas-premium";
+export type LandingSlug = "japon-premium" | "corea-premium" | "europa-premium" | "barrancas-premium" | "canada-premium" | "peru-premium";
 
 // paleta de colores landings
 export type LandingPalette = {

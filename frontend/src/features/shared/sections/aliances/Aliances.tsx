@@ -18,7 +18,8 @@ export default function MarqueeSection({ landing }: MarqueeSectionProps) {
   const showIntroLogos =
     slug === "japon-premium" ||
     slug === "europa-premium" ||
-    slug === "corea-premium";
+    slug === "corea-premium" ||
+    slug === "barrancas-premium";
 
   const logoItems: LogoItem[] = marquee.logos;
   const splitIndex = Math.ceil(logoItems.length / 2);

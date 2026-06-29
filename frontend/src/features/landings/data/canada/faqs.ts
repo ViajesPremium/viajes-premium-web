@@ -9,8 +9,8 @@ export const CANADA_FAQS: LandingFaqs = {
     "Resolvemos las dudas más comunes sobre nuestros viajes a Canadá. Si no encuentras lo que buscas, escríbenos directamente.",
   contactLabel: "¿Otra pregunta?",
   contactEmail: "reservaciones@viajespremium.com.mx",
-  leftImage: "/media/shared/avatars/faqcorea-2.avif",
-  rightImage: "/media/shared/avatars/faqcorea-1.avif",
+  leftImage: "/media/shared/avatars/faqcanada-2.avif",
+  rightImage: "/media/shared/avatars/faqcanada-1.avif",
   items: [
     {
       id: "1",

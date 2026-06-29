@@ -1,15 +1,15 @@
 import type { LandingBenefits } from "./../types";
 
 export const CANADA_BENEFITS: LandingBenefits = {
-  srHeading: "Highlights de Corea Premium",
-  badgeText: "¿Por qué Corea PREMIUM?",
+  srHeading: "Highlights de Canad? Premium",
+  badgeText: "¿Por qué Canad? PREMIUM?",
   kickerTop: "Trabajamos con marcas",
   kickerBottom: "Cuidadosamente seleccionadas.",
   line1: {
     lead: "Viaja por",
     bracket: {
       label: "Quebéc",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-2.webp",
+      imageSrc: "/media/landings/canada/benefits/hover/quebec.webp",
       imageAlt: "Vista de Seúl con luces y arquitectura urbana",
       textTone: "ot",
     },
@@ -20,7 +20,7 @@ export const CANADA_BENEFITS: LandingBenefits = {
     highlightWord: "Toronto",
     bracket: {
       label: "Busan",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-4.webp",
+      imageSrc: "/media/landings/canada/benefits/hover/toronto.webp",
       imageAlt: "Vista de Busan frente al mar",
       textTone: "epochal",
     },
@@ -30,7 +30,7 @@ export const CANADA_BENEFITS: LandingBenefits = {
     lead: "Esencia y",
     bracket: {
       label: "Ottawa",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-3.webp",
+      imageSrc: "/media/landings/canada/benefits/hover/ottawa.webp",
       imageAlt: "Paisaje histórico de Gyeongju",
       textTone: "ot",
     },
@@ -44,37 +44,37 @@ export const CANADA_BENEFITS: LandingBenefits = {
     {
       id: "respaldo-24-7",
       title: "Seúl",
-      imageSrc: "/media/shared/blog/blog-corea-1.png",
+      imageSrc: "/media/landings/canada/benefits/valor/carrusel-tranquilidad.webp",
       href: "#second-form",
     },
     {
       id: "estancias-altura",
       title: "Busan",
-      imageSrc: "/media/shared/blog/blog-corea-2.png",
+      imageSrc: "/media/landings/canada/benefits/valor/carrusel-respaldo.webp",
       href: "#second-form",
     },
     {
       id: "idioma",
       title: "Jeju",
-      imageSrc: "/media/shared/blog/blog-corea-3.png",
+      imageSrc: "/media/landings/canada/benefits/valor/carrusel-recorridos.webp",
       href: "#second-form",
     },
     {
       id: "tranquilidad",
       title: "Gyeongju",
-      imageSrc: "/media/shared/blog/blog-corea-4.png",
+      imageSrc: "/media/landings/canada/benefits/valor/carrusel-expertos.webp",
       href: "#second-form",
     },
     {
       id: "criterio",
       title: "Incheon",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-1.webp",
+      imageSrc: "/media/landings/canada/benefits/valor/carrusel-estancia.webp",
       href: "#second-form",
     },
     {
       id: "acompanamiento",
       title: "Daegu",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-4.webp",
+      imageSrc: "/media/landings/canada/benefits/hover/toronto.webp",
       href: "#second-form",
     },
   ],

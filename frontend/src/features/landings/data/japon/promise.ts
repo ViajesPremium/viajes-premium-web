@@ -12,7 +12,7 @@ export const JAPAN_PROMISE: LandingPromise = {
             title: "Alojamiento seleccionado",
             description:
                 "Opciones bien ubicadas, cómodas y alineadas con una experiencia premium.",
-            image: "/media/landings/japon/incluye/6-1-estancias-con-caracter.webp",
+            image: "/media/landings/japon/promise/alojamiento-seleccionado.avif",
         },
         {
             id: "transport",
@@ -20,7 +20,7 @@ export const JAPAN_PROMISE: LandingPromise = {
             title: "Traslados y conexiones",
             description:
                 "Recorridos con lógica para aprovechar mejor el tiempo en destino.",
-            image: "/media/landings/japon/incluye/6-1-traslados-mejor-coordinados.webp",
+            image: "/media/landings/japon/promise/traslados-y-conexiones.avif",
         },
         {
             id: "culture",
@@ -28,7 +28,7 @@ export const JAPAN_PROMISE: LandingPromise = {
             title: "Experiencias seleccionadas",
             description:
                 "Actividades culturales, gastronómicas y escénicas para conectar con Japón.",
-            image: "/media/landings/japon/incluye/6-1-experiencias-culturales-curadas.webp",
+            image: "/media/landings/japon/promise/experiencias-seleccionadas.avif",
         },
         {
             id: "gastronomy",
@@ -36,14 +36,14 @@ export const JAPAN_PROMISE: LandingPromise = {
             title: "Gastronomía japonesa",
             description: "Sabores locales cuidadosamente integrados al viaje.",
             image:
-                "/media/landings/japon/incluye/6-1-escenas-gastronomicas-seleccionadas.webp",
+                "/media/landings/japon/promise/gastronomia-japonesa.avif",
         },
         {
             id: "support",
             label: "5",
             title: "Acompañamiento real",
             description: "Seguimiento desde la planeación inicial hasta tu regreso.",
-            image: "/media/landings/japon/incluye/6-1-acompanamiento-en-cada-etapa.webp",
+            image: "/media/landings/japon/promise/acompañamiento-real.avif",
         },
     ],
 };

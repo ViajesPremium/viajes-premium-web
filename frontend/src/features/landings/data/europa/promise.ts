@@ -11,7 +11,7 @@ export const EUROPE_PROMISE: LandingPromise = {
             label: "1",
             title: "Alojamiento seleccionado",
             description: "Hoteles y estancias elegidas por ubicación y comodidad, para descansar bien después de cada experiencia en ciudades y recorridos por Europa.",
-            image: "/media/landings/europa/incluye/experiencia-alojamiento.webp",
+            image: "/media/landings/europa/promise/experiencia-alojamiento.webp",
         },
         {
             id: "transport",
@@ -19,7 +19,7 @@ export const EUROPE_PROMISE: LandingPromise = {
             title: "Traslados y conexiones",
             description:
                 "Diseñamos recorridos con lógica. Organización clara de desplazamientos para aprovechar mejor el tiempo en destino.",
-            image: "/media/landings/europa/incluye/experiencia-traslado.webp",
+            image: "/media/landings/europa/promise/experiencia-traslado.webp",
         },
         {
             id: "culture",
@@ -27,7 +27,7 @@ export const EUROPE_PROMISE: LandingPromise = {
             title: "Experiencias privadas",
             description:
                 "Actividades elegidas con intención: recorridos históricos, experiencias culturales y momentos diseñados para conectar con la esencia de Europa.",
-            image: "/media/landings/europa/incluye/experiencia-privacidad.webp",
+            image: "/media/landings/europa/promise/experiencia-privacidad.webp",
         },
         {
             id: "gastronomy",
@@ -35,14 +35,14 @@ export const EUROPE_PROMISE: LandingPromise = {
             title: "Gastronomía europea",
             description:
                 "Experiencias culinarias que forman parte central del viaje: cocina tradicional, restaurantes seleccionados y sabores que definen la identidad europea.",
-            image: "/media/landings/europa/incluye/experiencia-gastronomia.webp",
+            image: "/media/landings/europa/promise/experiencia-gastronomia.webp",
         },
         {
             id: "support",
             label: "5",
             title: "Acompañamiento real",
             description: "Desde la planeación inicial hasta tu regreso, cuentas con seguimiento real y atención en español.",
-            image: "/media/landings/europa/incluye/experiencia-acompanamiento.webp",
+            image: "/media/landings/europa/promise/experiencia-acompanamiento.webp",
         },
     ],
 };

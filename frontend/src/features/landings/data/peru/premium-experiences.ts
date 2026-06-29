@@ -1,27 +1,27 @@
 import type { LandingPremiumExperiences } from "../types";
 
 export const PERU_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
-  srHeading: "Nosotros Corea Premium",
+  srHeading: "Nosotros Per? Premium",
   badgeText: "Nosotros",
   titleText: "Más de 21 años diseñando experiencias PREMIUM.",
   titleHighlightWords: ["21", "PREMIUM", "años"],
   cards: [
     {
-      image: "/media/shared/home/destinos/corea/corea-premium-1.webp",
-      text: "Tesoros de Corea",
+      image: "/media/landings/peru/premium-experiences/itinerario-dunas-dakar.avif",
+      text: "Tesoros de Per?",
       experiences:
         "8 días · Seúl · Busan · Gyeongju · Cultura coreana",
     },
     {
-      image: "/media/shared/home/destinos/corea/corea-premium-3.webp",
+      image: "/media/landings/peru/premium-experiences/itinerario-montana-de-colores.avif",
       text: "Rutas Imperiales",
       experiences:
-        "12 días · Corea · China · Historia · Patrimonio cultural",
+        "12 días · Per? · China · Historia · Patrimonio cultural",
     },
     {
-      image: "/media/shared/home/destinos/corea/corea-premium-4.webp",
+      image: "/media/landings/peru/premium-experiences/itinerario-skyfall.avif",
       text: "Imperios del Pacífico",
-      experiences: "13 días · Corea · Japón · Tradición · Modernidad",
+      experiences: "13 días · Per? · Japón · Tradición · Modernidad",
     },
   ],
   cardButtonLabel: "Descubrir",

@@ -88,7 +88,7 @@ const INPUT_HINTS: Partial<Record<StepFieldKey, string>> = {
   travelers: "Ingresa un número entre 1 y 20.",
 };
 
-const CONTACT_EMAIL = "hola@japonpremium.com";
+const CONTACT_EMAIL = "reservaciones@viajespremium.com.mx";
 const CONTACT_PHONE_DISPLAY = "+52 55 1234 5678";
 const CONTACT_PHONE_LINK = "+525512345678";
 const DEFAULT_CRM_TAG = "#tags:Japon Premium";

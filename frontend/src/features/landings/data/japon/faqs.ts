@@ -9,8 +9,8 @@ export const JAPAN_FAQS: LandingFaqs = {
     "Resolvemos las dudas más comunes sobre nuestros viajes a Japón. Si no encuentras lo que buscas, escríbenos directamente.",
   contactLabel: "¿Otra pregunta?",
   contactEmail: "reservaciones@viajespremium.com.mx",
-  leftImage: "/media/landings/japon/nosotros/samurai-perfil.webp",
-  rightImage: "/media/landings/japon/nosotros/geisha-perfil.webp",
+  leftImage: "/media/landings/japon/faqs/samurai.avif",
+  rightImage: "/media/landings/japon/faqs/geisha.avif",
   items: [
     {
       id: "1",

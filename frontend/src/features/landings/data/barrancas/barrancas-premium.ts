@@ -16,13 +16,13 @@ const BARRANCAS_MENU_ITEMS = [
   { label: "Nosotros", ariaLabel: "Ir a nosotros", link: "#nosotros" },
   { label: "Itinerarios", ariaLabel: "Ir a itinerarios", link: "#itinerarios" },
   { label: "Qué Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
-  { label: "Opiniones", ariaLabel: "Ir a opiniones", link: "#testimonials" },
-  { label: "Sobre Europa", ariaLabel: "Ir a sobre Europa", link: "#faqs" },
+  { label: "Testimonios", ariaLabel: "Ir a testimonios", link: "#testimonials" },
+  { label: "Sobre Barrancas", ariaLabel: "Ir a sobre Barrancas", link: "#faqs" },
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
 export const BARRANCAS_PREMIUM_METADATA: LandingMetadata = {
-  title: "Viaje a Barrancas del Cobre | Clase PREMIUM ",
+  title: "Viaje a Barrancas del Cobre | Clase PREMIUM",
   description:
     "Descubre Barrancas del Cobre con recorridos en Chepe Express, naturaleza y experiencias diseñadas en Clase PREMIUM.",
   keywords: [
@@ -33,8 +33,7 @@ export const BARRANCAS_PREMIUM_METADATA: LandingMetadata = {
     "tour por Barrancas del Cobre",
   ],
   canonicalPath: "/barrancas-premium",
-  ogImagePath:
-    "/media/shared/home/destinos/barrancas/barrancas-premium-1.avif",
+  ogImagePath: "/media/shared/home/destinos/barrancas/barrancas-premium-1.avif",
 };
 
 export const barrancasPremium: LandingTheme = {
@@ -47,7 +46,7 @@ export const barrancasPremium: LandingTheme = {
     complementary: "#45736B",
   },
   navbar: {
-    logoUrl: "/media/shared/logos/europa/logo-europa.svg",
+    logoUrl: "/media/shared/logos/barrancas/logo-barrancas.svg",
     menuItems: [...BARRANCAS_MENU_ITEMS],
     colors: ["#963825", "#D55C26"],
     accentColor: "#45736B",

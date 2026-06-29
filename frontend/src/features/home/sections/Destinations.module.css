@@ -76,7 +76,7 @@
   left: 0;
   background-image: var(
     --card-avatar-left,
-    url("/media/landings/japon/nosotros/samurai-perfil.webp")
+    url("/media/landings/japon/premium-experiences/alma-de-japon.avif")
   );
   background-position: 165% 58%;
   transform: scale(2.8);
@@ -87,7 +87,7 @@
   left: 75%;
   background-image: var(
     --card-avatar-right,
-    url("/media/landings/japon/nosotros/geisha-perfil-2.webp")
+    url("/media/landings/japon/faqs/samurai.avif")
   );
   background-position: -75% 58%;
   transform: scale(2.8);
@@ -330,6 +330,5 @@
 
   .primaryButton {
     margin-top: 3.5rem;
-    width: 100%;
   }
 }

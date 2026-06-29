@@ -66,12 +66,12 @@ export const japonPremium: LandingTheme = {
   video: {
     srHeading: "Video Japón Premium",
     desktop: {
-      webm: "/media/landings/japon/videos/JP-Horizontal.webm",
-      mp4: "/media/landings/japon/videos/JP-Horizontal.mp4",
+      webm: "/media/landings/japon/videos/japon-premium-desktop.webm",
+      mp4: "/media/landings/japon/videos/japon-premium-desktop.mp4",
     },
     mobile: {
-      webm: "/media/landings/japon/videos/JP-Vertical.webm",
-      mp4: "/media/landings/japon/videos/JP-Vertical.mp4",
+      webm: "/media/landings/japon/videos/japon-premium-mobile.webm",
+      mp4: "/media/landings/japon/videos/japon-premium-mobile.mp4",
     },
     alt: "Video de la experiencia Japón Premium",
   },

@@ -8,7 +8,7 @@ export const EUROPE_FAQS: LandingFaqs = {
   subtitle:
     "Resolvemos las dudas más comunes sobre nuestros viajes a Europa. Si no encuentras lo que buscas, escríbenos directamente.",
   contactLabel: "¿Otra pregunta?",
-  contactEmail: "hola@perupremium.com",
+  contactEmail: "reservaciones@viajespremium.com.mx",
   leftImage: "/media/shared/avatars/faqeuropa-2.avif",
   rightImage: "/media/shared/avatars/faqeuropa-1.avif",
   figuresBottomOffsetPx: 8,

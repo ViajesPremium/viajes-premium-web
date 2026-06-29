@@ -16,42 +16,42 @@ const aliances = (
 });
 
 export const CANADA_ALIANCES = aliances(
-  "Alianzas de Corea Premium",
+  "Alianzas de Canad? Premium",
   "Nuestras alianzas",
   {
-    src: "/media/shared/logos/corea/logo-corea.svg",
-    alt: "Corea Premium",
+    src: "/media/landings/canada/aliances/logo-canada.svg",
+    alt: "Canad? Premium",
     width: 460,
     height: 96,
   },
   {
-    src: "/media/shared/logos/corea/corea-grande-logo.png",
-    alt: "Corea Premium",
+    src: "/media/landings/canada/aliances/canada-grande-logo.png",
+    alt: "Canad? Premium",
     width: 460,
     height: 96,
   },
   [
     {
-      src: "/media/shared/logos/corea/corea-grande-logo.png",
-      alt: "Corea Premium",
+      src: "/media/landings/canada/aliances/canada-grande-logo.png",
+      alt: "Canad? Premium",
       width: 420,
       height: 90,
     },
     {
-      src: "/media/shared/logos/corea/corea-grande-logo.avif",
-      alt: "Corea Premium",
+      src: "/media/landings/canada/aliances/canada-grande-logo.avif",
+      alt: "Canad? Premium",
       width: 280,
       height: 90,
     },
     {
-      src: "/media/shared/logos/corea/logo-corea.svg",
-      alt: "Corea Premium",
+      src: "/media/landings/canada/aliances/logo-canada.svg",
+      alt: "Canad? Premium",
       width: 360,
       height: 110,
     },
     {
-      src: "/media/shared/logos/corea/corea-grande-logo.png",
-      alt: "Corea Premium",
+      src: "/media/landings/canada/aliances/canada-grande-logo.png",
+      alt: "Canad? Premium",
       width: 540,
       height: 120,
     },

@@ -103,6 +103,12 @@
   text-wrap: balance;
 }
 
+.tag {
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
 .cardBtnWrap {
   position: absolute;
   bottom: 1.25em;

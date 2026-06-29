@@ -44,12 +44,12 @@ const formSection = ({
 });
 
 export const CANADA_FIRST_FORM = formSection({
-  srHeading: "Cuéntanos cómo imaginas tu viaje a Corea",
-  title: "Corea, planeada con claridad desde el primer contacto.",
-  backgroundImage: "/media/landings/corea/forms/corea-form.avif",
+  srHeading: "Cuéntanos cómo imaginas tu viaje a Canad?",
+  title: "Canad?, planeada con claridad desde el primer contacto.",
+  backgroundImage: "/media/landings/canada/forms/canada-premium-3.webp",
   mobileImage: {
-    src: "/media/landings/corea/forms/first-form-corea-sola.webp",
-    alt: "Corea Premium",
+    src: "/media/landings/canada/forms/canada-premium-4.webp",
+    alt: "Canad? Premium",
   },
   contactPhoneDisplay: "+52 55 4161 9427",
   contactPhoneLink: "+525541619427",
@@ -57,11 +57,11 @@ export const CANADA_FIRST_FORM = formSection({
 
 export const CANADA_SECOND_FORM = {
   ...CANADA_FIRST_FORM,
-  srHeading: "Formulario de contacto Corea Premium",
-  title: "Hablemos de la Corea que quieres vivir.",
-  backgroundImage: "/media/landings/corea/forms/corea-form-2.avif",
+  srHeading: "Formulario de contacto Canad? Premium",
+  title: "Hablemos de la Canad? que quieres vivir.",
+  backgroundImage: "/media/landings/canada/forms/canada-premium-1.webp",
   mobileImage: {
-    src: "/media/landings/corea/forms/form-corea-sola.webp",
-    alt: "Corea Premium",
+    src: "/media/landings/canada/forms/canada-premium-2.webp",
+    alt: "Canad? Premium",
   },
 };

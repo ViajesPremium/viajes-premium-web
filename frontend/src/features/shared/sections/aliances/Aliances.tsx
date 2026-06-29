@@ -16,7 +16,9 @@ type MarqueeSectionProps = {
 export default function MarqueeSection({ landing }: MarqueeSectionProps) {
   const { slug, aliances: marquee } = landing;
   const showIntroLogos =
-    slug === "japon-premium" || slug === "europa-premium";
+    slug === "japon-premium" ||
+    slug === "europa-premium" ||
+    slug === "corea-premium";
 
   const logoItems: LogoItem[] = marquee.logos;
   const splitIndex = Math.ceil(logoItems.length / 2);

@@ -1,15 +1,15 @@
 import type { LandingFounder } from "../types";
 
 export const PERU_FOUNDER: LandingFounder = {
-  srHeading: "Mensaje del equipo Corea Premium",
-  rows: ["Corea Premium", "Viajar con intención", "Momentos que sí importan"],
-  role: "Equipo Corea PREMIUM",
+  srHeading: "Mensaje del equipo Per? Premium",
+  rows: ["Per? Premium", "Viajar con intención", "Momentos que sí importan"],
+  role: "Equipo Per? PREMIUM",
   name: "Asesoría especializada",
   quote:
-    "Diseñamos experiencias con criterio, ritmo y acompañamiento para que cada viaje a Corea se sienta claro, fluido y verdaderamente memorable.",
+    "Diseñamos experiencias con criterio, ritmo y acompañamiento para que cada viaje a Per? se sienta claro, fluido y verdaderamente memorable.",
   quoteHighlight: "criterio, ritmo y acompañamiento",
   image: {
     src: "/media/shared/founders/karina-sanchez.avif",
-    alt: "Asesoría Corea Premium",
+    alt: "Asesoría Per? Premium",
   },
 };

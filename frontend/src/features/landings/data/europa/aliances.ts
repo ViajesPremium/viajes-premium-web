@@ -1,7 +1,7 @@
 import type { LandingAliances } from "./../types";
 
 const europeAllianceSrc = (fileName: string) =>
-  encodeURI(`/media/landings/europa/alianzas/${fileName}`);
+  encodeURI(`/media/landings/europa/aliances/${fileName}`);
 
 const aliances = (
   srHeading: string,

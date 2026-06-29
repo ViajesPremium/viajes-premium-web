@@ -12,7 +12,7 @@ export const EUROPE_TESTIMONIALS: LandingTestimonials = {
         "Hospedaje de gran calidad y guías bien capacitados durante todo el recorrido.",
       name: "Virginia Cárdenas",
       location: "Ciudad de México",
-      avatar: "/media/landings/europa/testimonios/virginia-cardenas.jpeg",
+      avatar: "/media/landings/europa/testimonials/virginia-cardenas.jpeg",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export const EUROPE_TESTIMONIALS: LandingTestimonials = {
         "Todo el viaje fue excelente: hoteles, servicios, tours, guías y horarios.",
       name: "Dr. Abel Peña",
       location: "Ciudad de México",
-      avatar: "/media/landings/europa/testimonios/dr-abiel-pena.jpeg",
+      avatar: "/media/landings/europa/testimonials/dr-abiel-pena.jpeg",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ export const EUROPE_TESTIMONIALS: LandingTestimonials = {
         "Mi viaje fue la mejor experiencia siendo la primera vez en Europa.",
       name: "Tania Pérez",
       location: "Ciudad de México",
-      avatar: "/media/landings/europa/testimonios/tania-perez.webp",
+      avatar: "/media/landings/europa/testimonials/tania-perez.webp",
     },
   ],
 };

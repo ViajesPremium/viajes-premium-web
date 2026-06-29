@@ -30,5 +30,21 @@ export const KOREA_TESTIMONIALS: LandingTestimonials = {
       location: "Monterrey",
       avatar: "/media/shared/home/testimonials/virginia-cardenas-vp.avif",
     },
+        {
+      id: 4,
+      quote:
+        "Seúl, Busan y Gyeongju nos mostraron tres caras completamente distintas de Corea. Todo estuvo muy bien planeado.",
+      name: "Daniel y Verónica",
+      location: "Monterrey",
+      avatar: "/media/shared/home/testimonials/virginia-cardenas-vp.avif",
+    },
+        {
+      id: 5,
+      quote:
+        "La gastronomía, la cultura y la atención recibida hicieron que este viaje fuera mucho más especial de lo que imaginábamos",
+      name: "Maité Herrera",
+      location: "Ciudad de México",
+      avatar: "/media/shared/home/testimonials/virginia-cardenas-vp.avif",
+    },
   ],
 };

@@ -11,14 +11,14 @@ export const KOREA_PROMISE: LandingPromise = {
             label: "1",
             title: "Alojamiento seleccionado",
             description: "Hoteles y estancias elegidas por ubicación y comodidad, para descansar bien después de cada experiencia en Corea del Sur.",
-            image: "/media/shared/home/destinos/corea/corea-premium-1.webp",
+            image: "/media/landings/corea/promise/alojamiento.avif",
         },
         {
             id: "transport",
             label: "2",
             title: "Traslados y conexiones",
             description: "Diseñamos recorridos con lógica. Organización clara de desplazamientos para aprovechar mejor el tiempo en destino.",
-            image: "/media/shared/home/destinos/corea/corea-premium-2.webp",
+            image: "/media/landings/corea/promise/traslado.avif",
         },
         {
             id: "culture",
@@ -26,21 +26,21 @@ export const KOREA_PROMISE: LandingPromise = {
             title: "Experiencias culturales",
             description:
                 "Actividades elegidas con intención: palacios históricos, mercados tradicionales y experiencias diseñadas para conectar con la esencia de Corea.",
-            image: "/media/shared/home/destinos/corea/corea-premium-3.webp",
+            image: "/media/landings/corea/promise/privacidad.avif",
         },
         {
             id: "gastronomy",
             label: "4",
             title: "Gastronomía coreana",
             description: "Experiencias culinarias que forman parte central del viaje: sabores tradicionales, mercados locales y gastronomía que define la identidad coreana.",
-            image: "/media/shared/home/destinos/corea/corea-premium-4.webp",
+            image: "/media/landings/corea/promise/gastronomia.avif",
         },
         {
             id: "support",
             label: "5",
             title: "Acompañamiento real",
             description: "Desde la planeación inicial hasta tu regreso, cuentas con seguimiento real y atención en español.",
-            image: "/media/shared/blog/blog-corea-4.png",
+            image: "/media/landings/corea/promise/acompañamiento.avif",
         },
     ],
 };

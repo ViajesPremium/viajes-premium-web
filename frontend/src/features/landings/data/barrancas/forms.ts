@@ -1,21 +1,21 @@
 import type { LandingFormSection } from "./../types";
 import { LANDING_CONTACT } from "./../shared";
 
-const EUROPE_FORM_OPTIONS = [
+const BARRANCAS_FORM_OPTIONS = [
   {
     label:
-      "De París a Roma — Ciudades icónicas y encanto clásico | Desde $5,286 USD base doble",
-    value: "de-paris-a-roma",
+      "El de Mayor Ranking ? Chepe Express, miradores y naturaleza | Desde _ MXN base doble",
+    value: "mayor-ranking",
   },
   {
     label:
-      "Europa Cosmopolita — España, Francia, Bélgica y Países Bajos | Desde $5,094 USD base doble",
-    value: "europa-cosmopolita",
+      "Las Leyendas del Fuerte ? Historia, El Fuerte y Barrancas | Desde _ MXN base doble",
+    value: "leyendas-del-fuerte",
   },
   {
     label:
-      "Íconos de Europa — Francia, Inglaterra, Países Bajos e Italia | Desde $6,319 USD base doble",
-    value: "iconos-de-europa",
+      "Sabores del Norte — Gastronomía, cultura menonita y paisajes | Desde _ MXN base doble",
+    value: "sabores-del-norte",
   },
   { label: "Deseo una experiencia más personalizada", value: "otro" },
 ] as const;
@@ -63,35 +63,35 @@ const formSection = ({
 });
 
 export const BARRANCAS_FIRST_FORM = formSection({
-  srHeading: "Cuéntanos cómo imaginas tu viaje a Europa",
-  title: "Europa a tu ritmo, sin perder profundidad.",
-  backgroundImage: "/media/landings/europa/forms/europa-form.avif",
+  srHeading: "Cuéntanos cómo imaginas tu viaje a Barrancas",
+  title: "Barrancas a tu ritmo, sin perder profundidad.",
+  backgroundImage: "/media/landings/barrancas/forms/formulario-barrancas-1.avif",
   mobileImage: {
-    src: "/media/landings/europa/forms/first-form-europa-sola.webp",
-    alt: "Figura Europa Premium",
+    src: "/media/landings/barrancas/forms/formulario-barrancas-1.webp",
+    alt: "Figura Barrancas Premium",
   },
   contactPhoneDisplay: "+52 55 4161 9427",
   contactPhoneLink: "+525541619427",
-  crmTag: "#tags:Europa Premium",
+  crmTag: "#tags:Barrancas Premium",
   labels: {
-    travelWishes: "¿Qué te gustaría vivir en Europa?",
+    travelWishes: "¿Qué te gustar?a vivir en Barrancas?",
     experienceType: "¿Con qué tipo de experiencia conectas más? (opcional)",
   },
   placeholders: {
     travelWishes:
-      "Ej. París, Roma, Londres, Ámsterdam, trenes, gastronomía, museos, paisajes y tiempo libre para explorar.",
-    experienceType: "Ej. clásico, cosmopolita, cultural profundo...",
+      "Ej. Chepe Express, miradores, El Fuerte, paisajes, gastronomía, cultura y tiempo libre para explorar.",
+    experienceType: "Ej. clásico, cultural, escénico, gastronómico...",
   },
-  options: EUROPE_FORM_OPTIONS,
+  options: BARRANCAS_FORM_OPTIONS,
 });
 
 export const BARRANCAS_SECOND_FORM = {
   ...BARRANCAS_FIRST_FORM,
-  srHeading: "Formulario de contacto Europa Premium",
-  title: "Hablemos de tu ruta por Europa.",
-  backgroundImage: "/media/landings/europa/forms/cta-form-europa.avif",
+  srHeading: "Formulario de contacto Barrancas Premium",
+  title: "Hablemos de tu ruta por Barrancas.",
+  backgroundImage: "/media/landings/barrancas/forms/formulario-barrancas-2.avif",
   mobileImage: {
-    src: "/media/landings/europa/forms/form-europa-sola.webp",
-    alt: "Europa Premium",
+    src: "/media/landings/barrancas/forms/formulario-barrancas-2.webp",
+    alt: "Barrancas Premium",
   },
 };

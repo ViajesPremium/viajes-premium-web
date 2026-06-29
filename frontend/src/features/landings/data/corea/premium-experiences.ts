@@ -7,21 +7,21 @@ export const KOREA_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
   titleHighlightWords: ["21", "PREMIUM", "años"],
   cards: [
     {
-      image: "/media/shared/home/destinos/corea/corea-premium-1.webp",
+      image: "/media/landings/corea/premium-experiences/tesoros-de-corea.avif",
       text: "Tesoros de Corea",
       experiences:
         "8 días · Seúl · Busan · Gyeongju · Cultura coreana",
     },
     {
-      image: "/media/shared/home/destinos/corea/corea-premium-3.webp",
+      image: "/media/landings/corea/premium-experiences/rutas-imperiales.avif",
       text: "Rutas Imperiales",
       experiences:
         "12 días · Corea · China · Historia · Patrimonio cultural",
     },
     {
-      image: "/media/shared/home/destinos/corea/corea-premium-4.webp",
-      text: "Imperios del Pacífico",
-      experiences: "13 días · Corea · Japón · Tradición · Modernidad",
+      image: "/media/landings/corea/premium-experiences/joyas-de-asia.avif",
+      text: "Joyas de Asia",
+      experiences: "12 días · Corea · Japón · Tradición · Modernidad",
     },
   ],
   cardButtonLabel: "Descubrir",

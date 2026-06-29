@@ -17,9 +17,9 @@ export const EUROPE_ITINERARIES: LandingItineraries = {
         "La Europa más icónica entre ciudades históricas, paisajes escénicos y experiencias representativas.",
       ideal:
         "Para descubrir Europa por primera vez en una experiencia clásica.",
-      image: "/media/landings/europa/itinerarios/izquierda/scroll-gala-izquierda.avif",
+      image: "/media/landings/europa/itineraries/izquierda/scroll-gala-izquierda.avif",
       price: "Desde $5,286 USD base doble",
-      pdfHref: "/media/landings/europa/pdf/de-paris-a-roma-europa-premium.pdf",
+      pdfHref: "/media/landings/europa/pdfs/de-paris-a-roma-europa-premium.pdf",
     },
     {
       id: 2,
@@ -29,9 +29,9 @@ export const EUROPE_ITINERARIES: LandingItineraries = {
         "Ciudades históricas, arquitectura emblemática y paisajes urbanos de Europa occidental.",
       ideal:
         "Viajeros que buscan cultura, historia y ciudades llenas de identidad.",
-      image: "/media/landings/europa/itinerarios/izquierda/scroll-maravillas-izquierda.avif",
+      image: "/media/landings/europa/itineraries/izquierda/scroll-maravillas-izquierda.avif",
       price: "Desde $5,094 USD base doble",
-      pdfHref: "/media/landings/europa/pdf/europa-cosmopolita-europa-premium.pdf",
+      pdfHref: "/media/landings/europa/pdfs/europa-cosmopolita-europa-premium.pdf",
     },
     {
       id: 3,
@@ -41,9 +41,9 @@ export const EUROPE_ITINERARIES: LandingItineraries = {
         "Capitales históricas, pueblos escénicos y experiencias que representan la grandeza del continente.",
       ideal:
         "Para conocer las ciudades más icónicas de Europa con una ruta amplia.",
-      image: "/media/landings/europa/itinerarios/izquierda/scroll-reserva-izquierda.avif",
+      image: "/media/landings/europa/itineraries/izquierda/scroll-reserva-izquierda.avif",
       price: "Desde $6,319 USD base doble",
-      pdfHref: "/media/landings/europa/pdf/iconos-de-europa-europa-premium.pdf",
+      pdfHref: "/media/landings/europa/pdfs/iconos-de-europa-europa-premium.pdf",
     },
   ],
 };

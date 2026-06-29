@@ -1,25 +1,28 @@
 import type { LandingPremiumExperiences } from "./../types";
 
 export const BARRANCAS_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
-  srHeading: "Nosotros Europa Premium",
+  srHeading: "Nosotros Barrancas Premium",
   badgeText: "Nosotros",
-  titleText: "Más de 21 años diseñando experiencias PREMIUM",
-  titleHighlightWords: ["21", "PREMIUM", "años"],
+  titleText: "M?s de 21 a?os diseñando experiencias PREMIUM",
+  titleHighlightWords: ["21", "PREMIUM", "a?os"],
   cards: [
     {
-      image: "/media/landings/europa/nosotros/itinerario-gala.avif",
+      image:
+        "/media/landings/barrancas/premium-experiences/5-dias-chepe-express-miradores-naturaleza.avif",
       text: "El de Mayor Ranking",
-      experiences: "5 días · Chepe Express · Miradores · Naturaleza · Barrancas",
+      experiences: "5 d?as ? Chepe Express ? Miradores ? Naturaleza ? Barrancas",
     },
     {
-      image: "/media/landings/europa/nosotros/itinerario-maravillas.avif",
+      image:
+        "/media/landings/barrancas/premium-experiences/7-dias-historia-paisajes-cultura-nortena.avif",
       text: "Las Leyendas del Fuerte",
       experiences:
-        "7 días · El Fuerte · Historia · Paisajes · Cultura del Norte",
+        "7 d?as ? El Fuerte ? Historia ? Paisajes ? Cultura del Norte",
     },
     {
-      image: "/media/landings/europa/nosotros/itinerario-reserva.avif",
-      text: "Sabres del Norte",
+      image:
+        "/media/landings/barrancas/premium-experiences/8-dias-gastronomia-cultura-menonita-chepe.avif",
+      text: "Sabores del Norte",
       experiences:
         "8 días · Gastronomía · Cultura Menonita · Chepe Express · Barrancas",
     },

@@ -22,13 +22,13 @@ const DEFAULT_REVIEWS = [
     name: "Mariana Gutiérrez",
     quote:
       "Se nota cuando un viaje está pensado con criterio. Todo fluya perfecto.",
-    avatar: "/media/landings/japon/testimonios/carolina-grijalva.webp",
+    avatar: "/media/landings/japon/testimonials/carolina-grijalva.avif",
   },
   {
     name: "Rodrigo Treviño",
     quote:
       "Desde la planeación hasta el regreso, todo se sintió bien acompañado.",
-    avatar: "/media/landings/japon/testimonios/francesco.webp",
+    avatar: "/media/landings/japon/testimonials/francesco.avif",
   },
 ];
 
@@ -38,11 +38,11 @@ export const destinationCardsData: DestinationDataCard[] = [
     route: "/japon-premium",
     primaryColor: "#db2f21",
     secondaryColor: "#95231c",
-    logoSrc: "/media/shared/logos/japon/jp-blanco.svg",
+    logoSrc:       "/media/landings/japon/aliances/japon-premium-blanco.svg",
     description:
       "Tradición milenaria y vanguardia tecnológica en un viaje diseñado con comodidad y acompañamiento experto.",
     backgroundImage:
-      "/media/shared/home/destinos/japon/japon-premium-1.webp",
+      "/media/landings/japon/aliances/japon-premium-blanco.svg",
     galleryImages: [
       "/media/shared/home/destinos/japon/japon-premium-1.webp",
       "/media/shared/home/destinos/japon/japon-premium-2.webp",
@@ -52,8 +52,8 @@ export const destinationCardsData: DestinationDataCard[] = [
     reviewUrl: "https://www.google.com/search?q=Japón+Premium+reseñas",
     reviews: DEFAULT_REVIEWS,
     overlayImages: {
-      baseImage: "/media/landings/japon/hero/geisha-hero-2.webp",
-      overlayImage: "/media/landings/japon/hero/samurai-hero.webp",
+      baseImage: "/media/landings/japon/hero/geisha.avif",
+      overlayImage: "/media/landings/japon/hero/samurai.avif",
       baseAlt: "Hero Japón Premium",
       overlayAlt: "Imagen secundaria Japón Premium",
     },

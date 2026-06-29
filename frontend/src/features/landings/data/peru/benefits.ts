@@ -1,15 +1,15 @@
 import type { LandingBenefits } from "../types";
 
 export const PERU_BENEFITS: LandingBenefits = {
-  srHeading: "Highlights de Corea Premium",
-  badgeText: "¿Por qué Corea PREMIUM?",
+  srHeading: "Highlights de Per? Premium",
+  badgeText: "¿Por qué Per? PREMIUM?",
   kickerTop: "Trabajamos con marcas",
   kickerBottom: "Cuidadosamente seleccionadas.",
   line1: {
     lead: "Viaja por",
     bracket: {
       label: "Seúl",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-2.webp",
+      imageSrc: "/media/landings/peru/benefits/hover/cusco-premium.webp",
       imageAlt: "Vista de Seúl con luces y arquitectura urbana",
       textTone: "ot",
     },
@@ -20,7 +20,7 @@ export const PERU_BENEFITS: LandingBenefits = {
     highlightWord: "Busan",
     bracket: {
       label: "Busan",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-4.webp",
+      imageSrc: "/media/landings/peru/benefits/hover/andes-premium.webp",
       imageAlt: "Vista de Busan frente al mar",
       textTone: "epochal",
     },
@@ -30,7 +30,7 @@ export const PERU_BENEFITS: LandingBenefits = {
     lead: "Esencia y",
     bracket: {
       label: "Gyeongju",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-3.webp",
+      imageSrc: "/media/landings/peru/benefits/hover/peru-premium.webp",
       imageAlt: "Paisaje histórico de Gyeongju",
       textTone: "ot",
     },
@@ -44,37 +44,37 @@ export const PERU_BENEFITS: LandingBenefits = {
     {
       id: "respaldo-24-7",
       title: "Seúl",
-      imageSrc: "/media/shared/blog/blog-corea-1.png",
+      imageSrc: "/media/landings/peru/benefits/valor/tranquilidad-peru-premium.webp",
       href: "#second-form",
     },
     {
       id: "estancias-altura",
       title: "Busan",
-      imageSrc: "/media/shared/blog/blog-corea-2.png",
+      imageSrc: "/media/landings/peru/benefits/valor/respaldo-peru-premium.webp",
       href: "#second-form",
     },
     {
       id: "idioma",
       title: "Jeju",
-      imageSrc: "/media/shared/blog/blog-corea-3.png",
+      imageSrc: "/media/landings/peru/benefits/valor/recorridos-peru-premium.webp",
       href: "#second-form",
     },
     {
       id: "tranquilidad",
       title: "Gyeongju",
-      imageSrc: "/media/shared/blog/blog-corea-4.png",
+      imageSrc: "/media/landings/peru/benefits/valor/expertos-peru-premium.webp",
       href: "#second-form",
     },
     {
       id: "criterio",
       title: "Incheon",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-1.webp",
+      imageSrc: "/media/landings/peru/benefits/valor/estancias-peru-premium.webp",
       href: "#second-form",
     },
     {
       id: "acompanamiento",
       title: "Daegu",
-      imageSrc: "/media/shared/home/destinos/corea/corea-premium-4.webp",
+      imageSrc: "/media/landings/peru/benefits/hover/andes-premium.webp",
       href: "#second-form",
     },
   ],

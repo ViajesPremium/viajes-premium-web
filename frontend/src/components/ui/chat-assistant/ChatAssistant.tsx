@@ -152,6 +152,71 @@ function buildErrorMessage(): ChatMessage {
   };
 }
 
+function useMobilePageScrollLock(isLocked: boolean) {
+  useEffect(() => {
+    if (!isLocked || typeof window === "undefined") return;
+
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    let unlockScroll: (() => void) | null = null;
+
+    const lockScroll = () => {
+      unlockScroll?.();
+      unlockScroll = null;
+
+      if (!mobileQuery.matches) return;
+
+      const scrollY = window.scrollY;
+      const { body, documentElement } = document;
+      const lenis = window.__lenis;
+      const wasLenisStopped = lenis?.isStopped === true;
+      const previousBodyStyles = {
+        position: body.style.position,
+        top: body.style.top,
+        left: body.style.left,
+        right: body.style.right,
+        width: body.style.width,
+        overflow: body.style.overflow,
+      };
+      const previousHtmlOverflow = documentElement.style.overflow;
+
+      lenis?.stop();
+
+      documentElement.style.overflow = "hidden";
+      body.style.position = "fixed";
+      body.style.top = `-${scrollY}px`;
+      body.style.left = "0";
+      body.style.right = "0";
+      body.style.width = "100%";
+      body.style.overflow = "hidden";
+
+      unlockScroll = () => {
+        body.style.position = previousBodyStyles.position;
+        body.style.top = previousBodyStyles.top;
+        body.style.left = previousBodyStyles.left;
+        body.style.right = previousBodyStyles.right;
+        body.style.width = previousBodyStyles.width;
+        body.style.overflow = previousBodyStyles.overflow;
+        documentElement.style.overflow = previousHtmlOverflow;
+
+        window.scrollTo(0, scrollY);
+
+        if (lenis && !wasLenisStopped) {
+          lenis.start();
+          lenis.resize();
+        }
+      };
+    };
+
+    lockScroll();
+    mobileQuery.addEventListener("change", lockScroll);
+
+    return () => {
+      mobileQuery.removeEventListener("change", lockScroll);
+      unlockScroll?.();
+    };
+  }, [isLocked]);
+}
+
 export default function ChatAssistantDock({
   enabled,
   botSlug,
@@ -190,6 +255,8 @@ export default function ChatAssistantDock({
   const [score, setScore] = useState(0);
   const [handoffReason, setHandoffReason] = useState("");
   const [responseSource, setResponseSource] = useState("rules");
+
+  useMobilePageScrollLock(enabled && isOpen);
 
   const fallbackInitials = useMemo(() => getInitials(brandLabel), [brandLabel]);
   const panelVariants = useMemo(

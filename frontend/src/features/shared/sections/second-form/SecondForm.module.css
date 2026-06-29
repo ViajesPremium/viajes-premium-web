@@ -20,7 +20,7 @@
   z-index: 0;
   background-image: var(
     --cta-form-bg-image,
-    url("/media/landings/japon/forms/samurai-form.webp")
+    url("/media/landings/japon/forms/second-form/samurai.avif")
   );
   background-size: cover;
   background-position-x: -50;

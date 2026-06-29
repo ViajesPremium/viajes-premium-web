@@ -202,7 +202,7 @@
   min-height: 100%;
   height: auto;
   flex: 1;
-  background-image: var(--bg), url("/media/landings/japon/nosotros/itinerario-shogun-large.avif");
+  background-image: var(--bg), url("/media/landings/japon/premium-experiences/camino-del-shogun.avif");
   background-size: cover;
   background-position: center;
 }

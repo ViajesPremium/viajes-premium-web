@@ -44,12 +44,12 @@ const formSection = ({
 });
 
 export const PERU_FIRST_FORM = formSection({
-  srHeading: "Cuéntanos cómo imaginas tu viaje a Corea",
-  title: "Corea, planeada con claridad desde el primer contacto.",
-  backgroundImage: "/media/landings/corea/forms/corea-form.avif",
+  srHeading: "Cuéntanos cómo imaginas tu viaje a Per?",
+  title: "Per?, planeada con claridad desde el primer contacto.",
+  backgroundImage: "/media/landings/peru/forms/inca-form.avif",
   mobileImage: {
-    src: "/media/landings/corea/forms/first-form-corea-sola.webp",
-    alt: "Corea Premium",
+    src: "/media/landings/peru/forms/peru-premium-4.webp",
+    alt: "Per? Premium",
   },
   contactPhoneDisplay: "+52 55 4161 9427",
   contactPhoneLink: "+525541619427",
@@ -57,11 +57,11 @@ export const PERU_FIRST_FORM = formSection({
 
 export const PERU_SECOND_FORM = {
   ...PERU_FIRST_FORM,
-  srHeading: "Formulario de contacto Corea Premium",
-  title: "Hablemos de la Corea que quieres vivir.",
-  backgroundImage: "/media/landings/corea/forms/corea-form-2.avif",
+  srHeading: "Formulario de contacto Per? Premium",
+  title: "Hablemos de la Per? que quieres vivir.",
+  backgroundImage: "/media/landings/peru/hero/peru-premium-1.webp",
   mobileImage: {
-    src: "/media/landings/corea/forms/form-corea-sola.webp",
-    alt: "Corea Premium",
+    src: "/media/landings/peru/hero/peru-premium-2.webp",
+    alt: "Per? Premium",
   },
 };

@@ -16,7 +16,10 @@ type FlickCardsSliderProps = {
   ctaLabel: string;
 };
 
-export default function FlickCardsSlider({ items, ctaLabel }: FlickCardsSliderProps) {
+export default function FlickCardsSlider({
+  items,
+  ctaLabel,
+}: FlickCardsSliderProps) {
   const { triggerTransition } = usePageTransition();
   const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -38,7 +41,9 @@ export default function FlickCardsSlider({ items, ctaLabel }: FlickCardsSliderPr
     const list = slider.querySelector<HTMLElement>("[data-flick-cards-list]");
     if (!list) return;
 
-    const cards = Array.from(list.querySelectorAll<HTMLElement>("[data-flick-cards-item]"));
+    const cards = Array.from(
+      list.querySelectorAll<HTMLElement>("[data-flick-cards-item]"),
+    );
     const total = cards.length;
     let activeIndex = 0;
 
@@ -49,7 +54,9 @@ export default function FlickCardsSlider({ items, ctaLabel }: FlickCardsSliderPr
 
     const draggers: HTMLElement[] = [];
     cards.forEach((card) => {
-      const existing = card.querySelector<HTMLElement>("[data-flick-cards-dragger]");
+      const existing = card.querySelector<HTMLElement>(
+        "[data-flick-cards-dragger]",
+      );
       if (existing) {
         draggers.push(existing);
         return;
@@ -83,16 +90,51 @@ export default function FlickCardsSlider({ items, ctaLabel }: FlickCardsSliderPr
         case 0:
           return { x: 0, y: 0, rot: 0, s: 1, o: 1, z: 5 };
         case 1:
-          return { x: layer2X, y: compact ? 0.5 : 1, rot: layer2Rot, s: layer2Scale, o: 1, z: 4 };
+          return {
+            x: layer2X,
+            y: compact ? 0.5 : 1,
+            rot: layer2Rot,
+            s: layer2Scale,
+            o: 1,
+            z: 4,
+          };
         case -1:
-          return { x: -layer2X, y: compact ? 0.5 : 1, rot: -layer2Rot, s: layer2Scale, o: 1, z: 4 };
+          return {
+            x: -layer2X,
+            y: compact ? 0.5 : 1,
+            rot: -layer2Rot,
+            s: layer2Scale,
+            o: 1,
+            z: 4,
+          };
         case 2:
-          return { x: layer3X, y: compact ? 2 : 5, rot: layer3Rot, s: layer3Scale, o: 1, z: 3 };
+          return {
+            x: layer3X,
+            y: compact ? 2 : 5,
+            rot: layer3Rot,
+            s: layer3Scale,
+            o: 1,
+            z: 3,
+          };
         case -2:
-          return { x: -layer3X, y: compact ? 2 : 5, rot: -layer3Rot, s: layer3Scale, o: 1, z: 3 };
+          return {
+            x: -layer3X,
+            y: compact ? 2 : 5,
+            rot: -layer3Rot,
+            s: layer3Scale,
+            o: 1,
+            z: 3,
+          };
         default: {
           const dir = diff > 0 ? 1 : -1;
-          return { x: hiddenX * dir, y: compact ? 2 : 5, rot: hiddenRot * dir, s: hiddenScale, o: 0, z: 2 };
+          return {
+            x: hiddenX * dir,
+            y: compact ? 2 : 5,
+            rot: hiddenRot * dir,
+            s: hiddenScale,
+            o: 0,
+            z: 2,
+          };
         }
       }
     }
@@ -202,7 +244,10 @@ export default function FlickCardsSlider({ items, ctaLabel }: FlickCardsSliderPr
 
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-              const el = document.elementFromPoint(releaseClientX, releaseClientY);
+              const el = document.elementFromPoint(
+                releaseClientX,
+                releaseClientY,
+              );
               if (el) {
                 const evt = new MouseEvent("click", {
                   view: window,
@@ -261,6 +306,7 @@ export default function FlickCardsSlider({ items, ctaLabel }: FlickCardsSliderPr
                       </Button>
                     </div>
                     <div className={styles.cardCopy}>
+                      <span className={styles.tag}>Conoce</span>
                       <h3 className={styles.cardTitle}>{item.title}</h3>
                     </div>
                   </div>

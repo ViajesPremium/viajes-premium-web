@@ -15,30 +15,30 @@ const CANADA_MENU_ITEMS = [
   { label: "Inicio", ariaLabel: "Ir al inicio", link: "#inicio" },
   { label: "Nosotros", ariaLabel: "Ir a nosotros", link: "#nosotros" },
   { label: "Itinerarios", ariaLabel: "Ir a itinerarios", link: "#itinerarios" },
-  { label: "Qué Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
+  { label: "Qu? Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
   { label: "Testimonios", ariaLabel: "Ir a testimonios", link: "#testimonials" },
-  { label: "Sobre Corea", ariaLabel: "Ir a sobre Corea", link: "#faqs" },
+  { label: "Sobre Canad?", ariaLabel: "Ir a sobre Canad?", link: "#faqs" },
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
 export const CANADA_PREMIUM_METADATA: LandingMetadata = {
-  title: "Viajes a Canadá | Clase PREMIUM",
+  title: "Viajes a Canad? | Clase PREMIUM",
   description:
-    "Descubre Canadá entre naturaleza, ciudades icónicas, paisajes espectaculares y experiencias diseñadas en Clase PREMIUM.",
+    "Descubre Canad? entre naturaleza, ciudades ic?nicas, paisajes espectaculares y experiencias dise?adas en Clase PREMIUM.",
   keywords: [
-    "Tour por Canadá",
-    "Viaje a Canadá desde México",
-    "Viajar a Canadá",
-    "Canadá Premium",
-    "Viajes a Canadá"
+    "Tour por Canad?",
+    "Viaje a Canad? desde M?xico",
+    "Viajar a Canad?",
+    "Canad? Premium",
+    "Viajes a Canad?",
   ],
   canonicalPath: "/canada-premium",
-  ogImagePath: "/media/landings/corea/hero/coreana.avif",
+  ogImagePath: "/media/landings/canada/hero/canada-premium-1.webp",
 };
 
 export const canadaPremium: LandingTheme = {
   slug: "canada-premium",
-  label: "Canada Premium",
+  label: "Canad? Premium",
   metadata: CANADA_PREMIUM_METADATA,
   palette: {
     primary: "#1D624E",
@@ -46,7 +46,7 @@ export const canadaPremium: LandingTheme = {
     complementary: "#DFDFDF",
   },
   navbar: {
-    logoUrl: "/media/shared/logos/corea/logo-corea.svg",
+    logoUrl: "/media/shared/logos/canada/logo-canada.svg",
     menuItems: [...CANADA_MENU_ITEMS],
     colors: ["#1D624E", "#482D55"],
     accentColor: "#1D624E",
@@ -63,16 +63,16 @@ export const canadaPremium: LandingTheme = {
   founder: CANADA_FOUNDER,
   faqs: CANADA_FAQS,
   video: {
-    srHeading: "Video Corea Premium",
+    srHeading: "Video Canad? Premium",
     desktop: {
       webm: "/media/landings/corea/videos/corea-web-horizontal.webm",
-      mp4: "/media/landings/corea/videos/corea-web-horizontal.webm",
+      mp4: "/media/landings/corea/videos/corea-web-horizontal.mp4",
     },
     mobile: {
       webm: "/media/landings/corea/videos/corea-web-vertical.webm",
-      mp4: "/media/landings/corea/videos/corea-web-vertical.webm",
+      mp4: "/media/landings/corea/videos/corea-web-vertical.mp4",
     },
-    alt: "Video de la experiencia Corea Premium",
+    alt: "Video de la experiencia Canad? Premium",
   },
   secondForm: CANADA_SECOND_FORM,
   aliances: CANADA_ALIANCES,

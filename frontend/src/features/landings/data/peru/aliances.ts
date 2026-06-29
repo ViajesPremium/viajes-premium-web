@@ -16,42 +16,42 @@ const aliances = (
 });
 
 export const PERU_ALIANCES = aliances(
-  "Alianzas de Corea Premium",
+  "Alianzas de Per? Premium",
   "Nuestras alianzas",
   {
-    src: "/media/shared/logos/corea/logo-corea.svg",
-    alt: "Corea Premium",
+    src: "/media/landings/peru/aliances/logo-peru.svg",
+    alt: "Per? Premium",
     width: 460,
     height: 96,
   },
   {
-    src: "/media/shared/logos/corea/corea-grande-logo.png",
-    alt: "Corea Premium",
+    src: "/media/landings/peru/aliances/peru-grande-logo.png",
+    alt: "Per? Premium",
     width: 460,
     height: 96,
   },
   [
     {
-      src: "/media/shared/logos/corea/corea-grande-logo.png",
-      alt: "Corea Premium",
+      src: "/media/landings/peru/aliances/peru-grande-logo.png",
+      alt: "Per? Premium",
       width: 420,
       height: 90,
     },
     {
-      src: "/media/shared/logos/corea/corea-grande-logo.avif",
-      alt: "Corea Premium",
+      src: "/media/landings/peru/aliances/peru-grande-logo.avif",
+      alt: "Per? Premium",
       width: 280,
       height: 90,
     },
     {
-      src: "/media/shared/logos/corea/logo-corea.svg",
-      alt: "Corea Premium",
+      src: "/media/landings/peru/aliances/logo-peru.svg",
+      alt: "Per? Premium",
       width: 360,
       height: 110,
     },
     {
-      src: "/media/shared/logos/corea/corea-grande-logo.png",
-      alt: "Corea Premium",
+      src: "/media/landings/peru/aliances/peru-grande-logo.png",
+      alt: "Per? Premium",
       width: 540,
       height: 120,
     },

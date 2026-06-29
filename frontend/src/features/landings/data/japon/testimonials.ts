@@ -12,7 +12,7 @@ export const JAPAN_TESTIMONIALS: LandingTestimonials = {
         "Un viaje muy bonito con excelente mezcla de ciudades y pueblos. El ryokan de Hakone fue memorable.",
       name: "Familia Verduzco",
       location: "Ciudad de México",
-      avatar: "/media/landings/japon/testimonios/familia-verduzco.webp",
+      avatar: "/media/landings/japon/testimonials/familia-verduzco.avif",
     },
     {
       id: 2,
@@ -20,14 +20,14 @@ export const JAPAN_TESTIMONIALS: LandingTestimonials = {
         "Todo perfecto: hoteles, transporte y guías. Fue una experiencia única.",
       name: "Carolina Grijalva",
       location: "Guadalajara",
-      avatar: "/media/landings/japon/testimonios/carolina-grijalva.webp",
+      avatar: "/media/landings/japon/testimonials/carolina-grijalva.avif",
     },
     {
       id: 3,
       quote: "Todo estuvo pensado con muchísimo detalle y claridad.",
       name: "Lilia Gordillo",
       location: "Monterrey",
-      avatar: "/media/landings/japon/testimonios/lilia-gordillo.webp",
+      avatar: "/media/landings/japon/testimonials/lilia-gordillo.avif",
     },
   ],
 };

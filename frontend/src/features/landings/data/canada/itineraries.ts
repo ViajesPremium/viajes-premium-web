@@ -17,9 +17,9 @@ export const CANADA_ITINERARIES: LandingItineraries = {
         "Un recorrido por el este de Canadá entre ciudades históricas, paisajes icónicos y algunas de las experiencias más representativas del país.",
       ideal:
         "Viajeros que desean descubrir Canadá por primera vez en una experiencia equilibrada y cuidadosamente diseñada.",
-      image: "/media/shared/home/destinos/corea/corea-premium-1.webp",
+      image: "/media/landings/canada/itineraries/izquierda/scroll-original-izquierda.webp",
       price: "Precio bajo solicitud",
-      pdfHref: "/media/landings/corea/pdf/tesoros-de-corea-corea-premium.pdf",
+      pdfHref: "/media/landings/canada/pdfs/tesoros-de-corea-corea-premium.pdf",
     },
     {
       id: 2,
@@ -28,9 +28,9 @@ export const CANADA_ITINERARIES: LandingItineraries = {
       description:
         "Un recorrido por el oeste de Canada, visitando  las Rocosas Canadienses entre lagos turquesa, montañas imponentes y lo más impresionante de Canadá.",
       ideal: "Viajeros que buscan paisajes naturales, rutas panorámicas y experiencias profundamente conectadas con la naturaleza canadiense.",
-      image: "/media/shared/home/destinos/corea/corea-premium-3.webp",
+      image: "/media/landings/canada/itineraries/izquierda/scroll-rocosas-izquierda.webp",
       price: "Precio bajo solicitud",
-      pdfHref: "/media/landings/corea/pdf/rutas-imperiales-corea-premium.pdf",
+      pdfHref: "/media/landings/canada/pdfs/rutas-imperiales-corea-premium.pdf",
     },
     {
       id: 3,
@@ -40,9 +40,9 @@ export const CANADA_ITINERARIES: LandingItineraries = {
         "Una experiencia diseñada para descubrir el invierno canadiense entre paisajes nevados y la posibilidad de observar auroras boreales en el norte de Canadá.",
       ideal:
         "Viajeros que buscan vivir una experiencia invernal única y contemplar uno de los fenómenos naturales más impresionantes del mundo.",
-      image: "/media/shared/blog/blog-corea-2.png",
+      image: "/media/landings/canada/itineraries/izquierda/scroll-invierno-izquierda.webp",
       price: "Precio bajo solicitud",
-      pdfHref: "/media/landings/corea/pdf/joyas-de-asia-corea-premium.pdf",
+      pdfHref: "/media/landings/canada/pdfs/joyas-de-asia-corea-premium.pdf",
     },
   ],
 };

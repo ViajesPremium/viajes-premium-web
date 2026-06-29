@@ -190,8 +190,8 @@ export default function Includes({ landing }: PromiseProps) {
         };
       };
 
-      mm.add("(min-width: 769px)", () => createPin(32, 36));
-      mm.add("(max-width: 768px)", () => createPin(34, 44, root));
+      mm.add("(min-width: 769px)", () => createPin(22, 26));
+      mm.add("(max-width: 768px)", () => createPin(44, 60, root));
 
       return () => {
         fadeScroll?.kill();

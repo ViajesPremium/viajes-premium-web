@@ -31,7 +31,7 @@ export const PERU_FOOTER = footer(
         { label: "Contacto", href: "#second-form" },
     ],
     {
-        mapEmbedTitle: "Ubicación Corea Premium",
+        mapEmbedTitle: "Ubicación Per? Premium",
         contactPhoneDisplay: "+52 55 4161 9427",
         contactPhoneLink: "+525541619427",
         legalLinks: [

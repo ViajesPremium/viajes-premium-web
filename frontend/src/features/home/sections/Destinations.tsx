@@ -21,9 +21,9 @@ import { getDestinationAnchorId } from "@/lib/home-destination-navigation";
 import { useStackedCardScrollAnimation } from "@/features/shared/hooks/useStackedCardScrollAnimation";
 
 const DEFAULT_DESTINATION_AVATAR_LEFT =
-  "/media/landings/japon/nosotros/samurai-perfil.webp";
+  "/media/landings/japon/faqs/samurai.avif";
 const DEFAULT_DESTINATION_AVATAR_RIGHT =
-  "/media/landings/japon/nosotros/geisha-perfil-2.webp";
+  "/media/landings/japon/faqs/geisha.avif";
 
 const DESTINATION_FAQ_AVATARS: Record<string, { left: string; right: string }> =
   {

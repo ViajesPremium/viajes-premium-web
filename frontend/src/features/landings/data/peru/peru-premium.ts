@@ -15,29 +15,30 @@ const PERU_MENU_ITEMS = [
   { label: "Inicio", ariaLabel: "Ir al inicio", link: "#inicio" },
   { label: "Nosotros", ariaLabel: "Ir a nosotros", link: "#nosotros" },
   { label: "Itinerarios", ariaLabel: "Ir a itinerarios", link: "#itinerarios" },
-  { label: "Qué Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
+  { label: "Qu? Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
   { label: "Testimonios", ariaLabel: "Ir a testimonios", link: "#testimonials" },
-  { label: "Sobre Corea", ariaLabel: "Ir a sobre Corea", link: "#faqs" },
+  { label: "Sobre Per?", ariaLabel: "Ir a sobre Per?", link: "#faqs" },
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
 export const PERU_PREMIUM_METADATA: LandingMetadata = {
-  title: "Viajes a Corea del Sur | Clase PREMIUM ",
+  title: "Viajes a Per? | Clase PREMIUM",
   description:
-    "Descubre Corea del Sur entre tradición, tecnología, gastronomía y experiencias diseñadas en Clase PREMIUM.",
+    "Descubre Per? entre tradici?n, paisajes, gastronom?a y experiencias dise?adas en Clase PREMIUM.",
   keywords: [
-    "Viajes a Corea del Sur",
-    "Tour por Corea",
-    "Viaje a Corea desde México",
-    " Viajar a Corea del Sur, Corea Premium",
+    "Viajes a Per?",
+    "Tour por Per?",
+    "Viaje a Per? desde M?xico",
+    "Viajar a Per?",
+    "Per? Premium",
   ],
-  canonicalPath: "/corea-premium",
-  ogImagePath: "/media/landings/corea/hero/coreana.avif",
+  canonicalPath: "/peru-premium",
+  ogImagePath: "/media/landings/peru/hero/peru-premium-1.webp",
 };
 
 export const peruPremium: LandingTheme = {
-  slug: "corea-premium",
-  label: "Corea Premium",
+  slug: "peru-premium",
+  label: "Per? Premium",
   metadata: PERU_PREMIUM_METADATA,
   palette: {
     primary: "#1D624E",
@@ -45,7 +46,7 @@ export const peruPremium: LandingTheme = {
     complementary: "#DFDFDF",
   },
   navbar: {
-    logoUrl: "/media/shared/logos/corea/logo-corea.svg",
+    logoUrl: "/media/shared/logos/peru/logo-peru.svg",
     menuItems: [...PERU_MENU_ITEMS],
     colors: ["#1D624E", "#482D55"],
     accentColor: "#1D624E",
@@ -62,16 +63,16 @@ export const peruPremium: LandingTheme = {
   founder: PERU_FOUNDER,
   faqs: PERU_FAQS,
   video: {
-    srHeading: "Video Corea Premium",
+    srHeading: "Video Per? Premium",
     desktop: {
       webm: "/media/landings/corea/videos/corea-web-horizontal.webm",
-      mp4: "/media/landings/corea/videos/corea-web-horizontal.webm",
+      mp4: "/media/landings/corea/videos/corea-web-horizontal.mp4",
     },
     mobile: {
       webm: "/media/landings/corea/videos/corea-web-vertical.webm",
-      mp4: "/media/landings/corea/videos/corea-web-vertical.webm",
+      mp4: "/media/landings/corea/videos/corea-web-vertical.mp4",
     },
-    alt: "Video de la experiencia Corea Premium",
+    alt: "Video de la experiencia Per? Premium",
   },
   secondForm: PERU_SECOND_FORM,
   aliances: PERU_ALIANCES,

@@ -110,13 +110,13 @@ export const JAPAN_ALIANCES = aliances(
       height: 140,
     },
     {
-      src: "/media/landings/japon/aliances/profeco.avif",
+      src: "/media/shared/aliances/profeco.avif",
       alt: "Profeco",
       width: 290,
       height: 120,
     },
     {
-      src: "/media/landings/japon/aliances/secretaria-de-turismo.avif",
+      src: "/media/shared/aliances/secretaria-de-turismo.avif",
       alt: "Secretaria de Turismo",
       width: 340,
       height: 140,

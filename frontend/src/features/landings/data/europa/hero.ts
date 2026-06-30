@@ -15,7 +15,7 @@ export const EUROPA_PREMIUM_HERO: LandingHero = {
         target: "#second-form",
     },
     heroOverlay: {
-        baseImage: "/media/landings/europa/hero/diosa.avif",
+        baseImage: "/media/landings/europa/hero/diosa.webp",
         overlayImage: "/media/landings/europa/hero/espartano.avif",
         baseAlt: "Composición principal de Europa Premium",
         overlayAlt: "Capa visual de Europa Premium",

@@ -11,7 +11,7 @@ export const JAPAN_PROMISE: LandingPromise = {
             label: "1",
             title: "Alojamiento seleccionado",
             description:
-                "Opciones bien ubicadas, cómodas y alineadas con una experiencia premium.",
+                "Hoteles y estancias elegidas por ubicación y comodidad, para descansar bien después de cada experiencia en ciudades y recorridos por Japón.",
             image: "/media/landings/japon/promise/alojamiento-seleccionado.avif",
         },
         {
@@ -19,7 +19,7 @@ export const JAPAN_PROMISE: LandingPromise = {
             label: "2",
             title: "Traslados y conexiones",
             description:
-                "Recorridos con lógica para aprovechar mejor el tiempo en destino.",
+                "Diseñamos recorridos con lógica. Organización clara de desplazamientos para aprovechar mejor el tiempo en destino.",
             image: "/media/landings/japon/promise/traslados-y-conexiones.avif",
         },
         {
@@ -27,14 +27,14 @@ export const JAPAN_PROMISE: LandingPromise = {
             label: "3",
             title: "Experiencias seleccionadas",
             description:
-                "Actividades culturales, gastronómicas y escénicas para conectar con Japón.",
+                "Actividades elegidas con intención: recorridos históricos, experiencias culturales y momentos diseñados para conectar con la esencia de Japón.",
             image: "/media/landings/japon/promise/experiencias-seleccionadas.avif",
         },
         {
             id: "gastronomy",
             label: "4",
             title: "Gastronomía japonesa",
-            description: "Sabores locales cuidadosamente integrados al viaje.",
+            description: "Experiencias culinarias que forman parte central del viaje: cocina tradicional, restaurantes seleccionados y sabores que definen la identidad japonesa.",
             image:
                 "/media/landings/japon/promise/gastronomia-japonesa.avif",
         },
@@ -42,7 +42,7 @@ export const JAPAN_PROMISE: LandingPromise = {
             id: "support",
             label: "5",
             title: "Acompañamiento real",
-            description: "Seguimiento desde la planeación inicial hasta tu regreso.",
+            description: "Desde la planeación inicial hasta tu regreso, cuentas con seguimiento real y atención en español.",
             image: "/media/landings/japon/promise/acompañamiento-real.avif",
         },
     ],

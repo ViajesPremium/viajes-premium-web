@@ -28,7 +28,7 @@ export const BARRANCAS_ALIANCES = aliances(
     height: 96,
   },
   {
-    src: "/media/shared/logos/barrancas/barrancas-grande-logo.png",
+    src: barrancasAllianceSrc("secretaria-turismo.png"),
     alt: "Barrancas Premium",
     width: 460,
     height: 96,
@@ -58,6 +58,18 @@ export const BARRANCAS_ALIANCES = aliances(
       width: 446,
       height: 164,
     },
+        {
+      src: "/media/shared/aliances/profeco.avif",
+      alt: "Profeco",
+      width: 290,
+      height: 120,
+    },
+    {
+      src: "/media/shared/aliances/secretaria-de-turismo.avif",
+      alt: "Secretaria de Turismo",
+      width: 340,
+      height: 140,
+    },
     {
       src: barrancasAllianceSrc("farallon.png"),
       alt: "Farallon",
@@ -73,12 +85,6 @@ export const BARRANCAS_ALIANCES = aliances(
     {
       src: barrancasAllianceSrc("hotel-central-boutique.png"),
       alt: "Hotel Central Boutique",
-      width: 446,
-      height: 164,
-    },
-    {
-      src: barrancasAllianceSrc("iberia-y-barrancas-premium.png"),
-      alt: "Iberia",
       width: 446,
       height: 164,
     },
@@ -145,12 +151,6 @@ export const BARRANCAS_ALIANCES = aliances(
     {
       src: barrancasAllianceSrc("quinta-gameros.png"),
       alt: "Quinta Gameros",
-      width: 446,
-      height: 164,
-    },
-    {
-      src: barrancasAllianceSrc("secretaria-turismo.png"),
-      alt: "Secretaria de Turismo",
       width: 446,
       height: 164,
     },

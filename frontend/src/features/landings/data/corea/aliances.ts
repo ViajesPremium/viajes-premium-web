@@ -40,6 +40,18 @@ export const KOREA_ALIANCES = aliances(
       width: 420,
       height: 90,
     },
+        {
+      src: "/media/shared/aliances/profeco.avif",
+      alt: "Profeco",
+      width: 290,
+      height: 120,
+    },
+    {
+      src: "/media/shared/aliances/secretaria-de-turismo.avif",
+      alt: "Secretaria de Turismo",
+      width: 340,
+      height: 140,
+    },
     {
       src: coreaAllianceSrc("air_seoul.png"),
       alt: "Air Seoul",

@@ -40,6 +40,18 @@ export const EUROPE_ALIANCES = aliances(
       width: 446,
       height: 164,
     },
+        {
+      src: "/media/shared/aliances/profeco.avif",
+      alt: "Profeco",
+      width: 290,
+      height: 120,
+    },
+    {
+      src: "/media/shared/aliances/secretaria-de-turismo.avif",
+      alt: "Secretaria de Turismo",
+      width: 340,
+      height: 140,
+    },
     {
       src: europeAllianceSrc("airfrance.png"),
       alt: "Air France",
@@ -151,12 +163,6 @@ export const EUROPE_ALIANCES = aliances(
     {
       src: europeAllianceSrc("mouliun-rouge.png"),
       alt: "Moulin Rouge",
-      width: 446,
-      height: 164,
-    },
-    {
-      src: europeAllianceSrc("profeco-y-europa-premium.png"),
-      alt: "Profeco y Europa Premium",
       width: 446,
       height: 164,
     },

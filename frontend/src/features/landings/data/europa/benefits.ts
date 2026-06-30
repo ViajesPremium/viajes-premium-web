@@ -27,7 +27,7 @@ export const EUROPE_BENEFITS: LandingBenefits = {
     tail: "revelan su",
   },
   line3: {
-    lead: "Esencia y el",
+    lead: "Esencia y",
     bracket: {
       label: "París",
       imageSrc: "/media/landings/europa/benefits/hover/hover-paris.webp",
@@ -44,13 +44,15 @@ export const EUROPE_BENEFITS: LandingBenefits = {
     {
       id: "kyoto-privado",
       title: "Londres",
-      imageSrc: "/media/landings/europa/benefits/valor/carrusel-recorridos.webp",
+      imageSrc:
+        "/media/landings/europa/benefits/valor/carrusel-recorridos.webp",
       href: "#second-form",
     },
     {
       id: "tokyo-nocturno",
       title: "París",
-      imageSrc: "/media/landings/europa/benefits/valor/carrusel-acompanamiento.webp",
+      imageSrc:
+        "/media/landings/europa/benefits/valor/carrusel-acompanamiento.webp",
       href: "#second-form",
     },
     {
@@ -74,7 +76,8 @@ export const EUROPE_BENEFITS: LandingBenefits = {
     {
       id: "experiencia-ryokan",
       title: "Ámsterdam",
-      imageSrc: "/media/landings/europa/benefits/valor/carrusel-tranquilidad.webp",
+      imageSrc:
+        "/media/landings/europa/benefits/valor/carrusel-tranquilidad.webp",
       href: "#second-form",
     },
   ],

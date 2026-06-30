@@ -65,12 +65,12 @@ export const europaPremium: LandingTheme = {
   video: {
     srHeading: "Video Europa Premium",
     desktop: {
-      webm: "/media/landings/europa/videos/europa-horizontal.webm",
-      mp4: "/media/landings/europa/videos/europa-horizontal.mp4",
+      webm: "",
+      mp4: "/media/landings/europa/videos/europa-web-horizontal.mp4",
     },
     mobile: {
-      webm: "/media/landings/europa/videos/europa-vertical.webm",
-      mp4: "/media/landings/europa/videos/europa-vertical.mp4",
+      webm: "",
+      mp4: "/media/landings/europa/videos/europa-web-vertical.mp4",
     },
     alt: "Video de la experiencia Europa Premium",
   },

@@ -153,11 +153,15 @@ export default function Video({ srHeading, desktop, mobile, alt }: VideoProps) {
     const video = videoRef.current;
     if (!section || !video) return;
 
+    const playThreshold = isMobile ? 0.18 : 0.35;
+    const pauseThreshold = isMobile ? 0.06 : 0.18;
+    const rootMargin = isMobile ? "240px 0px" : "160px 0px";
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
 
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+        if (entry.isIntersecting && entry.intersectionRatio >= playThreshold) {
           if (!userPaused && video.paused) {
             if (!hasUserInteracted) {
               video.muted = true;
@@ -165,6 +169,10 @@ export default function Video({ srHeading, desktop, mobile, alt }: VideoProps) {
             }
             void safePlay(video);
           }
+          return;
+        }
+
+        if (entry.intersectionRatio > pauseThreshold) {
           return;
         }
 
@@ -176,14 +184,14 @@ export default function Video({ srHeading, desktop, mobile, alt }: VideoProps) {
       },
       {
         root: null,
-        rootMargin: "160px 0px",
-        threshold: [0, 0.35, 0.6],
+        rootMargin,
+        threshold: [0, pauseThreshold, playThreshold, 0.6],
       },
     );
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, [hasUserInteracted, userPaused]);
+  }, [hasUserInteracted, isMobile, userPaused]);
 
   const togglePlay = () => {
     const video = videoRef.current;

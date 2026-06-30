@@ -68,7 +68,7 @@ const DESKTOP_CONFIG: EffectConfig = {
 
 // ── Mobile ──────────────────────────────────────────────────────────
 const MOBILE_CONFIG: EffectConfig = {
-  MAX_PIXEL_RATIO: 1.2,
+  MAX_PIXEL_RATIO: 1.5,
   MAX_RADIUS: 10,
   BLOB_COLOR: "#000000",
   BLOB_OPACITY: 0.05,
@@ -337,7 +337,7 @@ type ShaderUniforms = {
 };
 
 const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
-const MOBILE_RENDER_SCALE = 0.42;
+const MOBILE_RENDER_SCALE = 0.72;
 const MOBILE_TARGET_FPS = 24;
 
 type HeroOverlayProps = {

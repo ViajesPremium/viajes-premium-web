@@ -15,8 +15,8 @@ export const CANADA_PREMIUM_HERO: LandingHero = {
         target: "#second-form",
     },
     heroOverlay: {
-        baseImage: "/media/landings/canada/hero/canada-premium-1.webp",
-        overlayImage: "/media/landings/canada/hero/canada-premium-2.webp",
+        baseImage: "/media/landings/canada/hero/mujer.webp",
+        overlayImage: "/media/landings/canada/hero/hombre.webp",
         baseAlt: "Composición principal de Canadá Premium",
         overlayAlt: "Capa visual de Canadá Premium",
     },

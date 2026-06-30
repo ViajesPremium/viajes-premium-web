@@ -22,15 +22,15 @@ const CANADA_MENU_ITEMS = [
 ];
 
 export const CANADA_PREMIUM_METADATA: LandingMetadata = {
-  title: "Viajes a Canad? | Clase PREMIUM",
+  title: "Viajes a Canadá | Clase PREMIUM",
   description:
-    "Descubre Canad? entre naturaleza, ciudades ic?nicas, paisajes espectaculares y experiencias dise?adas en Clase PREMIUM.",
+    "Descubre Canadá entre naturaleza, ciudades ic?nicas, paisajes espectaculares y experiencias dise?adas en Clase PREMIUM.",
   keywords: [
-    "Tour por Canad?",
-    "Viaje a Canad? desde M?xico",
-    "Viajar a Canad?",
-    "Canad? Premium",
-    "Viajes a Canad?",
+    "Tour por Canadá",
+    "Viaje a Canadá desde M?xico",
+    "Viajar a Canadá",
+    "Canadá Premium",
+    "Viajes a Canadá",
   ],
   canonicalPath: "/canada-premium",
   ogImagePath: "/media/landings/canada/hero/canada-premium-1.webp",
@@ -38,7 +38,7 @@ export const CANADA_PREMIUM_METADATA: LandingMetadata = {
 
 export const canadaPremium: LandingTheme = {
   slug: "canada-premium",
-  label: "Canad? Premium",
+  label: "Canadá Premium",
   metadata: CANADA_PREMIUM_METADATA,
   palette: {
     primary: "#9E1F1E",
@@ -63,16 +63,16 @@ export const canadaPremium: LandingTheme = {
   founder: CANADA_FOUNDER,
   faqs: CANADA_FAQS,
   video: {
-    srHeading: "Video Canad? Premium",
+    srHeading: "Video Canadá Premium",
     desktop: {
-      webm: "/media/landings/corea/videos/corea-web-horizontal.webm",
-      mp4: "/media/landings/corea/videos/corea-web-horizontal.mp4",
+      webm: "/media/landings/canada/videos/canada-web-horizontal.webm",
+      mp4: "/media/landings/canada/videos/corea-web-horizontal.mp4",
     },
     mobile: {
-      webm: "/media/landings/corea/videos/corea-web-vertical.webm",
-      mp4: "/media/landings/corea/videos/corea-web-vertical.mp4",
+      webm: "/media/landings/canada/videos/canada-web-vertical.webm",
+      mp4: "/media/landings/canada/videos/canada-web-vertical.mp4",
     },
-    alt: "Video de la experiencia Canad? Premium",
+    alt: "Video de la experiencia Canadá Premium",
   },
   secondForm: CANADA_SECOND_FORM,
   aliances: CANADA_ALIANCES,

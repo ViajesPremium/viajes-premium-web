@@ -20,6 +20,7 @@ export const EUROPE_ITINERARIES: LandingItineraries = {
       image: "/media/landings/europa/itineraries/izquierda/scroll-gala-izquierda.avif",
       price: "Desde $5,286 USD base doble",
       pdfHref: "/media/landings/europa/pdfs/de-paris-a-roma-europa-premium.pdf",
+      pdfFileName: "de-paris-a-roma-europa-premium.pdf",
     },
     {
       id: 2,
@@ -32,6 +33,7 @@ export const EUROPE_ITINERARIES: LandingItineraries = {
       image: "/media/landings/europa/itineraries/izquierda/scroll-maravillas-izquierda.avif",
       price: "Desde $5,094 USD base doble",
       pdfHref: "/media/landings/europa/pdfs/europa-cosmopolita-europa-premium.pdf",
+      pdfFileName: "europa-cosmopolita-europa-premium.pdf",
     },
     {
       id: 3,
@@ -44,6 +46,7 @@ export const EUROPE_ITINERARIES: LandingItineraries = {
       image: "/media/landings/europa/itineraries/izquierda/scroll-reserva-izquierda.avif",
       price: "Desde $6,319 USD base doble",
       pdfHref: "/media/landings/europa/pdfs/iconos-de-europa-europa-premium.pdf",
+      pdfFileName: "iconos-de-europa-europa-premium.pdf",
     },
   ],
 };

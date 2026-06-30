@@ -294,6 +294,30 @@ func TestBuildBotLeadEmailMessageIncludesAttribution(t *testing.T) {
 	}
 }
 
+func TestOrderedTranscriptMessagesKeepsClientBeforeBotOnEqualTimestamps(t *testing.T) {
+	now := time.Date(2026, time.June, 18, 20, 0, 0, 0, time.UTC)
+	messages := []domain.Message{
+		{ID: "msg-2", Role: domain.RoleAssistant, Content: "Con gusto le ayudo", CreatedAt: now},
+		{ID: "msg-1", Role: domain.RoleUser, Content: "Hola", CreatedAt: now},
+	}
+
+	ordered := orderedTranscriptMessages(messages)
+	if len(ordered) != 2 {
+		t.Fatalf("expected 2 ordered messages, got %d", len(ordered))
+	}
+	if ordered[0].Role != domain.RoleUser || ordered[1].Role != domain.RoleAssistant {
+		t.Fatalf("expected user before assistant on equal timestamps, got %#v", ordered)
+	}
+
+	transcript := buildBotTranscriptText(ordered, now)
+	if !strings.Contains(transcript, "cliente: Hola") || !strings.Contains(transcript, "bot: Con gusto le ayudo") {
+		t.Fatalf("expected transcript to preserve client-first order, got %q", transcript)
+	}
+	if strings.Index(transcript, "cliente: Hola") > strings.Index(transcript, "bot: Con gusto le ayudo") {
+		t.Fatalf("expected client line before bot line, got %q", transcript)
+	}
+}
+
 func TestProcessPendingBotLeadEmailsSkipsWhenDisabled(t *testing.T) {
 	now := time.Date(2026, time.June, 18, 20, 0, 0, 0, time.UTC)
 	service := &Service{

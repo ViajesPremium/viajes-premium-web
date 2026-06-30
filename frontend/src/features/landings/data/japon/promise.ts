@@ -9,7 +9,7 @@ export const JAPAN_PROMISE: LandingPromise = {
         {
             id: "stays",
             label: "1",
-            title: "Alojamiento seleccionado",
+            title: "Alojamiento seleccionado con criterio",
             description:
                 "Hoteles y estancias elegidas por ubicación y comodidad, para descansar bien después de cada experiencia en ciudades y recorridos por Japón.",
             image: "/media/landings/japon/promise/alojamiento-seleccionado.avif",
@@ -17,7 +17,7 @@ export const JAPAN_PROMISE: LandingPromise = {
         {
             id: "transport",
             label: "2",
-            title: "Traslados y conexiones",
+            title: "Traslados y conexiones bien resueltos",
             description:
                 "Diseñamos recorridos con lógica. Organización clara de desplazamientos para aprovechar mejor el tiempo en destino.",
             image: "/media/landings/japon/promise/traslados-y-conexiones.avif",
@@ -41,7 +41,7 @@ export const JAPAN_PROMISE: LandingPromise = {
         {
             id: "support",
             label: "5",
-            title: "Acompañamiento real",
+            title: "Acompañamiento en cada etapa",
             description: "Desde la planeación inicial hasta tu regreso, cuentas con seguimiento real y atención en español.",
             image: "/media/landings/japon/promise/acompañamiento-real.avif",
         },

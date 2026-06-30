@@ -30,5 +30,21 @@ export const EUROPE_TESTIMONIALS: LandingTestimonials = {
       location: "Ciudad de México",
       avatar: "/media/landings/europa/testimonials/tania-perez.webp",
     },
+    {
+      id: 4,
+      quote:
+        "Europa se vivió diferente gracias a la organización y claridad del viaje. Disfrutamos cada ciudad sin preocuparnos por nada.",
+      name: "Ignacio y María",
+      location: "Monterrey",
+      avatar: "/media/landings/europa/testimonials/ignacio-y-maria.jpg",
+    },
+    {
+      id: 5,
+      quote:
+        "El recorrido por Europa estuvo perfectamente planeado. Cada ciudad, traslado y experiencia se sintieron cuidados desde el primer día.",
+      name: "Diego Sevilla",
+      location: "Ciudad de México",
+      avatar: "/media/landings/europa/testimonials/diego-sevilla.jpg",
+    },
   ],
 };

@@ -22,15 +22,15 @@ const PERU_MENU_ITEMS = [
 ];
 
 export const PERU_PREMIUM_METADATA: LandingMetadata = {
-  title: "Viajes a Per? | Clase PREMIUM",
+  title: "Viajes a Perú | Clase PREMIUM ",
   description:
-    "Descubre Per? entre tradici?n, paisajes, gastronom?a y experiencias dise?adas en Clase PREMIUM.",
+    "Descubre Perú con profundidad: Machu Picchu, Cusco, el Amazonas y experiencias únicas diseñadas en Clase PREMIUM.",
   keywords: [
-    "Viajes a Per?",
-    "Tour por Per?",
-    "Viaje a Per? desde M?xico",
-    "Viajar a Per?",
-    "Per? Premium",
+    "Viajes a Perú",
+    "Tour por Perú",
+    "Viaje a Perú desde M?xico",
+    "Viajar a Perú",
+    "Perú Premium",
   ],
   canonicalPath: "/peru-premium",
   ogImagePath: "/media/landings/peru/hero/peru-premium-1.webp",
@@ -38,18 +38,18 @@ export const PERU_PREMIUM_METADATA: LandingMetadata = {
 
 export const peruPremium: LandingTheme = {
   slug: "peru-premium",
-  label: "Per? Premium",
+  label: "Perú Premium",
   metadata: PERU_PREMIUM_METADATA,
   palette: {
-    primary: "#1D624E",
-    secondary: "#482D55",
-    complementary: "#DFDFDF",
+    primary: "#1F5198",
+    secondary: "#132D4F",
+    complementary: "#919C34",
   },
   navbar: {
     logoUrl: "/media/shared/logos/peru/logo-peru.svg",
     menuItems: [...PERU_MENU_ITEMS],
-    colors: ["#1D624E", "#482D55"],
-    accentColor: "#1D624E",
+    colors: ["#1F5198", "#132D4F"],
+    accentColor: "#919C34",
     menuButtonColor: "#ffffff",
     openMenuButtonColor: "#000000",
   },
@@ -65,14 +65,14 @@ export const peruPremium: LandingTheme = {
   video: {
     srHeading: "Video Per? Premium",
     desktop: {
-      webm: "/media/landings/corea/videos/corea-web-horizontal.webm",
-      mp4: "/media/landings/corea/videos/corea-web-horizontal.mp4",
+      webm: "/media/landings/peru/videos/peru-web-horizontal.webm",
+      mp4: "/media/landings/peru/videos/peru-web-horizontal.mp4",
     },
     mobile: {
-      webm: "/media/landings/corea/videos/corea-web-vertical.webm",
-      mp4: "/media/landings/corea/videos/corea-web-vertical.mp4",
+      webm: "/media/landings/peru/videos/peru-web-vertical.webm",
+      mp4: "/media/landings/peru/videos/peru-web-vertical.mp4",
     },
-    alt: "Video de la experiencia Per? Premium",
+    alt: "Video de la experiencia Perú Premium",
   },
   secondForm: PERU_SECOND_FORM,
   aliances: PERU_ALIANCES,

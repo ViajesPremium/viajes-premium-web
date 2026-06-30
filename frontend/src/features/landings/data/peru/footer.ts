@@ -21,7 +21,7 @@ const footer = (
 });
 
 export const PERU_FOOTER = footer(
-    "COREA",
+    "PERÚ",
     [
         { label: "Inicio", href: "#inicio" },
         { label: "Nosotros", href: "#nosotros" },

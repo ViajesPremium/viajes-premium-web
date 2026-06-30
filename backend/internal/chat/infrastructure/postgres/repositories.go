@@ -105,7 +105,14 @@ func (r *MessageRepository) ListByConversation(ctx context.Context, conversation
 		SELECT id, conversation_id, role, content, source, metadata, created_at
 		FROM messages
 		WHERE conversation_id = $1
-		ORDER BY created_at ASC
+		ORDER BY created_at ASC,
+			CASE role
+				WHEN 'user' THEN 0
+				WHEN 'assistant' THEN 1
+				WHEN 'system' THEN 2
+				ELSE 3
+			END ASC,
+			id ASC
 	`, conversationID)
 	if err != nil {
 		return nil, err
@@ -132,7 +139,14 @@ func (r *MessageRepository) ListRecentByConversation(ctx context.Context, conver
 		SELECT id, conversation_id, role, content, source, metadata, created_at
 		FROM messages
 		WHERE conversation_id = $1
-		ORDER BY created_at DESC
+		ORDER BY created_at DESC,
+			CASE role
+				WHEN 'assistant' THEN 0
+				WHEN 'user' THEN 1
+				WHEN 'system' THEN 2
+				ELSE 3
+			END ASC,
+			id DESC
 		LIMIT $2
 	`, conversationID, limit)
 	if err != nil {

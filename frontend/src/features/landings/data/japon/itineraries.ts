@@ -20,6 +20,7 @@ export const JAPAN_ITINERARIES: LandingItineraries = {
       image: "/media/landings/japon/itineraries/alma-de-japon.webp",
       price: "Desde $5,703 USD base doble",
       pdfHref: "/media/landings/japon/pdfs/Alma-De-Japón-Itinerario-Japón-PREMIUM.pdf",
+      pdfFileName: "alma-de-japón-japón-premium.pdf",
     },
     {
       id: 2,
@@ -32,6 +33,7 @@ export const JAPAN_ITINERARIES: LandingItineraries = {
       image: "/media/landings/japon/itineraries/japon-pop.webp",
       price: "Desde $6,478 USD base doble",
       pdfHref: "/media/landings/japon/pdfs/Japón-Pop-Itinerario-Japón-PREMIUM.pdf",
+      pdfFileName: "japón-pop-japón-premium.pdf",
     },
     {
       id: 3,
@@ -44,6 +46,7 @@ export const JAPAN_ITINERARIES: LandingItineraries = {
       image: "/media/landings/japon/itineraries/camino-del-shogun.webp",
       price: "Desde $5,938 USD base doble",
       pdfHref: "/media/landings/japon/pdfs/El-Camino-Del-Shogun-Itinerario-Japón-PREMIUM.pdf",
+      pdfFileName: "el-camino-del-shogun-japón-premium.pdf",
     },
   ],
 };

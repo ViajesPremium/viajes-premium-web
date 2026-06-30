@@ -14,51 +14,51 @@ export const PERU_FAQS: LandingFaqs = {
   items: [
     {
       id: "1",
-      question: "¿Cuál es la mejor época para viajar a Per??",
+      question: "¿Cuál es la mejor época para viajar a Perú?",
       answer:
-        "La primavera y el otoño suelen ser las temporadas más buscadas gracias a sus paisajes, temperaturas agradables y excelente clima para recorrer el país.",
+        "La mejor época para viajar a Perú depende de las regiones que quieras visitar y del tipo de experiencia que buscas. Temporadas secas suelen ser ideales para recorrer destinos como Cusco y Machu Picchu con mayor comodidad.",
     },
     {
       id: "2",
-      question: "¿Cuántos días se recomiendan para recorrer Per??",
+      question: "¿Cuántos días se recomiendan para conocer Perú?",
       answer:
-        "Entre 8 y 13 días permiten conocer ciudades como Seúl, Busan y Gyeongju con mayor profundidad y aprovechar mejor la experiencia.",
+        "Se recomienda viajar entre 8 y 15 días para conocer Perú con mayor profundidad. Esto permite combinar ciudades, sitios arqueológicos, gastronomía y paisajes naturales en una experiencia más completa.",
     },
     {
       id: "3",
-      question: "¿Es difícil viajar a Per? sin hablar coreano?",
+      question: "¿Es complicado viajar a Machu Picchu?",
       answer:
-        "No. Per? cuenta con excelente infraestructura turística, transporte eficiente y herramientas digitales que facilitan el recorrido para viajeros internacionales.",
+        "No, viajar a Machu Picchu no es complicado cuando el recorrido está bien organizado. La experiencia requiere coordinación de accesos, horarios y traslados, por lo que una buena planeación hace toda la diferencia.",
     },
     {
       id: "4",
-      question: "¿Qué ciudades visitar en un primer viaje a Per??",
+      question: "¿Qué destinos se pueden visitar en Perú?",
       answer:
-        "Seúl, Busan y Gyeongju suelen formar parte de los recorridos más recomendados por su combinación de cultura, historia y vida contemporánea.",
+        "Perú combina historia, gastronomía, naturaleza y cultura en un mismo viaje. Destinos como Lima, Cusco, Valle Sagrado y Machu Picchu suelen formar parte de las rutas más buscadas.",
     },
     {
       id: "5",
-      question: "¿Es seguro viajar a Per??",
+      question: "¿Es seguro viajar a Perú?",
       answer:
-        "Sí. Per? es considerada uno de los países más seguros de Asia para viajeros internacionales gracias a su organización e infraestructura.",
+        "Sí, Perú es un destino muy visitado por viajeros de todo el mundo. Como en cualquier viaje internacional, una buena organización y recorridos bien planeados permiten disfrutar la experiencia con mayor tranquilidad.",
     },
     {
       id: "6",
-      question: "¿Qué hace especial a Per??",
+      question: "¿Qué tipo de experiencias gastronómicas ofrece Perú?",
       answer:
-        "La combinación entre tradición, tecnología, gastronomía y cultura contemporánea convierte a Per? en uno de los destinos más fascinantes de Asia.",
+        "Perú es uno de los destinos gastronómicos más importantes del mundo. Desde cocina tradicional hasta propuestas contemporáneas, la experiencia culinaria forma parte esencial del viaje.",
     },
     {
       id: "7",
-      question: "¿Vale la pena combinar Per? y Japón en un mismo viaje?",
+      question: "¿Es recomendable viajar a Perú en pareja o en familia?",
       answer:
-        "Sí. Ambos países ofrecen experiencias muy distintas y complementarias, permitiendo descubrir dos de las culturas más influyentes de Asia.",
+        "Sí, Perú es un destino muy versátil que puede disfrutarse tanto en pareja como en familia. Todo depende de cómo se diseñe el recorrido y del tipo de experiencias que se quieran vivir.",
     },
     {
       id: "8",
-      question: "¿Qué experiencias gastronómicas ofrece Per??",
+      question: "¿Qué tan exigente es la altura en Cusco?",
       answer:
-        "La gastronomía coreana combina tradición, mercados locales, comida callejera y recetas que forman parte esencial de la identidad cultural del país.",
+        "La altura puede sentirse durante los primeros días, especialmente en Cusco y zonas cercanas. Por eso es importante llevar un ritmo adecuado y planear correctamente el inicio del viaje.",
     },
   ],
 };

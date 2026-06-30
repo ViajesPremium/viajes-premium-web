@@ -9,14 +9,14 @@ export const EUROPE_PROMISE: LandingPromise = {
         {
             id: "stays",
             label: "1",
-            title: "Alojamiento seleccionado",
+            title: "Alojamiento seleccionado con criterio",
             description: "Hoteles y estancias elegidas por ubicación y comodidad, para descansar bien después de cada experiencia en ciudades y recorridos por Europa.",
             image: "/media/landings/europa/promise/experiencia-alojamiento.webp",
         },
         {
             id: "transport",
             label: "2",
-            title: "Traslados y conexiones",
+            title: "Traslados y conexiones bien resueltos",
             description:
                 "Diseñamos recorridos con lógica. Organización clara de desplazamientos para aprovechar mejor el tiempo en destino.",
             image: "/media/landings/europa/promise/experiencia-traslado.webp",
@@ -24,7 +24,7 @@ export const EUROPE_PROMISE: LandingPromise = {
         {
             id: "culture",
             label: "3",
-            title: "Experiencias privadas",
+            title: "Experiencias seleccionadas",
             description:
                 "Actividades elegidas con intención: recorridos históricos, experiencias culturales y momentos diseñados para conectar con la esencia de Europa.",
             image: "/media/landings/europa/promise/experiencia-privacidad.webp",
@@ -40,7 +40,7 @@ export const EUROPE_PROMISE: LandingPromise = {
         {
             id: "support",
             label: "5",
-            title: "Acompañamiento real",
+            title: "Acompañamiento en cada etapa",
             description: "Desde la planeación inicial hasta tu regreso, cuentas con seguimiento real y atención en español.",
             image: "/media/landings/europa/promise/experiencia-acompanamiento.webp",
         },

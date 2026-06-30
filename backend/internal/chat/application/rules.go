@@ -26,6 +26,10 @@ func BuildRuleResponse(bot domain.BotKnowledge, conversation *domain.Conversatio
 		)
 	}
 
+	if reply, ok := pricingQuestionResponse(bot, conversation, lead, userMessage); ok {
+		return appendStrictFollowUp(reply, bot, lead, conversation)
+	}
+
 	if reply, ok := dateGuardResponse(now, normalized); ok {
 		return appendStrictFollowUp(reply, bot, lead, conversation)
 	}
@@ -127,6 +131,23 @@ func faqMatchScore(message string, question string) int {
 	return score
 }
 
+func pricingQuestionResponse(bot domain.BotKnowledge, conversation *domain.Conversation, lead *domain.Lead, userMessage string) (string, bool) {
+	if !isPricingQuestion(userMessage) {
+		return "", false
+	}
+
+	reply := generalBrandResponse(bot, conversation, lead, userMessage)
+	if reply == "" {
+		return "", false
+	}
+
+	if asksForMexicanPesos(userMessage) {
+		reply = appendMexicanPesoContext(reply)
+	}
+
+	return reply, true
+}
+
 func generalBrandResponse(bot domain.BotKnowledge, conversation *domain.Conversation, lead *domain.Lead, message string) string {
 	switch {
 	case isPricingQuestion(message):
@@ -182,6 +203,37 @@ func generalBrandResponse(bot domain.BotKnowledge, conversation *domain.Conversa
 		return homeResponse(bot, lead, message)
 	}
 	return ""
+}
+
+func asksForMexicanPesos(message string) bool {
+	normalized := normalizeText(message)
+	return containsAny(normalized, []string{
+		"pesos mexicanos",
+		"peso mexicano",
+		"mxn",
+		"moneda mexicana",
+		"equivalente en pesos",
+		"en pesos",
+	})
+}
+
+func appendMexicanPesoContext(reply string) string {
+	clean := strings.TrimSpace(reply)
+	if clean == "" {
+		return clean
+	}
+
+	context := "Los precios base estan publicados en USD y el equivalente en pesos mexicanos depende del tipo de cambio del dia."
+	normalizedReply := normalizeText(clean)
+	if strings.Contains(normalizedReply, normalizeText(context)) || strings.Contains(normalizedReply, "pesos mexicanos") {
+		return clean
+	}
+
+	lastChar := clean[len(clean)-1]
+	if lastChar != '.' && lastChar != '?' && lastChar != '!' {
+		clean += "."
+	}
+	return clean + " " + context
 }
 
 func itineraryCatalogResponse(bot domain.BotKnowledge, lead *domain.Lead, message string) (string, bool) {

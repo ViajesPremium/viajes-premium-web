@@ -19,7 +19,7 @@ export const CANADA_BENEFITS: LandingBenefits = {
     text: "Mientras",
     highlightWord: "Toronto",
     bracket: {
-      label: "Busan",
+      label: "Toronto",
       imageSrc: "/media/landings/canada/benefits/hover/toronto.webp",
       imageAlt: "Vista de Busan frente al mar",
       textTone: "epochal",

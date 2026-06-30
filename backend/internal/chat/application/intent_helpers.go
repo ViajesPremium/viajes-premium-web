@@ -108,8 +108,13 @@ func isPricingQuestion(message string) bool {
 		"costo",
 		"costos",
 		"cotiz",
+		"cuanto es",
 		"cuanto vale",
 		"cuanto cuesta",
+		"cuanto sale",
+		"pesos mexicanos",
+		"peso mexicano",
+		"mxn",
 		"tarifa",
 	})
 }

@@ -18,8 +18,9 @@ export const KOREA_ITINERARIES: LandingItineraries = {
       ideal:
         "Quienes desean descubrir Corea por primera vez en una experiencia equilibrada y cuidadosamente diseñada.",
       image: "/media/landings/corea/itineraries/tesoros-de-corea.avif",
-    price: "Desde $5,705 USD base doble",
+      price: "Desde $5,705 USD base doble",
       pdfHref: "/media/landings/corea/pdfs/tesoros-de-corea-corea-premium.pdf",
+      pdfFileName: "tesoros-de-corea-corea-premium.pdf",
     },
     {
       id: 2,
@@ -27,10 +28,12 @@ export const KOREA_ITINERARIES: LandingItineraries = {
       title: "Rutas Imperiales",
       description:
         "Un recorrido por dos de las civilizaciones más influyentes de Asia entre ciudades históricas, cultura y tradición.",
-      ideal: "Viajeros que buscan comprender la riqueza cultural de Asia en una experiencia amplia y enriquecedora.",
+      ideal:
+        "Viajeros que buscan comprender la riqueza cultural de Asia en una experiencia amplia y enriquecedora.",
       image: "/media/landings/corea/itineraries/rutas-imperiales.avif",
-    price: "Desde $5,564 USD base doble",
+      price: "Desde $5,564 USD base doble",
       pdfHref: "/media/landings/corea/pdfs/rutas-imperiales-corea-premium.pdf",
+      pdfFileName: "rutas-imperiales-corea-premium.pdf",
     },
     {
       id: 3,
@@ -41,8 +44,9 @@ export const KOREA_ITINERARIES: LandingItineraries = {
       ideal:
         "Viajeros que desean descubrir Corea y Japón en un mismo recorrido cuidadosamente diseñado.",
       image: "/media/landings/corea/itineraries/joyas-de-asia.avif",
-    price: "Desde $12,848 USD base doble",
+      price: "Desde $12,848 USD base doble",
       pdfHref: "/media/landings/corea/pdfs/joyas-de-asia-corea-premium.pdf",
+      pdfFileName: "joyas-de-asia-corea-premium.pdf",
     },
   ],
 };

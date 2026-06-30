@@ -2,11 +2,7 @@ import type { LandingFounder } from "./../types";
 
 export const EUROPE_FOUNDER: LandingFounder = {
   srHeading: "Mensaje del equipo Europa Premium",
-  rows: [
-    "europa premium experience",
-    "curaduría atención precisión",
-    "momentos que sí importan",
-  ],
+  rows: ["Europa Premium", "Momentos inolvidables", "Reales conexiones"],
   role: "Directora Comercial",
   name: "Karina Sánchez",
   quote:

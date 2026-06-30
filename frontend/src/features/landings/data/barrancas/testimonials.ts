@@ -9,7 +9,7 @@ export const BARRANCAS_TESTIMONIALS: LandingTestimonials = {
     {
       id: 1,
       quote:
-        "El paquete estuvo súper padre. Queremos reconocer el trabajo de todos los guías; en verdad, todos 10 de 10.",
+        "El itinerario estuvo súper padre. Queremos reconocer el trabajo de todos los guías; en verdad, todos 10 de 10.",
       name: "Anabel González y Juan Hernández",
       location: "Ciudad de México",
       avatar: "/media/landings/barrancas/testimonials/anabel-gonzalez.avif",
@@ -25,7 +25,7 @@ export const BARRANCAS_TESTIMONIALS: LandingTestimonials = {
     {
       id: 3,
       quote:
-        "Servicio personalizado y de gran calidad. Gu?as atentos, excelente logística y experiencias increíbles en Chepe y destinos.",
+        "Servicio personalizado y de gran calidad. Guías atentos, excelente logística y experiencias increíbles en Chepe y destinos.",
       name: "Javier y Tere González",
       location: "Ciudad de México",
       avatar: "/media/landings/barrancas/testimonials/tere-gonzalez.avif",
@@ -34,7 +34,7 @@ export const BARRANCAS_TESTIMONIALS: LandingTestimonials = {
       id: 4,
       quote:
         "Gracias por las atenciones; el viaje fue inolvidable. Paisajes increíbles, actividades divertidas y mucho aprendizaje.",
-      name: "Ing. Hernán Garc?a y Aurelia Patricia Govea",
+      name: "Ing. Hernán García y Aurelia Patricia Govea",
       location: "Ciudad de México",
       avatar: "/media/landings/barrancas/testimonials/hernan-garcia.avif",
     },

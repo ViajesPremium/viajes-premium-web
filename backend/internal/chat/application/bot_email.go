@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"html"
+	"sort"
 	"strings"
 	"time"
 
@@ -106,6 +107,7 @@ func (s *Service) ProcessPendingBotLeadEmails(ctx context.Context, limit int) (i
 }
 
 func buildBotLeadEmailMessage(bot domain.BotKnowledge, conversation *domain.Conversation, lead *domain.Lead, messages []domain.Message, now time.Time) leadmail.EmailMessage {
+	orderedMessages := orderedTranscriptMessages(messages)
 	botLabel := firstNonEmpty(bot.DisplayName, bot.BrandName, conversation.LandingSlug, lead.BotSlug, "Bot")
 	subject := leadmail.BuildNotificationSubject(
 		leadmail.NormalizeLandingSubjectLabel(firstNonEmpty(conversation.LandingSlug, lead.LandingSlug)),
@@ -136,13 +138,13 @@ func buildBotLeadEmailMessage(bot domain.BotKnowledge, conversation *domain.Conv
 	bodyLines = appendBotLineIfValue(bodyLines, "Stage", string(lead.Stage))
 	bodyLines = appendBotAttributionLines(bodyLines, lead.Attribution)
 	bodyLines = append(bodyLines, "", "Conversacion completa:")
-	bodyLines = append(bodyLines, buildBotTranscriptText(messages, now))
+	bodyLines = append(bodyLines, buildBotTranscriptText(orderedMessages, now))
 
 	return leadmail.EmailMessage{
 		ReplyTo:  lead.Email,
 		Subject:  subject,
 		TextBody: strings.Join(bodyLines, "\n"),
-		HTMLBody: buildBotTranscriptHTML(botLabel, conversation, lead, messages, now),
+		HTMLBody: buildBotTranscriptHTML(botLabel, conversation, lead, orderedMessages, now),
 	}
 }
 
@@ -211,6 +213,45 @@ func buildBotTranscriptHTML(botLabel string, conversation *domain.Conversation, 
 	b.WriteString("</div>")
 
 	return b.String()
+}
+
+func orderedTranscriptMessages(messages []domain.Message) []domain.Message {
+	if len(messages) == 0 {
+		return nil
+	}
+
+	ordered := append([]domain.Message(nil), messages...)
+	sort.SliceStable(ordered, func(i, j int) bool {
+		left := ordered[i]
+		right := ordered[j]
+
+		if !left.CreatedAt.Equal(right.CreatedAt) {
+			return left.CreatedAt.Before(right.CreatedAt)
+		}
+
+		leftRank := transcriptRoleRank(left.Role)
+		rightRank := transcriptRoleRank(right.Role)
+		if leftRank != rightRank {
+			return leftRank < rightRank
+		}
+
+		return left.ID < right.ID
+	})
+
+	return ordered
+}
+
+func transcriptRoleRank(role domain.Role) int {
+	switch role {
+	case domain.RoleUser:
+		return 0
+	case domain.RoleAssistant:
+		return 1
+	case domain.RoleSystem:
+		return 2
+	default:
+		return 3
+	}
 }
 
 func writeBotHTMLRow(builder *strings.Builder, label, value string) {

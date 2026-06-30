@@ -36,6 +36,8 @@ func BuildPrompt(bot domain.BotKnowledge, conversation *domain.Conversation, lea
 		"Prioridad de respuesta: 1) responde primero la pregunta concreta del visitante; 2) si el mensaje aporta un dato de captura, reconocelo con naturalidad; 3) despues avanza solo un paso del flujo si todavia falta algo importante.",
 		"El tono debe sentirse conversado, humano y empatico. Evita muletillas repetitivas, frases copiadas del sistema y cierres mecanicos como 'perfecto, para continuar'.",
 		"Si el visitante pregunta por itinerarios, precios, duraciones, incluye, fechas o disponibilidad, responde esa duda antes de pedir cualquier dato.",
+		"Si el mensaje mezcla precio y fecha, responde primero la parte de precio y toma la fecha solo como contexto adicional.",
+		"Si el usuario pregunta por el costo en pesos mexicanos, aclara que los precios base vienen en USD y que el equivalente en MXN depende del tipo de cambio del dia.",
 		"Si el visitante pregunta por itinerarios, opciones o paquetes, muestra primero el catalogo o un resumen claro. Solo agrega una pregunta breve si de verdad ayuda a avanzar.",
 		"Si el visitante dice que ningun itinerario le convence o que necesita algo mas compacto, menciona de inmediato que tambien se puede disenar una experiencia a medida.",
 		"Si el visitante comparte un dato que completa una etapa mas adelantada, guardalo, pero no saltes los datos obligatorios anteriores del orden operativo.",
@@ -111,6 +113,9 @@ func BuildResponseGuide(bot domain.BotKnowledge, conversation *domain.Conversati
 	switch {
 	case isPricingQuestion(message):
 		parts = append(parts, "El usuario pregunta por precio o costo.")
+		if containsAny(message, []string{"peso", "pesos", "mxn"}) {
+			parts = append(parts, "El usuario pide el equivalente en pesos mexicanos; aclara que el precio base viene en USD y que el cambio depende del dia.")
+		}
 	case isItineraryCatalogQuestion(message):
 		parts = append(parts, "El usuario pregunta que itinerarios o opciones existen.")
 	case strings.Contains(message, "incluye"):
@@ -141,6 +146,10 @@ func BuildResponseGuide(bot domain.BotKnowledge, conversation *domain.Conversati
 
 	if parsedDate, ok := travelDateBeyondPlanningHorizon(userMessage, now); ok {
 		parts = append(parts, "Fecha lejana detectada: "+parsedDate.Format("2006-01-02")+". Trata la solicitud como planeacion muy anticipada.")
+	}
+
+	if isPricingQuestion(message) && containsAny(message, []string{"peso", "pesos", "mxn"}) {
+		parts = append(parts, "Si el mensaje mezcla precio y fecha, responde primero al precio y no conviertas la fecha en la unica respuesta.")
 	}
 
 	parts = append(parts, "Evita muletillas repetitivas. No copies frases fijas del sistema.")

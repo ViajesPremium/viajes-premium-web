@@ -8,7 +8,7 @@ export const PERU_BENEFITS: LandingBenefits = {
   line1: {
     lead: "Viaja por",
     bracket: {
-      label: "Seúl",
+      label: "Cusco",
       imageSrc: "/media/landings/peru/benefits/hover/cusco-premium.webp",
       imageAlt: "Vista de Seúl con luces y arquitectura urbana",
       textTone: "ot",
@@ -17,9 +17,9 @@ export const PERU_BENEFITS: LandingBenefits = {
   },
   line2: {
     text: "Mientras",
-    highlightWord: "Busan",
+    highlightWord: "Andes",
     bracket: {
-      label: "Busan",
+      label: "Andes",
       imageSrc: "/media/landings/peru/benefits/hover/andes-premium.webp",
       imageAlt: "Vista de Busan frente al mar",
       textTone: "epochal",
@@ -29,7 +29,7 @@ export const PERU_BENEFITS: LandingBenefits = {
   line3: {
     lead: "Esencia y",
     bracket: {
-      label: "Gyeongju",
+      label: "Perú",
       imageSrc: "/media/landings/peru/benefits/hover/peru-premium.webp",
       imageAlt: "Paisaje histórico de Gyeongju",
       textTone: "ot",

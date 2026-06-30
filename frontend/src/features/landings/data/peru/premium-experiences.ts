@@ -8,20 +8,20 @@ export const PERU_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
   cards: [
     {
       image: "/media/landings/peru/premium-experiences/itinerario-dunas-dakar.avif",
-      text: "Tesoros de Per?",
+      text: "Montaña de Colores",
       experiences:
-        "8 días · Seúl · Busan · Gyeongju · Cultura coreana",
+        "8 días · Cultura andina · Machu Picchu · Paisajes sagrados",
     },
     {
       image: "/media/landings/peru/premium-experiences/itinerario-montana-de-colores.avif",
-      text: "Rutas Imperiales",
+      text: "Dunas Dakar",
       experiences:
-        "12 días · Per? · China · Historia · Patrimonio cultural",
+        "9 días · Desierto peruano · Misterios ancestrales · Aventura",
     },
     {
       image: "/media/landings/peru/premium-experiences/itinerario-skyfall.avif",
-      text: "Imperios del Pacífico",
-      experiences: "13 días · Per? · Japón · Tradición · Modernidad",
+      text: "Sky Fall",
+      experiences: "11 días  · Andes · Titicaca · Paisajes extremos ·  Uyuni",
     },
   ],
   cardButtonLabel: "Descubrir",

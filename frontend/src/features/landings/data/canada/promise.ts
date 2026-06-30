@@ -23,7 +23,7 @@ export const CANADA_PROMISE: LandingPromise = {
         {
             id: "culture",
             label: "3",
-            title: "Experiencias privadas o seleccionadas",
+            title: "Experiencias seleccionadas",
             description:
                 "Actividades elegidas con intención: naturaleza, ciudades icónicas y momentos diseñados para conectar con la esencia de Canadá.",
             image: "/media/landings/canada/promise/experiencia-privacidad.webp",

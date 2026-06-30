@@ -179,12 +179,6 @@ export const EUROPE_ALIANCES = aliances(
       height: 164,
     },
     {
-      src: europeAllianceSrc("turismo-y-europa-premium.png"),
-      alt: "Turismo y Europa Premium",
-      width: 446,
-      height: 164,
-    },
-    {
       src: europeAllianceSrc("turkish-airline.png"),
       alt: "Turkish Airline",
       width: 446,

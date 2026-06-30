@@ -2,7 +2,7 @@ import type { LandingFounder } from "./../types";
 
 export const CANADA_FOUNDER: LandingFounder = {
   srHeading: "Mensaje del equipo Canad? Premium",
-  rows: ["Canad? Premium", "Viajar con intención", "Momentos que sí importan"],
+  rows: ["Canadá Premium", "Momentos inolvidables", "Reales conexiones"],
   role: "Equipo Canad? PREMIUM",
   name: "Asesoría especializada",
   quote:

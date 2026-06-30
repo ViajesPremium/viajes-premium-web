@@ -641,6 +641,30 @@ func TestBuildRuleResponsePricesKnownItineraryFromMessage(t *testing.T) {
 	}
 }
 
+func TestBuildRuleResponsePrioritizesPricingOverTravelMonthQuestion(t *testing.T) {
+	bot := domain.BotKnowledge{
+		Itineraries: []domain.Itinerary{
+			{Name: "Alma de Japon", Price: "Desde $5,703 USD base doble"},
+			{Name: "Japon Pop", Price: "Desde $6,478 USD base doble"},
+			{Name: "El Camino del Shogun", Price: "Desde $5,938 USD base doble"},
+		},
+	}
+	now := time.Date(2026, time.June, 18, 12, 0, 0, 0, time.UTC)
+
+	reply := BuildRuleResponse(bot, &domain.Conversation{}, &domain.Lead{}, "En diciembre pero cuanto es en pesos mexicanos??", now, HandoffDecision{})
+	lower := strings.ToLower(reply)
+
+	if !strings.Contains(reply, "$5,703 USD") && !strings.Contains(reply, "$6,478 USD") && !strings.Contains(reply, "$5,938 USD") {
+		t.Fatalf("expected pricing reply, got %q", reply)
+	}
+	if strings.Contains(lower, "fecha tentativa") || strings.Contains(lower, "tomo diciembre") {
+		t.Fatalf("expected pricing reply to avoid date capture wording, got %q", reply)
+	}
+	if !strings.Contains(lower, "pesos mexicanos") && !strings.Contains(lower, "tipo de cambio") {
+		t.Fatalf("expected pricing reply to acknowledge mexican pesos, got %q", reply)
+	}
+}
+
 func TestBuildRuleResponseUsesCustomProposalWhenNoItineraryFits(t *testing.T) {
 	bot := domain.BotKnowledge{
 		Itineraries: []domain.Itinerary{

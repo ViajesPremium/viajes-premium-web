@@ -65,9 +65,9 @@ const formSection = ({
 export const BARRANCAS_FIRST_FORM = formSection({
   srHeading: "Cuéntanos cómo imaginas tu viaje a Barrancas",
   title: "Barrancas a tu ritmo, sin perder profundidad.",
-  backgroundImage: "/media/landings/barrancas/forms/formulario-barrancas-1.avif",
+  backgroundImage: "/media/landings/barrancas/forms/first-form/form.avif",
   mobileImage: {
-    src: "/media/landings/barrancas/forms/formulario-barrancas-1.webp",
+    src: "/media/landings/barrancas/forms/first-form/mujer-mobile.avif",
     alt: "Figura Barrancas Premium",
   },
   contactPhoneDisplay: "+52 55 4161 9427",
@@ -89,9 +89,9 @@ export const BARRANCAS_SECOND_FORM = {
   ...BARRANCAS_FIRST_FORM,
   srHeading: "Formulario de contacto Barrancas Premium",
   title: "Hablemos de tu ruta por Barrancas.",
-  backgroundImage: "/media/landings/barrancas/forms/formulario-barrancas-2.avif",
+  backgroundImage: "/media/landings/barrancas/forms/second-form/form.avif",
   mobileImage: {
-    src: "/media/landings/barrancas/forms/formulario-barrancas-2.webp",
+    src: "/media/landings/barrancas/forms/second-form/mujer-mobile-2.avif",
     alt: "Barrancas Premium",
   },
 };

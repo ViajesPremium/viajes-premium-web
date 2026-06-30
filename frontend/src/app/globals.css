@@ -34,12 +34,12 @@ body {
   background: var(--black);
 }
 
-/* Acompaña al truco de `syncTouch`: evita el pull-to-refresh y el overscroll
-   encadenado, que en iOS/Android pueden volver a asomar la barra del navegador
-   aunque Lenis ya gestione el scroll por código. */
-html,
-body {
-  overscroll-behavior: none;
+/* Lenis solo vive en escritorio; en mobile dejamos el scroll nativo completo. */
+@media (min-width: 769px) {
+  html,
+  body {
+    overscroll-behavior: none;
+  }
 }
 
 html.lenis,

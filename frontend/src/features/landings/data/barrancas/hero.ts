@@ -3,9 +3,9 @@ import type { LandingHero } from "./../types";
 export const BARRANCAS_PREMIUM_HERO: LandingHero = {
   seoHeading: "Barrancas Premium",
   title: {
-    wordOne: "Barrancas",
-    wordTwo: "en",
-    wordThree: "clase",
+    wordOne: "Visita",
+    wordTwo: "Barrancas",
+    wordThree: "en Clase",
     wordFour: "Premium",
   },
   description:

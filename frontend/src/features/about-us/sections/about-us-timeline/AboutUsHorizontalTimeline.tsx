@@ -93,7 +93,7 @@ export function AboutUsHorizontalTimeline() {
       <div
         className={styles.pinHeight}
         data-pin-height
-        style={{ height: `${TIMELINE_ENTRIES.length * 100}vh` }}
+        style={{ height: `${TIMELINE_ENTRIES.length * 100}dvh` }}
       >
         <div className={styles.container} data-container>
           {TIMELINE_ENTRIES.map((entry, i) => (

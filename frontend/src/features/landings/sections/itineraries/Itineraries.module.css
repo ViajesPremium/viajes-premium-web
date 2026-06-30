@@ -1,7 +1,7 @@
 .section {
   position: relative;
   width: 100%;
-  height: var(--app-vh, 100svh);
+  height: var(--app-vh, 100dvh);
   overflow: hidden;
   background-color: var(--black);
 }
@@ -193,7 +193,7 @@
 
 .sectionStatic {
   height: auto;
-  min-height: 100svh;
+  min-height: 100dvh;
   overflow: visible;
 }
 
@@ -206,7 +206,7 @@
 .sectionStatic .slide {
   position: relative;
   inset: auto;
-  min-height: min(100svh, 56rem);
+  min-height: min(100dvh, 56rem);
 }
 
 @media (max-width: 768px) {

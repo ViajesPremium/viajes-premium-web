@@ -45,13 +45,13 @@
 }
 
 .pinHeight {
-  height: calc(var(--includes-pin-panels, 5) * 100vh);
-  height: calc(var(--includes-pin-panels, 5) * var(--app-vh, 100svh));
+  height: calc(var(--includes-pin-panels, 5) * 100dvh);
+  height: calc(var(--includes-pin-panels, 5) * var(--app-vh, 100dvh));
 }
 
 .container {
   position: relative;
-  height: var(--app-vh, 100svh);
+  height: var(--app-vh, 100dvh);
   overflow: hidden;
   contain: layout paint;
 }
@@ -156,7 +156,7 @@
   }
 
   .mwg_effect007 {
-    height: var(--app-vh, 100svh);
+    height: var(--app-vh, 100dvh);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -167,7 +167,7 @@
     z-index: 6;
     width: 100%;
     flex: 0 0 auto;
-    padding: clamp(2.25rem, 8svh, 4.25rem) 1.15rem 0.4rem;
+    padding: clamp(2.25rem, 8dvh, 4.25rem) 1.15rem 0.4rem;
     pointer-events: none;
   }
 
@@ -209,7 +209,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(70vw, 280px);
-    height: clamp(250px, 52svh, 390px);
+    height: clamp(250px, 52dvh, 390px);
     min-height: 0;
     margin-inline: 0;
     border-radius: var(--radius-sm);
@@ -255,6 +255,6 @@
 
   .cardWrapper {
     width: min(68vw, 250px);
-    height: clamp(235px, 49svh, 350px);
+    height: clamp(235px, 49dvh, 350px);
   }
 }

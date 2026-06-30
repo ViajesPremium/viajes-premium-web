@@ -6,7 +6,7 @@
   width: 100%;
   background: var(--bg);
   color: var(--black);
-  padding: clamp(4rem, 12vh, 8rem) var(--grid-margin) clamp(4rem, 12vh, 8rem);
+  padding: clamp(4rem, 12dvh, 8rem) var(--grid-margin) clamp(4rem, 12dvh, 8rem);
   min-height: 100dvh;
 }
 

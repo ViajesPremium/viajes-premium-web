@@ -9,7 +9,7 @@
 
 .container {
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   width: max-content;
   display: flex;
 }

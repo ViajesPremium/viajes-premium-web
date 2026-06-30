@@ -1,11 +1,11 @@
 .page {
-  min-height: 100svh;
+  min-height: 100dvh;
   background: var(--bg);
 }
 
 .heroPinned {
-  min-height: 100svh;
-  height: 100svh;
+  min-height: 100dvh;
+  height: 100dvh;
   z-index: 1;
   position: relative;
   margin: 0;
@@ -109,7 +109,7 @@
 
 .card {
   width: 100%;
-  min-height: 50vh;
+  min-height: 50dvh;
   max-width: none;
   padding: clamp(1.5rem, 2.8vw, 2.4rem) clamp(1rem, 4.6vw, 3.5rem);
   border-radius: 0;

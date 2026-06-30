@@ -36,7 +36,7 @@
   --transition-base: 240ms ease;
   --transition-slow: 420ms ease;
 
-  --app-vh: 100svh;
+  --app-vh: 100dvh;
   --font-nohemi: "Nohemi", sans-serif;
   --font-bigcaslon: "BigCaslon", serif;
   --font-thunder: "Nohemi", sans-serif;

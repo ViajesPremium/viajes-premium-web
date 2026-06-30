@@ -19,7 +19,7 @@ export const BARRANCAS_PROMISE: LandingPromise = {
       label: "2",
       title: "Traslados y conexiones bien resueltos",
       description:
-        "ODiseñamos recorridos con lógica. Organización clara de desplazamientos para aprovechar mejor el tiempo en destino.",
+        "Diseñamos recorridos con lógica. Organización clara de desplazamientos para aprovechar mejor el tiempo en destino.",
       image: "/media/landings/barrancas/promise/traslados-y-conexiones.avif",
     },
     {

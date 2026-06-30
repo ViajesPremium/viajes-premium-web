@@ -228,7 +228,7 @@ export default function ChatAssistantDock({
 }: ChatAssistantDockProps) {
   const inputId = useId();
   const animationsEnabled = useAnimationsEnabled();
-  const endRef = useRef<HTMLDivElement | null>(null);
+  const messageListRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const loadedHistoryRef = useRef(false);
   const storageKeys = useMemo(() => getStorageKeys(botSlug), [botSlug]);
@@ -355,12 +355,15 @@ export default function ChatAssistantDock({
   }, [enabled, sessionId, messages, storageKeys.historyPrefix]);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-  }, [messages, isSending]);
+    const messageList = messageListRef.current;
+    if (!messageList) return;
+
+    messageList.scrollTop = messageList.scrollHeight;
+  }, [messages, isSending, isOpen]);
 
   useEffect(() => {
     if (isOpen && !isSending) {
-      inputRef.current?.focus();
+      inputRef.current?.focus({ preventScroll: true });
     }
   }, [isOpen, isSending]);
 
@@ -522,7 +525,7 @@ export default function ChatAssistantDock({
             {/* Body */}
             <div className={styles.body}>
               {/* Messages */}
-              <div className={styles.messageList} data-lenis-prevent>
+              <div ref={messageListRef} className={styles.messageList} data-lenis-prevent>
                 {messages.map((message) => {
                   const isUser = message.role === "user";
                   return (
@@ -582,7 +585,6 @@ export default function ChatAssistantDock({
                   </div>
                 ) : null}
 
-                <div ref={endRef} />
               </div>
 
               {/* Input form */}

@@ -14,7 +14,7 @@ export const BARRANCAS_ITINERARIES: LandingItineraries = {
       day: "5 DÍAS · CHEPE EXPRESS · MIRADORES · NATURALEZA · BARRANCAS",
       title: "El de Mayor Ranking",
       description:
-        "Un recorrido ideal para vivir Barrancas del Cobre por primera vez: paisajes monumentales, miradores inolvidables, naturaleza imponente y la experiencia del Chepe Express en Clase PREMIUM.",
+        "Vive Barrancas del Cobre por primera vez con paisajes imponentes, miradores inolvidables y la experiencia del Chepe Express en Clase PREMIUM.",
       ideal:
         "Ideal para parejas, familias y viajeros que buscan descubrir lo más icónico de Barrancas del Cobre en una experiencia cómoda, bien diseñada y memorable.",
       image:
@@ -29,7 +29,7 @@ export const BARRANCAS_ITINERARIES: LandingItineraries = {
       day: "7 DÍAS · EL FUERTE · LEYENDAS · HISTORIA · BARRANCAS",
       title: "Las Leyendas del Fuerte",
       description:
-        "Un viaje con alma de relato por el norte de México: Barrancas del Cobre, El Fuerte, paisajes escénicos y experiencias culturales que conectan la historia, la naturaleza y el car?cter de la Sierra Tarahumara.",
+        "Vive un recorrido por el norte de México que combina Barrancas del Cobre, El Fuerte, paisajes escénicos y experiencias culturales en la Sierra Tarahumara.",
       ideal:
         "Ideal para viajeros que buscan una experiencia con más historia, identidad cultural y escenarios memorables, sin renunciar a la comodidad de una ruta en Clase PREMIUM.",
       image:
@@ -44,7 +44,7 @@ export const BARRANCAS_ITINERARIES: LandingItineraries = {
       day: "8 DÍAS · GASTRONOM?A · CULTURA MENONITA · CHEPE EXPRESS · BARRANCAS",
       title: "Sabores del Norte",
       description:
-        "Una experiencia más profunda por Barrancas del Cobre, donde el paisaje también se vive a través de la cocina regional, los sabores del norte, la cultura menonita y los recorridos escénicos del Chepe Express.",
+        "Descubre Barrancas del Cobre en una experiencia que une paisajes imponentes, cocina regional, cultura menonita y el Chepe Express.",
       ideal:
         "Ideal para viajeros que disfrutan comer bien, conocer tradiciones locales y vivir un destino desde sus paisajes, su cultura y sus sabores más auténticos.",
       image:

@@ -14,7 +14,7 @@ export const CANADA_FAQS: LandingFaqs = {
   items: [
     {
       id: "1",
-      question: "¿Cuál es la mejor época para viajar a Canadá?",
+      question: "¿Cuál es la mejor época para conocer a Canadá?",
       answer:
         "La mejor época para viajar a Canadá depende del tipo de experiencia que buscas. Verano, otoño e invierno ofrecen paisajes y actividades completamente distintas en cada región del país.",
     },

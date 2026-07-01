@@ -116,28 +116,32 @@ func buildBotLeadEmailMessage(bot domain.BotKnowledge, conversation *domain.Conv
 	leadName := firstNonEmpty(lead.Name, "No especificado")
 	landingURL := firstNonEmpty(conversation.LandingURL, "No especificado")
 	landingSlug := firstNonEmpty(conversation.LandingSlug, lead.LandingSlug, "No especificado")
+	priority := strings.TrimSpace(lead.Priority)
+	if priority == "" {
+		priority = leadmail.DerivePriorityFromTravelDate(lead.TravelDate, now)
+	}
+	if priority == "" {
+		priority = "normal"
+	}
 	bodyLines := []string{
 		"Disparo automatico por 1 minuto de inactividad del cliente.",
 		"",
-		"Datos del lead:",
+		formatBotLine("Email", firstNonEmpty(lead.Email, "No especificado")),
+		formatBotLine("Teléfono", firstNonEmpty(lead.Phone, "No especificado")),
+		formatBotLine("Prioridad", priority),
+		formatBotLine("Origen", botLabel),
+		formatBotLine("Página de conversión", landingURL),
+		formatBotLine("Landing slug", landingSlug),
+		formatBotLine("Nombre", leadName),
 	}
-	bodyLines = appendBotLineIfValue(bodyLines, "Bot", botLabel)
-	bodyLines = appendBotLineIfValue(bodyLines, "Landing URL", landingURL)
-	bodyLines = appendBotLineIfValue(bodyLines, "Landing slug", landingSlug)
-	bodyLines = appendBotLineIfValue(bodyLines, "Nombre", leadName)
-	bodyLines = appendBotLineIfValue(bodyLines, "Telefono", lead.Phone)
-	bodyLines = appendBotLineIfValue(bodyLines, "Correo", lead.Email)
-	bodyLines = appendBotLineIfValue(bodyLines, "Interes", lead.Interest)
+	bodyLines = appendBotLineIfValue(bodyLines, "Interés", lead.Interest)
 	bodyLines = appendBotLineIfValue(bodyLines, "Viajeros", lead.Travelers)
 	bodyLines = appendBotLineIfValue(bodyLines, "Fecha tentativa", lead.TravelDate)
-	if strings.TrimSpace(lead.TravelDate) != "" {
-		bodyLines = appendBotLineIfValue(bodyLines, "Prioridad", lead.Priority)
-	}
 	bodyLines = appendBotLineIfValue(bodyLines, "Motivo especial", lead.SpecialOccasion)
 	bodyLines = appendBotLineIfValue(bodyLines, "Mejor horario", lead.PreferredContactTime)
 	bodyLines = appendBotLineIfValue(bodyLines, "Stage", string(lead.Stage))
 	bodyLines = appendBotAttributionLines(bodyLines, lead.Attribution)
-	bodyLines = append(bodyLines, "", "Conversacion completa:")
+	bodyLines = append(bodyLines, "", "Conversación:")
 	bodyLines = append(bodyLines, buildBotTranscriptText(orderedMessages, now))
 
 	return leadmail.EmailMessage{
@@ -169,25 +173,48 @@ func buildBotTranscriptText(messages []domain.Message, now time.Time) string {
 }
 
 func buildBotTranscriptHTML(botLabel string, conversation *domain.Conversation, lead *domain.Lead, messages []domain.Message, now time.Time) string {
+	priority := strings.TrimSpace(lead.Priority)
+	if priority == "" {
+		priority = leadmail.DerivePriorityFromTravelDate(lead.TravelDate, now)
+	}
+	if priority == "" {
+		priority = "normal"
+	}
+
 	var b strings.Builder
 	b.WriteString(fmt.Sprintf("<h2>Nuevo Lead - %s</h2>", escapeBotHTML(botLabel)))
-	b.WriteString("<p>Disparo automatico por 1 minuto de inactividad del cliente.</p>")
-	b.WriteString("<table border=\"1\" cellpadding=\"8\" cellspacing=\"0\" style=\"border-collapse:collapse;margin-bottom:16px;\">")
-	writeBotHTMLRow(&b, "Landing URL", firstNonEmpty(conversation.LandingURL, "No especificado"))
-	writeBotHTMLRow(&b, "Landing slug", firstNonEmpty(conversation.LandingSlug, lead.LandingSlug, "No especificado"))
-	writeBotHTMLRow(&b, "Nombre", firstNonEmpty(lead.Name, "No especificado"))
-	writeBotHTMLRow(&b, "Telefono", firstNonEmpty(lead.Phone, "No especificado"))
-	writeBotHTMLRow(&b, "Correo", firstNonEmpty(lead.Email, "No especificado"))
-	writeBotHTMLRow(&b, "Interes", firstNonEmpty(lead.Interest, "No especificado"))
-	writeBotHTMLRow(&b, "Viajeros", firstNonEmpty(lead.Travelers, "No especificado"))
-	writeBotHTMLRow(&b, "Fecha tentativa", firstNonEmpty(lead.TravelDate, "No especificado"))
-	writeBotHTMLRow(&b, "Motivo especial", firstNonEmpty(lead.SpecialOccasion, "No especificado"))
-	writeBotHTMLRow(&b, "Mejor horario", firstNonEmpty(lead.PreferredContactTime, "No especificado"))
-	writeBotHTMLRow(&b, "Stage", string(lead.Stage))
-	writeBotAttributionHTML(&b, lead.Attribution)
-	b.WriteString("</table>")
+	b.WriteString("<p><strong>Disparo automatico por 1 minuto de inactividad del cliente.</strong></p>")
+	b.WriteString("<p>")
+	b.WriteString("<strong>Email:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.Email, "No especificado")))
+	b.WriteString("<br><strong>Teléfono:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.Phone, "No especificado")))
+	b.WriteString("<br><strong>Prioridad:</strong> ")
+	b.WriteString(escapeBotHTML(priority))
+	b.WriteString("<br><strong>Origen:</strong> ")
+	b.WriteString(escapeBotHTML(botLabel))
+	b.WriteString("<br><strong>Página de conversión:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(conversation.LandingURL, "No especificado")))
+	b.WriteString("<br><strong>Landing slug:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(conversation.LandingSlug, lead.LandingSlug, "No especificado")))
+	b.WriteString("<br><strong>Nombre:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.Name, "No especificado")))
+	b.WriteString("<br><strong>Interés:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.Interest, "No especificado")))
+	b.WriteString("<br><strong>Viajeros:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.Travelers, "No especificado")))
+	b.WriteString("<br><strong>Fecha tentativa:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.TravelDate, "No especificado")))
+	b.WriteString("<br><strong>Motivo especial:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.SpecialOccasion, "No especificado")))
+	b.WriteString("<br><strong>Mejor horario:</strong> ")
+	b.WriteString(escapeBotHTML(firstNonEmpty(lead.PreferredContactTime, "No especificado")))
+	b.WriteString("<br><strong>Stage:</strong> ")
+	b.WriteString(escapeBotHTML(string(lead.Stage)))
+	b.WriteString("</p>")
+	writeBotAttributionHTMLBlock(&b, lead.Attribution)
 
-	b.WriteString("<h3>Conversacion completa</h3>")
+	b.WriteString("<p><strong>Conversación:</strong></p>")
 	if len(messages) == 0 {
 		b.WriteString("<p>Sin mensajes registrados.</p>")
 		return b.String()
@@ -304,6 +331,35 @@ func appendBotLineIfValue(lines []string, label, value string) []string {
 		return lines
 	}
 	return append(lines, formatBotLine(label, value))
+}
+
+func writeBotAttributionHTMLBlock(builder *strings.Builder, attribution domain.Attribution) {
+	if !hasBotAttribution(attribution) {
+		return
+	}
+
+	builder.WriteString("<p><strong>Atribución:</strong><br>")
+	builder.WriteString("<strong>UTM Source:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.UTMSource, "No especificado")))
+	builder.WriteString("<br><strong>UTM Medium:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.UTMMedium, "No especificado")))
+	builder.WriteString("<br><strong>UTM Campaign:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.UTMCampaign, "No especificado")))
+	builder.WriteString("<br><strong>UTM Content:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.UTMContent, "No especificado")))
+	builder.WriteString("<br><strong>UTM Term:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.UTMTerm, "No especificado")))
+	builder.WriteString("<br><strong>FBCLID:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.FBCLID, "No especificado")))
+	builder.WriteString("<br><strong>Referrer:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.Referrer, "No especificado")))
+	builder.WriteString("<br><strong>Landing slug:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.LandingSlug, "No especificado")))
+	builder.WriteString("<br><strong>Destino:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.Destination, "No especificado")))
+	builder.WriteString("<br><strong>Page path:</strong> ")
+	builder.WriteString(escapeBotHTML(firstNonEmpty(attribution.PagePath, "No especificado")))
+	builder.WriteString("</p>")
 }
 
 func appendBotAttributionLines(lines []string, attribution domain.Attribution) []string {

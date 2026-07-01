@@ -29,35 +29,33 @@ type BlurredStaggerProps = {
 };
 
 function renderStaticText(text: string, highlights: HighlightWord[]) {
-  return text.split(/(\s+)/).map((part, index) => {
-    if (/^\s+$/.test(part)) return part;
-
-    const cleanWord = part.replace(/[.,!?;:]/g, "");
+  return text.split(" ").map((word, index) => {
+    const cleanWord = word.replace(/[.,!?;:]/g, "");
     const highlighted = highlights.find((h) => h.word === cleanWord);
 
     if (highlighted?.useGradient) {
       return (
         <GradientText
-          key={`${part}-${index}`}
+          key={`${word}-${index}`}
           as="span"
           colors={highlighted.gradientColors}
           animationSpeed={highlighted.gradientSpeed}
-          className={styles.highlighted}
+          className={`${styles.highlighted} ${styles.staticGradient}`}
         >
-          {part}
+          {word}
         </GradientText>
       );
     }
 
-    if (highlighted?.className) {
-      return (
-        <span key={`${part}-${index}`} className={highlighted.className}>
-          {part}
-        </span>
-      );
-    }
-
-    return part;
+    return (
+      <span
+        key={`${word}-${index}`}
+        className={highlighted ? (highlighted.className ?? "") : ""}
+        style={{ display: "inline-flex" }}
+      >
+        {word}
+      </span>
+    );
   });
 }
 
@@ -97,8 +95,16 @@ export const BlurredStagger = ({
   // Texto plano cuando la seccion lo pide y estamos en mobile
   if ((staticOnMobile && isMobile) || !animationsEnabled) {
     return (
-      <div className={className} style={{ ...style, textAlign: align }}>
-        {renderStaticText(text, highlights)}
+      <div className={className} style={style}>
+        <div
+          className={styles.staticText}
+          style={{
+            justifyContent,
+            textAlign: align,
+          }}
+        >
+          {renderStaticText(text, highlights)}
+        </div>
       </div>
     );
   }

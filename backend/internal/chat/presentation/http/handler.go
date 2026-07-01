@@ -32,6 +32,9 @@ func (h *Handler) Message(ctx *gin.Context) {
 		SessionID:   request.SessionID,
 		LandingURL:  request.LandingURL,
 		Message:     request.Message,
+		Name:        request.Name,
+		Email:       request.Email,
+		Phone:       request.Phone,
 		Attribution: request.Attribution,
 	})
 	if err != nil {

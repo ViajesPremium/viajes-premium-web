@@ -377,4 +377,12 @@
   .primaryButton {
     margin-top: 3.5rem;
   }
+
+  .containerStatic .card {
+    overflow: hidden;
+  }
+
+  .containerStatic .cardBackgroundOverlay {
+    overflow: hidden;
+  }
 }

@@ -146,6 +146,17 @@ func (s *botLeadEmailSenderStub) SendLeadEmail(_ context.Context, message leadma
 	return "message-1", nil
 }
 
+type botLeadEventRepoStub struct {
+	items []domain.LeadEvent
+}
+
+func (r *botLeadEventRepoStub) Insert(_ context.Context, event *domain.LeadEvent) error {
+	if event != nil {
+		r.items = append(r.items, *event)
+	}
+	return nil
+}
+
 func TestScheduleBotLeadEmailSetsDueAtWhenContactCaptured(t *testing.T) {
 	lead := &domain.Lead{Name: "Ana", Phone: "+525511111111"}
 	service := &Service{}
@@ -171,6 +182,49 @@ func TestScheduleBotLeadEmailDoesNothingWhenDisabled(t *testing.T) {
 	}
 }
 
+func TestHandleMessageSchedulesBotLeadEmailFromRequestContactFields(t *testing.T) {
+	now := time.Date(2026, time.June, 18, 20, 0, 0, 0, time.UTC)
+	leadRepo := &botLeadRepoStub{}
+	service := NewService(Deps{
+		Knowledge: botKnowledgeStoreStub{bots: map[string]domain.BotKnowledge{
+			"home": {Slug: "home", DisplayName: "Viajes PREMIUM"},
+		}},
+		ConversationRepo:  &botConversationRepoStub{},
+		MessageRepo:       &botMessageRepoStub{},
+		LeadRepo:          leadRepo,
+		LeadEventRepo:     &botLeadEventRepoStub{},
+		DefaultBotSlug:    "home",
+		LeadEmailsEnabled: true,
+	})
+	service.clock = botClockStub{now: now}
+
+	response, err := service.HandleMessage(context.Background(), MessageRequest{
+		BotSlug:   "home",
+		SessionID: "session-1",
+		Message:   "Hola, quiero informacion",
+		Name:      "Ana Perez",
+		Phone:     "+525511111111",
+	})
+	if err != nil {
+		t.Fatalf("HandleMessage returned error: %v", err)
+	}
+
+	stored := leadRepo.items[response.ConversationID]
+	if stored == nil {
+		t.Fatalf("expected lead to be stored for conversation %q", response.ConversationID)
+	}
+	if stored.Name != "Ana Perez" {
+		t.Fatalf("expected request name to be stored, got %q", stored.Name)
+	}
+	if stored.Phone != "+525511111111" {
+		t.Fatalf("expected request phone to be stored, got %q", stored.Phone)
+	}
+	expected := now.UTC().Add(botLeadEmailDelay)
+	if !stored.BotEmailDueAt.Equal(expected) {
+		t.Fatalf("expected bot email due at %v, got %v", expected, stored.BotEmailDueAt)
+	}
+}
+
 func TestProcessPendingBotLeadEmailsSendsTranscriptOnce(t *testing.T) {
 	now := time.Date(2026, time.June, 18, 20, 0, 0, 0, time.UTC)
 	conversation := &domain.Conversation{
@@ -188,6 +242,7 @@ func TestProcessPendingBotLeadEmailsSendsTranscriptOnce(t *testing.T) {
 		BotSlug:              conversation.BotSlug,
 		LandingSlug:          conversation.LandingSlug,
 		Name:                 "Ana Perez",
+		Email:                "ana@example.com",
 		Phone:                "+525511111111",
 		Interest:             "Japon Pop",
 		Travelers:            "2 personas",
@@ -230,11 +285,32 @@ func TestProcessPendingBotLeadEmailsSendsTranscriptOnce(t *testing.T) {
 	if !strings.Contains(sender.last.TextBody, "Mi nombre es Ana") {
 		t.Fatalf("expected transcript in email body, got %q", sender.last.TextBody)
 	}
+	if !strings.Contains(sender.last.TextBody, "Email: ana@example.com") {
+		t.Fatalf("expected email field in email body, got %q", sender.last.TextBody)
+	}
+	if !strings.Contains(sender.last.TextBody, "Teléfono: +525511111111") {
+		t.Fatalf("expected phone field in email body, got %q", sender.last.TextBody)
+	}
+	if !strings.Contains(sender.last.TextBody, "Prioridad: normal") {
+		t.Fatalf("expected priority field in email body, got %q", sender.last.TextBody)
+	}
+	if !strings.Contains(sender.last.TextBody, "Conversación:") {
+		t.Fatalf("expected conversation section in email body, got %q", sender.last.TextBody)
+	}
 	if !strings.Contains(sender.last.TextBody, "bot: Con gusto le ayudo") {
 		t.Fatalf("expected bot transcript line in email body, got %q", sender.last.TextBody)
 	}
 	if !strings.Contains(sender.last.TextBody, "cliente: Mi nombre es Ana") {
 		t.Fatalf("expected client transcript line in email body, got %q", sender.last.TextBody)
+	}
+	if !strings.Contains(sender.last.HTMLBody, "<strong>Email:</strong> ana@example.com") {
+		t.Fatalf("expected email field in HTML body, got %q", sender.last.HTMLBody)
+	}
+	if !strings.Contains(sender.last.HTMLBody, "<strong>Teléfono:</strong> +525511111111") {
+		t.Fatalf("expected phone field in HTML body, got %q", sender.last.HTMLBody)
+	}
+	if !strings.Contains(sender.last.HTMLBody, "<strong>Prioridad:</strong> normal") {
+		t.Fatalf("expected priority field in HTML body, got %q", sender.last.HTMLBody)
 	}
 	if sender.last.Subject != "Cotización LP Japón PREMIUM ® Bot con IA" {
 		t.Fatalf("expected bot email subject to be normalized, got %q", sender.last.Subject)
@@ -271,6 +347,7 @@ func TestBuildBotLeadEmailMessageIncludesAttribution(t *testing.T) {
 	}
 	lead := &domain.Lead{
 		Name:  "Ana Perez",
+		Email: "ana@example.com",
 		Phone: "+525511111111",
 		Attribution: domain.Attribution{
 			UTMSource:   "google",
@@ -286,11 +363,26 @@ func TestBuildBotLeadEmailMessageIncludesAttribution(t *testing.T) {
 	if !strings.Contains(message.TextBody, "Atribución:") {
 		t.Fatalf("expected attribution section in bot email body, got %q", message.TextBody)
 	}
+	if !strings.Contains(message.TextBody, "Email: ana@example.com") {
+		t.Fatalf("expected email field in bot email body, got %q", message.TextBody)
+	}
+	if !strings.Contains(message.TextBody, "Teléfono: +525511111111") {
+		t.Fatalf("expected phone field in bot email body, got %q", message.TextBody)
+	}
+	if !strings.Contains(message.TextBody, "Prioridad: normal") {
+		t.Fatalf("expected priority field in bot email body, got %q", message.TextBody)
+	}
 	if !strings.Contains(message.TextBody, "UTM Source: google") {
 		t.Fatalf("expected UTM source in bot email body, got %q", message.TextBody)
 	}
 	if !strings.Contains(message.HTMLBody, "Atribución") {
 		t.Fatalf("expected attribution section in bot email HTML, got %q", message.HTMLBody)
+	}
+	if !strings.Contains(message.HTMLBody, "<strong>Email:</strong> ana@example.com") {
+		t.Fatalf("expected email field in bot email HTML, got %q", message.HTMLBody)
+	}
+	if !strings.Contains(message.HTMLBody, "<strong>Teléfono:</strong> +525511111111") {
+		t.Fatalf("expected phone field in bot email HTML, got %q", message.HTMLBody)
 	}
 }
 

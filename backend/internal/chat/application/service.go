@@ -108,7 +108,9 @@ func (s *Service) HandleMessage(ctx context.Context, req MessageRequest) (Messag
 		lead.Attribution = mergeAttribution(lead.Attribution, req.Attribution)
 	}
 
+	explicitSignal := applyLeadFieldsFromRequest(lead, req)
 	updatedLead, signal := s.extractLeadSignals(ctx, bot, lead, req.Message, conversation, now)
+	signal = mergeLeadSignals(explicitSignal, signal)
 	s.scheduleBotLeadEmail(updatedLead, now)
 	score := s.computeScore(bot, updatedLead, conversation, req.Message)
 	stage := s.computeStage(score, updatedLead, signal)
@@ -262,7 +264,7 @@ func (s *Service) saveLead(ctx context.Context, lead *domain.Lead, signal LeadSi
 		return err
 	}
 
-	if signal.EventType != "" {
+	if signal.EventType != "" && s.leadEvents != nil {
 		event := &domain.LeadEvent{
 			ID:        newID("evt"),
 			LeadID:    lead.ID,
@@ -276,6 +278,57 @@ func (s *Service) saveLead(ctx context.Context, lead *domain.Lead, signal LeadSi
 	}
 
 	return nil
+}
+
+func applyLeadFieldsFromRequest(lead *domain.Lead, req MessageRequest) LeadSignal {
+	if lead == nil {
+		return LeadSignal{}
+	}
+
+	signal := LeadSignal{Details: map[string]any{}}
+
+	if strings.TrimSpace(lead.Name) == "" {
+		if value := strings.TrimSpace(req.Name); value != "" {
+			lead.Name = value
+			recordLeadExtractionSignal(&signal, "lead_name_captured", "name", value)
+		}
+	}
+	if strings.TrimSpace(lead.Email) == "" {
+		if value := detectEmail(req.Email); value != "" {
+			lead.Email = value
+			recordLeadExtractionSignal(&signal, "lead_email_captured", "email", value)
+		}
+	}
+	if strings.TrimSpace(lead.Phone) == "" {
+		if value := detectPhone(req.Phone); value != "" {
+			lead.Phone = value
+			recordLeadExtractionSignal(&signal, "lead_phone_captured", "phone", value)
+		}
+	}
+
+	if signal.EventType == "" {
+		return LeadSignal{}
+	}
+	return signal
+}
+
+func mergeLeadSignals(first, second LeadSignal) LeadSignal {
+	if first.EventType == "" && len(first.Details) == 0 {
+		return second
+	}
+	if second.EventType == "" && len(second.Details) == 0 {
+		return first
+	}
+
+	merged := first
+	if merged.Details == nil {
+		merged.Details = map[string]any{}
+	}
+	for key, value := range second.Details {
+		merged.Details[key] = value
+	}
+	merged.EventType = firstNonEmpty(first.EventType, second.EventType)
+	return merged
 }
 
 func (s *Service) generateResponse(ctx context.Context, bot domain.BotKnowledge, conversation *domain.Conversation, lead *domain.Lead, messages []domain.Message, userMessage string, handoff HandoffDecision) (string, string, error) {

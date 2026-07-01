@@ -2,6 +2,21 @@
   font-weight: 500;
 }
 
+.staticText {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3em;
+}
+
+.staticText :global(.animated-gradient-text) {
+  display: inline-flex;
+  margin: 0;
+}
+
+.staticGradient {
+  max-width: none;
+}
+
 /* BlurredStaggerText.module.css */
 .srOnly {
   position: absolute !important;

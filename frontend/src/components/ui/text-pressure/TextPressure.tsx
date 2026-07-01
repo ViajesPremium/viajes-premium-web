@@ -9,6 +9,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import { useAnimationsEnabled } from "@/lib/animation-budget";
 
 interface TextPressureProps {
   text?: string;
@@ -82,6 +83,8 @@ export default function TextPressure({
   scaleTo = 1.22,
   animate = true,
 }: TextPressureProps) {
+  const animationsEnabled = useAnimationsEnabled();
+  const effectiveAnimate = animate && animationsEnabled;
   const containerRef = useRef<HTMLSpanElement | null>(null);
   const titleRef = useRef<HTMLSpanElement | null>(null);
   const spansRef = useRef<(HTMLSpanElement | null)[]>([]);
@@ -100,7 +103,7 @@ export default function TextPressure({
   const chars = useMemo(() => text.split(""), [text]);
 
   useEffect(() => {
-    if (!animate) return;
+    if (!effectiveAnimate) return;
 
     const handleMouseMove = (event: MouseEvent) => {
       cursorRef.current.x = event.clientX;
@@ -132,7 +135,7 @@ export default function TextPressure({
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, [animate]);
+  }, [effectiveAnimate]);
 
   const setSize = useCallback(() => {
     if (typeof fixedFontSize === "string") {
@@ -186,7 +189,16 @@ export default function TextPressure({
   }, [fixedFontSize, setSize]);
 
   useEffect(() => {
-    if (!animate) return;
+    if (!effectiveAnimate) {
+      spansRef.current.forEach((span) => {
+        if (!span) return;
+        span.style.removeProperty("font-variation-settings");
+        span.style.removeProperty("opacity");
+        span.style.removeProperty("transform");
+        span.style.removeProperty("transform-origin");
+      });
+      return;
+    }
 
     let rafId: number;
 
@@ -236,7 +248,7 @@ export default function TextPressure({
 
     return () => cancelAnimationFrame(rafId);
   }, [
-    animate,
+    effectiveAnimate,
     alpha,
     fontWeight,
     italic,

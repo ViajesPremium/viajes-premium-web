@@ -38,11 +38,10 @@ export const destinationCardsData: DestinationDataCard[] = [
     route: "/japon-premium",
     primaryColor: "#db2f21",
     secondaryColor: "#95231c",
-    logoSrc:       "/media/landings/japon/aliances/japon-premium-blanco.svg",
+    logoSrc: "/media/landings/japon/aliances/japon-premium-blanco.svg",
     description:
       "Tradición milenaria y vanguardia tecnológica en un viaje diseñado con comodidad y acompañamiento experto.",
-    backgroundImage:
-      "/media/landings/japon/aliances/japon-premium-blanco.svg",
+    backgroundImage: "/media/landings/japon/aliances/japon-premium-blanco.svg",
     galleryImages: [
       "/media/shared/home/destinos/japon/japon-premium-1.webp",
       "/media/shared/home/destinos/japon/japon-premium-2.webp",
@@ -63,11 +62,10 @@ export const destinationCardsData: DestinationDataCard[] = [
     route: "/europa-premium",
     primaryColor: "#511E62",
     secondaryColor: "#882BAC",
-    logoSrc: "/media/shared/logos/europa/logo-europa.svg",
+    logoSrc: "/media/shared/logos/europa/europa-premium-blanco.svg",
     description:
       "Los rincones más emblemáticos del viejo continente a un ritmo pausado, con alta cultura y descanso sofisticado.",
-    backgroundImage:
-      "/media/shared/home/destinos/europa/europa-premium-1.webp",
+    backgroundImage: "/media/shared/home/destinos/europa/europa-premium-1.webp",
     galleryImages: [
       "/media/shared/home/destinos/europa/europa-premium-1.webp",
       "/media/shared/home/destinos/europa/europa-premium-2.webp",
@@ -82,11 +80,10 @@ export const destinationCardsData: DestinationDataCard[] = [
     route: "/corea-premium",
     primaryColor: "#1D624E",
     secondaryColor: "#482D55",
-    logoSrc: "/media/shared/logos/corea/logo-corea.svg",
+    logoSrc: "/media/shared/logos/corea/corea-premium-blanco.svg",
     description:
       "El dinamismo urbano de Seúl y la serenidad de sus templos, en una experiencia con atención al detalle sin precedentes.",
-    backgroundImage:
-      "/media/shared/home/destinos/corea/corea-premium-1.webp",
+    backgroundImage: "/media/shared/home/destinos/corea/corea-premium-1.webp",
     galleryImages: [
       "/media/shared/home/destinos/corea/corea-premium-1.webp",
       "/media/shared/home/destinos/corea/corea-premium-2.webp",
@@ -104,8 +101,7 @@ export const destinationCardsData: DestinationDataCard[] = [
     logoSrc: "/media/shared/logos/canada/logo-canada.svg",
     description:
       "Montañas rocosas y naturaleza pura en un itinerario curado para ofrecerte el máximo confort en cada aventura.",
-    backgroundImage:
-      "/media/shared/home/destinos/canada/canada-premium-1.webp",
+    backgroundImage: "/media/shared/home/destinos/canada/canada-premium-1.webp",
     galleryImages: [
       "/media/shared/home/destinos/canada/canada-premium-1.webp",
       "/media/shared/home/destinos/canada/canada-premium-2.webp",
@@ -157,7 +153,7 @@ export const destinationCardsData: DestinationDataCard[] = [
     route: "/barrancas-premium",
     primaryColor: "#963825",
     secondaryColor: "#D55C26",
-    logoSrc: "/media/shared/logos/barrancas/logo-barrancas.svg",
+    logoSrc: "/media/shared/logos/barrancas/barrancas-premium-blanco.svg",
     description:
       "Las Barrancas del Cobre a bordo del Chepe Express, con vistas panorámicas en uno de los cañones más profundos del mundo.",
     backgroundImage:
@@ -189,7 +185,7 @@ export const destinationCardsData: DestinationDataCard[] = [
     ],
     reviewUrl: "https://www.google.com/search?q=Yucatán+Premium+reseñas",
     reviews: DEFAULT_REVIEWS,
-  }
+  },
 ];
 
 export type { DestinationDataCard };

@@ -28,6 +28,39 @@ type BlurredStaggerProps = {
   align?: TextAlignMode;
 };
 
+function renderStaticText(text: string, highlights: HighlightWord[]) {
+  return text.split(/(\s+)/).map((part, index) => {
+    if (/^\s+$/.test(part)) return part;
+
+    const cleanWord = part.replace(/[.,!?;:]/g, "");
+    const highlighted = highlights.find((h) => h.word === cleanWord);
+
+    if (highlighted?.useGradient) {
+      return (
+        <GradientText
+          key={`${part}-${index}`}
+          as="span"
+          colors={highlighted.gradientColors}
+          animationSpeed={highlighted.gradientSpeed}
+          className={styles.highlighted}
+        >
+          {part}
+        </GradientText>
+      );
+    }
+
+    if (highlighted?.className) {
+      return (
+        <span key={`${part}-${index}`} className={highlighted.className}>
+          {part}
+        </span>
+      );
+    }
+
+    return part;
+  });
+}
+
 export const BlurredStagger = ({
   text = "",
   className,
@@ -65,7 +98,7 @@ export const BlurredStagger = ({
   if ((staticOnMobile && isMobile) || !animationsEnabled) {
     return (
       <div className={className} style={{ ...style, textAlign: align }}>
-        {text}
+        {renderStaticText(text, highlights)}
       </div>
     );
   }

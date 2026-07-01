@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import { useAnimationsEnabled } from "@/lib/animation-budget";
 import "./GradientText.css";
 
 interface GradientTextProps {
@@ -28,6 +29,7 @@ export default function GradientText({
   yoyo = true,
   allowWrap = false,
 }: GradientTextProps) {
+  const animationsEnabled = useAnimationsEnabled();
   const RootTag = as;
   // El tag interno debe coincidir con el externo para evitar anidamiento
   // inválido (p.ej. <div> dentro de <span> o <p>).
@@ -62,10 +64,10 @@ export default function GradientText({
   const gradientStyle = {
     backgroundImage: `linear-gradient(${gradientAngle}, ${gradientColors})`,
     backgroundSize: bgSize,
-    animationName: animationName,
+    animationName: animationsEnabled ? animationName : "none",
     animationDuration: `${animationSpeed}s`,
     animationTimingFunction: "linear",
-    animationIterationCount: "infinite",
+    animationIterationCount: animationsEnabled ? "infinite" : 0,
     animationDirection: yoyo ? "alternate" : "normal",
   } as React.CSSProperties;
 

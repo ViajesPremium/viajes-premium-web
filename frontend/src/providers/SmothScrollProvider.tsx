@@ -43,8 +43,6 @@ const restoreNativeScroll = () => {
 // repliegue/expansión de la barra de direcciones, así que ahí dejamos el
 // scroll nativo del navegador. ScrollTrigger no necesita a Lenis para
 // funcionar: por sí solo ya escucha el scroll nativo del documento.
-const DESKTOP_QUERY = "(min-width: 769px)";
-
 export default function SmothScrollProvider({
   children,
 }: SmothScrollProviderProps) {
@@ -52,7 +50,6 @@ export default function SmothScrollProvider({
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ ignoreMobileResize: true });
 
-    const desktopQuery = window.matchMedia(DESKTOP_QUERY);
     let lenis: Lenis | null = null;
     let tickLenis: ((time: number) => void) | null = null;
     let updateScrollTrigger: (() => void) | null = null;
@@ -92,7 +89,7 @@ export default function SmothScrollProvider({
       lastLayoutWidth = window.innerWidth;
       lastLayoutHeight = window.innerHeight;
 
-      if (!desktopQuery.matches || !animationsEnabled) {
+      if (!animationsEnabled) {
         restoreNativeScroll();
         return;
       }
@@ -102,6 +99,8 @@ export default function SmothScrollProvider({
     };
 
     const setupLenis = () => {
+      if (lenis) return;
+
       lenis = new Lenis({
         duration: 1.35,
         easing: easeOutQuart,
@@ -145,7 +144,7 @@ export default function SmothScrollProvider({
 
       animationsEnabled = areAnimationsEnabledForDevice();
 
-      if (desktopQuery.matches && animationsEnabled) {
+      if (animationsEnabled) {
         setupLenis();
       } else {
         restoreNativeScroll();
@@ -164,12 +163,11 @@ export default function SmothScrollProvider({
       applyForViewport();
       refreshScrollSystems();
     };
-    desktopQuery.addEventListener("change", handleViewportChange);
     window.addEventListener(ANIMATION_BUDGET_EVENT, handleViewportChange);
 
     const refreshFrame = window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        if (desktopQuery.matches && animationsEnabled) {
+        if (animationsEnabled) {
           refreshScrollSystems();
         } else {
           restoreNativeScroll();
@@ -182,7 +180,6 @@ export default function SmothScrollProvider({
     return () => {
       window.cancelAnimationFrame(refreshFrame);
       window.removeEventListener("resize", refreshScrollSystems);
-      desktopQuery.removeEventListener("change", handleViewportChange);
       window.removeEventListener(ANIMATION_BUDGET_EVENT, handleViewportChange);
       teardownLenis?.();
     };

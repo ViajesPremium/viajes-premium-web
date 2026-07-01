@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 export const ANIMATION_BUDGET_EVENT = "vp:animation-budget-change";
 
 const MOBILE_QUERY = "(hover: none), (pointer: coarse), (max-width: 1024px)";
-const PERFORMANCE_SAMPLE_MS = 1100;
-const PERFORMANCE_CACHE_KEY = "vp:mobile-performance-budget";
-const LOW_FPS_THRESHOLD = 42;
-const LONG_FRAME_MS = 34;
-const LONG_FRAME_RATIO_THRESHOLD = 0.22;
+const PERFORMANCE_SAMPLE_MS = 1400;
+const PERFORMANCE_CACHE_KEY = "vp:mobile-performance-budget:v2";
+const LOW_FPS_THRESHOLD = 34;
+const LONG_FRAME_MS = 42;
+const LONG_FRAME_RATIO_THRESHOLD = 0.38;
 
 type NavigatorWithHints = Navigator & {
   deviceMemory?: number;
@@ -33,6 +33,29 @@ type AnimationBudgetEventDetail = {
   fps?: number;
   longFrameRatio?: number;
 };
+
+function getNavigatorHints() {
+  const nav = navigator as NavigatorWithHints;
+
+  return {
+    deviceMemory:
+      typeof nav.deviceMemory === "number" ? nav.deviceMemory : undefined,
+    hardwareConcurrency:
+      typeof nav.hardwareConcurrency === "number"
+        ? nav.hardwareConcurrency
+        : undefined,
+    saveData: nav.connection?.saveData === true,
+  };
+}
+
+function hasStrongDeviceHints() {
+  const { deviceMemory, hardwareConcurrency } = getNavigatorHints();
+
+  return (
+    (typeof deviceMemory === "number" && deviceMemory >= 6) ||
+    (typeof hardwareConcurrency === "number" && hardwareConcurrency >= 6)
+  );
+}
 
 export function isTouchLikeDevice() {
   return (
@@ -202,6 +225,11 @@ export function startMobilePerformanceEvaluation() {
     }
 
     if (isLikelyIOSDevice()) {
+      try {
+        window.sessionStorage.removeItem(PERFORMANCE_CACHE_KEY);
+      } catch {
+        // Ignore restricted storage contexts.
+      }
       setAnimationBudgetState(true, false, "ios");
       return true;
     }
@@ -217,6 +245,16 @@ export function startMobilePerformanceEvaluation() {
       setAnimationBudgetState(!cached.lowEndMobile, cached.lowEndMobile, "cached", {
         fps: cached.fps,
         longFrameRatio: cached.longFrameRatio,
+      });
+      return;
+    }
+
+    if (hasStrongDeviceHints()) {
+      setAnimationBudgetState(true, false, "performance");
+      writeCachedPerformanceBudget({
+        lowEndMobile: false,
+        fps: 60,
+        longFrameRatio: 0,
       });
       return;
     }
@@ -251,9 +289,11 @@ export function startMobilePerformanceEvaluation() {
         (duration) => duration > LONG_FRAME_MS,
       ).length;
       const longFrameRatio = longFrameCount / Math.max(frameDurations.length, 1);
+      const { saveData } = getNavigatorHints();
       const lowEndMobile =
-        fps < LOW_FPS_THRESHOLD ||
-        longFrameRatio > LONG_FRAME_RATIO_THRESHOLD;
+        saveData ||
+        (fps < LOW_FPS_THRESHOLD &&
+          longFrameRatio > LONG_FRAME_RATIO_THRESHOLD);
 
       writeCachedPerformanceBudget({ lowEndMobile, fps, longFrameRatio });
       setAnimationBudgetState(!lowEndMobile, lowEndMobile, "performance", {

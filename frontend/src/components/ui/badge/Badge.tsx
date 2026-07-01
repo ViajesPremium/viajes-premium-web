@@ -2,6 +2,7 @@
 
 import styles from "./Badge.module.css";
 import { motion } from "motion/react";
+import { useAnimationsEnabled } from "@/lib/animation-budget";
 
 interface BadgeProps {
   text: string;
@@ -14,6 +15,7 @@ export default function Badge({
   variant = "light",
   align = "left",
 }: BadgeProps) {
+  const animationsEnabled = useAnimationsEnabled();
   const containerClass = [
     styles.badgeContainer,
     align === "center" ? styles.badgeContainerCentered : "",
@@ -27,14 +29,20 @@ export default function Badge({
 
   return (
     <div className={containerClass}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        className={badgeClass}
-      >
-        <p className={styles.text}>{text}</p>
-      </motion.div>
+      {animationsEnabled ? (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          className={badgeClass}
+        >
+          <p className={styles.text}>{text}</p>
+        </motion.div>
+      ) : (
+        <div className={badgeClass}>
+          <p className={styles.text}>{text}</p>
+        </div>
+      )}
     </div>
   );
 }

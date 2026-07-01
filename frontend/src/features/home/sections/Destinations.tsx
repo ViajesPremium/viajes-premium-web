@@ -107,6 +107,8 @@ export default function Destinations({
   }, []);
 
   const disableAnimationsForDevice = !viewportReady || !animationsEnabled;
+  const useCssStickyPins = viewportReady && isMobile;
+  const useGsapPins = !disableAnimationsForDevice && !useCssStickyPins;
 
   useStackedCardScrollAnimation({
     scopeRef: pinRef,
@@ -115,7 +117,7 @@ export default function Destinations({
     dimLayerSelector: `.${styles.previousCardDim}`,
     leftCharacterSelector: `.${styles.sideCharacterLeft}`,
     rightCharacterSelector: `.${styles.sideCharacterRight}`,
-    enabled: !disableAnimationsForDevice,
+    enabled: useGsapPins,
     isMobile,
     embedded,
     onActiveIndexChange: setActiveIndex,
@@ -131,13 +133,16 @@ export default function Destinations({
       <div
         ref={pinRef}
         className={
-          disableAnimationsForDevice
+          useCssStickyPins
+            ? `${styles.container} ${styles.containerMobileSticky}`
+            : disableAnimationsForDevice
             ? `${styles.container} ${styles.containerStatic}`
             : styles.container
         }
         data-destination-pin="true"
         data-embedded={embedded ? "true" : "false"}
         data-static-layout={disableAnimationsForDevice ? "true" : "false"}
+        data-mobile-sticky={useCssStickyPins ? "true" : "false"}
       >
         <div className={styles.stack}>
           {destinationCardsData.map((card: DestinationDataCard, index) => {
@@ -149,82 +154,91 @@ export default function Destinations({
                 destinationCardsData.length,
               );
             return (
-              <article
+              <div
                 key={card.route}
-                id={getDestinationAnchorId(card.route)}
-                data-route={card.route}
-                className={styles.card}
+                className={styles.cardSlot}
                 style={
                   {
                     "--card-primary": card.primaryColor,
                     "--card-secondary": card.secondaryColor,
                     "--card-avatar-left": `url("${DESTINATION_FAQ_AVATARS[card.route]?.left ?? DEFAULT_DESTINATION_AVATAR_LEFT}")`,
                     "--card-avatar-right": `url("${DESTINATION_FAQ_AVATARS[card.route]?.right ?? DEFAULT_DESTINATION_AVATAR_RIGHT}")`,
+                    "--card-index": index + 1,
                   } as CSSProperties
                 }
               >
-                <div className={styles.previousCardDim} aria-hidden="true" />
-                <div
-                  className={styles.cardBackgroundOverlay}
-                  aria-hidden="true"
-                />
+                <article
+                  id={getDestinationAnchorId(card.route)}
+                  data-route={card.route}
+                  className={styles.card}
+                >
+                  <div className={styles.previousCardDim} aria-hidden="true" />
+                  <div
+                    className={styles.cardBackgroundOverlay}
+                    aria-hidden="true"
+                  />
 
-                <div className={styles.sideCharacters} aria-hidden="true">
-                  <div className={styles.sideCharacterLeft} />
-                  <div className={styles.sideCharacterRight} />
-                </div>
-
-                {renderHeavyMedia && !isMobile ? (
-                  <div className={styles.editorialImages} aria-hidden="true">
-                    {card.galleryImages.slice(0, 4).map((image, imageIndex) => (
-                      <figure
-                        key={`${card.route}-photo-${imageIndex}`}
-                        className={`${styles.editorialFrame} ${styles[`editorialFrame${imageIndex + 1}`]}`}
-                      >
-                        <Image
-                          src={image}
-                          alt={`${card.label} - galería ${imageIndex + 1}`}
-                          title={`${card.label} - galería ${imageIndex + 1}`}
-                          fill
-                          sizes="(max-width: 900px) 55vw, 30vw"
-                          quality={70}
-                          className={styles.editorialImage}
-                          loading={
-                            index === 0 && imageIndex === 0 ? "eager" : "lazy"
-                          }
-                          priority={index === 0 && imageIndex === 0}
-                        />
-                      </figure>
-                    ))}
+                  <div className={styles.sideCharacters} aria-hidden="true">
+                    <div className={styles.sideCharacterLeft} />
+                    <div className={styles.sideCharacterRight} />
                   </div>
-                ) : null}
 
-                <Image
-                  src={card.logoSrc}
-                  alt={`${card.label} Premium logo`}
-                  className={styles.brandLogo}
-                  aria-hidden="true"
-                  width={320}
-                  height={120}
-                  sizes="(max-width: 900px) 60vw, 18vw"
-                />
-                <div className={styles.cardCopy}>
-                  <h2 className={styles.title}>{card.label}</h2>
-                  <GradientText as="span" className={styles.premiumText}>
-                    PREMIUM
-                  </GradientText>
-                  <Button
-                    type="button"
-                    className={styles.primaryButton}
-                    onClick={() => {
-                      triggerTransition(card.route);
-                    }}
-                  >
-                    Ver Destino
-                  </Button>
-                  <p className={styles.description}>{card.description}</p>
-                </div>
-              </article>
+                  {renderHeavyMedia && !isMobile ? (
+                    <div className={styles.editorialImages} aria-hidden="true">
+                      {card.galleryImages
+                        .slice(0, 4)
+                        .map((image, imageIndex) => (
+                          <figure
+                            key={`${card.route}-photo-${imageIndex}`}
+                            className={`${styles.editorialFrame} ${styles[`editorialFrame${imageIndex + 1}`]}`}
+                          >
+                            <Image
+                              src={image}
+                              alt={`${card.label} - galería ${imageIndex + 1}`}
+                              title={`${card.label} - galería ${imageIndex + 1}`}
+                              fill
+                              sizes="(max-width: 900px) 55vw, 30vw"
+                              quality={70}
+                              className={styles.editorialImage}
+                              loading={
+                                index === 0 && imageIndex === 0
+                                  ? "eager"
+                                  : "lazy"
+                              }
+                              priority={index === 0 && imageIndex === 0}
+                            />
+                          </figure>
+                        ))}
+                    </div>
+                  ) : null}
+
+                  <Image
+                    src={card.logoSrc}
+                    alt={`${card.label} Premium logo`}
+                    className={styles.brandLogo}
+                    aria-hidden="true"
+                    width={320}
+                    height={120}
+                    sizes="(max-width: 900px) 60vw, 18vw"
+                  />
+                  <div className={styles.cardCopy}>
+                    <h2 className={styles.title}>{card.label}</h2>
+                    <GradientText as="span" className={styles.premiumText}>
+                      PREMIUM
+                    </GradientText>
+                    <Button
+                      type="button"
+                      className={styles.primaryButton}
+                      onClick={() => {
+                        triggerTransition(card.route);
+                      }}
+                    >
+                      Ver Destino
+                    </Button>
+                    <p className={styles.description}>{card.description}</p>
+                  </div>
+                </article>
+              </div>
             );
           })}
         </div>

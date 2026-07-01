@@ -301,6 +301,7 @@ export default function FlickCardsSlider({
                         variant="secondary"
                         fullWidth
                         onClick={() => handleCtaClick(item.href ?? "#form")}
+                        className={styles.btn}
                       >
                         {ctaLabel}
                       </Button>

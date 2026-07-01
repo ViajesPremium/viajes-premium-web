@@ -34,7 +34,7 @@
 .panel {
   pointer-events: auto;
   display: flex;
-  height: calc(100dvh - 8rem);
+  height: calc(var(--app-vh, 100svh) - 8rem);
   max-height: 620px;
   width: 100%;
   flex-direction: column;

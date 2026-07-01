@@ -49,6 +49,10 @@
   overflow: hidden;
 }
 
+.btn {
+  border: 1px solid #fff !important;
+}
+
 .cardBefore {
   padding-top: 150%;
 }
@@ -100,6 +104,7 @@
   font-weight: 500;
   line-height: 0.95;
   margin: 0;
+  margin-bottom: 0.8rem;
   text-wrap: balance;
 }
 

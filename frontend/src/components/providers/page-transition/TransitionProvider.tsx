@@ -18,9 +18,11 @@ import styles from "./transition-provider.module.css";
 const PRINCIPAL_LOGO = "/media/shared/logos/principal-logo.svg";
 const BRAND_PRIMARY_COLOR = "#002744";
 const LANDING_LOGOS: Record<string, string> = {
-  "japon-premium": "/media/shared/logos/japon/japon-grande-logo.png",
-  "corea-premium": "/media/shared/logos/corea/corea-grande-logo.png",
-  "europa-premium": "/media/shared/logos/europa/europa-grande-logo.png",
+  "japon-premium": "/media/shared/logos/japon/japon-premium-blanco.svg",
+  "corea-premium": "/media/shared/logos/corea/corea-premium-blanco.svg",
+  "europa-premium": "/media/shared/logos/europa/europa-premium-blanco.svg",
+  "barrancas-premium":
+    "/media/shared/logos/barrancas/barrancas-premium-blanco.svg",
 };
 
 type TransitionVisualOptions = {
@@ -112,7 +114,9 @@ function isPremiumLandingPath(path: string | null) {
 }
 
 function resolveTransitionLogo(targetPath: string): string {
-  const targetPathname = normalizePathname(targetPath.split(/[?#]/, 1)[0] ?? "/");
+  const targetPathname = normalizePathname(
+    targetPath.split(/[?#]/, 1)[0] ?? "/",
+  );
   const matchedLanding = landingList.find((landing) => {
     const routePath = `/${landing.slug}`;
     return (
@@ -125,7 +129,9 @@ function resolveTransitionLogo(targetPath: string): string {
 }
 
 function resolveTransitionColor(targetPath: string): string {
-  const targetPathname = normalizePathname(targetPath.split(/[?#]/, 1)[0] ?? "/");
+  const targetPathname = normalizePathname(
+    targetPath.split(/[?#]/, 1)[0] ?? "/",
+  );
   const matchedLanding = landingList.find((landing) => {
     const routePath = `/${landing.slug}`;
     return (
@@ -218,7 +224,8 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
       const tl = gsap.timeline({
         onComplete: () => {
           gsap.set([layer1Ref.current, layer2Ref.current], { yPercent: 100 });
-          if (overlayRef.current) overlayRef.current.style.pointerEvents = "none";
+          if (overlayRef.current)
+            overlayRef.current.style.pointerEvents = "none";
           if (logoImageRef.current) {
             logoImageRef.current.removeAttribute("src");
             gsap.set(logoImageRef.current, { opacity: 0, scale: 0.96 });
@@ -289,7 +296,9 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
         }
       }
 
-      const targetPath = targetUrl ? routeWithHash(targetUrl) : normalizedTarget;
+      const targetPath = targetUrl
+        ? routeWithHash(targetUrl)
+        : normalizedTarget;
       const targetPathname = targetUrl
         ? normalizePathname(targetUrl.pathname)
         : normalizePathname(targetPath.split(/[?#]/, 1)[0] ?? "/");

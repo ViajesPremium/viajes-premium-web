@@ -21,7 +21,8 @@ export const BARRANCAS_BENEFITS: LandingBenefits = {
     highlightWord: "Chihuahua",
     bracket: {
       label: "Chihuahua",
-      imageSrc: "/media/landings/barrancas/benefits/hover/chihuahua-premium.avif",
+      imageSrc:
+        "/media/landings/barrancas/benefits/hover/chihuahua-premium.avif",
       imageAlt: "Chihuahua Premium",
       textTone: "epochal",
     },
@@ -31,7 +32,8 @@ export const BARRANCAS_BENEFITS: LandingBenefits = {
     lead: "Esencia y el",
     bracket: {
       label: "Chepe",
-      imageSrc: "/media/landings/barrancas/benefits/hover/chepe-express-premium.avif",
+      imageSrc:
+        "/media/landings/barrancas/benefits/hover/chepe-express-premium.avif",
       imageAlt: "Chepe Express",
       textTone: "ot",
     },
@@ -44,38 +46,38 @@ export const BARRANCAS_BENEFITS: LandingBenefits = {
   focusRailItems: [
     {
       id: "barrancas-del-cobre",
-      title: "Barrancas del Cobre",
-      imageSrc: "/media/landings/barrancas/benefits/valor/recorridos-disenados.webp",
+      title: "Cerocahui",
+      imageSrc: "/media/landings/barrancas/benefits/cards/cerocahui.avif",
       href: "#second-form",
     },
     {
       id: "chepe-express",
       title: "Chepe Express",
-      imageSrc: "/media/landings/barrancas/benefits/valor/acompanamiento-premium.webp",
+      imageSrc: "/media/landings/barrancas/benefits/cards/chepe.avif",
       href: "#second-form",
     },
     {
       id: "chihuahua",
       title: "Chihuahua",
-      imageSrc: "/media/landings/barrancas/benefits/valor/respaldo-24-7.webp",
+      imageSrc: "/media/landings/barrancas/benefits/cards/chihuahua.avif",
       href: "#second-form",
     },
     {
       id: "creel-divisadero",
-      title: "Creel y Divisadero",
-      imageSrc: "/media/landings/barrancas/benefits/valor/estancias-a-la-altura.webp",
+      title: "Creel",
+      imageSrc: "/media/landings/barrancas/benefits/cards/creel.avif",
       href: "#second-form",
     },
     {
       id: "miradores",
-      title: "Miradores",
-      imageSrc: "/media/landings/barrancas/benefits/valor/expertos-que-hablan.webp",
+      title: "Divisadero",
+      imageSrc: "/media/landings/barrancas/benefits/cards/divisadero.avif",
       href: "#second-form",
     },
     {
       id: "sierra-tarahumara",
-      title: "Sierra Tarahumara",
-      imageSrc: "/media/landings/barrancas/benefits/valor/tranquilidad-de-inicio-a-fin.webp",
+      title: "El Fuerte",
+      imageSrc: "/media/landings/barrancas/benefits/cards/fuerte.avif",
       href: "#second-form",
     },
   ],

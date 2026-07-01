@@ -17,6 +17,10 @@
   height: 100%;
 }
 
+.cardSlot {
+  display: contents;
+}
+
 .card {
   position: absolute;
   inset: 0;
@@ -221,6 +225,48 @@
   position: relative;
   inset: auto;
   min-height: min(100dvh, 56rem);
+}
+
+.containerMobileSticky {
+  height: auto;
+  min-height: auto;
+  overflow: visible;
+}
+
+.containerMobileSticky .stack {
+  position: relative;
+  display: block;
+  height: auto;
+  isolation: isolate;
+}
+
+.containerMobileSticky .cardSlot {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: var(--card-index, 1);
+}
+
+.containerMobileSticky .card {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: var(--app-vh, 100dvh);
+  min-height: var(--app-vh, 100dvh);
+  overflow: hidden;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.containerMobileSticky .previousCardDim {
+  opacity: 0 !important;
+}
+
+.containerMobileSticky .sideCharacterLeft,
+.containerMobileSticky .sideCharacterRight {
+  transform: none !important;
 }
 
 @media (max-width: 1024px) {

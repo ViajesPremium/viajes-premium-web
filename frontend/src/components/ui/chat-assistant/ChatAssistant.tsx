@@ -152,6 +152,46 @@ function buildErrorMessage(): ChatMessage {
   };
 }
 
+function useMobilePageScrollLock(isLocked: boolean) {
+  useEffect(() => {
+    if (!isLocked || typeof window === "undefined") return;
+
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+    let unlockScroll: (() => void) | null = null;
+
+    const lockScroll = () => {
+      unlockScroll?.();
+      unlockScroll = null;
+
+      if (!mobileQuery.matches) return;
+
+      const { documentElement } = document;
+      const lenis = window.__lenis;
+      const wasLenisStopped = lenis?.isStopped === true;
+      const previousHtmlOverflow = documentElement.style.overflow;
+
+      lenis?.stop();
+      documentElement.style.overflow = "hidden";
+
+      unlockScroll = () => {
+        documentElement.style.overflow = previousHtmlOverflow;
+
+        if (lenis && !wasLenisStopped) {
+          lenis.start();
+        }
+      };
+    };
+
+    lockScroll();
+    mobileQuery.addEventListener("change", lockScroll);
+
+    return () => {
+      mobileQuery.removeEventListener("change", lockScroll);
+      unlockScroll?.();
+    };
+  }, [isLocked]);
+}
+
 export default function ChatAssistantDock({
   enabled,
   botSlug,
@@ -190,6 +230,20 @@ export default function ChatAssistantDock({
   const [score, setScore] = useState(0);
   const [handoffReason, setHandoffReason] = useState("");
   const [responseSource, setResponseSource] = useState("rules");
+
+  useMobilePageScrollLock(enabled && isOpen);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    window.__chatAssistantOpen = enabled && isOpen;
+
+    return () => {
+      if (window.__chatAssistantOpen === enabled && isOpen) {
+        window.__chatAssistantOpen = false;
+      }
+    };
+  }, [enabled, isOpen]);
 
   const fallbackInitials = useMemo(() => getInitials(brandLabel), [brandLabel]);
   const panelVariants = useMemo(
@@ -296,6 +350,8 @@ export default function ChatAssistantDock({
 
   useEffect(() => {
     if (isOpen && !isSending) {
+      if (window.matchMedia("(max-width: 768px)").matches) return;
+
       inputRef.current?.focus({ preventScroll: true });
     }
   }, [isOpen, isSending]);

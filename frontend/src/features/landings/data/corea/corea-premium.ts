@@ -16,7 +16,11 @@ const KOREA_MENU_ITEMS = [
   { label: "Nosotros", ariaLabel: "Ir a nosotros", link: "#nosotros" },
   { label: "Itinerarios", ariaLabel: "Ir a itinerarios", link: "#itinerarios" },
   { label: "Qué Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
-  { label: "Testimonios", ariaLabel: "Ir a testimonios", link: "#testimonials" },
+  {
+    label: "Testimonios",
+    ariaLabel: "Ir a testimonios",
+    link: "#testimonials",
+  },
   { label: "Sobre Corea", ariaLabel: "Ir a sobre Corea", link: "#faqs" },
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
@@ -45,7 +49,7 @@ export const coreaPremium: LandingTheme = {
     complementary: "#DFDFDF",
   },
   navbar: {
-    logoUrl: "/media/shared/logos/corea/logo-corea.svg",
+    logoUrl: "/media/shared/logos/corea/corea-premium-blanco.svg",
     menuItems: [...KOREA_MENU_ITEMS],
     colors: ["#1D624E", "#482D55"],
     accentColor: "#1D624E",

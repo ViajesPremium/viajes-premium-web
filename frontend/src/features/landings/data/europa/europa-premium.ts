@@ -46,7 +46,7 @@ export const europaPremium: LandingTheme = {
     complementary: "#2A1A6E",
   },
   navbar: {
-    logoUrl: "/media/shared/logos/europa/logo-europa.svg",
+    logoUrl: "/media/shared/logos/europa/europa-premium-blanco.svg",
     menuItems: [...EUROPE_MENU_ITEMS],
     colors: ["#511E62", "#882BAC"],
     accentColor: "#511E62",

@@ -16,8 +16,16 @@ const BARRANCAS_MENU_ITEMS = [
   { label: "Nosotros", ariaLabel: "Ir a nosotros", link: "#nosotros" },
   { label: "Itinerarios", ariaLabel: "Ir a itinerarios", link: "#itinerarios" },
   { label: "Qué Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
-  { label: "Testimonios", ariaLabel: "Ir a testimonios", link: "#testimonials" },
-  { label: "Sobre Barrancas", ariaLabel: "Ir a sobre Barrancas", link: "#faqs" },
+  {
+    label: "Testimonios",
+    ariaLabel: "Ir a testimonios",
+    link: "#testimonials",
+  },
+  {
+    label: "Sobre Barrancas",
+    ariaLabel: "Ir a sobre Barrancas",
+    link: "#faqs",
+  },
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
@@ -46,7 +54,7 @@ export const barrancasPremium: LandingTheme = {
     complementary: "#45736B",
   },
   navbar: {
-    logoUrl: "/media/shared/logos/barrancas/logo-barrancas.svg",
+    logoUrl: "/media/shared/logos/barrancas/barrancas-premium-blanco.svg",
     menuItems: [...BARRANCAS_MENU_ITEMS],
     colors: ["#963825", "#D55C26"],
     accentColor: "#45736B",

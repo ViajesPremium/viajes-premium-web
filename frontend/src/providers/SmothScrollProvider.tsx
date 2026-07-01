@@ -38,11 +38,10 @@ const restoreNativeScroll = () => {
   body.style.removeProperty("scroll-behavior");
 };
 
-// Lenis solo se usa en escritorio. En móvil el scroll suave por código
-// (incluso sin syncTouch) seguía provocando saltos de viewport por el
-// repliegue/expansión de la barra de direcciones, así que ahí dejamos el
-// scroll nativo del navegador. ScrollTrigger no necesita a Lenis para
-// funcionar: por sí solo ya escucha el scroll nativo del documento.
+function shouldUseSyncTouch() {
+  return window.matchMedia("(hover: none), (pointer: coarse)").matches;
+}
+
 export default function SmothScrollProvider({
   children,
 }: SmothScrollProviderProps) {
@@ -101,13 +100,16 @@ export default function SmothScrollProvider({
     const setupLenis = () => {
       if (lenis) return;
 
+      const syncTouch = shouldUseSyncTouch();
+
       lenis = new Lenis({
         duration: 1.35,
         easing: easeOutQuart,
         smoothWheel: true,
         wheelMultiplier: 0.82,
         touchMultiplier: 1.25,
-        syncTouch: false,
+        syncTouch,
+        syncTouchLerp: syncTouch ? 0.09 : undefined,
         autoRaf: false,
       });
 
@@ -151,19 +153,14 @@ export default function SmothScrollProvider({
       }
     };
 
-    // En el montaje inicial NO refrescamos ScrollTrigger de inmediato: el
-    // layout (imágenes, fuentes) puede no estar listo todavía y un refresh
-    // prematuro calcula mal el alto de las secciones con pin, dejando la
-    // página sin poder hacer scroll. El primer refresh real llega más abajo,
-    // tras el doble `requestAnimationFrame`.
     gsap.ticker.lagSmoothing(0);
     applyForViewport();
 
-    const handleViewportChange = () => {
+    const handleAnimationBudgetChange = () => {
       applyForViewport();
       refreshScrollSystems();
     };
-    window.addEventListener(ANIMATION_BUDGET_EVENT, handleViewportChange);
+    window.addEventListener(ANIMATION_BUDGET_EVENT, handleAnimationBudgetChange);
 
     const refreshFrame = window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
@@ -180,7 +177,10 @@ export default function SmothScrollProvider({
     return () => {
       window.cancelAnimationFrame(refreshFrame);
       window.removeEventListener("resize", refreshScrollSystems);
-      window.removeEventListener(ANIMATION_BUDGET_EVENT, handleViewportChange);
+      window.removeEventListener(
+        ANIMATION_BUDGET_EVENT,
+        handleAnimationBudgetChange,
+      );
       teardownLenis?.();
     };
   }, []);

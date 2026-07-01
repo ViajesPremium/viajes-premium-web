@@ -6,10 +6,10 @@ export const ANIMATION_BUDGET_EVENT = "vp:animation-budget-change";
 
 const MOBILE_QUERY = "(hover: none), (pointer: coarse), (max-width: 1024px)";
 const PERFORMANCE_SAMPLE_MS = 1400;
-const PERFORMANCE_CACHE_KEY = "vp:mobile-performance-budget:v2";
-const LOW_FPS_THRESHOLD = 34;
+const PERFORMANCE_CACHE_KEY = "vp:mobile-performance-budget:v3";
+const LOW_FPS_THRESHOLD = 45;
 const LONG_FRAME_MS = 42;
-const LONG_FRAME_RATIO_THRESHOLD = 0.38;
+const LONG_FRAME_RATIO_THRESHOLD = 0.28;
 
 type NavigatorWithHints = Navigator & {
   deviceMemory?: number;
@@ -48,13 +48,13 @@ function getNavigatorHints() {
   };
 }
 
-function hasStrongDeviceHints() {
+function hasLowEndDeviceHints() {
   const { deviceMemory, hardwareConcurrency } = getNavigatorHints();
 
-  return (
-    (typeof deviceMemory === "number" && deviceMemory >= 6) ||
-    (typeof hardwareConcurrency === "number" && hardwareConcurrency >= 6)
-  );
+  if (typeof deviceMemory === "number") return deviceMemory <= 4;
+  if (typeof hardwareConcurrency === "number") return hardwareConcurrency <= 4;
+
+  return false;
 }
 
 export function isTouchLikeDevice() {
@@ -126,6 +126,10 @@ export function areAnimationsEnabledForDevice(): boolean {
 
   if (typeof window.__animationsEnabled === "boolean") {
     return window.__animationsEnabled;
+  }
+
+  if (isTouchLikeDevice() && hasLowEndDeviceHints()) {
+    return false;
   }
 
   return true;
@@ -237,24 +241,34 @@ export function startMobilePerformanceEvaluation() {
     return false;
   };
 
+  const applyDeviceHintDecision = () => {
+    const { saveData } = getNavigatorHints();
+    const lowEndMobile = saveData || hasLowEndDeviceHints();
+
+    if (!lowEndMobile) return false;
+
+    writeCachedPerformanceBudget({
+      lowEndMobile: true,
+      fps: 0,
+      longFrameRatio: 1,
+    });
+    setAnimationBudgetState(false, true, "performance", {
+      fps: 0,
+      longFrameRatio: 1,
+    });
+
+    return true;
+  };
+
   const measure = () => {
     if (cancelled || applyStaticDecision()) return;
+    if (applyDeviceHintDecision()) return;
 
     const cached = readCachedPerformanceBudget();
     if (cached) {
       setAnimationBudgetState(!cached.lowEndMobile, cached.lowEndMobile, "cached", {
         fps: cached.fps,
         longFrameRatio: cached.longFrameRatio,
-      });
-      return;
-    }
-
-    if (hasStrongDeviceHints()) {
-      setAnimationBudgetState(true, false, "performance");
-      writeCachedPerformanceBudget({
-        lowEndMobile: false,
-        fps: 60,
-        longFrameRatio: 0,
       });
       return;
     }
@@ -292,8 +306,8 @@ export function startMobilePerformanceEvaluation() {
       const { saveData } = getNavigatorHints();
       const lowEndMobile =
         saveData ||
-        (fps < LOW_FPS_THRESHOLD &&
-          longFrameRatio > LONG_FRAME_RATIO_THRESHOLD);
+        fps < LOW_FPS_THRESHOLD ||
+        longFrameRatio > LONG_FRAME_RATIO_THRESHOLD;
 
       writeCachedPerformanceBudget({ lowEndMobile, fps, longFrameRatio });
       setAnimationBudgetState(!lowEndMobile, lowEndMobile, "performance", {
@@ -307,6 +321,7 @@ export function startMobilePerformanceEvaluation() {
 
   const scheduleMeasure = () => {
     if (applyStaticDecision()) return;
+    if (applyDeviceHintDecision()) return;
     stopIdleWait = waitForIdleStart(measure);
   };
 

@@ -24,6 +24,7 @@ declare global {
 
   interface Window {
     __lenis?: LenisLike;
+    __chatAssistantOpen?: boolean;
     __animationsEnabled?: boolean;
     __lowEndMobile?: boolean;
     __forceMountPremiumSections?: () => void;

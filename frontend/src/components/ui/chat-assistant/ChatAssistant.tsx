@@ -165,44 +165,19 @@ function useMobilePageScrollLock(isLocked: boolean) {
 
       if (!mobileQuery.matches) return;
 
-      const scrollY = window.scrollY;
-      const { body, documentElement } = document;
+      const { documentElement } = document;
       const lenis = window.__lenis;
       const wasLenisStopped = lenis?.isStopped === true;
-      const previousBodyStyles = {
-        position: body.style.position,
-        top: body.style.top,
-        left: body.style.left,
-        right: body.style.right,
-        width: body.style.width,
-        overflow: body.style.overflow,
-      };
       const previousHtmlOverflow = documentElement.style.overflow;
 
       lenis?.stop();
-
       documentElement.style.overflow = "hidden";
-      body.style.position = "fixed";
-      body.style.top = `-${scrollY}px`;
-      body.style.left = "0";
-      body.style.right = "0";
-      body.style.width = "100%";
-      body.style.overflow = "hidden";
 
       unlockScroll = () => {
-        body.style.position = previousBodyStyles.position;
-        body.style.top = previousBodyStyles.top;
-        body.style.left = previousBodyStyles.left;
-        body.style.right = previousBodyStyles.right;
-        body.style.width = previousBodyStyles.width;
-        body.style.overflow = previousBodyStyles.overflow;
         documentElement.style.overflow = previousHtmlOverflow;
-
-        window.scrollTo(0, scrollY);
 
         if (lenis && !wasLenisStopped) {
           lenis.start();
-          lenis.resize();
         }
       };
     };
@@ -257,6 +232,18 @@ export default function ChatAssistantDock({
   const [responseSource, setResponseSource] = useState("rules");
 
   useMobilePageScrollLock(enabled && isOpen);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    window.__chatAssistantOpen = enabled && isOpen;
+
+    return () => {
+      if (window.__chatAssistantOpen === enabled && isOpen) {
+        window.__chatAssistantOpen = false;
+      }
+    };
+  }, [enabled, isOpen]);
 
   const fallbackInitials = useMemo(() => getInitials(brandLabel), [brandLabel]);
   const panelVariants = useMemo(
@@ -360,6 +347,8 @@ export default function ChatAssistantDock({
 
   useEffect(() => {
     if (isOpen && !isSending) {
+      if (window.matchMedia("(max-width: 768px)").matches) return;
+
       inputRef.current?.focus();
     }
   }, [isOpen, isSending]);

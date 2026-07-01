@@ -17,6 +17,7 @@ export default function SmothScrollProvider({
 }: SmothScrollProviderProps) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     // ── Truco anti-colapso de la barra del navegador en móvil ──────────────────
     // Con `syncTouch`, Lenis cancela el gesto táctil nativo (preventDefault) y
@@ -56,7 +57,39 @@ export default function SmothScrollProvider({
       lenis.raf(time * 1000);
     };
 
+    let lastLayoutWidth = window.innerWidth;
+    let lastLayoutHeight = window.innerHeight;
+
+    const isEditableElementFocused = () => {
+      const activeElement = document.activeElement;
+
+      if (!(activeElement instanceof HTMLElement)) return false;
+
+      const tagName = activeElement.tagName.toLowerCase();
+      return (
+        tagName === "input" ||
+        tagName === "textarea" ||
+        activeElement.isContentEditable
+      );
+    };
+
+    const isKeyboardResize = () => {
+      if (!window.__chatAssistantOpen || !isEditableElementFocused()) {
+        return false;
+      }
+
+      const widthDelta = Math.abs(window.innerWidth - lastLayoutWidth);
+      const heightDelta = Math.abs(window.innerHeight - lastLayoutHeight);
+
+      return widthDelta < 8 && heightDelta > 80;
+    };
+
     const refreshScrollSystems = () => {
+      if (isKeyboardResize()) return;
+
+      lastLayoutWidth = window.innerWidth;
+      lastLayoutHeight = window.innerHeight;
+
       lenis.resize();
       ScrollTrigger.refresh();
     };

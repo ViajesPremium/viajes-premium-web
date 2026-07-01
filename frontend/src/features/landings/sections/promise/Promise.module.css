@@ -143,6 +143,37 @@
   object-fit: cover;
 }
 
+.staticLayout .container {
+  height: auto;
+  min-height: auto;
+  overflow: visible;
+  contain: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 1rem 4rem;
+}
+
+.staticLayout .circle {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  aspect-ratio: auto;
+  opacity: 1;
+  visibility: visible;
+  transform: none !important;
+}
+
+.staticLayout .cardWrapper {
+  position: relative;
+  inset: auto;
+  transform: none;
+  width: min(28rem, 100%);
+  height: auto;
+  min-height: 24rem;
+  margin-inline: auto;
+}
+
 @media (max-width: 1024px) {
   .cardWrapper {
     width: 34vw;
@@ -256,5 +287,36 @@
   .cardWrapper {
     width: min(68vw, 250px);
     height: clamp(235px, 49dvh, 350px);
+  }
+}
+
+@media (max-width: 768px) {
+  .staticLayout.mwg_effect007 {
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    display: block;
+  }
+
+  .staticLayout .titleBlock {
+    pointer-events: auto;
+  }
+
+  .staticLayout .container {
+    display: flex;
+    height: auto;
+    overflow: visible;
+    contain: none;
+  }
+
+  .staticLayout .circle {
+    top: auto;
+    left: auto;
+  }
+
+  .staticLayout .cardWrapper {
+    width: min(28rem, 100%);
+    height: auto;
+    min-height: 24rem;
   }
 }

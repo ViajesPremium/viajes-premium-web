@@ -153,6 +153,43 @@
   transform: translate(0%, 0%) rotate(0.001deg);
 }
 
+.groupStatic .relativeObject {
+  display: none;
+}
+
+.groupStatic .collection {
+  position: static;
+  height: auto;
+}
+
+.groupStatic .list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: auto;
+  align-items: stretch;
+}
+
+.groupStatic .item {
+  position: relative;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.groupStatic .card {
+  width: min(28rem, 100%);
+  margin-inline: auto;
+}
+
+.groupStatic .cardMedia {
+  opacity: 1;
+}
+
+.groupStatic .cardBtnWrap {
+  opacity: 1;
+  transform: none;
+}
+
 @media (max-width: 991px) {
   .relativeObject {
     width: min(38em, 100%);

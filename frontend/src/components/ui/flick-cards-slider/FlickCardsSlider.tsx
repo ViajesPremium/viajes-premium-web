@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button/Button";
 import type { FocusRailItem } from "@/components/ui/focus-rail/FocusRail";
 import { usePageTransition } from "@/components/providers/page-transition/TransitionProvider";
 import { scrollToSection } from "@/lib/scroll-to-section";
+import { useAnimationsEnabled } from "@/lib/animation-budget";
 import styles from "./FlickCardsSlider.module.css";
 
 gsap.registerPlugin(Draggable);
@@ -21,6 +22,7 @@ export default function FlickCardsSlider({
   ctaLabel,
 }: FlickCardsSliderProps) {
   const { triggerTransition } = usePageTransition();
+  const animationsEnabled = useAnimationsEnabled();
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   const handleCtaClick = (href: string) => {
@@ -44,6 +46,14 @@ export default function FlickCardsSlider({
     const cards = Array.from(
       list.querySelectorAll<HTMLElement>("[data-flick-cards-item]"),
     );
+    if (!animationsEnabled) {
+      cards.forEach((card) => {
+        card.setAttribute("data-flick-cards-item-status", "active");
+        gsap.set(card, { clearProps: "all" });
+      });
+      return;
+    }
+
     const total = cards.length;
     let activeIndex = 0;
 
@@ -267,12 +277,21 @@ export default function FlickCardsSlider({
     return () => {
       window.removeEventListener("resize", onResize);
       instances.forEach((instance) => instance.kill());
+      draggers.forEach((dragger) => dragger.remove());
+      gsap.set(cards, { clearProps: "all" });
     };
-  }, [items]);
+  }, [animationsEnabled, items]);
 
   return (
     <div ref={rootRef}>
-      <div data-flick-cards-init="" className={styles.group}>
+      <div
+        data-flick-cards-init=""
+        className={
+          animationsEnabled
+            ? styles.group
+            : `${styles.group} ${styles.groupStatic}`
+        }
+      >
         <div className={styles.relativeObject}>
           <div className={styles.relativeObjectBefore} />
         </div>

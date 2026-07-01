@@ -12,7 +12,10 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 import { landingList } from "@/features/landings/data";
-import { areAnimationsEnabledForDevice } from "@/lib/animation-budget";
+import {
+  ANIMATION_BUDGET_EVENT,
+  areAnimationsEnabledForDevice,
+} from "@/lib/animation-budget";
 import styles from "./transition-provider.module.css";
 
 const PRINCIPAL_LOGO = "/media/shared/logos/principal-logo.svg";
@@ -179,6 +182,18 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
     if (logoImageRef.current) {
       gsap.set(logoImageRef.current, { opacity: 0, scale: 0.96 });
     }
+  }, []);
+
+  useEffect(() => {
+    const syncAnimationBudget = () => {
+      animationsEnabledRef.current = areAnimationsEnabledForDevice();
+    };
+
+    window.addEventListener(ANIMATION_BUDGET_EVENT, syncAnimationBudget);
+
+    return () => {
+      window.removeEventListener(ANIMATION_BUDGET_EVENT, syncAnimationBudget);
+    };
   }, []);
 
   useLayoutEffect(() => {

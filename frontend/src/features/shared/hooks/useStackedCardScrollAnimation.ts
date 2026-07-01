@@ -49,10 +49,6 @@ export function useStackedCardScrollAnimation({
 }: UseStackedCardScrollAnimationOptions) {
   useGSAP(
     () => {
-      if (!enabled) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-
       const scope = scopeRef.current;
       if (!scope) return;
       const triggerElement = triggerRef?.current ?? scope;
@@ -73,6 +69,19 @@ export function useStackedCardScrollAnimation({
             card.querySelector<HTMLElement>(rightCharacterSelector),
           )
         : [];
+
+      if (!enabled) {
+        gsap.set(cards, {
+          clearProps: "transform,opacity,visibility,pointerEvents,zIndex",
+        });
+        gsap.set(dimLayers, { clearProps: "opacity" });
+        gsap.set([...leftCharacters, ...rightCharacters].filter(Boolean), {
+          clearProps: "transform",
+        });
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
 
       if (cards.length < 2) return;
 
@@ -314,6 +323,13 @@ export function useStackedCardScrollAnimation({
         }
         trigger.kill();
         timeline.kill();
+        gsap.set(cards, {
+          clearProps: "transform,opacity,visibility,pointerEvents,zIndex",
+        });
+        gsap.set(dimLayers, { clearProps: "opacity" });
+        gsap.set([...leftCharacters, ...rightCharacters].filter(Boolean), {
+          clearProps: "transform",
+        });
       };
     },
     {

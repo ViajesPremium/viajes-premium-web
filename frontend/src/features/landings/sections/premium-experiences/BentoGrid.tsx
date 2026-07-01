@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button/Button";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { usePageTransition } from "@/components/providers/page-transition/TransitionProvider";
+import { useAnimationsEnabled } from "@/lib/animation-budget";
 import styles from "./PremiumExperiences.module.css";
 import type { LandingPremiumExperiencesCard } from "@/features/landings/data/types";
 
@@ -24,6 +25,7 @@ export default function BentoGrid({
   buttonTarget,
 }: BentoGridProps) {
   const { triggerTransition } = usePageTransition();
+  const animationsEnabled = useAnimationsEnabled();
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const handleGoToTarget = useCallback(
@@ -41,6 +43,10 @@ export default function BentoGrid({
   useEffect(() => {
     const cardElements = cardRefs.current.filter(Boolean) as HTMLElement[];
     if (!cardElements.length) return;
+    if (!animationsEnabled) {
+      gsap.set(cardElements, { clearProps: "all" });
+      return;
+    }
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -62,7 +68,7 @@ export default function BentoGrid({
       );
     });
     return () => ctx.revert();
-  }, []);
+  }, [animationsEnabled]);
 
   return (
     <div className={styles.bentoGrid}>

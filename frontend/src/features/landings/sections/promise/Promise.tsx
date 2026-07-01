@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { BlurredStagger } from "@/components/ui/blurred-stagger-text/BlurredStaggerText";
+import { useAnimationsEnabled } from "@/lib/animation-budget";
 import type { LandingTheme } from "@/features/landings/data/types";
 import styles from "./Promise.module.css";
 
@@ -17,6 +18,7 @@ type PromiseProps = {
 
 export default function Includes({ landing }: PromiseProps) {
   const { promise: includes } = landing;
+  const animationsEnabled = useAnimationsEnabled();
 
   const rootRef = useRef<HTMLElement>(null);
 
@@ -32,6 +34,11 @@ export default function Includes({ landing }: PromiseProps) {
       const scrollLabel = root.querySelector<HTMLElement>(`.${styles.scroll}`);
 
       if (!container || circles.length === 0) return;
+      if (!animationsEnabled) {
+        gsap.set(circles, { clearProps: "all" });
+        if (scrollLabel) gsap.set(scrollLabel, { clearProps: "all" });
+        return;
+      }
 
       // Cuántas "pantallas" de scroll dura el pin (1 de entrada + 1 por tarjeta).
       const panels = Math.max(circles.length + 1, 3);
@@ -198,11 +205,18 @@ export default function Includes({ landing }: PromiseProps) {
         mm.revert();
       };
     },
-    { scope: rootRef, dependencies: [includes.items.length] },
+    { scope: rootRef, dependencies: [animationsEnabled, includes.items.length] },
   );
 
   return (
-    <section ref={rootRef} className={styles.mwg_effect007}>
+    <section
+      ref={rootRef}
+      className={
+        animationsEnabled
+          ? styles.mwg_effect007
+          : `${styles.mwg_effect007} ${styles.staticLayout}`
+      }
+    >
       <h2 className="srOnly">{includes.srHeading}</h2>
 
       <div className={styles.titleBlock}>

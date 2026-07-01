@@ -107,7 +107,8 @@ export default function Destinations({
   }, []);
 
   const disableAnimationsForDevice = !viewportReady || !animationsEnabled;
-  const useCssStickyPins = viewportReady && isMobile;
+  const useCssStickyPins =
+    viewportReady && isMobile && animationsEnabled;
   const useGsapPins = !disableAnimationsForDevice && !useCssStickyPins;
 
   useStackedCardScrollAnimation({

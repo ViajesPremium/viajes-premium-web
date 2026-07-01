@@ -4,6 +4,10 @@ import { useEffect, type ReactNode } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  ANIMATION_BUDGET_EVENT,
+  areAnimationsEnabledForDevice,
+} from "@/lib/animation-budget";
 
 type SmothScrollProviderProps = {
   children: ReactNode;
@@ -53,6 +57,7 @@ export default function SmothScrollProvider({
     let tickLenis: ((time: number) => void) | null = null;
     let updateScrollTrigger: (() => void) | null = null;
     let teardownLenis: (() => void) | null = null;
+    let animationsEnabled = areAnimationsEnabledForDevice();
 
     let lastLayoutWidth = window.innerWidth;
     let lastLayoutHeight = window.innerHeight;
@@ -87,7 +92,7 @@ export default function SmothScrollProvider({
       lastLayoutWidth = window.innerWidth;
       lastLayoutHeight = window.innerHeight;
 
-      if (!desktopQuery.matches) {
+      if (!desktopQuery.matches || !animationsEnabled) {
         restoreNativeScroll();
         return;
       }
@@ -138,7 +143,9 @@ export default function SmothScrollProvider({
       teardownLenis?.();
       teardownLenis = null;
 
-      if (desktopQuery.matches) {
+      animationsEnabled = areAnimationsEnabledForDevice();
+
+      if (desktopQuery.matches && animationsEnabled) {
         setupLenis();
       } else {
         restoreNativeScroll();
@@ -158,10 +165,11 @@ export default function SmothScrollProvider({
       refreshScrollSystems();
     };
     desktopQuery.addEventListener("change", handleViewportChange);
+    window.addEventListener(ANIMATION_BUDGET_EVENT, handleViewportChange);
 
     const refreshFrame = window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        if (desktopQuery.matches) {
+        if (desktopQuery.matches && animationsEnabled) {
           refreshScrollSystems();
         } else {
           restoreNativeScroll();
@@ -175,6 +183,7 @@ export default function SmothScrollProvider({
       window.cancelAnimationFrame(refreshFrame);
       window.removeEventListener("resize", refreshScrollSystems);
       desktopQuery.removeEventListener("change", handleViewportChange);
+      window.removeEventListener(ANIMATION_BUDGET_EVENT, handleViewportChange);
       teardownLenis?.();
     };
   }, []);

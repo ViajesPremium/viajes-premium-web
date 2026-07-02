@@ -46,10 +46,10 @@ const formSection = ({
 export const CANADA_FIRST_FORM = formSection({
   srHeading: "Cuéntanos cómo imaginas tu viaje a Canad?",
   title: "Canad?, planeada con claridad desde el primer contacto.",
-  backgroundImage: "/media/landings/canada/forms/canada-premium-3.webp",
+  backgroundImage: "/media/landings/canada/forms/first-form/mujer.avif",
   mobileImage: {
-    src: "/media/landings/canada/forms/canada-premium-4.webp",
-    alt: "Canad? Premium",
+    src: "/media/landings/canada/forms/first-form/mujer-mobile.avif",
+    alt: "Canadá Premium",
   },
   contactPhoneDisplay: "+52 55 4161 9427",
   contactPhoneLink: "+525541619427",
@@ -59,9 +59,9 @@ export const CANADA_SECOND_FORM = {
   ...CANADA_FIRST_FORM,
   srHeading: "Formulario de contacto Canad? Premium",
   title: "Hablemos de la Canad? que quieres vivir.",
-  backgroundImage: "/media/landings/canada/forms/canada-premium-1.webp",
+  backgroundImage: "/media/landings/canada/forms/second-form/mujer.avif",
   mobileImage: {
-    src: "/media/landings/canada/forms/canada-premium-2.webp",
-    alt: "Canad? Premium",
+    src: "/media/landings/canada/forms/second-form/mujer-mobile.avif",
+    alt: "Canadá Premium",
   },
 };

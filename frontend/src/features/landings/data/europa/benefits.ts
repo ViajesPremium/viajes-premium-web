@@ -44,40 +44,37 @@ export const EUROPE_BENEFITS: LandingBenefits = {
     {
       id: "kyoto-privado",
       title: "Londres",
-      imageSrc:
-        "/media/landings/europa/benefits/valor/carrusel-recorridos.webp",
+      imageSrc: "/media/landings/europa/benefits/cards/londres.avif",
       href: "#second-form",
     },
     {
       id: "tokyo-nocturno",
       title: "París",
-      imageSrc:
-        "/media/landings/europa/benefits/valor/carrusel-acompanamiento.webp",
+      imageSrc: "/media/landings/europa/benefits/cards/paris.avif",
       href: "#second-form",
     },
     {
       id: "sabores-omakase",
       title: "Roma",
-      imageSrc: "/media/landings/europa/benefits/valor/carrusel-respaldo.webp",
+      imageSrc: "/media/landings/europa/benefits/cards/roma.avif",
       href: "#second-form",
     },
     {
       id: "onsen-premium",
       title: "Venecia",
-      imageSrc: "/media/landings/europa/benefits/valor/carrusel-estancias.webp",
+      imageSrc: "/media/landings/europa/benefits/cards/venecia.avif",
       href: "#second-form",
     },
     {
       id: "paisajes-iconicos",
       title: "Barcelona",
-      imageSrc: "/media/landings/europa/benefits/valor/carrusel-expertos.webp",
+      imageSrc: "/media/landings/europa/benefits/cards/barcelona.avif",
       href: "#second-form",
     },
     {
       id: "experiencia-ryokan",
       title: "Ámsterdam",
-      imageSrc:
-        "/media/landings/europa/benefits/valor/carrusel-tranquilidad.webp",
+      imageSrc: "/media/landings/europa/benefits/cards/amsterdam.avif",
       href: "#second-form",
     },
   ],

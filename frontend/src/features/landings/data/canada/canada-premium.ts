@@ -16,7 +16,11 @@ const CANADA_MENU_ITEMS = [
   { label: "Nosotros", ariaLabel: "Ir a nosotros", link: "#nosotros" },
   { label: "Itinerarios", ariaLabel: "Ir a itinerarios", link: "#itinerarios" },
   { label: "Qu? Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
-  { label: "Testimonios", ariaLabel: "Ir a testimonios", link: "#testimonials" },
+  {
+    label: "Testimonios",
+    ariaLabel: "Ir a testimonios",
+    link: "#testimonials",
+  },
   { label: "Sobre Canad?", ariaLabel: "Ir a sobre Canad?", link: "#faqs" },
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
@@ -65,7 +69,7 @@ export const canadaPremium: LandingTheme = {
   video: {
     srHeading: "Video Canadá Premium",
     desktop: {
-      webm: "/media/landings/canada/videos/canada-web-horizontal.webm",
+      webm: "/media/landings/canada/videos/canada-web-horizontal.mp4",
       mp4: "/media/landings/canada/videos/corea-web-horizontal.mp4",
     },
     mobile: {

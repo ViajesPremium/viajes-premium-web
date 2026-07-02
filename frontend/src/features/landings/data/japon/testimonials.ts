@@ -29,5 +29,21 @@ export const JAPAN_TESTIMONIALS: LandingTestimonials = {
       location: "Monterrey",
       avatar: "/media/landings/japon/testimonials/lilia-gordillo.avif",
     },
+    {
+      id: 4,
+      quote:
+        "Cada parte del proyecto tenía sentido, desde las ciudades hasta las experiencias que vivimos. Fue un viaje que realmente disfruté de principio a fin y que superó completamente mis expectativas.",
+      name: "Francesco A",
+      location: "Ciudad de México",
+      avatar: "/media/landings/japon/testimonials/francesco.avif",
+    },
+    {
+      id: 5,
+      quote:
+        "Revisaron cada detalle al organizar nuestro viaje a Japón, todo salió perfecto y lo disfrutamos mucho. De verdad muy agradecidos.",
+      name: "Familia Arámbulo",
+      location: "Lima, Perú",
+      avatar: "/media/landings/japon/testimonials/familia-arambulo.avif",
+    },
   ],
 };

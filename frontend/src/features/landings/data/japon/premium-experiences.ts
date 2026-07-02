@@ -9,8 +9,7 @@ export const JAPAN_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
     {
       image: "/media/landings/japon/premium-experiences/alma-de-japon.avif",
       text: "Alma de Japón",
-      experiences:
-        "14 Días · Espiritualidad · Tradición · Bienestar · Cultura",
+      experiences: "14 Días · Espiritualidad · Tradición · Bienestar · Cultura",
     },
     {
       image: "/media/landings/japon/premium-experiences/japon-pop.avif",
@@ -20,7 +19,7 @@ export const JAPAN_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
     },
     {
       image: "/media/landings/japon/premium-experiences/camino-del-shogun.avif",
-      text: "El Camino del Shogun",
+      text: "Ruta del Shogun",
       experiences: "15 Días · Samuráis · Geishas · Sumo · Alpes Japoneses",
     },
   ],

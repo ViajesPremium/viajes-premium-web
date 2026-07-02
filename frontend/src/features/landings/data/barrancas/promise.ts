@@ -1,7 +1,7 @@
 import type { LandingPromise } from "./../types";
 
 export const BARRANCAS_PROMISE: LandingPromise = {
-  badgeText: "Qu? incluye",
+  badgeText: "Qué incluye",
   title: "Todo lo importante, resuelto con criterio.",
   cta: { label: "Solicita tu cotización", target: "#second-form" },
   srHeading: "Lo esencial de Barrancas Premium",

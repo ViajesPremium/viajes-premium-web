@@ -4,12 +4,12 @@ import { LANDING_CONTACT } from "./../shared";
 const BARRANCAS_FORM_OPTIONS = [
   {
     label:
-      "El de Mayor Ranking ? Chepe Express, miradores y naturaleza | Desde _ MXN base doble",
+      "El de Mayor Ranking — Chepe Express, miradores y naturaleza | Desde _ MXN base doble",
     value: "mayor-ranking",
   },
   {
     label:
-      "Las Leyendas del Fuerte ? Historia, El Fuerte y Barrancas | Desde _ MXN base doble",
+      "Las Leyendas del Fuerte — Historia, El Fuerte y Barrancas | Desde _ MXN base doble",
     value: "leyendas-del-fuerte",
   },
   {
@@ -74,7 +74,7 @@ export const BARRANCAS_FIRST_FORM = formSection({
   contactPhoneLink: "+525541619427",
   crmTag: "#tags:Barrancas Premium",
   labels: {
-    travelWishes: "¿Qué te gustar?a vivir en Barrancas?",
+    travelWishes: "¿Qué te gustaría vivir en Barrancas?",
     experienceType: "¿Con qué tipo de experiencia conectas más? (opcional)",
   },
   placeholders: {

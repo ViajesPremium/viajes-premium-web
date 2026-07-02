@@ -36,7 +36,7 @@ export const BARRANCAS_ALIANCES = aliances(
   [
     {
       src: barrancasAllianceSrc("aeromexico-y-barrancas-premium.png"),
-      alt: "Aeromexico",
+      alt: "Aeroméxico",
       width: 446,
       height: 164,
     },
@@ -58,7 +58,7 @@ export const BARRANCAS_ALIANCES = aliances(
       width: 446,
       height: 164,
     },
-        {
+    {
       src: "/media/shared/aliances/profeco.avif",
       alt: "Profeco",
       width: 290,
@@ -66,13 +66,13 @@ export const BARRANCAS_ALIANCES = aliances(
     },
     {
       src: "/media/shared/aliances/secretaria-de-turismo.avif",
-      alt: "Secretaria de Turismo",
+      alt: "Secretaría de Turismo",
       width: 340,
       height: 140,
     },
     {
       src: barrancasAllianceSrc("farallon.png"),
-      alt: "Farallon",
+      alt: "Farallón",
       width: 446,
       height: 164,
     },
@@ -90,7 +90,7 @@ export const BARRANCAS_ALIANCES = aliances(
     },
     {
       src: barrancasAllianceSrc("jardin-botanico.png"),
-      alt: "Jardin Botanico",
+      alt: "Jardín Botánico",
       width: 446,
       height: 164,
     },
@@ -108,7 +108,7 @@ export const BARRANCAS_ALIANCES = aliances(
     },
     {
       src: barrancasAllianceSrc("mision.png"),
-      alt: "Mision",
+      alt: "Misión",
       width: 446,
       height: 164,
     },
@@ -126,7 +126,7 @@ export const BARRANCAS_ALIANCES = aliances(
     },
     {
       src: barrancasAllianceSrc("museo-revolucion.png"),
-      alt: "Museo Revolucion",
+      alt: "Museo Revolución",
       width: 446,
       height: 164,
     },
@@ -138,7 +138,7 @@ export const BARRANCAS_ALIANCES = aliances(
     },
     {
       src: barrancasAllianceSrc("posada-hodalgo.png"),
-      alt: "Posada Hodalgo",
+      alt: "Posada Hidalgo",
       width: 446,
       height: 164,
     },

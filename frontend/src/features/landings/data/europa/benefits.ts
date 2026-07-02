@@ -13,7 +13,7 @@ export const EUROPE_BENEFITS: LandingBenefits = {
       imageAlt: "Recorrido en Londres",
       textTone: "ot",
     },
-    tail: "con Calma",
+    tail: "con calma",
   },
   line2: {
     text: "Mientras",

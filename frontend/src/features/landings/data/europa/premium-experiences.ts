@@ -9,7 +9,7 @@ export const EUROPA_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
     {
       image: "/media/landings/europa/premium-experiences/itinerario-gala.avif",
       text: "De París a Roma",
-      experiences: "12 días · Paris · Venecia · Florencia · Roma",
+      experiences: "12 días · París · Venecia · Florencia · Roma",
     },
     {
       image: "/media/landings/europa/premium-experiences/itinerario-maravillas.avif",
@@ -19,7 +19,7 @@ export const EUROPA_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
     },
     {
       image: "/media/landings/europa/premium-experiences/itinerario-reserva.avif",
-      text: "Iconos de Europa",
+      text: "Íconos de Europa",
       experiences:
         "16 días · Francia · Inglaterra · Países Bajos · Italia",
     },

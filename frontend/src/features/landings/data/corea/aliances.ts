@@ -48,7 +48,7 @@ export const KOREA_ALIANCES = aliances(
     },
     {
       src: "/media/shared/aliances/secretaria-de-turismo.avif",
-      alt: "Secretaria de Turismo",
+      alt: "Secretaría de Turismo",
       width: 340,
       height: 140,
     },

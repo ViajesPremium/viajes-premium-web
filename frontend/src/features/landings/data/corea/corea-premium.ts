@@ -26,14 +26,15 @@ const KOREA_MENU_ITEMS = [
 ];
 
 export const KOREA_PREMIUM_METADATA: LandingMetadata = {
-  title: "Viajes a Corea del Sur | Clase PREMIUM ",
+  title: "Viajes a Corea del Sur | Clase PREMIUM",
   description:
     "Descubre Corea del Sur entre tradición, tecnología, gastronomía y experiencias diseñadas en Clase PREMIUM.",
   keywords: [
     "Viajes a Corea del Sur",
     "Tour por Corea",
     "Viaje a Corea desde México",
-    " Viajar a Corea del Sur, Corea Premium",
+    "Viajar a Corea del Sur",
+    "Corea Premium",
   ],
   canonicalPath: "/corea-premium",
   ogImagePath: "/media/landings/corea/hero/coreana.avif",

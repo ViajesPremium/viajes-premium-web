@@ -2,7 +2,7 @@ import type { LandingFounder } from "./../types";
 
 export const KOREA_FOUNDER: LandingFounder = {
   srHeading: "Mensaje del equipo Corea Premium",
-  rows: ["Corea Premium", "Momentos inolvidables", "Reales conexiones"],
+  rows: ["Corea Premium", "Momentos inolvidables", "Conexiones reales"],
   role: "Equipo Corea PREMIUM",
   name: "Asesoría especializada",
   quote:

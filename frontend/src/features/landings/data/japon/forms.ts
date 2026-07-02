@@ -51,7 +51,7 @@ export const JAPAN_FIRST_FORM = formSection({
     alt: "Geisha en Japón",
   },
   submitLabel: "Enviar ahora",
-  crmTag: "#tags:Japon Premium",
+  crmTag: "#tags:Japón Premium",
   labels: {
     travelWishes: "¿Qué te gustaría vivir en Japón?",
     experienceType: "¿Con qué tipo de experiencia conectas más? (opcional)",

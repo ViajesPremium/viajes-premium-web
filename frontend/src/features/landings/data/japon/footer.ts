@@ -35,6 +35,6 @@ export const JAPAN_FOOTER = footer(
         contactPhoneDisplay: "+52 55 4161 9428",
         contactPhoneLink: "+525541619428",
         copyrightText:
-            "Todas las marcas y servicios que se ofrecen son propiedad de Japón PREMIUM® Consulte Términos y Condiciones en el Contrato de Adhesión ante PROFECO con número 7735-2015 & 7180-2015",
+            "Todas las marcas y servicios que se ofrecen son propiedad de Japón PREMIUM®. Consulte Términos y Condiciones en el Contrato de Adhesión ante PROFECO con números 7735-2015 y 7180-2015.",
     },
 );

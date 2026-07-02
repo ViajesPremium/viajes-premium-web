@@ -28,7 +28,7 @@ export const EUROPE_PREMIUM_METADATA: LandingMetadata = {
   keywords: [
     "Viajes a Europa",
     "Tour por Europa",
-    "Viaja a Europa desde Mexico",
+    "Viaja a Europa desde México",
     "Viajar a Europa",
     "Europa Premium",
   ],

@@ -33,7 +33,7 @@ export const JAPAN_ALIANCES = aliances(
   [
     {
       src: "/media/landings/japon/aliances/aero-mexico.avif",
-      alt: "Aero México",
+      alt: "Aeroméxico",
       width: 420,
       height: 90,
     },
@@ -93,7 +93,7 @@ export const JAPAN_ALIANCES = aliances(
     },
     {
       src: "/media/landings/japon/aliances/miyajima-ferri.png",
-      alt: "Miyajima Ferri",
+      alt: "Miyajima Ferry",
       width: 320,
       height: 130,
     },
@@ -117,7 +117,7 @@ export const JAPAN_ALIANCES = aliances(
     },
     {
       src: "/media/shared/aliances/secretaria-de-turismo.avif",
-      alt: "Secretaria de Turismo",
+      alt: "Secretaría de Turismo",
       width: 340,
       height: 140,
     },
@@ -129,7 +129,7 @@ export const JAPAN_ALIANCES = aliances(
     },
     {
       src: "/media/landings/japon/aliances/tokio-disneyland.png",
-      alt: "Tokio DisneyLand",
+      alt: "Tokyo Disneyland",
       width: 280,
       height: 110,
     },

@@ -36,11 +36,11 @@ export const EUROPE_ALIANCES = aliances(
   [
     {
       src: europeAllianceSrc("aeromexico-y-europa-premium.png"),
-      alt: "Aeromexico y Europa Premium",
+      alt: "Aeroméxico y Europa Premium",
       width: 446,
       height: 164,
     },
-        {
+    {
       src: "/media/shared/aliances/profeco.avif",
       alt: "Profeco",
       width: 290,
@@ -48,7 +48,7 @@ export const EUROPE_ALIANCES = aliances(
     },
     {
       src: "/media/shared/aliances/secretaria-de-turismo.avif",
-      alt: "Secretaria de Turismo",
+      alt: "Secretaría de Turismo",
       width: 340,
       height: 140,
     },
@@ -72,7 +72,7 @@ export const EUROPE_ALIANCES = aliances(
     },
     {
       src: europeAllianceSrc("basilica-di-san-pietro.png"),
-      alt: "Basilica di San Pietro",
+      alt: "Basílica de San Pietro",
       width: 446,
       height: 164,
     },
@@ -96,7 +96,7 @@ export const EUROPE_ALIANCES = aliances(
     },
     {
       src: europeAllianceSrc("colosseo-rome.png"),
-      alt: "Colosseo Rome",
+      alt: "Coliseo de Roma",
       width: 446,
       height: 164,
     },
@@ -180,7 +180,7 @@ export const EUROPE_ALIANCES = aliances(
     },
     {
       src: europeAllianceSrc("turkish-airline.png"),
-      alt: "Turkish Airline",
+      alt: "Turkish Airlines",
       width: 446,
       height: 164,
     },

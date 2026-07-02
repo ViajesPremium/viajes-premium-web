@@ -2,7 +2,7 @@ import type { LandingFounder } from "./../types";
 
 export const BARRANCAS_FOUNDER: LandingFounder = {
   srHeading: "Mensaje del equipo Barrancas Premium",
-  rows: ["Barrancas Premium", "Momentos inolvidables", "Reales conexiones"],
+  rows: ["Barrancas Premium", "Momentos inolvidables", "Conexiones reales"],
   role: "Directora Comercial",
   name: "Karina Sánchez",
   quote:

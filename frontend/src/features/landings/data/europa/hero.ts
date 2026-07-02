@@ -9,7 +9,7 @@ export const EUROPA_PREMIUM_HERO: LandingHero = {
         wordFour: "México",
     },
     description:
-        "Eleva tu vida conociendo Europa con profundidad y acompañamiento desde el primer contacto hasta su regreso. Atención personalizada, planeación detallada y soporte de inicio a fin.",
+        "Eleva tu vida conociendo Europa con profundidad y acompañamiento desde el primer contacto hasta tu regreso. Atención personalizada, planeación detallada y soporte de inicio a fin.",
     ctaPrimary: {
         label: "Solicita tu cotización",
         target: "#second-form",

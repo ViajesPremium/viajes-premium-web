@@ -37,7 +37,7 @@ export const KOREA_ITINERARIES: LandingItineraries = {
     },
     {
       id: 3,
-      day: "12 DÍAS · COREA · JAPÓN · TRADICION · MODERNIDAD",
+      day: "12 DÍAS · COREA · JAPÓN · TRADICIÓN · MODERNIDAD",
       title: "Joyas de Asia",
       description:
         "Una experiencia que combina dos de los destinos más fascinantes de Asia entre cultura, innovación y paisajes inolvidables.",

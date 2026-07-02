@@ -37,7 +37,7 @@ func TestReinforceResponseContinuityAvoidsReaskingInterest(t *testing.T) {
 		Itineraries: []domain.Itinerary{
 			{Name: "Alma de Japon"},
 			{Name: "Japon Pop"},
-			{Name: "El Camino del Shogun"},
+			{Name: "Ruta del Shogun"},
 		},
 	}
 	lead := &domain.Lead{
@@ -46,7 +46,7 @@ func TestReinforceResponseContinuityAvoidsReaskingInterest(t *testing.T) {
 	}
 
 	reply := reinforceResponseContinuity(
-		"Cual de estas experiencias le atrae mas: Alma de Japon, Japon Pop o El Camino del Shogun?",
+		"Cual de estas experiencias le atrae mas: Alma de Japon, Japon Pop o Ruta del Shogun?",
 		lead,
 		bot,
 	)
@@ -186,7 +186,7 @@ func TestEnsureResponseAdvancesFlowAppendsNextQuestionWhenMissing(t *testing.T) 
 	lead := &domain.Lead{}
 
 	reply := ensureResponseAdvancesFlow(
-		"Con mucho gusto. Los precios base son Alma de Japon desde $5,703 USD, Japon Pop desde $6,478 USD y El Camino del Shogun desde $5,938 USD",
+		"Con mucho gusto. Los precios base son Alma de Japon desde $5,703 USD, Japon Pop desde $6,478 USD y Ruta del Shogun desde $5,938 USD",
 		bot,
 		lead,
 		&domain.Conversation{},
@@ -225,7 +225,7 @@ func TestEnsureResponseAdvancesFlowKeepsQuestionWithoutAppendingFollowUp(t *test
 	lead := &domain.Lead{
 		Name: "Ismael Contreras",
 	}
-	original := "Con gusto, Ismael Contreras. Nuestros itinerarios principales son Alma de Japon, Japon Pop y El Camino del Shogun. ¿Hay alguno que llame más su atención para conocerlo a detalle?"
+	original := "Con gusto, Ismael Contreras. Nuestros itinerarios principales son Alma de Japon, Japon Pop y Ruta del Shogun. ¿Hay alguno que llame más su atención para conocerlo a detalle?"
 
 	reply := ensureResponseAdvancesFlow(original, bot, lead, &domain.Conversation{}, "Que itinerarios tienen?")
 	if reply != original {
@@ -496,7 +496,7 @@ func TestGenerateResponseUsesLLMForItineraryCatalogQuestions(t *testing.T) {
 	llm := &fakeLLMClient{
 		enabled: true,
 		response: LLMResponse{
-			Text:   "Con gusto, Ismael Contreras. Nuestros itinerarios principales son Alma de Japon, Japon Pop y El Camino del Shogun.",
+			Text:   "Con gusto, Ismael Contreras. Nuestros itinerarios principales son Alma de Japon, Japon Pop y Ruta del Shogun.",
 			Source: "llm",
 		},
 	}
@@ -508,7 +508,7 @@ func TestGenerateResponseUsesLLMForItineraryCatalogQuestions(t *testing.T) {
 		Itineraries: []domain.Itinerary{
 			{Name: "Alma de Japon", Duration: "14 dias", Price: "Desde $5,703 USD base doble"},
 			{Name: "Japon Pop", Duration: "14 dias", Price: "Desde $6,478 USD base doble"},
-			{Name: "El Camino del Shogun", Duration: "15 dias", Price: "Desde $5,938 USD base doble"},
+			{Name: "Ruta del Shogun", Duration: "15 dias", Price: "Desde $5,938 USD base doble"},
 		},
 	}
 	lead := &domain.Lead{Name: "Ismael Contreras"}
@@ -835,7 +835,7 @@ func TestNextCaptureQuestionPrefersNameForJapan(t *testing.T) {
 	bot := domain.BotKnowledge{
 		QualificationQuestions: []string{
 			"Me comparte su nombre para seguir ayudandole con la propuesta?",
-			"Que tipo de experiencia le interesa mas: Alma de Japon, Japon Pop, El Camino del Shogun o una extension como Hokkaido?",
+			"Que tipo de experiencia le interesa mas: Alma de Japon, Japon Pop, Ruta del Shogun o una extension como Hokkaido?",
 		},
 	}
 

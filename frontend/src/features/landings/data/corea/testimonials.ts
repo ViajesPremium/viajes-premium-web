@@ -38,10 +38,10 @@ export const KOREA_TESTIMONIALS: LandingTestimonials = {
       location: "Monterrey",
       avatar: "/media/landings/corea/testimonials/daniel-y-veronica.avif",
     },
-        {
+    {
       id: 5,
       quote:
-        "La gastronomía, la cultura y la atención recibida hicieron que este viaje fuera mucho más especial de lo que imaginábamos",
+        "La gastronomía, la cultura y la atención recibida hicieron que este viaje fuera mucho más especial de lo que imaginábamos.",
       name: "Maité Herrera",
       location: "Ciudad de México",
       avatar: "/media/landings/corea/testimonials/maite-herrera.avif",

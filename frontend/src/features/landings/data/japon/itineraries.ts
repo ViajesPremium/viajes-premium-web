@@ -19,7 +19,8 @@ export const JAPAN_ITINERARIES: LandingItineraries = {
         "Ideal para parejas, familias, lunas de miel y viajeros que buscan desconexión profunda.",
       image: "/media/landings/japon/itineraries/alma-de-japon.webp",
       price: "Desde $5,703 USD base doble",
-      pdfHref: "/media/landings/japon/pdfs/Alma-De-Japón-Itinerario-Japón-PREMIUM.pdf",
+      pdfHref:
+        "/media/landings/japon/pdfs/Alma-De-Japón-Itinerario-Japón-PREMIUM.pdf",
       pdfFileName: "alma-de-japón-japón-premium.pdf",
     },
     {
@@ -32,21 +33,23 @@ export const JAPAN_ITINERARIES: LandingItineraries = {
         "Ideal para familias, amigos, parejas jóvenes y fans del anime, manga y tecnología.",
       image: "/media/landings/japon/itineraries/japon-pop.webp",
       price: "Desde $6,478 USD base doble",
-      pdfHref: "/media/landings/japon/pdfs/Japón-Pop-Itinerario-Japón-PREMIUM.pdf",
+      pdfHref:
+        "/media/landings/japon/pdfs/Japón-Pop-Itinerario-Japón-PREMIUM.pdf",
       pdfFileName: "japón-pop-japón-premium.pdf",
     },
     {
       id: 3,
       day: "15 DÍAS · SAMURÁIS · GEISHAS · SUMO · ALPES JAPONESES",
-      title: "El Camino del Shogun",
+      title: "Ruta del Shogun",
       description:
         "Alpes Japoneses, templos zen, ryokans y santuarios para descubrir un Japón menos transitado.",
       ideal:
         "Ideal para viajeros con mirada cultural y quienes prefieren el Japón que pocos conocen.",
       image: "/media/landings/japon/itineraries/camino-del-shogun.webp",
       price: "Desde $5,938 USD base doble",
-      pdfHref: "/media/landings/japon/pdfs/El-Camino-Del-Shogun-Itinerario-Japón-PREMIUM.pdf",
-      pdfFileName: "el-camino-del-shogun-japón-premium.pdf",
+      pdfHref:
+        "/media/landings/japon/pdfs/Ruta-Del-Shogun-Itinerario-Japón-PREMIUM.pdf",
+      pdfFileName: "ruta-del-shogun-japón-premium.pdf",
     },
   ],
 };

@@ -1,7 +1,7 @@
 import type { LandingHero } from "./../types";
 
 export const JAPAN_PREMIUM_HERO: LandingHero = {
-    seoHeading: "Japon Premium",
+    seoHeading: "Japón Premium",
     title: {
         wordOne: "Viaja a",
         wordTwo: "Japón",
@@ -9,7 +9,7 @@ export const JAPAN_PREMIUM_HERO: LandingHero = {
         wordFour: "México",
     },
     description:
-        "Eleva tu vida conociendo Japón con profundidad y acompañamiento desde el primer contacto hasta su regreso. Atención en español, planeación personalizada y soporte de inicio a fin.",
+        "Eleva tu vida conociendo Japón con profundidad y acompañamiento desde el primer contacto hasta tu regreso. Atención en español, planeación personalizada y soporte de inicio a fin.",
     ctaPrimary: {
         label: "Solicita tu cotización",
         target: "#second-form",
@@ -17,8 +17,8 @@ export const JAPAN_PREMIUM_HERO: LandingHero = {
     heroOverlay: {
         baseImage: "/media/landings/japon/hero/geisha.avif",
         overlayImage: "/media/landings/japon/hero/samurai.avif",
-        baseAlt: "Composición principal de Japon Premium",
-        overlayAlt: "Capa visual de Japon Premium",
+        baseAlt: "Composición principal de Japón Premium",
+        overlayAlt: "Capa visual de Japón Premium",
         showCircle: true,
     },
 };

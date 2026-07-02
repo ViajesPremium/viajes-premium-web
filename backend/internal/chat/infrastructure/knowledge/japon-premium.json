@@ -24,7 +24,7 @@
       "price": "Desde $6,478 USD base doble"
     },
     {
-      "name": "El Camino del Shogun",
+      "name": "Ruta del Shogun",
       "duration": "15 dias",
       "summary": "Una ruta auténtica por el Japón más cultural y menos transitado, incluyendo Alpes Japoneses, templos zen y santuarios.",
       "ideal_for": "Viajeros con interés cultural profundo y gusto por experiencias más auténticas.",
@@ -52,12 +52,12 @@
   ],
   "qualification_questions": [
     "¿Me comparte su nombre para seguir ayudándole con la propuesta?",
-    "¿Qué tipo de experiencia le interesa más: Alma de Japón, Japón Pop, El Camino del Shogun o una extensión como Hokkaido?",
+    "¿Qué tipo de experiencia le interesa más: Alma de Japón, Japón Pop, Ruta del Shogun o una extensión como Hokkaido?",
     "¿Qué fecha aproximada tiene en mente para su viaje a Japón?",
     "¿Me deja su correo y teléfono para que un asesor le comparta opciones?"
   ],
   "closing_prompts": [
-    "Si lo desea, puedo ayudarle a elegir el itinerario ideal entre Alma de Japón, Japón Pop y El Camino del Shogun.",
+    "Si lo desea, puedo ayudarle a elegir el itinerario ideal entre Alma de Japón, Japón Pop y Ruta del Shogun.",
     "Con gusto le preparo un siguiente paso con un asesor especializado."
   ],
   "handoff": {

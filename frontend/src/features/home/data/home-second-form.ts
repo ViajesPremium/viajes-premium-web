@@ -11,8 +11,8 @@ const HOME_SECOND_FORM_EXPERIENCES = [
     value: "japon-pop",
   },
   {
-    label: "El Camino del Shogun — Auténtico y cultural",
-    value: "camino-del-shogun",
+    label: "Ruta del Shogun — Auténtico y cultural",
+    value: "ruta-del-shogun",
   },
   { label: "Otro", value: "otro" },
 ] as const;
@@ -21,8 +21,7 @@ export const HOME_SECOND_FORM: LandingFormSection = {
   srHeading: "Formulario de contacto Japón Premium",
   eyebrow: "",
   title: "Cotiza tu viaje ahora",
-  description:
-    "Cuéntanos tu idea de viaje y encontraremos el itinerario ideal",
+  description: "Cuéntanos tu idea de viaje y encontraremos el itinerario ideal",
   backgroundImage: "/media/shared/home/form/formulario.avif",
   mobileImage: {
     src: "/media/shared/home/form/form-sola.webp",

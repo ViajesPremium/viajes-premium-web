@@ -39,7 +39,7 @@ export const JAPAN_PREMIUM_METADATA: LandingMetadata = {
 
 export const japonPremium: LandingTheme = {
   slug: "japon-premium",
-  label: "Japon Premium",
+  label: "Japón Premium",
   metadata: JAPAN_PREMIUM_METADATA,
   palette: {
     primary: "#db2f21",

@@ -3,43 +3,43 @@
   "brand_name": "Corea Premium",
   "display_name": "Corea PREMIUM®",
   "description": "Viajes premium a Corea del Sur con rutas culturales, tecnologia, gastronomia y acompanamiento en espanol.",
-  "master_prompt": "Eres el asistente maestro de Corea Premium. Responde con tono formal, elegante, preciso y comercial. Habla de Corea como una experiencia de alto valor que mezcla tradicion, tecnologia y gastronomia. Usa solo la informacion del conocimiento. Si el usuario pide opciones, presenta los itinerarios con claridad. Si muestra interes, captura nombre, correo y telefono de forma natural y prepara el handoff. No improvises datos.",
+  "master_prompt": "Eres el asistente maestro de Corea Premium. Responde con tono formal, elegante, preciso y comercial. Habla de Corea como una experiencia de alto valor que mezcla tradicion, tecnologia y gastronomia. Usa solo la informacion del conocimiento. Si el usuario pide opciones, presenta los itinerarios con claridad y menciona los precios publicados cuando aplique. Si muestra interes, captura nombre, correo y telefono de forma natural y prepara el handoff. No improvises datos.",
   "tone": "Formal, elegante, orientado a claridad y conversion.",
   "overview": "Corea Premium diseña experiencias curadas entre Seul, Busan y Gyeongju, con acompañamiento y un enfoque premium.",
   "itineraries": [
     {
       "name": "Tesoros de Corea",
       "duration": "8 dias",
-      "summary": "Una introduccion ideal a Corea del Sur entre ciudades vibrantes, historia milenaria y experiencias representativas.",
-      "ideal_for": "Quienes desean descubrir Corea por primera vez en una experiencia equilibrada.",
+      "summary": "Una introduccion ideal a Corea del Sur entre ciudades vibrantes, historia milenaria y experiencias que revelan la esencia del pais.",
+      "ideal_for": "Quienes desean descubrir Corea por primera vez en una experiencia equilibrada y cuidadosamente disenada.",
       "highlights": ["Seul", "Busan", "Gyeongju", "cultura coreana"],
-      "price": "Precio bajo solicitud"
+      "price": "Desde $5,705 USD base doble"
     },
     {
       "name": "Rutas Imperiales",
       "duration": "12 dias",
-      "summary": "Un recorrido por dos civilizaciones influyentes de Asia entre ciudades historicas, cultura y tradicion.",
-      "ideal_for": "Viajeros que buscan una vision amplia y cultural de Asia.",
+      "summary": "Un recorrido por dos de las civilizaciones mas influyentes de Asia entre ciudades historicas, cultura y tradicion.",
+      "ideal_for": "Viajeros que buscan comprender la riqueza cultural de Asia en una experiencia amplia y enriquecedora.",
       "highlights": ["historia", "patrimonio", "cultura", "tradicion"],
-      "price": "Precio bajo solicitud"
+      "price": "Desde $5,564 USD base doble"
     },
     {
-      "name": "Imperios del Pacifico",
-      "duration": "13 dias",
+      "name": "Joyas de Asia",
+      "duration": "12 dias",
       "summary": "Una experiencia que combina Corea y Japon entre cultura, innovacion y paisajes inolvidables.",
-      "ideal_for": "Viajeros que desean unir dos destinos asiaticos en un solo recorrido.",
-      "highlights": ["Corea", "Japon", "modernidad", "tradicion", "Pacifico"],
-      "price": "Precio bajo solicitud"
+      "ideal_for": "Viajeros que desean descubrir Corea y Japon en un mismo recorrido cuidadosamente disenado.",
+      "highlights": ["Corea", "Japon", "modernidad", "tradicion", "Asia"],
+      "price": "Desde $12,848 USD base doble"
     }
   ],
   "faqs": [
     {
       "question": "¿Cuanto dura un viaje a Corea?",
-      "answer": "Corea Premium ofrece recorridos de 8, 12 y 13 dias, segun el tipo de experiencia que busque."
+      "answer": "Corea Premium ofrece una ruta de 8 dias y dos opciones de 12 dias, segun el tipo de experiencia que busque."
     },
     {
       "question": "¿Es facil viajar a Corea sin hablar coreano?",
-      "answer": "Si. Corea cuenta con buena infraestructura turistica y el acompañamiento ayuda a viajar con mas claridad."
+      "answer": "Si. Corea cuenta con buena infraestructura turistica y el acompanamiento ayuda a viajar con mas claridad."
     },
     {
       "question": "¿Que hace especial a Corea?",
@@ -59,7 +59,7 @@
   "handoff": {
     "threshold_score": 70,
     "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
-    "reason": "El visitante mostró interes concreto en avanzar con Corea Premium.",
+    "reason": "El visitante mostro interes concreto en avanzar con Corea Premium.",
     "closing_message": "Con gusto continuamos con su cotizacion de Corea Premium. Un asesor especializado le dara seguimiento en breve."
   },
   "lead_capture": ["name", "phone", "email", "travel_date", "interest"],

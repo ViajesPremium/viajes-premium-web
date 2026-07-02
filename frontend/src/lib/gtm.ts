@@ -4,7 +4,7 @@ export type GTMGenerateLeadEvent = {
   landing_slug: string;
   page_path: string;
   form_id: string;
-  method: "web-form";
+  method: "web-form" | "chatbot";
 };
 
 export type GTMLeadStartedEvent = {
@@ -31,6 +31,7 @@ function resolveDestinationFromPath(pathname: string): string {
 export function pushGenerateLeadEvent(params: {
   pathname: string;
   formId: string;
+  method?: "web-form" | "chatbot";
 }) {
   if (typeof window === "undefined") return;
 
@@ -42,7 +43,7 @@ export function pushGenerateLeadEvent(params: {
     landing_slug: resolveLandingSlugFromPath(params.pathname),
     page_path: params.pathname,
     form_id: params.formId,
-    method: "web-form",
+    method: params.method ?? "web-form",
   };
 
   window.dataLayer.push(payload);

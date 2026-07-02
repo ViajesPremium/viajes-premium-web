@@ -14,7 +14,7 @@ import { useAnimationsEnabled } from "@/lib/animation-budget";
 import { getLeadAttribution } from "@/lib/lead-attribution";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
-import { pushLeadStartedEvent } from "@/lib/gtm";
+import { pushGenerateLeadEvent, pushLeadStartedEvent } from "@/lib/gtm";
 import styles from "./ChatAssistant.module.css";
 
 type ChatAssistantDockProps = {
@@ -497,6 +497,11 @@ export default function ChatAssistantDock({
         leadPhone &&
         window.localStorage.getItem(trackingKey) !== "1"
       ) {
+        pushGenerateLeadEvent({
+          pathname: window.location.pathname,
+          formId: `chatbot-${botSlug}`,
+          method: "chatbot",
+        });
         pushLeadStartedEvent({
           pathname: window.location.pathname,
           botSlug,

@@ -3,33 +3,33 @@
   "brand_name": "Barrancas Premium",
   "display_name": "Barrancas PREMIUM®",
   "description": "Viajes premium a Barrancas del Cobre con Chepe Express, miradores, gastronomia y experiencias escenicas.",
-  "master_prompt": "Eres el asistente maestro de Barrancas Premium. Responde en espanol con tono formal, elegante y comercial. Habla de Barrancas del Cobre como una experiencia de naturaleza, cultura del norte y Chepe Express con una curaduría premium. Usa solo la informacion del conocimiento. Si el visitante pide opciones, presenta las rutas con claridad. Si hay interes real, captura datos y orienta al handoff. No inventes informacion.",
+  "master_prompt": "Eres el asistente maestro de Barrancas Premium. Responde en espanol con tono formal, elegante y comercial. Habla de Barrancas del Cobre como una experiencia de naturaleza, cultura del norte y Chepe Express con una curaduria premium. Usa solo la informacion del conocimiento. Si el visitante pide opciones, presenta las rutas con claridad y menciona los precios publicados cuando aplique. Si hay interes real, captura datos y orienta al handoff. No inventes informacion.",
   "tone": "Formal, elegante, cercano y lleno de claridad.",
-  "overview": "Barrancas Premium vive la Sierra Tarahumara y el Chepe Express con una propuesta orientada a confort y paisaje.",
+  "overview": "Barrancas Premium vive la Sierra Tarahumara y el Chepe Express con una propuesta orientada a confort, paisaje y cocina regional.",
   "itineraries": [
     {
       "name": "El de Mayor Ranking",
       "duration": "5 dias",
-      "summary": "Una ruta ideal para vivir Barrancas del Cobre por primera vez con miradores, naturaleza imponente y el Chepe Express en Clase PREMIUM.",
+      "summary": "Una ruta ideal para vivir Barrancas del Cobre por primera vez con paisajes imponentes, miradores inolvidables y el Chepe Express en Clase PREMIUM.",
       "ideal_for": "Viajeros que buscan una primera experiencia clasica y bien resuelta.",
       "highlights": ["Chepe Express", "miradores", "naturaleza", "Sierra Tarahumara"],
-      "price": "Precio bajo solicitud"
+      "price": "Desde $37,259 MXN base doble"
     },
     {
-      "name": "Leyendas del Fuerte",
-      "duration": "6 dias",
-      "summary": "Un recorrido por el norte de Mexico entre Barrancas del Cobre, El Fuerte e historia regional.",
-      "ideal_for": "Viajeros que buscan cultura, historia y paisajes.",
-      "highlights": ["El Fuerte", "historia", "norte de Mexico", "Sierra"],
-      "price": "Precio bajo solicitud"
+      "name": "Las Leyendas del Fuerte",
+      "duration": "7 dias",
+      "summary": "Un recorrido por el norte de Mexico entre Barrancas del Cobre, El Fuerte, paisajes escenicos y experiencias culturales en la Sierra Tarahumara.",
+      "ideal_for": "Viajeros que buscan una experiencia con mas historia, identidad cultural y escenarios memorables, sin renunciar a la comodidad de una ruta en Clase PREMIUM.",
+      "highlights": ["El Fuerte", "historia", "norte de Mexico", "Sierra Tarahumara"],
+      "price": "Desde $46,115 MXN base doble"
     },
     {
       "name": "Sabores del Norte",
-      "duration": "7 dias",
-      "summary": "Una experiencia mas profunda donde el paisaje se vive tambien a traves de la cocina regional y los sabores del norte.",
-      "ideal_for": "Viajeros que valoran gastronomia y una inmersion mas larga.",
+      "duration": "8 dias",
+      "summary": "Descubre Barrancas del Cobre en una experiencia que une paisajes imponentes, cocina regional, cultura menonita y el Chepe Express.",
+      "ideal_for": "Viajeros que disfrutan comer bien, conocer tradiciones locales y vivir un destino desde sus paisajes, su cultura y sus sabores mas autenticos.",
       "highlights": ["gastronomia", "sabores del norte", "cocina regional", "paisajes"],
-      "price": "Precio bajo solicitud"
+      "price": "Desde $48,710 MXN base doble"
     }
   ],
   "faqs": [
@@ -39,7 +39,7 @@
     },
     {
       "question": "¿Cuantos dias se recomiendan para Barrancas?",
-      "answer": "Barrancas Premium trabaja con rutas de 5, 6 y 7 dias segun la experiencia que busque."
+      "answer": "Barrancas Premium trabaja con rutas de 5, 7 y 8 dias segun la experiencia que busque."
     },
     {
       "question": "¿Es necesario reservar con anticipacion?",
@@ -59,7 +59,7 @@
   "handoff": {
     "threshold_score": 70,
     "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
-    "reason": "El visitante mostró interes concreto en avanzar con Barrancas Premium.",
+    "reason": "El visitante mostro interes concreto en avanzar con Barrancas Premium.",
     "closing_message": "Con gusto continuamos con su cotizacion de Barrancas Premium. Un asesor especializado le dara seguimiento en breve."
   },
   "lead_capture": ["name", "phone", "email", "travel_date", "interest"],

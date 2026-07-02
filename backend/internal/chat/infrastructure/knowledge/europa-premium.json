@@ -2,31 +2,31 @@
   "slug": "europa-premium",
   "brand_name": "Europa Premium",
   "display_name": "Europa PREMIUM®",
-  "description": "Viajes premium a Europa con rutas clasicas y cosmopolitas, acompañamiento y curaduría.",
-  "master_prompt": "Eres el asistente maestro de Europa Premium. Debes hablar con tono formal, elegante, cálido y comercial. Explica Europa como una experiencia curada entre ciudades iconicas, gastronomia, historia y ritmo premium. Usa solo la informacion del conocimiento. Si el usuario pide recomendaciones, compara las tres rutas con claridad. Si detectas interes de compra, captura datos faltantes y orienta al handoff. No inventes informacion.",
+  "description": "Viajes premium a Europa con rutas clasicas y cosmopolitas, acompanamiento y curaduria.",
+  "master_prompt": "Eres el asistente maestro de Europa Premium. Debes hablar con tono formal, elegante, calido y comercial. Explica Europa como una experiencia curada entre ciudades iconicas, gastronomia, historia y ritmo premium. Usa solo la informacion del conocimiento. Si el usuario pide recomendaciones, compara las tres rutas con claridad y menciona los precios publicados cuando aplique. Si detectas interes de compra, captura datos faltantes y orienta al handoff. No inventes informacion.",
   "tone": "Formal, elegante, inspirador y comercial.",
   "overview": "Europa Premium diseña experiencias entre Paris, Roma, Londres, Amsterdam y otras ciudades emblematicas con una narrativa de viaje premium.",
   "itineraries": [
     {
-      "name": "De Paris a Roma",
+      "name": "De París a Roma",
       "duration": "12 dias",
       "summary": "Un recorrido por la Europa mas iconica entre ciudades historicas, paisajes escenicos y experiencias representativas.",
-      "ideal_for": "Quienes buscan una primera experiencia clasica y cuidadosamente diseñada.",
+      "ideal_for": "Quienes buscan una primera experiencia clasica y cuidadosamente disenada.",
       "highlights": ["Paris", "Venecia", "Florencia", "Roma"],
       "price": "Desde $5,286 USD base doble"
     },
     {
       "name": "Europa Cosmopolita",
       "duration": "14 dias",
-      "summary": "Un recorrido por España, Francia, Belgica y Paises Bajos entre historia, arquitectura y ciudades con identidad propia.",
+      "summary": "Un recorrido por Espana, Francia, Belgica y Paises Bajos entre historia, arquitectura y ciudades con identidad propia.",
       "ideal_for": "Viajeros que buscan cultura, diversidad y ritmo urbano.",
-      "highlights": ["España", "Francia", "Belgica", "Paises Bajos"],
+      "highlights": ["Espana", "Francia", "Belgica", "Paises Bajos"],
       "price": "Desde $5,094 USD base doble"
     },
     {
-      "name": "Iconos de Europa",
+      "name": "Íconos de Europa",
       "duration": "16 dias",
-      "summary": "Un recorrido por la Europa mas emblemática entre capitales historicas, pueblos escenicos y experiencias de gran valor.",
+      "summary": "Un recorrido por la Europa mas emblematica entre capitales historicas, pueblos escenicos y experiencias de gran valor.",
       "ideal_for": "Viajeros que desean conocer los iconos mas fuertes del continente.",
       "highlights": ["Francia", "Inglaterra", "Paises Bajos", "Italia"],
       "price": "Desde $6,319 USD base doble"
@@ -59,7 +59,7 @@
   "handoff": {
     "threshold_score": 70,
     "triggers": ["cotizacion", "precio", "asesor", "reservar", "fechas", "disponibilidad"],
-    "reason": "El visitante mostró interes concreto en avanzar con Europa Premium.",
+    "reason": "El visitante mostro interes concreto en avanzar con Europa Premium.",
     "closing_message": "Con gusto continuamos con su cotizacion de Europa Premium. Un asesor especializado le dara seguimiento en breve."
   },
   "lead_capture": ["name", "phone", "email", "travel_date", "interest"],

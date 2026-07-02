@@ -1,7 +1,7 @@
 import type { LandingPremiumExperiences } from "./../types";
 
 export const CANADA_PREMIUM_EXPERIENCES: LandingPremiumExperiences = {
-  srHeading: "Nosotros Canad? Premium",
+  srHeading: "Nosotros Canadá Premium",
   badgeText: "Nosotros",
   titleText: "Más de 21 años diseñando experiencias PREMIUM.",
   titleHighlightWords: ["21", "PREMIUM", "años"],

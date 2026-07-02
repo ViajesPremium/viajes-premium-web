@@ -31,7 +31,7 @@ export const CANADA_FOOTER = footer(
         { label: "Contacto", href: "#second-form" },
     ],
     {
-        mapEmbedTitle: "Ubicación Canad? Premium",
+        mapEmbedTitle: "Ubicación Canadá Premium",
         contactPhoneDisplay: "+52 55 4161 9427",
         contactPhoneLink: "+525541619427",
         legalLinks: [

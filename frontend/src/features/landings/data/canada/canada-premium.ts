@@ -15,23 +15,23 @@ const CANADA_MENU_ITEMS = [
   { label: "Inicio", ariaLabel: "Ir al inicio", link: "#inicio" },
   { label: "Nosotros", ariaLabel: "Ir a nosotros", link: "#nosotros" },
   { label: "Itinerarios", ariaLabel: "Ir a itinerarios", link: "#itinerarios" },
-  { label: "Qu? Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
+  { label: "Qué Incluye", ariaLabel: "Ir a lo que incluye", link: "#includes" },
   {
     label: "Testimonios",
     ariaLabel: "Ir a testimonios",
     link: "#testimonials",
   },
-  { label: "Sobre Canad?", ariaLabel: "Ir a sobre Canad?", link: "#faqs" },
+  { label: "Sobre Canadá", ariaLabel: "Ir a sobre Canadá", link: "#faqs" },
   { label: "Contacto", ariaLabel: "Ir al formulario", link: "#second-form" },
 ];
 
 export const CANADA_PREMIUM_METADATA: LandingMetadata = {
   title: "Viajes a Canadá | Clase PREMIUM",
   description:
-    "Descubre Canadá entre naturaleza, ciudades ic?nicas, paisajes espectaculares y experiencias dise?adas en Clase PREMIUM.",
+    "Descubre Canadá entre naturaleza, ciudades icónicas, paisajes espectaculares y experiencias diseñadas en Clase PREMIUM.",
   keywords: [
     "Tour por Canadá",
-    "Viaje a Canadá desde M?xico",
+    "Viaje a Canadá desde México",
     "Viajar a Canadá",
     "Canadá Premium",
     "Viajes a Canadá",
@@ -70,7 +70,7 @@ export const canadaPremium: LandingTheme = {
     srHeading: "Video Canadá Premium",
     desktop: {
       webm: "/media/landings/canada/videos/canada-web-horizontal.mp4",
-      mp4: "/media/landings/canada/videos/corea-web-horizontal.mp4",
+      mp4: "/media/landings/canada/videos/canada-web-horizontal.mp4",
     },
     mobile: {
       webm: "/media/landings/canada/videos/canada-web-vertical.webm",

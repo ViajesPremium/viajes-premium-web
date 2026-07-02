@@ -1,9 +1,9 @@
 import type { LandingTestimonials } from "./../types";
 
 export const CANADA_TESTIMONIALS: LandingTestimonials = {
-  srHeading: "Testimonios Canad? Premium",
+  srHeading: "Testimonios Canadá Premium",
   badgeText: "La voz del viajero premium",
-  title: "Canad? contada por quienes ya la vivieron.",
+  title: "Canadá contada por quienes ya la vivieron.",
   cta: { label: "Solicita tu cotización", target: "#second-form" },
   items: [
     {
@@ -33,7 +33,7 @@ export const CANADA_TESTIMONIALS: LandingTestimonials = {
     {
       id: 4,
       quote:
-        "No cabe en mi corazón tanta felicidad. Buen servicio Canada Premium.",
+        "No cabe en mi corazón tanta felicidad. Buen servicio Canadá Premium.",
       name: "Ana Gladys",
       location: "Monterrey",
       avatar: "/media/landings/canada/testimonials/valeria-robles.webp",

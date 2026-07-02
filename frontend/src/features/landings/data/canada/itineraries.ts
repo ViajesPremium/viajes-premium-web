@@ -11,7 +11,7 @@ export const CANADA_ITINERARIES: LandingItineraries = {
   items: [
     {
       id: 1,
-      day: "8 DÍAS · TORONTO · NIGARA · QUEBEC · MONTREAL",
+      day: "8 DÍAS · TORONTO · NIAGARA · QUEBEC · MONTREAL",
       title: "Canadá Original",
       description:
         "Un recorrido por el este de Canadá entre ciudades históricas, paisajes icónicos y algunas de las experiencias más representativas del país.",
@@ -26,7 +26,7 @@ export const CANADA_ITINERARIES: LandingItineraries = {
       day: "8 DÍAS · CALGARY · BANFF · LAKE · LOUISE · VANCOUVER",
       title: "Rocosas y Vancouver",
       description:
-        "Un recorrido por el oeste de Canada, visitando  las Rocosas Canadienses entre lagos turquesa, montañas imponentes y lo más impresionante de Canadá.",
+        "Un recorrido por el oeste de Canadá, visitando las Rocosas Canadienses entre lagos turquesa, montañas imponentes y lo más impresionante de Canadá.",
       ideal: "Viajeros que buscan paisajes naturales, rutas panorámicas y experiencias profundamente conectadas con la naturaleza canadiense.",
       image: "/media/landings/canada/itineraries/izquierda/scroll-rocosas-izquierda.webp",
       price: "Precio bajo solicitud",
@@ -34,7 +34,7 @@ export const CANADA_ITINERARIES: LandingItineraries = {
     },
     {
       id: 3,
-      day: "7 DÍAS · NORTE DE CANDÁ · PAISAJES NEVADOS · AURORAS BOREALES",
+      day: "7 DÍAS · NORTE DE CANADÁ · PAISAJES NEVADOS · AURORAS BOREALES",
       title: "Sueños de invierno",
       description:
         "Una experiencia diseñada para descubrir el invierno canadiense entre paisajes nevados y la posibilidad de observar auroras boreales en el norte de Canadá.",

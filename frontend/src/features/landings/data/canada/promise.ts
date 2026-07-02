@@ -4,7 +4,7 @@ export const CANADA_PROMISE: LandingPromise = {
     badgeText: "Qué incluye",
     title: "Todo lo importante, resuelto con criterio.",
     cta: { label: "Solicita tu cotización", target: "#second-form" },
-    srHeading: "Lo esencial de Canad? Premium",
+    srHeading: "Lo esencial de Canadá Premium",
     items: [
         {
             id: "stays",

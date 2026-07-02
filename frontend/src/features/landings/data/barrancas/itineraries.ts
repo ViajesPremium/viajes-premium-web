@@ -22,7 +22,7 @@ export const BARRANCAS_ITINERARIES: LandingItineraries = {
       price: "Desde $37,259 MXN base doble",
       pdfHref:
         "/media/landings/barrancas/pdfs/mayor-ranking-barrancas-premium.pdf",
-      pdfFileName: "el-de-mayor-ranking-barrancas-premium.pdff",
+      pdfFileName: "el-de-mayor-ranking-barrancas-premium.pdf",
     },
     {
       id: 2,
@@ -41,7 +41,7 @@ export const BARRANCAS_ITINERARIES: LandingItineraries = {
     },
     {
       id: 3,
-      day: "8 DÍAS · GASTRONOM?A · CULTURA MENONITA · CHEPE EXPRESS · BARRANCAS",
+      day: "8 DÍAS · GASTRONOMÍA · CULTURA MENONITA · CHEPE EXPRESS · BARRANCAS",
       title: "Sabores del Norte",
       description:
         "Descubre Barrancas del Cobre en una experiencia que une paisajes imponentes, cocina regional, cultura menonita y el Chepe Express.",

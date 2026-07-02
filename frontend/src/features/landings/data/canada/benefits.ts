@@ -1,14 +1,14 @@
 import type { LandingBenefits } from "./../types";
 
 export const CANADA_BENEFITS: LandingBenefits = {
-  srHeading: "Highlights de Canad? Premium",
-  badgeText: "¿Por qué Canad? PREMIUM?",
+  srHeading: "Highlights de Canadá Premium",
+  badgeText: "¿Por qué Canadá PREMIUM?",
   kickerTop: "Trabajamos con marcas",
   kickerBottom: "Cuidadosamente seleccionadas.",
   line1: {
     lead: "Viaja por",
     bracket: {
-      label: "Quebéc",
+      label: "Québec",
       imageSrc: "/media/landings/canada/benefits/hover/quebec.webp",
       imageAlt: "Vista de Seúl con luces y arquitectura urbana",
       textTone: "ot",
@@ -61,7 +61,7 @@ export const CANADA_BENEFITS: LandingBenefits = {
     },
     {
       id: "tranquilidad",
-      title: "Quebec",
+      title: "Québec",
       imageSrc: "/media/landings/canada/benefits/cards/quebec.avif",
       href: "#second-form",
     },

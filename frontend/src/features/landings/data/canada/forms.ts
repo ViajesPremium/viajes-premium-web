@@ -44,8 +44,8 @@ const formSection = ({
 });
 
 export const CANADA_FIRST_FORM = formSection({
-  srHeading: "Cuéntanos cómo imaginas tu viaje a Canad?",
-  title: "Canad?, planeada con claridad desde el primer contacto.",
+  srHeading: "Cuéntanos cómo imaginas tu viaje a Canadá",
+  title: "Canadá, planeada con claridad desde el primer contacto.",
   backgroundImage: "/media/landings/canada/forms/first-form/mujer.avif",
   mobileImage: {
     src: "/media/landings/canada/forms/first-form/mujer-mobile.avif",
@@ -57,8 +57,8 @@ export const CANADA_FIRST_FORM = formSection({
 
 export const CANADA_SECOND_FORM = {
   ...CANADA_FIRST_FORM,
-  srHeading: "Formulario de contacto Canad? Premium",
-  title: "Hablemos de la Canad? que quieres vivir.",
+  srHeading: "Formulario de contacto Canadá Premium",
+  title: "Hablemos de la Canadá que quieres vivir.",
   backgroundImage: "/media/landings/canada/forms/second-form/mujer.avif",
   mobileImage: {
     src: "/media/landings/canada/forms/second-form/mujer-mobile.avif",

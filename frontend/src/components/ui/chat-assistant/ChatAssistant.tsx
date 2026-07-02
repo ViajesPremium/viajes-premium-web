@@ -158,6 +158,41 @@ function useMobilePageScrollLock(isLocked: boolean) {
 
     const mobileQuery = window.matchMedia("(max-width: 768px)");
     let unlockScroll: (() => void) | null = null;
+    let lastTouchY = 0;
+
+    const getAllowedScroller = (target: EventTarget | null) => {
+      if (!(target instanceof Element)) return null;
+
+      return target.closest<HTMLElement>("[data-chat-scroll-lock-allow]");
+    };
+
+    const handleTouchStart = (event: TouchEvent) => {
+      lastTouchY = event.touches[0]?.clientY ?? 0;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      if (!mobileQuery.matches || !event.cancelable) return;
+
+      const scroller = getAllowedScroller(event.target);
+
+      if (!scroller) {
+        event.preventDefault();
+        return;
+      }
+
+      const currentTouchY = event.touches[0]?.clientY ?? lastTouchY;
+      const deltaY = currentTouchY - lastTouchY;
+      lastTouchY = currentTouchY;
+
+      const isAtTop = scroller.scrollTop <= 0;
+      const isAtBottom =
+        Math.ceil(scroller.scrollTop + scroller.clientHeight) >=
+        scroller.scrollHeight;
+
+      if ((isAtTop && deltaY > 0) || (isAtBottom && deltaY < 0)) {
+        event.preventDefault();
+      }
+    };
 
     const lockScroll = () => {
       unlockScroll?.();
@@ -166,15 +201,53 @@ function useMobilePageScrollLock(isLocked: boolean) {
       if (!mobileQuery.matches) return;
 
       const { documentElement } = document;
+      const { body } = document;
       const lenis = window.__lenis;
       const wasLenisStopped = lenis?.isStopped === true;
+      const scrollY = window.scrollY;
       const previousHtmlOverflow = documentElement.style.overflow;
+      const previousHtmlOverscrollBehavior =
+        documentElement.style.overscrollBehavior;
+      const previousBodyOverflow = body.style.overflow;
+      const previousBodyOverscrollBehavior = body.style.overscrollBehavior;
+      const previousBodyPosition = body.style.position;
+      const previousBodyTop = body.style.top;
+      const previousBodyLeft = body.style.left;
+      const previousBodyRight = body.style.right;
+      const previousBodyWidth = body.style.width;
 
       lenis?.stop();
       documentElement.style.overflow = "hidden";
+      documentElement.style.overscrollBehavior = "none";
+      body.style.overflow = "hidden";
+      body.style.overscrollBehavior = "none";
+      body.style.position = "fixed";
+      body.style.top = `-${scrollY}px`;
+      body.style.left = "0";
+      body.style.right = "0";
+      body.style.width = "100%";
+
+      document.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
+      document.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
 
       unlockScroll = () => {
+        document.removeEventListener("touchstart", handleTouchStart);
+        document.removeEventListener("touchmove", handleTouchMove);
         documentElement.style.overflow = previousHtmlOverflow;
+        documentElement.style.overscrollBehavior =
+          previousHtmlOverscrollBehavior;
+        body.style.overflow = previousBodyOverflow;
+        body.style.overscrollBehavior = previousBodyOverscrollBehavior;
+        body.style.position = previousBodyPosition;
+        body.style.top = previousBodyTop;
+        body.style.left = previousBodyLeft;
+        body.style.right = previousBodyRight;
+        body.style.width = previousBodyWidth;
+        window.scrollTo({ top: scrollY, behavior: "auto" });
 
         if (lenis && !wasLenisStopped) {
           lenis.start();
@@ -514,7 +587,12 @@ export default function ChatAssistantDock({
             {/* Body */}
             <div className={styles.body}>
               {/* Messages */}
-              <div ref={messageListRef} className={styles.messageList} data-lenis-prevent>
+              <div
+                ref={messageListRef}
+                className={styles.messageList}
+                data-chat-scroll-lock-allow
+                data-lenis-prevent
+              >
                 {messages.map((message) => {
                   const isUser = message.role === "user";
                   return (

@@ -136,8 +136,8 @@ export default function Destinations({
           useCssStickyPins
             ? `${styles.container} ${styles.containerMobileSticky}`
             : disableAnimationsForDevice
-            ? `${styles.container} ${styles.containerStatic}`
-            : styles.container
+              ? `${styles.container} ${styles.containerStatic}`
+              : styles.container
         }
         data-destination-pin="true"
         data-embedded={embedded ? "true" : "false"}

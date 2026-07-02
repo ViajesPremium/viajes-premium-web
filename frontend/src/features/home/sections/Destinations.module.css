@@ -355,8 +355,7 @@
   }
 
   .description {
-    margin-top: 1.6rem;
-    max-width: 26ch;
+    display: none;
   }
 
   .brandLogo {

@@ -137,7 +137,7 @@ jobs:
         run: |
           mkdir -p "$HOME/.ssh"
 
-          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -p ${VPS_PORT}"
+          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o TCPKeepAlive=yes -p ${VPS_PORT}"
 
           if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
             rsync_ssh="sshpass -e ssh ${ssh_opts}"
@@ -145,7 +145,24 @@ jobs:
             rsync_ssh="ssh ${ssh_opts}"
           fi
 
-          rsync -az --delete -e "${rsync_ssh}" \
+          sync_with_retry() {
+            local attempt=1
+            local max_attempts=4
+            local delay=10
+
+            until "$@"; do
+              if [ "$attempt" -ge "$max_attempts" ]; then
+                return 1
+              fi
+
+              echo "Frontend sync failed on attempt ${attempt}/${max_attempts}. Retrying in ${delay}s..."
+              sleep "$delay"
+              attempt=$((attempt + 1))
+              delay=$((delay * 2))
+            done
+          }
+
+          sync_with_retry rsync -az --delete-delay --partial --delay-updates -e "${rsync_ssh}" \
             --exclude '.next/' \
             --exclude 'node_modules/' \
             --exclude '.env' \
@@ -160,7 +177,7 @@ jobs:
         run: |
           mkdir -p "$HOME/.ssh"
 
-          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -p ${VPS_PORT}"
+          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o TCPKeepAlive=yes -p ${VPS_PORT}"
 
           if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
             rsync_ssh="sshpass -e ssh ${ssh_opts}"
@@ -168,7 +185,24 @@ jobs:
             rsync_ssh="ssh ${ssh_opts}"
           fi
 
-          rsync -az --delete -e "${rsync_ssh}" \
+          sync_with_retry() {
+            local attempt=1
+            local max_attempts=4
+            local delay=10
+
+            until "$@"; do
+              if [ "$attempt" -ge "$max_attempts" ]; then
+                return 1
+              fi
+
+              echo "Backend sync failed on attempt ${attempt}/${max_attempts}. Retrying in ${delay}s..."
+              sleep "$delay"
+              attempt=$((attempt + 1))
+              delay=$((delay * 2))
+            done
+          }
+
+          sync_with_retry rsync -az --delete-delay --partial --delay-updates -e "${rsync_ssh}" \
             --exclude '.env' \
             --exclude '.env.local' \
             --exclude 'bin/' \
@@ -183,7 +217,7 @@ jobs:
         run: |
           mkdir -p "$HOME/.ssh"
 
-          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -p ${VPS_PORT}"
+          ssh_opts="-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o TCPKeepAlive=yes -p ${VPS_PORT}"
 
           if [ "${DEPLOY_AUTH_METHOD}" = "password" ]; then
             ssh_cmd="sshpass -e ssh ${ssh_opts}"

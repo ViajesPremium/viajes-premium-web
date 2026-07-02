@@ -204,28 +204,35 @@ function useMobilePageScrollLock(isLocked: boolean) {
       const { body } = document;
       const lenis = window.__lenis;
       const wasLenisStopped = lenis?.isStopped === true;
-      const scrollY = window.scrollY;
+      const lockedScrollY = window.scrollY;
+      let isRestoringScroll = false;
       const previousHtmlOverflow = documentElement.style.overflow;
       const previousHtmlOverscrollBehavior =
         documentElement.style.overscrollBehavior;
       const previousBodyOverflow = body.style.overflow;
       const previousBodyOverscrollBehavior = body.style.overscrollBehavior;
-      const previousBodyPosition = body.style.position;
-      const previousBodyTop = body.style.top;
-      const previousBodyLeft = body.style.left;
-      const previousBodyRight = body.style.right;
-      const previousBodyWidth = body.style.width;
+
+      const keepScrollPosition = () => {
+        if (
+          !mobileQuery.matches ||
+          isRestoringScroll ||
+          Math.abs(window.scrollY - lockedScrollY) < 1
+        ) {
+          return;
+        }
+
+        isRestoringScroll = true;
+        window.requestAnimationFrame(() => {
+          window.scrollTo({ top: lockedScrollY, behavior: "auto" });
+          isRestoringScroll = false;
+        });
+      };
 
       lenis?.stop();
       documentElement.style.overflow = "hidden";
       documentElement.style.overscrollBehavior = "none";
       body.style.overflow = "hidden";
       body.style.overscrollBehavior = "none";
-      body.style.position = "fixed";
-      body.style.top = `-${scrollY}px`;
-      body.style.left = "0";
-      body.style.right = "0";
-      body.style.width = "100%";
 
       document.addEventListener("touchstart", handleTouchStart, {
         passive: true,
@@ -233,21 +240,17 @@ function useMobilePageScrollLock(isLocked: boolean) {
       document.addEventListener("touchmove", handleTouchMove, {
         passive: false,
       });
+      window.addEventListener("scroll", keepScrollPosition, { passive: true });
 
       unlockScroll = () => {
         document.removeEventListener("touchstart", handleTouchStart);
         document.removeEventListener("touchmove", handleTouchMove);
+        window.removeEventListener("scroll", keepScrollPosition);
         documentElement.style.overflow = previousHtmlOverflow;
         documentElement.style.overscrollBehavior =
           previousHtmlOverscrollBehavior;
         body.style.overflow = previousBodyOverflow;
         body.style.overscrollBehavior = previousBodyOverscrollBehavior;
-        body.style.position = previousBodyPosition;
-        body.style.top = previousBodyTop;
-        body.style.left = previousBodyLeft;
-        body.style.right = previousBodyRight;
-        body.style.width = previousBodyWidth;
-        window.scrollTo({ top: scrollY, behavior: "auto" });
 
         if (lenis && !wasLenisStopped) {
           lenis.start();

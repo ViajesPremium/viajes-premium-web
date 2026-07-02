@@ -354,10 +354,6 @@
     font-size: clamp(2rem, 11vw, 3.4rem);
   }
 
-  .description {
-    display: none;
-  }
-
   .brandLogo {
     display: block;
     position: absolute;

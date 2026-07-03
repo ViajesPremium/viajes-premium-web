@@ -23,6 +23,7 @@ const BRAND_PRIMARY_COLOR = "#002744";
 const LANDING_LOGOS: Record<string, string> = {
   "japon-premium": "/media/shared/logos/japon/japon-premium-blanco.svg",
   "corea-premium": "/media/shared/logos/corea/corea-premium-blanco.svg",
+  "canada-premium": "/media/shared/logos/canada/canada-premium-blanco.svg",
   "europa-premium": "/media/shared/logos/europa/europa-premium-blanco.svg",
   "barrancas-premium":
     "/media/shared/logos/barrancas/barrancas-premium-blanco.svg",
